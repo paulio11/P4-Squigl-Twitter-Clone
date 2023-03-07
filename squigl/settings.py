@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # My Variables
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+AUTH_USER_MODEL = 'accounts.CustomUser'

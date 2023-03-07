@@ -1,0 +1,2 @@
+Custom user model:
+https://learndjango.com/tutorials/django-custom-user-model
