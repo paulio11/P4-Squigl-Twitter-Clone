@@ -1,0 +1,1 @@
+web: gunicorn squigl.wsgi:application
