@@ -23,9 +23,9 @@ Feed
             <a href="{% url 'user' user %}" class="user-link">
                 <div class="d-inline">
                     {% if user.avatar %}
-                    <img src="{{ user.avatar.url }}" class="reply-avatar">
+                    <img src="{{ user.avatar.url }}" class="avatar-small">
                     {% else %}
-                    <img src="{% static 'images/avatar.jpg' %}" class="reply-avatar">
+                    <img src="{% static 'images/avatar.jpg' %}" class="avatar-small">
                     {% endif %}
                     
                 </div>

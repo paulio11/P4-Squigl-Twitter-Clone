@@ -8,9 +8,9 @@
                 <!-- Post author avatar -->
                 <a href="{% url 'user' post.user %}">
                     {% if post.user.avatar %}
-                    <img src="{{ post.user.avatar.url }}" class="post-avatar">
+                    <img src="{{ post.user.avatar.url }}" class="avatar-medium">
                     {% else %}
-                    <img src="{% static 'images/avatar.jpg' %}" class="post-avatar">
+                    <img src="{% static 'images/avatar.jpg' %}" class="avatar-medium">
                     {% endif %}
                 </a>
                 <!-- Post author avatar ends -->
@@ -37,6 +37,11 @@
                 <img src="{{ post.image.url }}" class="card-img">
                 {% endif %}
                 <!-- Post body, image and link ends -->
+                <!-- Repost -->
+                {% if post.repost_post %}
+                {% include 'repost-template.html' %}
+                {% endif %}
+                <!-- Repost ends -->
             </div>
         </div>
     </div>    

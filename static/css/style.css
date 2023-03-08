@@ -32,6 +32,38 @@ h1, h4, h5 {
     color: #3b434b;
 }
 
+/* ----------------------------------------------------- Avatars */
+
+.avatar-xl {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: solid white 4px;
+    position: absolute;
+    left: 20px;
+    top: 125px;
+    background-color: white;
+}
+
+.avatar-large {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.avatar-medium {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.avatar-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
 /* ----------------------------------------------------- Header */
 
 .header-row {
@@ -45,13 +77,6 @@ h1, h4, h5 {
     display: flex;
     justify-content: end;
     text-align: right;
-}
-
-.header-avatar {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    margin-left: 10px;
 }
 
 header a {
@@ -102,12 +127,6 @@ header a:hover {
 
 .post-header {
     margin-bottom: 10px;
-}
-
-.post-avatar {
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
 }
 
 .post-permalink {
@@ -173,12 +192,6 @@ header a:hover {
 
 .reply-container {
     margin-bottom: 30px;
-}
-
-.reply-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
 }
 
 .reply-user-info {
@@ -267,17 +280,6 @@ label[for=id_reply] {
 .user-background {
     height: 200px;
     background-color: #f8f8f8;
-}
-
-.user-avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: solid white 4px;
-    position: absolute;
-    left: 20px;
-    top: 125px;
-    background-color: white;
 }
 
 .user-buttons {

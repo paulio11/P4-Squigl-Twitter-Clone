@@ -16,9 +16,9 @@ Post: {{ post.id }}
     <div class="reply-header">
         <a href="{% url 'user' reply.user %}">
             {% if reply.user.avatar %}
-            <img src="{{ reply.user.avatar.url }}" class="reply-avatar">
+            <img src="{{ reply.user.avatar.url }}" class="avatar-small">
             {% else %}
-            <img src="{% static 'images/avatar.jpg' %}" class="reply-avatar">
+            <img src="{% static 'images/avatar.jpg' %}" class="avatar-small">
             {% endif %}
         </a>
         <div>

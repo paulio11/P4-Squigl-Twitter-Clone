@@ -14,9 +14,9 @@
     <div class="user-background"></div>
     {% endif %}
     {% if user.avatar %}
-    <img src="{{ user.avatar.url }}" class="user-avatar">
+    <img src="{{ user.avatar.url }}" class="avatar-xl">
     {% else %}
-    <img src="{% static 'images/avatar.jpg' %}" class="user-avatar">
+    <img src="{% static 'images/avatar.jpg' %}" class="avatar-xl">
     {% endif %}
     <div class="card-body user-buttons">
         {% if request.user == user %}

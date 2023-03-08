@@ -46,9 +46,9 @@
                         <h4><a href="{% url 'user' request.user %}">{{ request.user.name }}</a></h4>
                     </div>
                     {% if request.user.avatar %}
-                    <a href="{% url 'user' request.user %}"><img src="{{ request.user.avatar.url }}" class="header-avatar"></a>
+                    <a href="{% url 'user' request.user %}"><img src="{{ request.user.avatar.url }}" class="avatar-large"></a>
                     {% else %}
-                    <a href="{% url 'user' request.user %}"><img src="{% static 'images/avatar.jpg' %}" class="header-avatar"></a>
+                    <a href="{% url 'user' request.user %}"><img src="{% static 'images/avatar.jpg' %}" class="avatar-large"></a>
                     {% endif %}
                     {% endif %}
                 </div>
