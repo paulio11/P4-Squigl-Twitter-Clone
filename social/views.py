@@ -4,6 +4,7 @@ from django.db.models import Q
 
 # My imports
 from .models import Post, Reply
+from accounts.models import CustomUser
 
 
 # Home
@@ -30,4 +31,16 @@ def post(request, post_id):
     return render(request, 'post.html', {
         'post': post,
         'replies': replies,
+    })
+
+
+# User
+def user(request, user_username):
+    queryset = CustomUser.objects
+    user = get_object_or_404(queryset, username=user_username)
+    posts = Post.objects.filter(user_id=user.id).order_by('-date')
+
+    return render(request, 'user.html', {
+        'user': user,
+        'posts': posts,
     })
