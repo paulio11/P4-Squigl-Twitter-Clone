@@ -1,6 +1,6 @@
 # Django imports
 from django.shortcuts import redirect, render, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.db.models import Q
 from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
@@ -101,6 +101,17 @@ def delete_post(request, post_id):
         return redirect('feed')
     else:
         return render(request, 'delete-error.html')
+
+
+# Like Post
+def like_post(request, post_id):
+    if request.method == 'GET':
+        post = get_object_or_404(Post, id=post_id)
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+        return HttpResponse('Success!')
 
 
 # Follow user
