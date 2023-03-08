@@ -74,3 +74,13 @@ class Reply(models.Model):
 
     def __str__(self):
         return f'Reply: {self.id}, for: {self.post}, by: {self.user}'
+
+    def time_check(self):
+        now = datetime.now(timezone.utc)
+        time_since = now - self.date
+        hours_since = int(time_since.total_seconds() / 60 / 60)
+        if hours_since < 24:
+            less_than_a_day = True
+        else:
+            less_than_a_day = False
+        return less_than_a_day

@@ -1,4 +1,5 @@
 {% load static %}
+{% load social_extras %}
 <!-- Hide reply modal -->
 <div class="modal fade" id="hideReply{{ reply.id}}Modal" tabindex="-1" aria-labelledby="hideReply{{ reply.id}}ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -38,7 +39,11 @@
                     ~{{ reply.user }}
                 </a>
             </div>
+            {% if reply.time_check %}
+            <span class="timesince small-span">{{ reply.date | timesince | upto:',' }} ago</span>
+            {% else %}
             <span class="small-span">{{ reply.date | date:'M d, Y' }}</span>
+            {% endif %}
         </div>
     </div> 
     <!-- Reply user and date info ends -->
