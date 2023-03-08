@@ -37,16 +37,18 @@
                 <!-- Title ends -->
                 <!-- Search -->
                 <div class="col-6">
+                    {% if '/search/' not in request.path or query %}
                     <form method="POST" action="{% url 'search' %}">
                         {% csrf_token %}
                         <div class="input-group flex-nowrap">
-                            <input type="text" class="form-control" placeholder="Explore Squigl" aria-label="Search"
+                            <input type="text" class="form-control" placeholder="Search Squigl" aria-label="Search"
                                 aria-describedby="addon-wrapping" name="query">
                             <button class="input-group-text" id="addon-wrapping">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
                         </div>
                     </form>
+                    {% endif %}
                 </div>
                 <!-- Search ends -->
                 <!-- User info -->
@@ -86,7 +88,7 @@
                     <a class="nav-link" href="{% url 'feed' %}">Feed</a>
                     {% endif %}                    
                     <a class="nav-link {% if request.user.username in request.path %}menu-active{% endif %}" href="{% url 'user' request.user %}">My Page</a>
-                    <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="#">Explore (NYI)</a>
+                    <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="{% url 'search' %}">Search</a>
                     <a class="nav-link {% if '/new-post/' in request.path %}menu-active{% endif %}" href="{% url 'new_post' %}">New Post</a>
                     <a class="nav-link {% if '/mentions/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'mentions' %}">
                         Mentions

@@ -2,12 +2,30 @@
 {% load static %}
 
 {% block title %}
-Search Results
+Search
 {% endblock %}
 
 {% block content %}
-<h2>Exploring {{ query }}</h2>
+{% if not query %}
+<h2>Search Squigl...</h2>
+{% else %}
+<h2>Search results for: {{ query }}</h2>
+{% endif %}
 <hr>
+{% if not query %}
+<!-- Search input -->
+<form method="POST" action="{% url 'search' %}">
+    {% csrf_token %}
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" placeholder="What do you want to search for?" aria-label="Search"
+            aria-describedby="addon-wrapping" name="query">
+        <button class="input-group-text" id="addon-wrapping">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+</form>
+{% else %}
+<!-- Search input ends -->
 <!-- Search navigation -->
 <ul class="nav nav-pills mb-3" id="search-pills-tab" role="tablist">
     {% if users.count > 0 %}
@@ -79,4 +97,5 @@ Search Results
     </div>
     <!-- Results - replies ends -->
 </div>
+{% endif %}
 {% endblock %}
