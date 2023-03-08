@@ -24,9 +24,10 @@ class ReplyForm(forms.ModelForm):
         model = Reply
         fields = ['reply']
         widgets = {
-            'reply': forms.TextInput(attrs={
+            'reply': forms.Textarea(attrs={
                 'class': 'reply-input',
                 'aria-label': 'reply',
                 'placeholder': 'Type your reply here...',
+                'rows': '4',
             }),
         }
