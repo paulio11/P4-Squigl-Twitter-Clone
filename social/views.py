@@ -15,7 +15,10 @@ from accounts.models import CustomUser
 
 # Home
 def home(request):
-    return render(request, 'home.html')
+    if request.user.is_authenticated:
+        return redirect('feed')
+    else:
+        return render(request, 'home.html')
 
 
 # Feed (followed user's and own posts)
