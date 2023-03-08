@@ -59,7 +59,6 @@
         </a>        
         <!-- Reply ends -->
         <!-- Like -->
-        {% if request.user.is_authenticated %}
         <div id="like-link-{{ post.id }}" class="like-link">
             {% if request.user in post.likes.all %}
             <i id="like-heart-{{ post.id }}" class="fa-solid fa-heart like-heart"></i>
@@ -92,11 +91,6 @@
                 )
             })
         </script>
-        {% else %}
-        <span>
-            <i id="like-heart-{{ post.id }}" class="fa-regular fa-heart"></i>
-            {{ post.like_count }}
-        </span>
         {% endif %}       
         <!-- Like ends -->
         <!-- Repost -->

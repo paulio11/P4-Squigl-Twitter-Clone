@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.db.models import Q
 from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
 # My imports
 from .models import Post, Reply
@@ -17,16 +18,20 @@ def home(request):
 
 
 # Feed (followed user's and own posts)
+@login_required
 def feed(request):
     following = request.user.following
     posts = Post.objects.filter(
         Q(user__in=following.all()) | Q(user=request.user))
     users = CustomUser.objects.exclude(
         id__in=following.all()).exclude(id=request.user.id).order_by('?')[:5]
+    recent_hashtags = Post.objects.filter(
+        post__contains='#').order_by('-date')[:10]
 
     return render(request, 'feed.html', {
         'posts': posts,
         'users': users,
+        'recent_hashtags': recent_hashtags,
     })
 
 
@@ -88,6 +93,7 @@ def user(request, user):
 
 
 # New post
+@login_required
 def new_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES or None)
@@ -101,6 +107,7 @@ def new_post(request):
 
 
 # Repost
+@login_required
 def repost(request, post_id):
     old_post = get_object_or_404(Post, id=post_id)
     if request.method == 'POST':
@@ -176,6 +183,7 @@ def hide_reply(request, reply_id):
 
 
 # Like post
+@login_required
 def like_post(request, post_id):
     if request.method == 'GET':
         post = get_object_or_404(Post, id=post_id)
@@ -187,6 +195,7 @@ def like_post(request, post_id):
 
 
 # Follow user
+@login_required
 def follow(request, user):
     user = get_object_or_404(CustomUser, username=user)
     followed = request.user.following.filter(username=user).exists()
