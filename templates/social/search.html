@@ -56,7 +56,7 @@ Search
         <a href="{% url 'user' user %}">
             <div class="card user-card">
                 {% if user.profile_background %}
-                <img src="{{ user.profile_background.url }}" class="card-img-top user-background">
+                <div class="user-background" style="background-image: url('{{ user.profile_background.url }}');"></div>
                 {% else %}
                 <div class="user-background"></div>
                 {% endif %}

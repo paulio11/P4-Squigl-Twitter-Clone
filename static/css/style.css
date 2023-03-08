@@ -513,7 +513,12 @@ label[for=id_reply] {
 
 .user-background {
     height: 200px;
+    width: 100%;
     background-color: #f8f8f8;
+    background-size: cover;
+    background-position: center;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 .user-buttons {
