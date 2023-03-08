@@ -1,6 +1,29 @@
 {% load static %}
 {% load social_extras %}
+<!-- Delete modal -->
+<div class="modal fade" id="report{{ post.id }}Modal" tabindex="-1" aria-labelledby="report{{ post.id }}ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="report{{ post.id }}ModalLabel">Report Post</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Would you like to report this post? This post will be hidden from you in the future.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <form method="POST" action="{% url 'report_post' post.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Yes</button></a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete modal ends -->
 <!-- Post -->
+Post {{ post.id }} reported by: {{ post.reported.all }}
 <div class="card post-card">
     <div class="card-body">
         <div class="row">
@@ -76,30 +99,6 @@
             {% endif %}
             <span id="like-count-{{ post.id }}">{{ post.like_count }}</span>            
         </div>
-        <script>
-            $('#like-link-{{ post.id }}').click(function () {
-                $.ajax(
-                    {
-                        type: 'GET',
-                        url: "{% url 'like_post' post.id %}",
-                        success: function () {
-                            let heart = $('#like-heart-{{ post.id }}');
-                            let span = $('#like-count-{{ post.id }}');
-                            let count = parseInt(span.html());
-                            if (heart.hasClass('like-heart')) {
-                                heart.removeClass('like-heart fa-solid').addClass('fa-regular');
-                                count -= 1;
-                                span.html(count);
-                            } else {
-                                heart.removeClass('fa-regular').addClass('like-heart fa-solid');
-                                count += 1;
-                                span.html(count);
-                            }
-                        }
-                    }
-                )
-            })
-        </script>
         {% else %}
         <span>
             <i id="like-heart-{{ post.id }}" class="fa-regular fa-heart"></i>
@@ -126,11 +125,37 @@
                     </a>
                 </li>
                 {% else %}
+                {% if request.user.is_authenticated %}
                 <li>
-                    <a class="dropdown-item" href="#">
-                        <i class="fa-solid fa-triangle-exclamation"></i> Report (NYI)
+                    <a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#report{{ post.id }}Modal">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Report
                     </a>
                 </li>
+                <script>
+                    $('#like-link-{{ post.id }}').click(function () {
+                        $.ajax(
+                            {
+                                type: 'GET',
+                                url: "{% url 'report_post' post.id %}",
+                                success: function () {
+                                    let heart = $('#like-heart-{{ post.id }}');
+                                    let span = $('#like-count-{{ post.id }}');
+                                    let count = parseInt(span.html());
+                                    if (heart.hasClass('like-heart')) {
+                                        heart.removeClass('like-heart fa-solid').addClass('fa-regular');
+                                        count -= 1;
+                                        span.html(count);
+                                    } else {
+                                        heart.removeClass('fa-regular').addClass('like-heart fa-solid');
+                                        count += 1;
+                                        span.html(count);
+                                    }
+                                }
+                            }
+                        )
+                    })
+                </script>
+                {% endif %}
                 {% endif %}
                 <li>
                     <a class="dropdown-item" href="{% url 'post' post.id %}">
