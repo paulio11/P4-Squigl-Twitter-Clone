@@ -32,7 +32,7 @@ Post: {{ post.id }}
     </div> 
     <!-- User info ends -->
     <!-- Reply form -->
-    <form method="POST" enctype="multipart/form-data" class="reply-form">
+    <form method="POST" class="reply-form">
         {% csrf_token %}
         {{ form | crispy }}
         <button class="btn btn-dark" type="submit">Reply</button>
