@@ -6,6 +6,25 @@ Settings
 {%endblock%}
 
 {%block content%}
+<!-- Delete modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteModalLabel">Delete Account</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to permanently delete your account?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <a href="#"><button type="button" class="btn btn-danger">Yes</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete modal ends -->
 <h2>Settings</h2>
 <hr>
 {% if request.user.id == user.id %}
@@ -13,16 +32,14 @@ Settings
     {{ form | crispy }}
     {% csrf_token %}
     <button class="btn btn-dark" type="submit">Save changes</button>
-    <a href="{% url 'password' %}">
+    <a href="{% url 'password' %}" class="btn-link">
         <button type="button" class="btn btn-dark">
             Change Password
         </button>
     </a>
-    <a href="#">
-        <button type="button" class="btn btn-danger">
-            Delete Account
-        </button>
-    </a>    
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+        Delete Account (NYI)
+    </button>   
 </form>
 {% else %}
 <div class="alert alert-warning" role="alert">
