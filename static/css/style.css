@@ -133,16 +133,6 @@ h1, h4 {
     text-align: right;
 }
 
-.tiny-user-info {
-    background-color: #212529;
-    padding: 12px;
-    border-radius: 5px;
-}
-
-.tiny-user-info .user-link {
-    color: white;
-}
-
 header a {
     text-decoration: none;
     color: #212529;
@@ -152,7 +142,7 @@ header a:hover {
     color: #3b434b;
 }
 
-/* ----------------------------------------------------- Left Sidebar Navigation */
+/* ----------------------------------------------------- Left Sidebar & Navigation */
 
 .nav-link {
     margin-bottom: 4px;
@@ -201,7 +191,8 @@ header a:hover {
 }
 
 #hamburger-div {
-    background-color: #c4c4c4;
+    /* background-color: #c4c4c4; */
+    background: linear-gradient(180deg, #ffffff 0%, #c4c4c4 100%);
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     padding-top: 12px;
@@ -638,15 +629,14 @@ th:hover {
     margin-bottom: 20px;
 }
 
-.message-header {
+.message-header,
+.msg-sender-info {
     display: flex;
     align-items: center;
     gap: 8px;
+    
 }
 
-.message-btns {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 10px;
+.message-header {
+    justify-content: space-between;
 }

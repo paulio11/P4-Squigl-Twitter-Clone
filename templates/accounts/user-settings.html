@@ -35,11 +35,15 @@ Settings
     {{ form | crispy }}
     {% csrf_token %}
     <button class="btn btn-dark" type="submit">Save changes</button>
+    <br>
+    <br>
     <a href="{% url 'password' %}" class="btn-link">
         <button type="button" class="btn btn-dark">
             Change Password
         </button>
     </a>
+    <br>
+    <br>
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
         Delete Account
     </button>   

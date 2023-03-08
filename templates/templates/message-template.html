@@ -41,75 +41,78 @@
 <div class="card message-card">
     <div class="card-header message-header">        
         {% if request.user != message.sender %}
-        <span class="badge rounded-pill text-bg-secondary">From</span>
-        <a href="{% url 'user' message.sender %}">
-            {% if message.sender.avatar %}
-            <img src="{{ message.sender.avatar.url }}" class="avatar-small">
-            {% else %}
-            <img src="{% static 'images/avatar.jpg' %}" class="avatar-small">
-            {% endif %}
-        </a>
-        <div>
-            <div>
-                <a href="{% url 'user' message.sender %}" class="user-link">
-                    <strong>{{ message.sender.name }}</strong>
-                    {% if message.sender.verified %}
-                    <i class="fa-solid fa-square-check verified"></i>
-                    {% endif %}
-                    ~{{ message.sender }}
-                </a>
-            </div>            
-            <span class="small-span">{{ message.date | date:'M d, Y' }}</span>
+        <div class="msg-sender-info">
+            <span class="badge rounded-pill text-bg-secondary">From</span>
+            <a href="{% url 'user' message.sender %}" class="user-link">
+                <strong>{{ message.sender.name }}</strong>
+                {% if message.sender.verified %}
+                <i class="fa-solid fa-square-check verified"></i>
+                {% endif %}
+                ~{{ message.sender }}
+            </a>          
         </div>
         {% else %}
-        <span class="badge rounded-pill text-bg-secondary">To</span>
-        <a href="{% url 'user' message.recipient %}">
-            {% if message.recipient.avatar %}
-            <img src="{{ message.recipient.avatar.url }}" class="avatar-small">
-            {% else %}
-            <img src="{% static 'images/avatar.jpg' %}" class="avatar-small">
-            {% endif %}
-        </a>
-        <div>
-            <div>
-                <a href="{% url 'user' message.recipient %}" class="user-link">
-                    <strong>{{ message.recipient.name }}</strong>
-                    {% if message.recipient.verified %}
-                    <i class="fa-solid fa-square-check verified"></i>
-                    {% endif %}
-                    ~{{ message.recipient }}
-                </a>
-            </div>            
-            <span class="small-span">{{ message.date | date:'M d, Y' }}</span>
+        <div class="msg-sender-info">
+            <span class="badge rounded-pill text-bg-secondary">To</span>
+            <a href="{% url 'user' message.recipient %}" class="user-link">
+                <strong>{{ message.recipient.name }}</strong>
+                {% if message.recipient.verified %}
+                <i class="fa-solid fa-square-check verified"></i>
+                {% endif %}
+                ~{{ message.recipient }}
+            </a>        
         </div>
         {% endif %}
+        <!-- Message menu -->
+        {% if not '/reply/' in request.path %}
+        <div class="btn-group dropdown">
+            <button class="btn btn-sm post-menu-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                {% if request.user == message.recipient %}
+                {% if not message.read %}
+                <li>
+                    <a href="{% url 'mark_read' message.id %}" class="dropdown-item">
+                        <i class="fa-solid fa-check"></i> Mark Read
+                    </a>
+                </li>
+                {% endif %}
+                <li>
+                    <a href="{% url 'send_reply' message.id %}" class="dropdown-item">
+                        <i class="fa-solid fa-reply"></i> Reply
+                    </a>
+                </li>
+                <li>
+                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#report{{ message.id }}Modal">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Report
+                    </button>
+                </li>
+                {% endif %}
+                <li>
+                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{ message.id }}Modal">
+                        <i class="fa-solid fa-trash"></i> Delete
+                    </button>
+                </li>
+            </ul>
+        </div>
+        {% endif %}
+        <!-- Message menu ends -->
     </div>
     <div class="card-body">
-        {% if message.sender.is_staff %}
+        {% if message.sender.is_staff and request.user != message.sender %}
         <div class="alert alert-warning" role="alert">
             This message is from a Squigl moderator.
         </div>        
         {% endif %}
-        <p class="card-text">{{ message.message | linebreaksbr }}</p>
-        {% if not '/reply/' in request.path %}
-        <div class="message-btns">
-            {% if request.user == message.sender and message.read %}
-            <span class="text-muted">This message has been read by ~{{ message.recipient }}.</span>    
-            {% endif %}
-            {% if request.user == message.recipient %}
-            {% if not message.read %}
-            <a href="{% url 'mark_read' message.id %}" class="btn btn-dark">Mark Read</a>
-            {% endif %}            
-            <a href="{% url 'send_reply' message.id %}" class="btn btn-dark">Reply</a>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#report{{ message.id }}Modal">
-                Report
-            </button>
-            {% endif %}
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete{{ message.id }}Modal">
-                Delete
-            </button>
-        </div>    
-        {% endif %}    
+        <span class="small-span">{{ message.date | date:'M d, Y' }}</span>
+        <p class="card-text">{{ message.message | linebreaksbr }}</p>        
+        {% if request.user == message.sender and message.read %}
+        <hr>
+        <span class="text-muted small-span">
+            <i class="fa-solid fa-check"></i> This message has been read by ~{{ message.recipient }}.
+        </span>    
+        {% endif %}  
     </div>
 </div>
 <!-- Message ends -->
