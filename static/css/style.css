@@ -44,3 +44,26 @@ header a {
 header a:hover {
     color: #3b434b;
 }
+
+/* ----------------------------------------------------- Left Sidebar Navigation */
+
+.nav-link {
+    margin-bottom: 4px;
+    color: #212529;
+}
+
+.nav-link:hover {
+    background-color: grey;
+    color: white;
+}
+
+.active {
+    background-color: #212529 !important;
+}
+
+/* ----------------------------------------------------- Main Content Row */
+
+.content-row {
+    display: flex;
+    justify-content: space-between;
+}
