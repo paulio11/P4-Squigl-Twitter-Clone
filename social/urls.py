@@ -19,6 +19,7 @@ urlpatterns = [
     path('new-post/', views.new_post, name='new_post'),
     path('like-post/<post_id>', views.like_post, name='like_post'),
     path('repost/<post_id>', views.repost, name='repost'),
+    path('report/<post_id>', views.report_post, name='report_post'),
     # Reply
     path('edit-reply/<int:pk>', views.EditReply.as_view(), name='edit_reply'),
     path('delete-reply/<reply_id>', views.delete_reply, name='delete_reply'),

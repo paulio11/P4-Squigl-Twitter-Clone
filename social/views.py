@@ -205,6 +205,19 @@ def like_post(request, post_id):
         return HttpResponse('Success!')
 
 
+# Report post
+@login_required
+def report_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    if post.reported.filter(id=request.user.id).exists():
+        post.reported.remove(request.user)
+        return HttpResponse('removed report')
+    else:
+        post.reported.add(request.user)
+        return HttpResponse('added report')
+
+
 # Follow user
 @login_required
 def follow(request, user):
