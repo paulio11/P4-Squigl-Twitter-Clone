@@ -6,7 +6,8 @@ Sign Up
 {% endblock %}
 
 {% block content %}
-<h1>Sign Up</h1>
+<h2>Sign Up</h2>
+<hr>
 <form method="POST">
     {% csrf_token %}
     {{ form | crispy }}
