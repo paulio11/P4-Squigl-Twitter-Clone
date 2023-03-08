@@ -66,57 +66,15 @@
     </div>
 </div>
 <!-- User profile card ends -->
-<!-- Tab navigation -->
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="posts-tab" data-bs-toggle="tab" data-bs-target="#posts-tab-pane" type="button"
-            role="tab" aria-controls="posts-tab-pane" aria-selected="true"><i class="fa-solid fa-note-sticky"></i> All Posts</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="images-tab" data-bs-toggle="tab" data-bs-target="#images-tab-pane" type="button"
-            role="tab" aria-controls="images-tab-pane" aria-selected="false"><i class="fa-solid fa-image"></i> Images</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="liked-tab" data-bs-toggle="tab" data-bs-target="#liked-tab-pane" type="button"
-            role="tab" aria-controls="liked-tab-pane" aria-selected="false"><i class="fa-solid fa-heart"></i> Likes</button>
-    </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="posts-tab-pane" role="tabpanel" aria-labelledby="posts-tab" tabindex="0">
-        {% if posts %}
-        {% for post in posts %}
-        {% include 'post-template.html' %}
-        {% endfor %}
-        {% else %}
-        <div class="alert alert-secondary" role="alert">
-            ~{{ user }} has not posted yet.
-        </div>
-        {% endif %}
-    </div>
-    <div class="tab-pane fade" id="images-tab-pane" role="tabpanel" aria-labelledby="images-tab" tabindex="0">
-        <!-- Posts with images -->
-        <div class="image-grid">
-            {% for post in posts %}
-            {% if post.image %}
-            <a href="{% url 'post' post.id %}"><img src="{{ post.image.url }}" class="grid-image"></a>
-            {% endif %}
-            {% endfor %}
-        </div>    
-        <!-- Posts with images ends -->
-    </div>
-    <div class="tab-pane fade" id="liked-tab-pane" role="tabpanel" aria-labelledby="liked-tab" tabindex="0">
-        {% if liked_posts %}
-        {% for post in liked_posts %}
-        {% include 'post-template.html' %}
-        {% endfor %}
-        {% else %}
-        <div class="alert alert-secondary" role="alert">
-            ~{{ user }} has not liked any posts.
-        </div>
-        {% endif %}
-    </div>
+{% if page_obj %}
+{% for post in page_obj %}
+{% include 'post-template.html' %}
+{% endfor %}
+{% else %}
+<div class="alert alert-secondary" role="alert">
+    ~{{ user }} has not posted yet.
 </div>
-<!-- Tab navigation ends -->
+{% endif %}
 {% endblock %}
 
 {% block rightsidebar %}

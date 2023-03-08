@@ -82,8 +82,12 @@ def user(request, user):
     queryset = CustomUser.objects
     user = get_object_or_404(queryset, username=user)
     posts = Post.objects.filter(user_id=user.id).order_by('-date')
-    liked_posts = user.post_likes.all()
+    # liked_posts = user.post_likes.all()
     following = False
+
+    paginator = Paginator(posts, 20)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     if request.user.is_authenticated:
         if request.user.following.filter(id=user.id):
@@ -91,8 +95,8 @@ def user(request, user):
 
     return render(request, 'user.html', {
         'user': user,
-        'posts': posts,
-        'liked_posts': liked_posts,
+        'page_obj': page_obj,
+        # 'liked_posts': liked_posts,
         'following': following,
     })
 
