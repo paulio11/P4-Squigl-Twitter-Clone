@@ -85,6 +85,11 @@
         {% endif %}
     </div>
     <div class="card-body">
+        {% if message.sender.is_staff %}
+        <div class="alert alert-warning" role="alert">
+            This message is from a Squigl moderator.
+        </div>        
+        {% endif %}
         <p class="card-text">{{ message.message | linebreaksbr }}</p>
         {% if not '/reply/' in request.path %}
         <div class="message-btns">
