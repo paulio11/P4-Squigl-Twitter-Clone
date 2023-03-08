@@ -249,6 +249,7 @@ label[for=id_reply] {
     position: absolute;
     left: 20px;
     top: 125px;
+    background-color: white;
 }
 
 .user-buttons {
