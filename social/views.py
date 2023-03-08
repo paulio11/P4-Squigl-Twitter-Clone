@@ -2,6 +2,7 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.db.models import Q
+from django.views.generic.edit import UpdateView
 
 # My imports
 from .models import Post, Reply
@@ -71,14 +72,7 @@ def new_post(request):
 
 
 # Edit post
-def edit_post(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
-
-    if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES or None)
-        if form.is_valid():
-            post.save()
-            return redirect('post', post.id)
-    else:
-        return render(
-            request, 'edit-post.html', {'form': PostForm(instance=post)})
+class EditPost(UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'edit-post.html'
