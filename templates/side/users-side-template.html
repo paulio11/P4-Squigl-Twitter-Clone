@@ -29,9 +29,9 @@
                         {% endif %}
                     </strong>                    
                 </div>                    
-            </a>
-            <form action="{% url 'follow' user %}" class="d-none d-xl-block">
-                <button class="btn btn-dark">Follow</button> 
+            </a>           
+            <form action="{% url 'follow' user %}">
+                <button class="badge text-bg-dark">Follow</button>
             </form>
         </li>
     </ul>

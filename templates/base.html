@@ -149,7 +149,7 @@
                     <a class="d-lg-none nav-link {% if '/trending/' in request.path %}menu-active{% endif %}" href="{% url 'trending' %}">
                         <i class="fa-solid fa-hashtag"></i>
                     </a>
-                    <a class="d-lg-none nav-link {% if '/user-list/' in request.path %}menu-active{% endif %}" href="{% url 'user-list' %}">
+                    <a class="d-lg-none nav-link {% if '/user-list/' in request.path %}menu-active{% endif %}" href="{% url 'user_list' %}">
                         <i class="fa-solid fa-users"></i>
                     </a>
                     <a class="nav-link {% if request.user.username in request.path %}menu-active{% endif %}" href="{% url 'user' request.user %}">
@@ -219,7 +219,13 @@
                                 {% endif %}
                                 <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="{% url 'search' %}">
                                     <i class="fa-solid fa-magnifying-glass"></i> Search
-                                </a>                    
+                                </a>  
+                                <a class="nav-link {% if '/trending/' in request.path %}menu-active{% endif %}" href="{% url 'trending' %}">
+                                    <i class="fa-solid fa-hashtag"></i> Trending Hashtags
+                                </a> 
+                                <a class="nav-link {% if '/user-list/' in request.path %}menu-active{% endif %}" href="{% url 'user_list' %}">
+                                    <i class="fa-solid fa-users"></i> Who To Follow
+                                </a>                   
                                 <a class="nav-link {% if request.user.username in request.path %}menu-active{% endif %}" href="{% url 'user' request.user %}">
                                     <i class="fa-solid fa-user"></i> My Page
                                 </a>

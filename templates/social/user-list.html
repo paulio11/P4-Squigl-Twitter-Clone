@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Who To Follow
+{% endblock %}
+
+{% block content %}
+{% include 'side/users-side-template.html' %}
+<button class="btn btn-dark" onClick="window.location.reload()">Load more random users</button>
+{% endblock %}

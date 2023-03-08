@@ -32,5 +32,5 @@ urlpatterns = [
     path('mentions/read/', views.mark_read, name='mark_read'),
     # Tiny right sidebar links
     path('trending/', views.trending, name='trending'),
-    path('user-list/', views.user_list, name='user-list'),
+    path('user-list/', views.user_list, name='user_list'),
 ]
