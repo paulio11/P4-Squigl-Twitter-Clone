@@ -4,6 +4,7 @@ from django.db.models import Count
 
 # My imports
 from social.models import Post, Reply
+from dm.models import Message
 
 
 register = template.Library()
@@ -16,4 +17,5 @@ def mod_count():
             nreports=Count('reported')).filter(nreports__gt=0).count()
     reported_replies = Reply.objects.annotate(
         nreports=Count('reported')).filter(nreports__gt=0).count()
-    return reported_posts + reported_replies
+    reported_messages = Message.objects.filter(reported=True).count()
+    return reported_posts + reported_replies + reported_messages

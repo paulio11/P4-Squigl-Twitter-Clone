@@ -5,19 +5,13 @@ Moderation
 {% endblock %}
 
 {% block content %}
-<h2>Moderation</h2>
-<p>You can sort tables by clicking on column headers.</p>
-<hr>
-
-<!-- Reported posts -->
-{% if reported_posts %}
 {% for post in reported_posts %}
 <!-- View post modal -->
-<div class="modal fade" id="view{{ post.id }}Modal" tabindex="-1" aria-labelledby="view{{ post.id }}ModalLabel" aria-hidden="true">
+<div class="modal fade" id="viewPost{{ post.id }}Modal" tabindex="-1" aria-labelledby="viewPost{{ post.id }}ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="view{{ post.id }}ModalLabel">Viewing post #{{ post.id }}</h1>
+                <h1 class="modal-title fs-5" id="viewPost{{ post.id }}ModalLabel">Viewing post #{{ post.id }}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -40,48 +34,13 @@ Moderation
 </div>
 <!-- View post modal ends -->
 {% endfor %}
-<div class="mod-section">
-    <h2>Reported Posts</h2>
-    <hr>
-    <table class="table">
-        <tr>
-            <th>ID</th>
-            <th>User</th>
-            <th>Post Link</th>
-            <th>Reports</th>
-            <th></th>
-        </tr>
-        {% for post in reported_posts %}
-        <tr>
-            <td>{{ post.id }}</td>
-            <td><a href="{% url 'user' post.user %}" class="user-link"><strong>~{{ post.user }}</strong></a></td>
-            <td><a href="{% url 'post' post.id %}">Link</a></td>
-            <td>{{ post.reported_count }}</td>
-            <td>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#view{{ post.id }}Modal">
-                    View
-                </button>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
-{% else %}
-<div class="alert alert-secondary" role="alert">
-    There are no reported posts.
-</div>
-{% endif %}
-<!-- Reported posts ends -->
-
-<!-- Reported replies -->
-{% if reported_replies %}
 {% for reply in reported_replies %}
 <!-- View reply modal -->
-<div class="modal fade" id="view{{ reply.id }}Modal" tabindex="-1" aria-labelledby="view{{ reply.id }}ModalLabel" aria-hidden="true">
+<div class="modal fade" id="viewReply{{ reply.id }}Modal" tabindex="-1" aria-labelledby="viewReply{{ reply.id }}ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="view{{ reply.id }}ModalLabel">Viewing reply #{{ reply.id }}</h1>
+                <h1 class="modal-title fs-5" id="viewReply{{ reply.id }}ModalLabel">Viewing reply #{{ reply.id }}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -106,55 +65,166 @@ Moderation
 </div>
 <!-- View reply modal ends -->
 {% endfor %}
-<div class="mod-section">
-    <h2>Reported Replies</h2>
-    <hr>
-    <table class="table">
-        <tr>
-            <th>ID</th>
-            <th>User</th>
-            <th>Post Link</th>
-            <th>Reports</th>
-            <th>Hidden</th>
-            <th></th>
-        </tr>
-        {% for reply in reported_replies %}
-        <tr>
-            <td>{{ reply.id }}</td>
-            <td><a href="{% url 'user' reply.user %}" class="user-link"><strong>~{{ reply.user }}</strong></a></td>
-            <td><a href="{% url 'post' reply.post.id %}">Link</a></td>
-            <td>{{ reply.reported_count }}</td>
-            <td>{{ reply.hidden }}</td>
-            <td>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#view{{ reply.id }}Modal">
-                    View
-                </button>
-            </td>
-        </tr>
-
-        {% endfor %}
-    </table>
+{% for message in reported_messages %}
+<!-- View message modal -->
+<div class="modal fade" id="viewMsg{{ message.id }}Modal" tabindex="-1" aria-labelledby="viewMsg{{ message.id }}ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="viewMsg{{ message.id }}ModalLabel">Viewing message #{{ message.id }}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From: <a href="{% url 'user' message.sender %}" class="user-link"><strong>~{{ message.sender }}</strong></a></p>    
+                <p>To: <a href="{% url 'user' message.recipient %}" class="user-link"><strong>~{{ message.recipient }}</strong></a></p>                   
+                <p>Date: {{ message.date | date:'M d, Y' }}</p>
+                <p class="post-body">{{ message.message }}</p>
+                <hr>
+                <p class="text-muted">
+                    Number of posts, replies and messages from <a href="{% url 'user' message.sender %}" class="user-link"><strong>~{{ message.sender }}</strong></a>
+                    that have been removed by Squigl moderators: <strong>{{ message.sender.strikes }}</strong>
+                </p>
+            </div> 
+            <div class="modal-footer">
+                <a href=""><button class="btn btn-success">Message Is Okay</button></a>
+                <a href=""><button class="btn btn-warning">Delete Message</button></a> 
+                <button class="btn btn-danger">Ban User (NYI)</button>
+            </div>
+        </div>
+    </div>
 </div>
-{% else %}
-<div class="alert alert-secondary" role="alert">
-    There are no reported replies.
+<!-- View message modal ends -->
+{% endfor %}
+<h2>Moderation</h2>
+<p>You can sort tables by clicking on column headers.</p>
+<hr>
+<!-- Moderation navigation -->
+<ul class="nav nav-pills mb-3" id="nav-pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-posts-tab" data-bs-toggle="pill" data-bs-target="#pills-posts"
+            type="button" role="tab" aria-controls="pills-posts" aria-selected="true">Posts <span class="badge text-bg-danger">{{ reported_posts.count }}</span></button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-replies-tab" data-bs-toggle="pill" data-bs-target="#pills-replies"
+            type="button" role="tab" aria-controls="pills-replies" aria-selected="false">Replies <span class="badge text-bg-danger">{{ reported_replies.count }}</span></button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-messages-tab" data-bs-toggle="pill" data-bs-target="#pills-messages"
+            type="button" role="tab" aria-controls="pills-messages" aria-selected="false">Messages <span class="badge text-bg-danger">{{ reported_messages.count }}</span></button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-users-tab" data-bs-toggle="pill" data-bs-target="#pills-users"
+            type="button" role="tab" aria-controls="pills-users" aria-selected="false">Users</button>
+    </li>
+</ul>
+<!-- Moderation navigation ends -->
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab" tabindex="0">
+        {% if reported_posts %}
+        <div class="mod-section">
+            <!-- Reported posts table -->
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Post Link</th>
+                    <th>Reports</th>
+                    <th></th>
+                </tr>
+                {% for post in reported_posts %}
+                <tr>
+                    <td>{{ post.id }}</td>
+                    <td><a href="{% url 'user' post.user %}" class="user-link"><strong>~{{ post.user }}</strong></a></td>
+                    <td><a href="{% url 'post' post.id %}">Link</a></td>
+                    <td>{{ post.reported_count }}</td>
+                    <td>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#viewPost{{ post.id }}Modal">
+                            View
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <!-- Reported posts table ends -->
+        </div>
+        {% else %}
+        <div class="alert alert-secondary" role="alert">
+            There are no reported posts 🙂
+        </div>
+        {% endif %}        
+    </div>
+    <div class="tab-pane fade" id="pills-replies" role="tabpanel" aria-labelledby="pills-replies-tab" tabindex="0">
+        {% if reported_replies %}
+        <div class="mod-section">
+            <!-- Reported replies table -->
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Post Link</th>
+                    <th>Reports</th>
+                    <th>Hidden</th>
+                    <th></th>
+                </tr>
+                {% for reply in reported_replies %}
+                <tr>
+                    <td>{{ reply.id }}</td>
+                    <td><a href="{% url 'user' reply.user %}" class="user-link"><strong>~{{ reply.user }}</strong></a></td>
+                    <td><a href="{% url 'post' reply.post.id %}">Link</a></td>
+                    <td>{{ reply.reported_count }}</td>
+                    <td>{{ reply.hidden }}</td>
+                    <td>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#viewReply{{ reply.id }}Modal">
+                            View
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <!-- Reported replies table ends -->
+        {% else %}
+        <div class="alert alert-secondary" role="alert">
+            There are no reported replies 🙂
+        </div>
+        {% endif %}
+    </div>
+    <div class="tab-pane fade" id="pills-messages" role="tabpanel" aria-labelledby="pills-messages-tab" tabindex="0">
+        {% if reported_messages %}
+        <div class="mod-section">
+            <!-- Reported messages table -->
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>From</th> 
+                    <th>To</th>
+                    <th></th>
+                </tr>
+                {% for message in reported_messages %}
+                <tr>
+                    <td>{{ message.id }}</td>
+                    <td><a href="{% url 'user' message.sender %}" class="user-link"><strong>~{{ message.sender }}</strong></a></td>
+                    <td><a href="{% url 'user' message.recipient %}" class="user-link"><strong>~{{ message.recipient }}</strong></a></td>
+                    <td>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#viewMsg{{ message.id }}Modal">
+                            View
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <!-- Reported messages table ends -->
+        </div>
+        {% else %}
+        <div class="alert alert-secondary" role="alert">
+            There are no reported messages 🙂
+        </div>
+        {% endif %}
+    </div>
+    <div class="tab-pane fade" id="pills-users" role="tabpanel" aria-labelledby="pills-users-tab" tabindex="0">
+        Users
+    </div>
 </div>
-{% endif %}
-<!-- Reported replies ends -->
-
-<!-- Banned users -->
-{% if banned_users %}
-<div class="mod-section">
-    <h2>Banned Users</h2>
-    <hr>
-</div>
-{% else %}
-<div class="alert alert-secondary" role="alert">
-    There are no banned users.
-</div>
-{% endif %}
-<!-- Banned users ends -->
-
 {% endblock %}
 
 {% block rightsidebar %}
