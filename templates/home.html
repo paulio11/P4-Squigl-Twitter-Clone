@@ -5,18 +5,5 @@ Home
 {% endblock %}
 
 {% block content %}
-<h1>Home</h1>
-<ul>
-    {% if user.is_authenticated %}
-    <li>Hello {{ user }}</li>
-    <li><a href="{% url 'feed' %}">Feed</a></li>
-    <li><a href="{% url 'logout' %}">Logout</a></li>
-    {% if user.is_superuser %}
-    <li><a href="{% url 'admin:index' %}">Admin</a></li>
-    {% endif %}
-    {% else %}
-    <li><a href="{% url 'login' %}">Login</a></li>
-    <li><a href="{% url 'signup' %}">Sign Up</a></li>
-    {% endif %}
-</ul>
+Home
 {% endblock %}
