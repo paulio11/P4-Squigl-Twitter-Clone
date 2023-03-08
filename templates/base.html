@@ -28,7 +28,7 @@
                 </div>
                 <!-- Title ends -->
                 <!-- Search -->
-                <div class="col-6">
+                <div class="col-6" id="search-col">
                     {% if '/search/' not in request.path or query %}
                     <form method="POST" action="{% url 'search' %}">
                         {% csrf_token %}

@@ -1,11 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
 
+/* ----------------------------------------------------- base.html */
+
 #block-content-div {
     background: linear-gradient(180deg, #c4c4c4 0%, #ffffff 100%);
     padding-top: 12px;
     border-radius: 5px;
     height: 100%;
     padding-bottom: 100px;
+}
+
+#search-col {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /* ----------------------------------------------------- Text, Headings, Links */
