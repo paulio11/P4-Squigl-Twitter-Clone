@@ -39,8 +39,9 @@
 <!-- Report modal ends -->
 <!-- Message -->
 <div class="card message-card">
-    <div class="card-header message-header">
+    <div class="card-header message-header">        
         {% if request.user != message.sender %}
+        <span class="badge rounded-pill text-bg-secondary">From</span>
         <a href="{% url 'user' message.sender %}">
             {% if message.sender.avatar %}
             <img src="{{ message.sender.avatar.url }}" class="avatar-small">
@@ -61,6 +62,7 @@
             <span class="small-span">{{ message.date | date:'M d, Y' }}</span>
         </div>
         {% else %}
+        <span class="badge rounded-pill text-bg-secondary">To</span>
         <a href="{% url 'user' message.recipient %}">
             {% if message.recipient.avatar %}
             <img src="{{ message.recipient.avatar.url }}" class="avatar-small">
