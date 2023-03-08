@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Feed
+{% endblock %}
+
+{% block content %}
+<h1>Feed</h1>
+{% for post in posts %}
+<p>{{ post.user }}</p>
+<p>{{ post.date }}</p>
+<p>{{ post.post }}</p>
+{% endfor %}
+{% endblock %}
