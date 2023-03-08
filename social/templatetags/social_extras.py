@@ -12,9 +12,11 @@ register = template.Library()
 # Count user mentions (for navigation badge)
 @register.simple_tag
 def mentions_count(user):
-    posts = Post.objects.filter(post__icontains=user).count()
+    posts = Post.objects.filter(
+        post__icontains=user).exclude(read=user).count()
     replies = Reply.objects.filter(
-        reply__icontains=user).exclude(hidden=True).count()
+        reply__icontains=user).exclude(hidden=True).exclude(
+            read=user).count()
     return posts + replies
 
 

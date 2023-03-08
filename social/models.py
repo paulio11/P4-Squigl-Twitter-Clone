@@ -32,6 +32,8 @@ class Post(models.Model):
         null=True)
     reported = models.ManyToManyField(
         CustomUser, related_name='reported_post', blank=True)
+    read = models.ManyToManyField(
+        CustomUser, related_name='read_posts', blank=True)
 
     class Meta:
         ordering = ['-date']
@@ -74,6 +76,8 @@ class Reply(models.Model):
     hidden = models.BooleanField(default=False)
     reported = models.ManyToManyField(
         CustomUser, related_name='reported_reply', blank=True)
+    read = models.ManyToManyField(
+        CustomUser, related_name='read_replies', blank=True)
 
     class Meta:
         ordering = ['post']

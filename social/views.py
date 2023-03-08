@@ -230,10 +230,17 @@ def follow(request, user):
 # Mentions
 @login_required
 def mentions(request):
-    posts = Post.objects.filter(post__icontains=request.user)
-    replies = Reply.objects.filter(
-        reply__icontains=request.user).exclude(hidden=True)
+    posts = Post.objects.filter(post__icontains=request.user).exclude(
+        read=request.user).order_by('-date')
+    replies = Reply.objects.filter(reply__icontains=request.user).exclude(
+        hidden=True).exclude(read=request.user).order_by('-date')
     return render(request, 'mentions.html', {
         'posts': posts,
         'replies': replies,
     })
+
+
+# Mark mentions as read
+@login_required()
+def mark_read(request):
+    pass
