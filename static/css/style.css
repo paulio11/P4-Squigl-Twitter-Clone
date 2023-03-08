@@ -405,7 +405,7 @@ label[for=id_reply] {
     text-align: right;
 }
 
-#follow-btn {
+.user-buttons a {
     width: 100px;
 }
 
