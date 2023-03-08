@@ -1,9 +1,11 @@
 # Django imports
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
 from django.db.models import Q
 
 # My imports
 from .models import Post, Reply
+from .forms import ReplyForm
 from accounts.models import CustomUser
 
 
@@ -28,10 +30,18 @@ def post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     replies = Reply.objects.filter(post_id=post_id).order_by('date')
 
-    return render(request, 'post.html', {
-        'post': post,
-        'replies': replies,
-    })
+    if request.method == 'POST':
+        form = ReplyForm()
+        form.instance.user = request.user
+        form.instance.post = post
+        form.save()
+        return HttpResponseRedirect(request.path_info)
+    else:
+        return render(request, 'post.html', {
+            'post': post,
+            'replies': replies,
+            'form': ReplyForm(),
+        })
 
 
 # User
