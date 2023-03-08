@@ -8,7 +8,6 @@
 
 body {
     color: #212529;
-    background-color: rgb(247, 247, 247);
 }
 
 h1, h4, h5 {
@@ -155,6 +154,19 @@ header a:hover {
 
 .like-heart {
     color: hotpink;
+}
+
+.replied-bubble {
+    color: #0e60cc;
+}
+
+.reply-link {
+    text-decoration: none;
+}
+
+.reply-count,
+.reply-bubble {
+    color: #212529;
 }
 
 /* ----------------------------------------------------- Replies */

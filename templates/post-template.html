@@ -1,4 +1,5 @@
 {% load static %}
+{% load social_extras %}
 <!-- Post -->
 <div class="card post-card">
     <div class="card-body">
@@ -42,7 +43,15 @@
     <!-- Post footer -->
     <div class="card-footer">
         <!-- Reply -->
-        <span><i class="fa-regular fa-comment"></i> {{ post.reply_count }}</span>
+        {% user_has_replied user.id post.id as replied %}        
+        <a href="{% url 'post' post.id %}" class="reply-link">
+            {% if replied %}
+            <i class="fa-solid fa-comment replied-bubble"></i>
+            {% else %}
+            <i class="fa-regular fa-comment reply-bubble"></i>
+            {% endif %}
+            <span class="reply-count">{{ post.reply_count }}</span>
+        </a>        
         <!-- Reply ends -->
         <!-- Like -->
         {% if request.user.is_authenticated %}
