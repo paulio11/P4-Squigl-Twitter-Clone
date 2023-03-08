@@ -49,10 +49,13 @@ def search(request):
             username__icontains=query).order_by('username')
         posts = Post.objects.filter(
             post__icontains=query).order_by('-date')
+        replies = Reply.objects.filter(
+            reply__icontains=query).exclude(hidden=True).order_by('-date')
         return render(request, 'search.html', {
             'query': query,
             'posts': posts,
             'users': users,
+            'replies': replies,
         })
     else:
         return render(request, 'search.html')
