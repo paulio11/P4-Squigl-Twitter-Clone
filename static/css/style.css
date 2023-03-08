@@ -250,6 +250,10 @@ label[for=id_reply] {
     text-align: right;
 }
 
+#follow-btn {
+    width: 100px;
+}
+
 .nav-tabs {
     border-color: #f8f8f8;
     border-bottom: none;

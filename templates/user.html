@@ -22,9 +22,9 @@
         {% if request.user == user %}
         <a href="#" class="btn btn-dark">Edit Profile (NYI)</a>
         {% else %}
-        <a href="{% url 'follow' user %}" class="btn btn-dark">
+        <a href="{% url 'follow' user %}" id="follow-btn" class="btn btn-dark">
             {% if following %}
-            Unfollow
+            Following
             {% else %}
             Follow
             {% endif %}
