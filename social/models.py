@@ -31,7 +31,7 @@ class Post(models.Model):
         blank=True,
         null=True)
     reported = models.ManyToManyField(
-        CustomUser, related_name='reported', blank=True)
+        CustomUser, related_name='reported_post', blank=True)
 
     class Meta:
         ordering = ['-date']
@@ -72,6 +72,8 @@ class Reply(models.Model):
     updated = models.DateTimeField(auto_now=True)
     reply = models.CharField(max_length=400)
     hidden = models.BooleanField(default=False)
+    reported = models.ManyToManyField(
+        CustomUser, related_name='reported_reply', blank=True)
 
     class Meta:
         ordering = ['post']
@@ -79,6 +81,9 @@ class Reply(models.Model):
 
     def __str__(self):
         return f'Reply: {self.id}, for: {self.post}, by: {self.user}'
+
+    def reported_count(self):
+        return self.reported.count()
 
     def time_check(self):
         now = datetime.now(timezone.utc)

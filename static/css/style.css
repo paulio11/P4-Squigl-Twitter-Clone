@@ -446,6 +446,9 @@ label[for=id_reply] {
 
 .mod-section {
     margin-bottom: 50px;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 td {

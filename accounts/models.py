@@ -37,7 +37,7 @@ class CustomUser(AbstractUser):
     verified = models.BooleanField(default=False)
     following = models.ManyToManyField(
         'CustomUser', related_name='follower', blank=True)
-    deleted_posts = models.IntegerField(default=0)
+    mod_deleted = models.IntegerField(default=0)
 
     def __str__(self):
         return self.username
