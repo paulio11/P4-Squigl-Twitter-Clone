@@ -82,3 +82,13 @@ class EditPost(UpdateView):
         return reverse_lazy('post', kwargs={
             'post_id': self.object.id,
         })
+
+
+# Delete post
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.user == post.user:
+        post.delete()
+        return redirect('feed')
+    else:
+        return render(request, 'delete-error.html')
