@@ -8,7 +8,7 @@ Mentions
 
 {% block content %}
 {% mentions_count request.user as mentions %}
-{% if mentions_count > 0 %}
+{% if mentions > 0 %}
 <!-- Mentions navigation -->
 <ul class="nav nav-pills mb-3 mentions-ul" id="search-pills-tab" role="tablist">
     <div class="mentions-menu">
@@ -25,7 +25,7 @@ Mentions
         </li>
         {% endif %}
     </div>    
-    <li><a href="{% url 'mark_read' %}"><button class="btn btn-success read-btn">Mark All Read</button></a></li>
+    <li><a href="{% url 'mark_read' %}" class="btn-link"><button class="btn btn-success read-btn">Mark All Read</button></a></li>
 </ul>
 <!-- Mentions navigation ends -->
 {% else %}
