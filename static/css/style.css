@@ -4,22 +4,28 @@
     outline: solid 1px red;
 } */
 
-/* ----------------------------------------------------- Text and Headings */
+/* ----------------------------------------------------- Text, Headings, Links */
 
-h1, h4, h5 {
+body {
+    color: #212529;
+}
+
+h1 {
     font-family: 'IBM Plex Sans';
-}
-
-h1, h4 {
     font-weight: bold;
-}
-
-h5 {
-    font-size: 16px;
 }
 
 .verified {
     color: goldenrod;
+}
+
+.user-link {
+    text-decoration: none;
+    color: #212529;
+}
+
+.user-link:hover{
+    color: #3b434b;
 }
 
 /* ----------------------------------------------------- Header */
@@ -93,6 +99,14 @@ header a:hover {
     height: 60px;
 }
 
+.post-permalink {
+    color: #212529;
+}
+
+.post-permalink:hover {
+    color: #3b434b;
+}
+
 .avatar-col {
     padding: 0 0 0 6px;
 }
@@ -106,6 +120,10 @@ header a:hover {
     font-weight: bold;
 }
 
+.post-link:hover {
+    color: #3b434b;
+}
+
 .card-footer {
     display: flex;
     align-items: center;
@@ -117,4 +135,65 @@ header a:hover {
     color: #212529;
     width: 20%;
     text-align: center;
+}
+
+/* ----------------------------------------------------- Replies */
+
+.reply-container {
+    margin-bottom: 30px;
+}
+
+.reply-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.reply-user-info {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    gap: 4px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.reply-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.reply-date {
+    font-size: 12px;
+}
+
+.reply {
+	position: relative;
+    width: 100%;
+    padding: 20px;
+	background-color: #f8f8f8;
+	border-radius: 5px;
+    box-shadow: 0 0 0 1px #d1d1d1;
+}
+
+.reply::before {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	bottom: 100%;
+	left: 17px;
+	border: .75rem solid transparent;
+	border-top: none;
+	border-bottom-color: #f8f8f8;
+	filter: drop-shadow(0 -1px 1px #d1d1d1);
+}
+
+.reply-menu {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }

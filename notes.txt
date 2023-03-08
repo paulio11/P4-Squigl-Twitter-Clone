@@ -3,3 +3,6 @@ https://learndjango.com/tutorials/django-custom-user-model
 
 Post images:
 https://pypi.org/project/django-cloudinary-storage/
+
+Speech bubble:
+https://codepen.io/rikschennink/pen/mjywQb

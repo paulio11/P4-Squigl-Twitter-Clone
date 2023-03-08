@@ -2,12 +2,11 @@
 {% load static %}
 
 {% block title %}
-Feed
+Post: {{ post.id }}
 {% endblock %}
 
 {% block content %}
 <!-- Post -->
-{% for post in posts %}
 <div class="card post-card">
     <div class="card-body">
         <div class="row">
@@ -25,11 +24,13 @@ Feed
             <div class="col-11 post-col">
                 <!-- Post author and date -->
                 <div class="post-header">
-                    <strong>{{ post.user.display_name }}</strong>
-                    {% if post.user.verified %}
-                    <i class="fa-solid fa-square-check verified"></i>
-                    {% endif %}
-                    <span>~{{ post.user }}</span>
+                    <a href="#" class="user-link">
+                        <strong>{{ post.user.display_name }}</strong>
+                        {% if post.user.verified %}
+                        <i class="fa-solid fa-square-check verified"></i>
+                        {% endif %}
+                        <span>~{{ post.user }}</span>
+                    </a>
                     <span> · <a href="{% url 'post' post.id %}" class="post-permalink">{{ post.date | date:'M d, Y' }}</a></span>
                 </div>
                 <!-- Post author and date ends -->
@@ -94,8 +95,87 @@ Feed
     </div>
     <!-- Post footer ends -->
 </div>
-{% endfor %}
 <!-- Post end -->
+<!-- Replies -->
+{% if request.user.is_authenticated %}
+{% else %}
+<p><a href="{% url 'login' %}">Login</a> if you want to reply to this post.</p>
+{% endif %}
+{% if replies %}
+{% for reply in replies %}
+<div class="reply-container">
+    <!-- Reply user and date info -->
+    <div class="reply-header">
+        <a href="#">
+            {% if reply.user.avatar %}
+            <img src="{{ reply.user.avatar.url }}" class="reply-avatar">
+            {% else %}
+            <img src="{% static 'images/avatar.jpg' %}" class="reply-avatar">
+            {% endif %}
+        </a>
+        <div>
+            <div>
+                <a href="#" class="user-link">
+                    <strong>{{ reply.user.display_name }}</strong>
+                    {% if reply.user.verified %}
+                    <i class="fa-solid fa-square-check verified"></i>
+                    {% endif %}
+                    ~{{ reply.user }}
+                </a>
+            </div>
+            <span class="reply-date">{{ reply.date | date:'M d, Y' }}</span>
+        </div>
+    </div> 
+    <!-- Reply user and date info ends -->
+    <!-- Reply bubble -->
+    <div class="reply">
+        {{ reply.reply }}
+        <!-- Reply menu -->
+        <div class="btn-group dropup reply-menu">
+            <button class="btn btn-sm post-menu-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                {% if request.user == reply.user %}
+                <li>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa-solid fa-pen-to-square"></i> Edit (NYI)
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa-solid fa-trash"></i> Delete (NYI)
+                    </a>
+                </li>
+                {% endif %}
+                {% if request.user == post.user and request.user != reply.user %}
+                <li>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa-solid fa-eye-slash"></i> Hide (NYI)
+                    </a>
+                </li>
+                {% endif %}
+                {% if request.user != reply.user %}
+                <li>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Report (NYI)
+                    </a>
+                </li>
+                {% endif %}
+                <li>
+                    <span class="dropdown-item"><i class="fa-solid fa-link"></i> Permalink (NYI)</span>
+                </li>
+            </ul>
+        </div>
+        <!-- Reply menu ends -->
+    </div>
+    <!-- Reply bubble ends -->
+</div>
+{% endfor %}
+{% else %}
+<p>This post has no replies.</p>
+{% endif %}
+<!-- Replies end -->
 {% endblock %}
 
 {% block rightsidebar %}
