@@ -54,6 +54,19 @@ def mod_delete_reply(request, reply_id):
         return render(request, 'permission-error.html')
 
 
+# Moderator delete message
+@login_required
+def mod_delete_msg(request, message_id):
+    message = get_object_or_404(Message, id=message_id)
+    if request.user.is_staff:
+        message.sender.strikes += 1
+        message.sender.save()
+        message.delete()
+        return redirect('moderation')
+    else:
+        return render(request, 'permission-error.html')
+
+
 # Post is okay
 @login_required
 def post_is_okay(request, post_id):
@@ -74,6 +87,18 @@ def reply_is_okay(request, reply_id):
         reply.reported.clear()
         reply.hidden = False
         reply.save()
+        return redirect('moderation')
+    else:
+        return render(request, 'permission-error.html')
+
+
+# Message is okay
+@login_required
+def msg_is_okay(request, message_id):
+    if request.user.is_staff:
+        message = get_object_or_404(Message, id=message_id)
+        message.reported = False
+        message.save()
         return redirect('moderation')
     else:
         return render(request, 'permission-error.html')

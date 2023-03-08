@@ -86,8 +86,8 @@ Moderation
                 </p>
             </div> 
             <div class="modal-footer">
-                <a href=""><button class="btn btn-success">Message Is Okay</button></a>
-                <a href=""><button class="btn btn-warning">Delete Message</button></a> 
+                <a href="{% url 'mod_msg_okay' message.id %}"><button class="btn btn-success">Message Is Okay</button></a>
+                <a href="{% url 'mod_delete_msg' message.id %}"><button class="btn btn-warning">Delete Message</button></a> 
                 <button class="btn btn-danger">Ban User (NYI)</button>
             </div>
         </div>
