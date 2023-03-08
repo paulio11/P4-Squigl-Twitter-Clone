@@ -31,12 +31,12 @@ if(href.indexOf('/accounts/edit-profile/') > -1){
 };
 
 // Trending hashtags
-// Find .hidden-post class and take hashtag(s) out, then into a string
+// Find .hidden-post class, extract hashtag(s), place into a string
 var hash_str = ''
 $('.hidden-post').each(function () {
     var hashtag = $(this).find('form');
     hashtag = hashtag.text().replaceAll('#', ' ')
-    hash_str = hash_str.concat(hashtag)
+    hash_str = hash_str.concat(hashtag.toLowerCase())
 });
 // Split the hashtag string into an array
 var split = hash_str.trimStart().split(' ');
