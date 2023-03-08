@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
+
+/* * {
+    outline: solid 1px red;
+} */
+
+/* ----------------------------------------------------- Text and Headings */
+
+h1, h4, h5 {
+    font-family: 'IBM Plex Sans';
+}
+
+h1, h4 {
+    font-weight: bold;
+}
+
+/* ----------------------------------------------------- Header */
+
+.header-row {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    justify-content: end;
+    text-align: right;
+}
+
+.header-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+header a {
+    text-decoration: none;
+    color: #212529;
+}
+
+header a:hover {
+    color: #3b434b;
+}

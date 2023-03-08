@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +11,70 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title %}{% endblock %} - Squigl</title>
 </head>
+
 <body>
-    {% block content %}
-    {% endblock %}
+    <!-- Container -->
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="row header-row">
+                <!-- Title -->
+                <div class="col-2">
+                    <a href="{% url 'home' %}"><h1>Squigl <i class="fa-solid fa-comments"></i></h1></a>
+                </div>
+                <!-- Title ends -->
+                <!-- Search -->
+                <div class="col-4">
+                    <form method="POST" action="#">
+                        {% csrf_token %}
+                        <div class="input-group flex-nowrap">
+                            <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+                                aria-describedby="addon-wrapping" name="query">
+                            <button class="input-group-text" id="addon-wrapping">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Search ends -->
+                <!-- User info -->
+                <div class="col-3 user-info">
+                    {% if request.user.is_authenticated %}
+                    <div>
+                        <h5><a href="#">~{{ request.user }}</a></h5>
+                        <h4><a href="#">{{ request.user.display_name }}</a></h4>
+                    </div>
+                    {% if request.user.avatar %}
+                    <a href="#"><img src="{{ request.user.avatar.url }}" class="header-avatar"></a>
+                    {% else %}
+                    <a href="#"><img src="{% static 'images/avatar.jpg' %}" class="header-header"></a>
+                    {% endif %}
+                    {% endif %}
+                </div>
+                <!-- User info ends -->
+            </div>
+        </header>
+        <!-- Header ends -->
+        <!-- Main content row -->
+        <div class="row content-row">
+            <!-- Right nav sidebar -->
+            <div class="col-2">
+            </div>
+            <!-- Right nav sidebar ends -->
+            <!-- Main block -->
+            <div class="col-6">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div class="col-3">
+                {% block rightsidebar %}
+                {% endblock %}
+            </div>
+            <!-- Main block ends -->
+        </div>
+        <!-- Main content row ends -->
+    </div>
+    <!-- Container ends -->
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -20,4 +82,5 @@
     <script src="{% static 'js/script.js' %}"></script>
     <!-- Scripts end -->
 </body>
+
 </html>
