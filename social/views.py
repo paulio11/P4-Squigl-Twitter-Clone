@@ -1,11 +1,11 @@
 # Django imports
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 
 # My imports
 from .models import Post, Reply
-from .forms import ReplyForm
+from .forms import PostForm, ReplyForm
 from accounts.models import CustomUser
 
 
@@ -55,3 +55,16 @@ def user(request, user_username):
         'user': user,
         'posts': posts,
     })
+
+
+# New post
+def new_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES or None)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+            return redirect('post', post.id)
+    else:
+        return render(request, 'new-post.html', {'form': PostForm()})
