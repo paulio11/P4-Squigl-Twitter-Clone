@@ -41,13 +41,13 @@
                 <div class="col-3 user-info">
                     {% if request.user.is_authenticated %}
                     <div>
-                        <h5><a href="#">~{{ request.user }}</a></h5>
-                        <h4><a href="#">{{ request.user.display_name }}</a></h4>
+                        <h5><a href="{% url 'user' request.user %}">~{{ request.user }}</a></h5>
+                        <h4><a href="{% url 'user' request.user %}">{{ request.user.display_name }}</a></h4>
                     </div>
                     {% if request.user.avatar %}
-                    <a href="#"><img src="{{ request.user.avatar.url }}" class="header-avatar"></a>
+                    <a href="{% url 'user' request.user %}"><img src="{{ request.user.avatar.url }}" class="header-avatar"></a>
                     {% else %}
-                    <a href="#"><img src="{% static 'images/avatar.jpg' %}" class="header-avatar"></a>
+                    <a href="{% url 'user' request.user %}"><img src="{% static 'images/avatar.jpg' %}" class="header-avatar"></a>
                     {% endif %}
                     {% endif %}
                 </div>

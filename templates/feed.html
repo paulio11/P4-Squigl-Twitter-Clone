@@ -13,7 +13,7 @@ Feed
         <div class="row">
             <div class="col-1 avatar-col">
                 <!-- Post author avatar -->
-                <a href="#">
+                <a href="{% url 'user' post.user %}">
                     {% if post.user.avatar %}
                     <img src="{{ post.user.avatar.url }}" class="post-avatar">
                     {% else %}
@@ -25,11 +25,13 @@ Feed
             <div class="col-11 post-col">
                 <!-- Post author and date -->
                 <div class="post-header">
-                    <strong>{{ post.user.display_name }}</strong>
-                    {% if post.user.verified %}
-                    <i class="fa-solid fa-square-check verified"></i>
-                    {% endif %}
-                    <span>~{{ post.user }}</span>
+                    <a href="{% url 'user' post.user %}" class="user-link">
+                        <strong>{{ post.user.display_name }}</strong>
+                        {% if post.user.verified %}
+                        <i class="fa-solid fa-square-check verified"></i>
+                        {% endif %}
+                        <span>~{{ post.user }}</span>
+                    </a>
                     <span> · <a href="{% url 'post' post.id %}" class="post-permalink">{{ post.date | date:'M d, Y' }}</a></span>
                 </div>
                 <!-- Post author and date ends -->

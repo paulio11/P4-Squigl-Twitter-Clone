@@ -12,7 +12,7 @@ Post: {{ post.id }}
         <div class="row">
             <div class="col-1 avatar-col">
                 <!-- Post author avatar -->
-                <a href="#">
+                <a href="{% url 'user' post.user %}">
                     {% if post.user.avatar %}
                     <img src="{{ post.user.avatar.url }}" class="post-avatar">
                     {% else %}
@@ -24,7 +24,7 @@ Post: {{ post.id }}
             <div class="col-11 post-col">
                 <!-- Post author and date -->
                 <div class="post-header">
-                    <a href="#" class="user-link">
+                    <a href="{% url 'user' post.user %}" class="user-link">
                         <strong>{{ post.user.display_name }}</strong>
                         {% if post.user.verified %}
                         <i class="fa-solid fa-square-check verified"></i>
@@ -106,7 +106,7 @@ Post: {{ post.id }}
 <div class="reply-container">
     <!-- Reply user and date info -->
     <div class="reply-header">
-        <a href="#">
+        <a href="{% url 'user' reply.user %}">
             {% if reply.user.avatar %}
             <img src="{{ reply.user.avatar.url }}" class="reply-avatar">
             {% else %}
@@ -115,7 +115,7 @@ Post: {{ post.id }}
         </a>
         <div>
             <div>
-                <a href="#" class="user-link">
+                <a href="{% url 'user' reply.user %}" class="user-link">
                     <strong>{{ reply.user.display_name }}</strong>
                     {% if reply.user.verified %}
                     <i class="fa-solid fa-square-check verified"></i>
