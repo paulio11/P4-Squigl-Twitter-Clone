@@ -4,7 +4,8 @@
     background: linear-gradient(180deg, #c4c4c4 0%, #ffffff 100%);
     padding-top: 12px;
     border-radius: 5px;
-    height: 100vh;
+    height: 100%;
+    padding-bottom: 100px;
 }
 
 /* ----------------------------------------------------- Text, Headings, Links */
@@ -511,5 +512,6 @@ th:hover {
 .message-btns {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 10px;
 }

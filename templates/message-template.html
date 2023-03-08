@@ -27,7 +27,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Are you sure you want to report this message?
+                Are you sure you want to report this message? It will be removed from your inbox.
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
@@ -86,6 +86,9 @@
         <p class="card-text">{{ message.message | linebreaksbr }}</p>
         {% if not '/reply/' in request.path %}
         <div class="message-btns">
+            {% if request.user == message.sender and message.read %}
+            <span class="text-muted">This message has been read by ~{{ message.recipient }}.</span>    
+            {% endif %}
             {% if request.user == message.recipient %}
             {% if not message.read %}
             <a href="{% url 'mark_read' message.id %}" class="btn btn-dark">Mark Read</a>
