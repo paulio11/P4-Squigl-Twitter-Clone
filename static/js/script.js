@@ -11,3 +11,6 @@ $('#feed-link').hover(function () {
 }, function () {
     $('#feed-icon').removeClass('fa-spin');
 });
+
+// Hide password div on edit profile page
+$('#div_id_password').css("display", "none");
