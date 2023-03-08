@@ -53,6 +53,6 @@ for (var key in sorted_obj){
         container = $('<li class="list-group-item hashtag-li"></li>');
         trending_ul.append(container);
         container.append('<span>#' + sorted_obj[key][0] + '</span');
-        container.append('<span>' + sorted_obj[key][1] + '</span');
+        container.append('<span class="badge text-bg-dark">' + sorted_obj[key][1] + '</span>');
     };
 }; 

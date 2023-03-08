@@ -29,7 +29,7 @@ class ReplyForm(forms.ModelForm):
             'reply': forms.Textarea(attrs={
                 'class': 'reply-input',
                 'aria-label': 'reply',
-                'placeholder': 'Type your reply here. Use ~ to tag a ~username, or # to create a #hashtag.',
+                'placeholder': 'Type your reply here.',
                 'rows': '4',
             }),
         }

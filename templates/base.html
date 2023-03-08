@@ -21,11 +21,11 @@
             <div class="row header-row">
                 <!-- Title -->
                 <div class="col-2">
-                    <a href="{% url 'home' %}"><h1>Squigl</a>
+                    <a href="{% url 'home' %}"><h1>Squigl <i class="fa-solid fa-comments"></i></a>
                 </div>
                 <!-- Title ends -->
                 <!-- Search -->
-                <div class="col-4">
+                <div class="col-6">
                     <form method="POST" action="{% url 'search' %}">
                         {% csrf_token %}
                         <div class="input-group flex-nowrap">
@@ -69,7 +69,7 @@
                     {% endif %}                    
                     <a class="nav-link {% if request.user.username in request.path %}menu-active{% endif %}" href="{% url 'user' request.user %}">My Page</a>
                     <a class="nav-link {% if 'new-post' in request.path %}menu-active{% endif %}" href="{% url 'new_post' %}">New Post</a>
-                    <a class="nav-link" href="#">Mentions (NYI)</a>
+                    <a class="nav-link {% if 'mentions' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'mentions' %}">Mentions <span class="badge text-bg-danger">NYI</span></a>
                     <a class="nav-link" href="#">Messages (NYI)</a>
                     <a class="nav-link" href="{% url 'settings' request.user.id %}">Settings</a>
                     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
