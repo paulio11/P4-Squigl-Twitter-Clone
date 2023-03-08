@@ -59,4 +59,5 @@ def delete_account(request):
         account.delete()
         return redirect('home')
     else:
-        return render(request, 'permission-error.html')
+        e = 'You do not have permission to do this.'
+        return render(request, 'error.html', {'e': e})

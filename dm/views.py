@@ -61,7 +61,8 @@ def send_reply(request, message_id):
                 'form': MessageForm(),
                 'message': old_msg})
     else:
-        return render(request, 'permission-error.html')
+        e = 'You can not reply to this message because you are not the recipient.'
+        return render(request, 'error.html', {'e': e})
 
 
 # Mark message read
@@ -73,7 +74,7 @@ def mark_read(request, message_id):
         message.save()
         return redirect('messages')
     else:
-        return render(request, 'permission-error.html')
+        return render(request, 'error.html')
 
 
 # Delete message
@@ -88,7 +89,8 @@ def delete_message(request, message_id):
         message.recipient_del = True
         message.save()
     else:
-        return render(request, 'permission-error.html')
+        e = 'You can not delete this message because you are neither the recipient or sender.'
+        return render(request, 'error.html', {'e': e})
     if message.recipient_del and message.sender_del:
         message.delete()
     return redirect('messages')
@@ -105,4 +107,5 @@ def report_message(request, message_id):
         message.save()
         return redirect('messages')
     else:
-        return render(request, 'permission-error.html')
+        e = 'You can not report this message because you are not the recipient.'
+        return render(request, 'error.html', {'e': e})

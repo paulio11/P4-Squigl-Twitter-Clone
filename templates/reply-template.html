@@ -67,7 +67,7 @@
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
             {% endif %}
-            {% if '/post/' not in request.path %}
+            {% if '/p/' not in request.path %}
             <a href="{% url 'post' reply.post.id %}">Parent Post</a>
             {% endif %}
         </div>
