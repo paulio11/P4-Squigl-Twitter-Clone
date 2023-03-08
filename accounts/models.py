@@ -15,12 +15,13 @@ class CustomUser(AbstractUser):
         max_length=20, unique=True, validators=[alphanumeric])
     display_name = models.CharField(max_length=30, blank=True)
     avatar = models.ImageField(upload_to='avatars/', blank=True)
-    profile_background = models.ImageField(upload_to='backgrounds', blank=True)
+    profile_background = models.ImageField(
+        upload_to='backgrounds/', blank=True)
     about = models.CharField(max_length=200, blank=True)
     website = models.CharField(max_length=50, blank=True)
     verified = models.BooleanField(default=False)
     following = models.ManyToManyField(
-        'self', related_name='following', blank=True)
+        'CustomUser', related_name='follower', blank=True)
 
     def __str__(self):
         return self.username

@@ -50,7 +50,7 @@
     </div>
     <div class="card-footer">
         <span><strong>{{ user.followers_count }}</strong>
-            {% if user.followers_count >= 1 %}
+            {% if user.followers_count <= 1 %}
             Follower
             {% else %}
             Followers
@@ -58,7 +58,7 @@
         </span>
         <span><strong>{{ user.following_count }}</strong> Following</span>
         <span><strong>{{ posts.count }}</strong>
-            {% if posts.count >= 1 %}
+            {% if posts.count <= 1 %}
             Post
             {% else %}
             Posts
