@@ -15,11 +15,11 @@ New Post
     <button type="submit" class="btn btn-dark">Post</button>
 </form>
 {% else %}
-{% endif %}
 <div class="alert alert-warning" role="alert">
     You must be logged in to make a new post.
 </div>
 <button type="button" class="btn btn-secondary" onclick="javascript:history.back()">
     Go back
 </button>
+{% endif %}
 {% endblock %}
