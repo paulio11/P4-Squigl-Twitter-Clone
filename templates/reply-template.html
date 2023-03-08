@@ -51,23 +51,23 @@
     <div class="reply">
         {% if reply.hidden %}
         <div class="alert alert-danger" role="alert">
-            This reply has been hidden by ~{{ post.user }}.
+            This reply has been hidden by ~{{ reply.post.user }}.
         </div>
         {% endif %}
         <span class="post-body">{{ reply.reply }}</span>
         <!-- Reply buttons -->
         <div class="reply-menu">
-            {% if '/search/' not in request.path %}
             {% if request.user != reply.user %}
             <button type="button" class="hide-btn" data-bs-toggle="modal" data-bs-target="#reportReply{{ reply.id }}Modal">
                 <i class="fa-solid fa-triangle-exclamation"></i>
             </button>
-            {% else %}
+            {% endif %}
+            {% if request.user == reply.user %}
             <a href="{% url 'edit_reply' reply.id %}">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
             {% endif %}
-            {% else %}
+            {% if '/post/' not in request.path %}
             <a href="{% url 'post' reply.post.id %}">Parent Post</a>
             {% endif %}
         </div>
