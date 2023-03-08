@@ -19,6 +19,7 @@ urlpatterns = [
     # Reply
     path('edit-reply/<int:pk>', views.EditReply.as_view(), name='edit_reply'),
     path('delete-reply/<reply_id>', views.delete_reply, name='delete_reply'),
+    path('hide-reply/<reply_id>', views.hide_reply, name='hide_reply'),
     # User
     path('u/<user>', views.user, name='user'),
     path('follow/<user>', views.follow, name='follow'),
