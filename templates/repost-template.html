@@ -1,0 +1,31 @@
+{% load static %}
+<div class="card post-card repost">
+    <div class="card-body">
+        <div class="repost-header">
+            <a href="{% url 'user' post.repost_post.user %}">
+                {% if post.repost_post.user.avatar %}
+                <img src="{{ post.repost_post.user.avatar.url }}" class="avatar-xs">
+                {% else %}
+                <img src="{% static 'images/avatar.jpg' %}" class="avatar-xs">
+                {% endif %}
+            </a>
+            <strong>
+                {{ post.repost_post.user.name }}
+                {% if post.repost_post.user.verified %}
+                <i class="fa-solid fa-square-check verified"></i>
+                {% endif %}
+            </strong>
+            ~{{ post.repost_post.user }}
+            <span class="text-muted"> · {{ post.repost_post.date | date:'M d, Y' }}</span>
+        </div>
+        <div>
+            <p>{{ post.repost_post.post | linebreaksbr }}</p>            
+            {% if post.repost_post.link %}
+            <p><i class="fa-solid fa-link"></i> <a href="{{ post.repost_post.link }}" class="post-link">{{ post.repost_post.link }}</a></p>
+            {% endif %}
+            {% if post.repost_post.image %}
+            <img src="{{ post.repost_post.image.url }}" class="card-img">
+            {% endif %}
+        </div>
+    </div>    
+</div>

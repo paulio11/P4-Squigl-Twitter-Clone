@@ -64,6 +64,14 @@ h1, h4, h5 {
     border-radius: 50%;
 }
 
+.avatar-xs {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+
 /* ----------------------------------------------------- Header */
 
 .header-row {
@@ -120,6 +128,10 @@ header a:hover {
 
 /* ----------------------------------------------------- Posts */
 
+/* .card-body {
+    padding-bottom: 0;
+} */
+
 .post-card {
     width: 100%;
     margin-bottom: 25px;
@@ -153,6 +165,10 @@ header a:hover {
 .post-link:hover {
     color: #3b434b;
 }
+
+/* .card-img {
+    margin-bottom: 16px;
+} */
 
 .card-footer {
     display: flex;
@@ -267,6 +283,21 @@ label[for=id_reply] {
     position: absolute;
     bottom: 0;
     right: 0;
+}
+
+/* ----------------------------------------------------- Repost */
+
+.repost {
+    background-color: #00000008;
+    font-size: small;
+    margin-bottom: 0;
+}
+
+.repost-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 8px;
 }
 
 /* ----------------------------------------------------- User */
