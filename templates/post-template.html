@@ -28,7 +28,7 @@
                     <span> · 
                         <a href="{% url 'post' post.id %}" class="post-permalink">
                             {% if post.time_check %}
-                            {{ post.date | timesince | upto:',' }} ago
+                            <span class="timesince">{{ post.date | timesince | upto:',' }} ago</span>
                             {% else %}
                             {{ post.date | date:'M d, Y' }}
                             {% endif %}

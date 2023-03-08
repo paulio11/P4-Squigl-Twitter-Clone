@@ -18,6 +18,13 @@ if (href.indexOf('/feed/') > -1){
     });
 };
 
+// 0 minutes ago span change
+$('.timesince').each(function () {
+    if ($(this).html() == '0&nbsp;minutes ago') {
+        $(this).html('Now');
+    };
+});
+
 // Hide password div on edit profile page
 if(href.indexOf('/accounts/edit-profile/') > -1){
     $('#div_id_password').css("display", "none");
