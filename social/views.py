@@ -169,7 +169,8 @@ def hide_reply(request, reply_id):
     reply = get_object_or_404(Reply, id=reply_id)
     if request.user == reply.post.user:
         reply.hidden = True
-        pass
+        reply.save()
+        return redirect('post', reply.post.id)
     else:
         return render(request, 'permission_error.html')
 
