@@ -23,12 +23,12 @@
         <header>
             <div class="row header-row">
                 <!-- Title -->
-                <div class="col-2">
-                    <a href="{% url 'home' %}"><h1>Squigl <i class="fa-solid fa-comments"></i></a>
+                <div class="d-none d-sm-block col-sm-2">
+                    <a href="{% url 'home' %}"><h1>Squigl</a>
                 </div>
                 <!-- Title ends -->
                 <!-- Search -->
-                <div class="col-6" id="search-col">
+                <div class="col-xl-6 d-xl-block d-none" id="search-col">
                     {% if '/search/' not in request.path or query %}
                     <form method="POST" action="{% url 'search' %}">
                         {% csrf_token %}
@@ -44,7 +44,7 @@
                 </div>
                 <!-- Search ends -->
                 <!-- User info -->
-                <div class="col-3 user-info">
+                <div class="col-xl-3 col-sm-10 col-12 user-info">
                     {% if request.user.is_authenticated %}
                     <div>
                         <h5><a href="{% url 'user' request.user %}">~{{ request.user }}</a></h5>
@@ -71,7 +71,7 @@
         <!-- Main content row -->
         <div class="row content-row">
             <!-- Left nav sidebar -->
-            <div class="col-2">
+            <div class="d-none d-xl-block col-xl-2">
                 <nav class="nav flex-column nav-pills">
                     {% if request.user.is_authenticated %}
                     {% if '/feed/' in request.path %}
@@ -133,8 +133,8 @@
             </div>
             <!-- Left nav sidebar ends -->
             <!-- Left tiny nav sidebar -->
-            <div class="col-1">
-                <nav class="nav flex-column nav-pills" id="tiny-nav">
+            <div class="d-xl-none col-lg-1 col-12">
+                <nav class="nav nav-pills tiny-nav">
                     {% if request.user.is_authenticated %}
                     <a class="nav-link {% if '/feed/' in request.path %}menu-active{% endif %}" href="{% url 'feed' %}">
                         {% if '/feed/' in request.path %}
@@ -145,7 +145,13 @@
                     </a>
                     <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="{% url 'search' %}">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>                    
+                    </a>
+                    <a class="d-lg-none nav-link {% if '/trending/' in request.path %}menu-active{% endif %}" href="{% url 'trending' %}">
+                        <i class="fa-solid fa-hashtag"></i>
+                    </a>
+                    <a class="d-lg-none nav-link {% if '/user-list/' in request.path %}menu-active{% endif %}" href="{% url 'user-list' %}">
+                        <i class="fa-solid fa-users"></i>
+                    </a>
                     <a class="nav-link {% if request.user.username in request.path %}menu-active{% endif %}" href="{% url 'user' request.user %}">
                         <i class="fa-solid fa-user"></i>
                     </a>
@@ -169,7 +175,6 @@
                     <a class="nav-link {% if '/signup/' in request.path %}menu-active{% endif %}" href="{% url 'signup' %}">Sign Up</a>
                     {% endif %}
                     {% if request.user.is_superuser %}
-                    <hr>
                     <a class="nav-link" href="{% url 'admin:index' %}">
                         <i class="fa-solid fa-lock"></i>
                     </a>
@@ -183,13 +188,13 @@
             </div>
             <!-- Left tiny nav sidebar ends -->
             <!-- Main block -->
-            <div class="col-6" id="block-content-div">
+            <div class="col-xl-6 col-lg-8 col-12" id="block-content-div">
                 {% block content %}
                 {% endblock %}
             </div>
             <!-- Main block ends -->
             <!-- Right sidebar -->
-            <div class="col-3">
+            <div class="d-lg-block col-lg-3 d-none">
                 {% block rightsidebar %}
                 {% endblock %}
             </div>

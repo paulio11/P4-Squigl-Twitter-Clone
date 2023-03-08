@@ -27,7 +27,7 @@
 <div class="card post-card">
     <div class="card-body">
         <div class="row">
-            <div class="col-1 avatar-col">
+            <div class="col-sm-1 d-none d-sm-block avatar-col">
                 <!-- Post author avatar -->
                 <a href="{% url 'user' post.user %}">
                     {% if post.user.avatar %}
@@ -38,10 +38,17 @@
                 </a>
                 <!-- Post author avatar ends -->
             </div>
-            <div class="col-11 post-col">
+            <div class="col-sm-11 col-12 post-col">
                 <!-- Post author and date -->
                 <div class="post-header">
-                    <a href="{% url 'user' post.user %}" class="user-link">
+                    <a href="{% url 'user' post.user %}" class="user-link"></a>
+                        <span class="d-sm-none">
+                            {% if post.user.avatar %}
+                            <img src="{{ post.user.avatar.url }}" class="avatar-xs">
+                            {% else %}
+                            <img src="{% static 'images/avatar.jpg' %}" class="avatar-xs">
+                            {% endif %}
+                        </span>                    
                         <strong>{{ post.user.name }}</strong>
                         {% if post.user.verified %}
                         <i class="fa-solid fa-square-check verified"></i>

@@ -137,11 +137,6 @@ header a:hover {
 
 /* ----------------------------------------------------- Left Sidebar Navigation */
 
-#tiny-nav a {
-    width: 100%;
-    text-align: center;
-}
-
 .nav-link {
     margin-bottom: 4px;
     color: #212529;
@@ -172,6 +167,11 @@ header a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.tiny-nav {
+    display: flex;
+    justify-content: center;
 }
 
 /* ----------------------------------------------------- Navigation pills */
