@@ -241,6 +241,14 @@ def mentions(request):
 
 
 # Mark mentions as read
-@login_required()
+@login_required
 def mark_read(request):
-    pass
+    posts = Post.objects.filter(post__icontains=request.user).exclude(
+        read=request.user)
+    replies = Reply.objects.filter(reply__icontains=request.user).exclude(
+        hidden=True).exclude(read=request.user)
+    for post in posts:
+        post.read.add(request.user)
+    for reply in replies:
+        reply.read.add(request.user)
+    return redirect('mentions')

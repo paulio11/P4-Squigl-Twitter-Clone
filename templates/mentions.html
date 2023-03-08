@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load social_extras %}
 
 {% block title %}
 Mentions
 {% endblock %}
 
 {% block content %}
+{% mentions_count request.user as mentions %}
+{% if mentions_count > 0 %}
 <!-- Mentions navigation -->
 <ul class="nav nav-pills mb-3 mentions-ul" id="search-pills-tab" role="tablist">
     <div class="mentions-menu">
@@ -22,10 +25,14 @@ Mentions
         </li>
         {% endif %}
     </div>    
-    <li><button class="btn btn-success read-btn">Mark All Read</button></li>
+    <li><a href="{% url 'mark_read' %}"><button class="btn btn-success read-btn">Mark All Read</button></a></li>
 </ul>
 <!-- Mentions navigation ends -->
-
+{% else %}
+<div class="alert alert-light" role="alert">
+    You have no new mentions ☹️
+</div>
+{% endif %}
 <div class="tab-content" id="pills-tabContent">
     <!-- Mentions - posts -->
     <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab" tabindex="0">
