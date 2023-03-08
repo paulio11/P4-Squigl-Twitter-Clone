@@ -27,16 +27,19 @@ def messages(request):
 # Send user message
 @login_required
 def send_message(request, user_id):
+    msg_to = get_object_or_404(CustomUser, id=user_id)
     if request.method == 'POST':
         form = MessageForm(request.POST)
         if form.is_valid():
             message = form.save(commit=False)
             message.sender = request.user
-            message.recipient = get_object_or_404(CustomUser, id=user_id)
+            message.recipient = msg_to
             message.save()
             return redirect('user', message.recipient)
     else:
-        return render(request, 'dm/send-message.html', {'form': MessageForm()})
+        return render(request, 'dm/send-message.html', {
+            'form': MessageForm(),
+            'recipient': msg_to})
 
 
 # Send reply
@@ -55,7 +58,8 @@ def send_reply(request, message_id):
                 return redirect('messages')
         else:
             return render(request, 'dm/send-message.html', {
-                'form': MessageForm()})
+                'form': MessageForm(),
+                'message': old_msg})
     else:
         return render(request, 'permission-error.html')
 
@@ -90,7 +94,4 @@ def delete_message(request, message_id):
     return redirect('messages')
 
 
-
-# Report
-# Mark read
-
+# Report message

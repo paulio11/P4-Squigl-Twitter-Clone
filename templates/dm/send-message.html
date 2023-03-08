@@ -6,12 +6,15 @@ Send Message
 {% endblock %}
 
 {% block content %}
-<h2>Send Message</h2>
+<h2>Send {% if message %}Reply to ~{{ message.sender }}{% else %} Message to ~{{ recipient }}{% endif %}</h2>
 <hr>
+{% if message %}
+{% include 'message-template.html' %}
+{% endif %}
 <form method="POST">
     {% csrf_token %}
     {{ form | crispy }}
-    <button type="submit" class="btn btn-dark">Send Message</button>
+    <button type="submit" class="btn btn-dark">Send {% if message %}Reply{% else %}Message{% endif %}</button>
 </form>
 {% endblock %}
 

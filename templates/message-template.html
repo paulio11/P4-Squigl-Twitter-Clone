@@ -65,6 +65,7 @@
     </div>
     <div class="card-body">
         <p class="card-text">{{ message.message | linebreaksbr }}</p>
+        {% if not '/reply/' in request.path %}
         <div class="message-btns">
             {% if request.user == message.recipient %}
             {% if not message.read %}
@@ -76,7 +77,8 @@
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
                 Delete
             </button>
-        </div>        
+        </div>    
+        {% endif %}    
     </div>
 </div>
 <!-- Message ends -->
