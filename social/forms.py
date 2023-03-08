@@ -11,12 +11,10 @@ class ReplyForm(forms.ModelForm):
     class Meta:
         model = Reply
         fields = ['reply']
-        labels = {
-            'reply': '',
-        }
         widgets = {
             'reply': forms.TextInput(attrs={
                 'class': 'reply-input',
+                'aria-label': 'reply',
                 'placeholder': 'Type your reply here...',
             }),
         }

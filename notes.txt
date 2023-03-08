@@ -9,3 +9,6 @@ https://codepen.io/rikschennink/pen/mjywQb
 
 Active nav link:
 https://stackoverflow.com/questions/25044370/make-clicked-tab-active-in-bootstrap
+
+Hidden reply form label:
+https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text

@@ -199,6 +199,17 @@ header a:hover {
     margin-bottom: 20px;
 }
 
+label[for=id_reply] {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
 .reply-input {
     background-color: #f8f8f8;
     border: none;
