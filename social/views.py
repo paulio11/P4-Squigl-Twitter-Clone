@@ -96,6 +96,7 @@ def user(request, user):
     return render(request, 'user.html', {
         'user': user,
         'page_obj': page_obj,
+        'post_count': posts.count(),
         # 'liked_posts': liked_posts,
         'following': following,
     })
