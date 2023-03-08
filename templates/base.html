@@ -43,7 +43,14 @@
                     {% if request.user.is_authenticated %}
                     <div>
                         <h5><a href="{% url 'user' request.user %}">~{{ request.user }}</a></h5>
-                        <h4><a href="{% url 'user' request.user %}">{{ request.user.name }}</a></h4>
+                        <h4>
+                            <a href="{% url 'user' request.user %}">
+                                {{ request.user.name }}
+                                {% if user.verified %}
+                                <i class="fa-solid fa-square-check verified"></i>
+                                {% endif %}
+                            </a>
+                        </h4>
                     </div>
                     {% if request.user.avatar %}
                     <a href="{% url 'user' request.user %}"><img src="{{ request.user.avatar.url }}" class="avatar-large"></a>
@@ -71,7 +78,7 @@
                     <a class="nav-link {% if 'new-post' in request.path %}menu-active{% endif %}" href="{% url 'new_post' %}">New Post</a>
                     <a class="nav-link {% if 'mentions' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'mentions' %}">Mentions <span class="badge text-bg-danger">NYI</span></a>
                     <a class="nav-link" href="#">Messages (NYI)</a>
-                    <a class="nav-link" href="{% url 'settings' request.user.id %}">Settings</a>
+                    <a class="nav-link {% if 'accounts/settings' in request.path %}menu-active{% endif %}" href="{% url 'settings' request.user.id %}">Settings</a>
                     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                     {% else %}
                     <a class="nav-link {% if 'login' in request.path %}menu-active{% endif %}" href="{% url 'login' %}">Login</a>
