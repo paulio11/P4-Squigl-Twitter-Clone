@@ -183,17 +183,6 @@ def delete_reply(request, reply_id):
         return render(request, 'permission-error.html')
 
 
-# Hide reply
-def hide_reply(request, reply_id):
-    reply = get_object_or_404(Reply, id=reply_id)
-    if request.user == reply.post.user:
-        reply.hidden = True
-        reply.save()
-        return redirect('post', reply.post.id)
-    else:
-        return render(request, 'permission_error.html')
-
-
 # Like post
 def like_post(request, post_id):
     if request.method == 'GET':
@@ -209,12 +198,19 @@ def like_post(request, post_id):
 @login_required
 def report_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    if post.reported.filter(id=request.user.id).exists():
-        post.reported.remove(request.user)
-        return redirect('post', post.id)
-    else:
-        post.reported.add(request.user)
-        return redirect('post', post.id)
+    post.reported.add(request.user)
+    post.save()
+    return redirect('post', post.id)
+
+
+# Hide reply
+def report_reply(request, reply_id):
+    reply = get_object_or_404(Reply, id=reply_id)
+    if request.user == reply.post.user:
+        reply.hidden = True
+    reply.reported.add(request.user)
+    reply.save()
+    return redirect('post', reply.post.id)
 
 
 # Follow user

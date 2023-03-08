@@ -112,6 +112,7 @@ Moderation
             <th>User</th>
             <th>Post Link</th>
             <th>Reports</th>
+            <th>Hidden</th>
             <th></th>
         </tr>
         {% for reply in reported_replies %}
@@ -119,6 +120,7 @@ Moderation
             <td><a href="{% url 'user' reply.user %}" class="user-link"><strong>~{{ reply.user }}</strong></a></td>
             <td><a href="{% url 'post' reply.post.id %}">Link</a></td>
             <td>{{ reply.reported_count }}</td>
+            <td>{{ reply.hidden }}</td>
             <td>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#view{{ reply.id }}Modal">
                     View

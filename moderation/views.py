@@ -69,6 +69,7 @@ def reply_is_okay(request, reply_id):
     if request.user.is_staff:
         reply = get_object_or_404(Reply, id=reply_id)
         reply.reported.clear()
+        reply.hidden = False
         reply.save()
         return redirect('moderation')
     else:
