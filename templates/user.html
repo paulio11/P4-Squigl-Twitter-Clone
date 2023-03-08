@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+<!-- User profile card -->
 <div class="card user-card">
     {% if user.profile_background %}
     <img src="{{ user.profile_background.url }}" class="card-img-top user-background">
@@ -32,7 +33,132 @@
         <p class="card-text">{{ user.about }}</p>
         {% endif %}
     </div>
+    <div class="card-footer">
+        <span><strong>4,684</strong> Followers</span>
+        <span><strong>76</strong> Following</span>
+        <span><strong>395</strong> Posts</span>
+    </div>
 </div>
+<!-- User profile card ends -->
+<!-- Tab navigation -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="posts-tab" data-bs-toggle="tab" data-bs-target="#posts-tab-pane" type="button"
+            role="tab" aria-controls="posts-tab-pane" aria-selected="true"><i class="fa-solid fa-note-sticky"></i> Posts</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="images-tab" data-bs-toggle="tab" data-bs-target="#images-tab-pane" type="button"
+            role="tab" aria-controls="images-tab-pane" aria-selected="false"><i class="fa-solid fa-image"></i> Images</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="liked-tab" data-bs-toggle="tab" data-bs-target="#liked-tab-pane" type="button"
+            role="tab" aria-controls="liked-tab-pane" aria-selected="false"><i class="fa-solid fa-heart"></i> Likes</button>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="posts-tab-pane" role="tabpanel" aria-labelledby="posts-tab" tabindex="0">
+        <!-- Posts -->
+        {% for post in posts %}
+        <div class="card post-card post-in-tab">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-1 avatar-col">
+                        <!-- Post author avatar -->
+                        <a href="{% url 'user' post.user %}">
+                            {% if post.user.avatar %}
+                            <img src="{{ post.user.avatar.url }}" class="post-avatar">
+                            {% else %}
+                            <img src="{% static 'images/avatar.jpg' %}" class="post-avatar">
+                            {% endif %}
+                        </a>
+                        <!-- Post author avatar ends -->
+                    </div>
+                    <div class="col-11 post-col">
+                        <!-- Post author and date -->
+                        <div class="post-header">
+                            <a href="{% url 'user' post.user %}" class="user-link">
+                                <strong>{{ post.user.display_name }}</strong>
+                                {% if post.user.verified %}
+                                <i class="fa-solid fa-square-check verified"></i>
+                                {% endif %}
+                                <span>~{{ post.user }}</span>
+                            </a>
+                            <span> · <a href="{% url 'post' post.id %}" class="post-permalink">{{ post.date | date:'M d, Y' }}</a></span>
+                        </div>
+                        <!-- Post author and date ends -->
+                        <!-- Post body, image and link -->
+                        <p>{{ post.post }}</p>
+                        {% if post.link %}
+                        <p><i class="fa-solid fa-link"></i> <a href="{{ post.link }}" class="post-link">{{ post.link }}</a></p>
+                        {% endif %}
+                        {% if post.image %}
+                        <img src="{{ post.image.url }}" class="card-img">
+                        {% endif %}
+                        <!-- Post body, image and link ends -->
+                    </div>
+                </div>
+            </div>
+            <!-- Post footer -->
+            <div class="card-footer">
+                <!-- Reply -->
+                <span><i class="fa-regular fa-comment"></i> 23</span>
+                <!-- Reply ends -->
+                <!-- Like -->
+                <span><i class="fa-regular fa-heart"></i> 5,234</span>
+                <!-- Like ends -->
+                <!-- Repost -->
+                <span><i class="fa-solid fa-retweet"></i> 107</span>
+                <!-- Repost ends -->
+                <!-- Footer menu -->
+                <div class="btn-group dropup">
+                    <button class="btn btn-sm post-menu-btn" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        {% if request.user == post.user %}
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="fa-solid fa-pen-to-square"></i> Edit (NYI)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="fa-solid fa-trash"></i> Delete (NYI)
+                            </a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="fa-solid fa-triangle-exclamation"></i> Report (NYI)
+                            </a>
+                        </li>
+                        <li>
+                            <span class="dropdown-item"><i class="fa-solid fa-user"></i> Follow (NYI)</span>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <a class="dropdown-item" href="{% url 'post' post.id %}">
+                                <i class="fa-solid fa-link"></i> Permalink
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Footer menu ends -->
+            </div>
+            <!-- Post footer ends -->
+        </div>
+        {% endfor %}
+        <!-- Posts ends -->
+    </div>
+    <div class="tab-pane fade" id="images-tab-pane" role="tabpanel" aria-labelledby="images-tab" tabindex="0">
+        Images
+    </div>
+    <div class="tab-pane fade" id="liked-tab-pane" role="tabpanel" aria-labelledby="liked-tab" tabindex="0">
+        Liked Posts
+    </div>
+</div>
+<!-- Tab navigation ends -->
 {% endblock %}
 
 {% block rightsidebar %}

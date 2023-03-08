@@ -71,7 +71,7 @@ header a:hover {
     color: white;
 }
 
-.active {
+.menu-active {
     background-color: #212529 !important;
 }
 
@@ -203,6 +203,7 @@ header a:hover {
 .user-card {
     width: 100%;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .user-background {
@@ -223,4 +224,13 @@ header a:hover {
 .user-buttons {
     height: 75px;
     text-align: right;
+}
+
+.nav-tabs {
+    border-color: #f8f8f8;
+    border-bottom: none;
+}
+
+.post-in-tab:first-of-type {
+    border-top-left-radius: 0;
 }
