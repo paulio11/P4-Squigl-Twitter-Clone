@@ -45,7 +45,14 @@
         <span><i class="fa-regular fa-comment"></i> {{ post.reply_count }}</span>
         <!-- Reply ends -->
         <!-- Like -->
-        <span><i class="fa-regular fa-heart"></i> {{ post.like_count }}</span>
+        <div id="like-link-{{ post.id }}" class="like-link">
+            {% if request.user in post.likes.all %}
+            <i class="fa-solid fa-heart"></i>
+            {% else %}
+            <i class="fa-regular fa-heart"></i>
+            {% endif %}
+            <span>{{ post.like_count }}</span>            
+        </div>
         <!-- Like ends -->
         <!-- Repost -->
         <span><i class="fa-solid fa-retweet"></i> 107</span>
