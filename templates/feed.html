@@ -13,7 +13,7 @@ Feed
 
 {% block rightsidebar %}
 <!-- Who to follow -->
-<div class="card follow-card">
+<div class="card wtf-card">
     <div class="card-header">
         <strong>Who To Follow</strong>
     </div>
@@ -21,16 +21,27 @@ Feed
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
             <a href="{% url 'user' user %}" class="user-link">
-                {% if user.avatar %}
-                <img src="{{ user.avatar.url }}" class="reply-avatar">
-                {% else %}
-                <img src="{% static 'images/avatar.jpg' %}" class="reply-avatar">
-                {% endif %}
-                <strong>~{{ user }}</strong>
+                <div class="d-inline">
+                    {% if user.avatar %}
+                    <img src="{{ user.avatar.url }}" class="reply-avatar">
+                    {% else %}
+                    <img src="{% static 'images/avatar.jpg' %}" class="reply-avatar">
+                    {% endif %}
+                    
+                </div>
+                <div class="small-span wtf-names">                    
+                    <strong>
+                        {{ user.display_name }}
+                        {% if user.verified %}
+                        <i class="fa-solid fa-square-check verified"></i>
+                        {% endif %}
+                    </strong>
+                    <span>~{{ user }}</span>
+                </div>                    
             </a>
-            <a href="{% url 'follow' user %}">
-                <button class="btn btn-dark">Follow</button>
-            </a>  
+            <form action="{% url 'follow' user %}">
+                <button class="btn btn-dark">Follow</button> 
+            </form>
         </li>
     </ul>
     {% endfor %}

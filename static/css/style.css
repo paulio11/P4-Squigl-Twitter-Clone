@@ -15,6 +15,10 @@ h1, h4, h5 {
     font-weight: bold;
 }
 
+.small-span {
+    font-size: 12px;
+}
+
 .verified {
     color: goldenrod;
 }
@@ -173,10 +177,6 @@ header a:hover {
     margin-bottom: 20px;
 }
 
-.reply-date {
-    font-size: 12px;
-}
-
 .reply,
 .reply-form {
 	position: relative;
@@ -300,12 +300,23 @@ label[for=id_reply] {
 
 /* ----------------------------------------------------- Feed */
 
-.follow-card {
+.wtf-card {
     width: 100%;
 }
 
-.follow-card li {
+.wtf-card li {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+}
+
+.wtf-card li a {
+    display: flex;
+    gap: 10px;
+}
+
+.wtf-names {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
