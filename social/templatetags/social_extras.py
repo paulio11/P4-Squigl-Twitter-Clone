@@ -3,10 +3,18 @@ from django import template
 from django.template.defaultfilters import stringfilter
 
 # My imports
-from ..models import Reply
+from ..models import Post, Reply
 
 
 register = template.Library()
+
+
+# Count user mentions (for navigation badge)
+@register.simple_tag
+def mentions_count(user):
+    posts = Post.objects.filter(post__icontains=user).count()
+    replies = Reply.objects.filter(reply__icontains=user).count()
+    return posts + replies
 
 
 # Check if user has replied to a post

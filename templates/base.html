@@ -1,4 +1,5 @@
 {% load static %}
+{% load social_extras %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,7 +86,13 @@
                     {% endif %}                    
                     <a class="nav-link {% if request.user.username in request.path %}menu-active{% endif %}" href="{% url 'user' request.user %}">My Page</a>
                     <a class="nav-link {% if '/new-post/' in request.path %}menu-active{% endif %}" href="{% url 'new_post' %}">New Post</a>
-                    <a class="nav-link {% if '/mentions/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'mentions' %}">Mentions <span class="badge text-bg-danger">NYI</span></a>
+                    <a class="nav-link {% if '/mentions/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'mentions' %}">
+                        Mentions
+                        {% mentions_count request.user as mentions %}
+                        {% if mentions > 0 %}
+                        <span class="badge text-bg-danger">{{ mentions }}</span>
+                        {% endif %}                        
+                    </a>
                     <a class="nav-link" href="#">Messages (NYI)</a>
                     <a class="nav-link {% if '/accounts/settings' in request.path %}menu-active{% endif %}" href="{% url 'settings' request.user.id %}">Settings</a>
                     <a class="nav-link {% if '/about/' in request.path %}menu-active{% endif %}" href="">About Squigl (NYI)</a>
