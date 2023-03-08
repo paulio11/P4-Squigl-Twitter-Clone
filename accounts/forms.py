@@ -8,7 +8,16 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ('username', 'email', 'display_name')
+        fields = ('username', 'name', 'email')
+        widgets = {
+            'username': forms.TextInput(
+                attrs={'placeholder': 'Used in your profile URL and for logging in.'}),
+            'name': forms.TextInput(
+                attrs={'placeholder': 'Pick a name to display on your profile.'}),
+            'email': forms.TextInput(
+                attrs={'placeholder': 'Used when you need to reset your password. Your email is private.'},
+            )
+        }
 
 
 # Custom user change form
@@ -18,8 +27,19 @@ class CustomUserChangeForm(UserChangeForm):
         model = CustomUser
         fields = (
             'username',
-            'email',
-            'display_name',
-            'avatar',
+            'name',
             'about',
+            'website',
+            'avatar',
+            'profile_background',
             )
+        widgets = {
+            'username': forms.TextInput(
+                attrs={'placeholder': 'Used in your profile URL and for logging in.'}),
+            'name': forms.TextInput(
+                attrs={'placeholder': 'Pick a name to display on your profile.'}),
+            'about': forms.TextInput(
+                attrs={'placeholder': 'A place to share some information about yourself.'}),
+            'website': forms.TextInput(
+                attrs={'placeholder': 'Enter the FULL url of a website you would like to share.'}),
+        }
