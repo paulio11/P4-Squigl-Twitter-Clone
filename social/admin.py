@@ -5,5 +5,15 @@ from django.contrib import admin
 from .models import *
 
 
-admin.site.register(Post)
-admin.site.register(Reply)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ['id', 'user', 'date']
+    ordering = ['id']
+
+
+class ReplyAdmin(admin.ModelAdmin):
+    list_display = ['id', 'post', 'user', 'hidden']
+    ordering = ['post']
+
+
+admin.site.register(Post, PostAdmin)
+admin.site.register(Reply, ReplyAdmin)
