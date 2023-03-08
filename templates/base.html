@@ -89,7 +89,7 @@
                         <span class="badge text-bg-danger">{{ mentions }}</span>
                         {% endif %}                        
                     </a>
-                    <a class="nav-link {% if '/messages/inbox' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'inbox' %}">
+                    <a class="nav-link {% if '/messages/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'messages' %}">
                         Messages
                         {% unread_count request.user as unread %}
                         {% if unread > 0 %}

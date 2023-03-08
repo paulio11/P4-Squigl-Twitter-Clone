@@ -10,13 +10,17 @@ from accounts.models import CustomUser
 
 # Message inbox
 @login_required
-def inbox(request):
+def messages(request):
     unread_messages = Message.objects.filter(
         recipient=request.user).filter(read=False).order_by('-date')
     messages = Message.objects.filter(
         recipient=request.user).filter(read=True).order_by('-date')
-    return render(request, 'dm/inbox.html', {
-        'unread_messages': unread_messages, 'messages': messages})
+    sent_messages = Message.objects.filter(
+        sender=request.user).order_by('-date')
+    return render(request, 'dm/messages.html', {
+        'unread_messages': unread_messages,
+        'messages': messages,
+        'sent_messages': sent_messages})
 
 
 # Send user message
