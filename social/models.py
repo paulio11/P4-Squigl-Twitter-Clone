@@ -50,6 +50,7 @@ class Reply(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     reply = models.CharField(max_length=400)
+    hidden = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['post']
