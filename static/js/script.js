@@ -13,4 +13,7 @@ $('#feed-link').hover(function () {
 });
 
 // Hide password div on edit profile page
-$('#div_id_password').css("display", "none");
+var href = window.location.href;
+if(href.indexOf('/accounts/edit-profile/') > -1){
+    $('#div_id_password').css("display", "none");
+}
