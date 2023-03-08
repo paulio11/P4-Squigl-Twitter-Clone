@@ -43,7 +43,8 @@ def search(request):
     if request.method == 'POST':
         query = request.POST['query'].strip().lower()
         users = CustomUser.objects.filter(
-            username__icontains=query).order_by('username')
+            Q(username__icontains=query) | Q(name__icontains=query)).order_by(
+                'username')
         posts = Post.objects.filter(
             post__icontains=query).order_by('-date')
         replies = Reply.objects.filter(
