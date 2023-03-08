@@ -19,7 +19,13 @@
     <img src="{% static 'images/avatar.jpg' %}" class="user-avatar">
     {% endif %}
     <div class="card-body user-buttons">
-        <a href="#" class="btn btn-dark">Follow (NYI)</a>
+        <a href="{% url 'follow' user %}" class="btn btn-dark">
+            {% if following %}
+            Unfollow
+            {% else %}
+            Follow
+            {% endif %}
+        </a>
         <a href="#" class="btn btn-dark">Message (NYI)</a>
     </div>
     <div class="card-body">

@@ -48,14 +48,20 @@ def post(request, post_id):
 
 
 # User
-def user(request, user_username):
+def user(request, user):
     queryset = CustomUser.objects
-    user = get_object_or_404(queryset, username=user_username)
+    user = get_object_or_404(queryset, username=user)
     posts = Post.objects.filter(user_id=user.id).order_by('-date')
+    following = False
+
+    if request.user.is_authenticated:
+        if request.user.following.filter(id=user.id):
+            following = True
 
     return render(request, 'user.html', {
         'user': user,
         'posts': posts,
+        'following': following,
     })
 
 
@@ -92,3 +98,16 @@ def delete_post(request, post_id):
         return redirect('feed')
     else:
         return render(request, 'delete-error.html')
+
+
+# Follow user
+def follow(request, user):
+    user = get_object_or_404(CustomUser, username=user)
+    followed = request.user.following.filter(username=user).exists()
+
+    if followed:
+        request.user.following.remove(user)
+    else:
+        request.user.following.add(user)
+
+    return redirect('user', user)
