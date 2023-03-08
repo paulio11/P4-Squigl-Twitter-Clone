@@ -47,12 +47,36 @@
         <!-- Like -->
         <div id="like-link-{{ post.id }}" class="like-link">
             {% if request.user in post.likes.all %}
-            <i class="fa-solid fa-heart"></i>
+            <i id="like-heart-{{ post.id }}" class="fa-solid fa-heart like-heart"></i>
             {% else %}
-            <i class="fa-regular fa-heart"></i>
+            <i id="like-heart-{{ post.id }}" class="fa-regular fa-heart"></i>
             {% endif %}
-            <span>{{ post.like_count }}</span>            
+            <span id="like-count-{{ post.id }}">{{ post.like_count }}</span>            
         </div>
+        <script>
+            $('#like-link-{{ post.id }}').click(function () {
+                $.ajax(
+                    {
+                        type: 'GET',
+                        url: "{% url 'like_post' post.id %}",
+                        success: function () {
+                            let heart = $('#like-heart-{{ post.id }}');
+                            let span = $('#like-count-{{ post.id }}');
+                            let count = parseInt(span.html());
+                            if (heart.hasClass('like-heart')) {
+                                heart.removeClass('like-heart fa-solid').addClass('fa-regular');
+                                count -= 1;
+                                span.html(count);
+                            } else {
+                                heart.removeClass('fa-regular').addClass('like-heart fa-solid');
+                                count += 1;
+                                span.html(count);
+                            }
+                        }
+                    }
+                )
+            })
+        </script>
         <!-- Like ends -->
         <!-- Repost -->
         <span><i class="fa-solid fa-retweet"></i> 107</span>

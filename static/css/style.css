@@ -149,6 +149,14 @@ header a:hover {
     text-align: center;
 }
 
+.like-link {
+    cursor: pointer;
+}
+
+.like-heart {
+    color: hotpink;
+}
+
 /* ----------------------------------------------------- Replies */
 
 .reply-container {
