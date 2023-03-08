@@ -53,28 +53,21 @@ Search
     <div class="tab-pane fade show active" id="pills-users" role="tabpanel" aria-labelledby="pills-users-tab" tabindex="0">
         {% for user in users %}
         <!-- User profile card -->
-        <a href="{% url 'user' user %}">
-            <div class="card user-card">
-                {% if user.profile_background %}
-                <div class="user-background" style="background-image: url('{{ user.profile_background.url }}');"></div>
+        <a href="{% url 'user' user %}" class="user-link">            
+            <div class="user-background user-search-div" {% if user.profile_background %}style="background-image: url('{{ user.profile_background.url }}');"{% endif %}>
+                {% if user.avatar %}
+                <img src="{{ user.avatar.url }}" class="avatar-search">
                 {% else %}
-                <div class="user-background"></div>
+                <img src="{% static 'images/avatar.jpg' %}" class="avatar-search">
                 {% endif %}
-                <div class="user-search-container">
-                    {% if user.avatar %}
-                    <img src="{{ user.avatar.url }}" class="avatar-search">
-                    {% else %}
-                    <img src="{% static 'images/avatar.jpg' %}" class="avatar-search">
-                    {% endif %}
-                    <div class="user-search-text">
-                        ~{{ user }}<br>
-                        <strong>
-                            {{ user.name }}
-                            {% if user.verified %}
-                            <i class="fa-solid fa-square-check verified"></i>
-                            {% endif %}
-                        </strong>
-                    </div>
+                <div class="user-search-text">
+                    ~{{ user }}<br>
+                    <h4>
+                        {{ user.name }}
+                        {% if user.verified %}
+                        <i class="fa-solid fa-square-check verified"></i>
+                        {% endif %}
+                    </h4>
                 </div>
             </div>
         </a>
