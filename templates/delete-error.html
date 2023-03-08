@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Error
+{% endblock %}
+
+{% block content%}
+<div class="alert alert-warning" role="alert">
+    You do not have permission to delete this post.
+</div>
+<button type="button" class="btn btn-secondary" onclick="javascript:history.back()">
+    Go back
+</button>
+{% endblock %}
