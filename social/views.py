@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.views.generic.edit import UpdateView
+from django.urls import reverse_lazy
 
 # My imports
 from .models import Post, Reply
@@ -76,3 +77,8 @@ class EditPost(UpdateView):
     model = Post
     form_class = PostForm
     template_name = 'edit-post.html'
+
+    def get_success_url(self):
+        return reverse_lazy('post', kwargs={
+            'post_id': self.object.id,
+        })
