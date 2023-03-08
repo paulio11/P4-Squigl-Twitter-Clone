@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Inbox
+{% endblock %}
+
+{% block content %}
+<h2>Messages</h2>
+<hr>
+<!-- Messages navigation -->
+<ul class="nav nav-pills mb-3" id="nav-pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-unread-tab" data-bs-toggle="pill" data-bs-target="#pills-unread"
+            type="button" role="tab" aria-controls="pills-unread" aria-selected="true">Unread <span class="badge text-bg-{% if unread_messages.count > 0 %}danger{% else %}light{% endif %}">{{ unread_messages.count }}</span></button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-read-tab" data-bs-toggle="pill" data-bs-target="#pills-read"
+            type="button" role="tab" aria-controls="pills-read" aria-selected="false">Read <span class="badge text-bg-light">{{ messages.count }}</span></button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-sent-tab" data-bs-toggle="pill" data-bs-target="#pills-sent"
+            type="button" role="tab" aria-controls="pills-sent" aria-selected="false">Sent <span class="badge text-bg-light">{{ sent_messages.count }}</span></button>
+    </li>
+</ul>
+<!-- Messages navigation ends -->
+{{ unread_messages }}
+<br>
+{{ messages }}
+<br>
+{{ sent_messages }}
+{% endblock %}
+
+{% block rightsidebar %}
+{% endblock %}
