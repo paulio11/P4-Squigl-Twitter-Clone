@@ -14,6 +14,8 @@ urlpatterns = [
     path('new-post/', views.new_post, name='new_post'),
     path('like-post/<post_id>', views.like_post, name='like_post'),
     path('repost/<post_id>', views.repost, name='repost'),
+    # Reply
+    path('edit-reply/<int:pk>', views.EditReply.as_view(), name='edit_reply'),
     # User
     path('u/<user>', views.user, name='user'),
     path('follow/<user>', views.follow, name='follow'),

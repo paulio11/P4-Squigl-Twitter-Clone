@@ -38,44 +38,20 @@ Post: {{ post.id }}
     <!-- Reply bubble -->
     <div class="reply">
         {{ reply.reply }}
-        <!-- Reply menu -->
-        <div class="btn-group dropup reply-menu">
-            <button class="btn btn-sm post-menu-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-ellipsis"></i>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end">
-                {% if request.user == reply.user %}
-                <li>
-                    <a class="dropdown-item" href="#">
-                        <i class="fa-solid fa-pen-to-square"></i> Edit (NYI)
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="#">
-                        <i class="fa-solid fa-trash"></i> Delete (NYI)
-                    </a>
-                </li>
-                {% endif %}
-                {% if request.user == post.user and request.user != reply.user %}
-                <li>
-                    <a class="dropdown-item" href="#">
-                        <i class="fa-solid fa-eye-slash"></i> Hide (NYI)
-                    </a>
-                </li>
-                {% endif %}
-                {% if request.user != reply.user %}
-                <li>
-                    <a class="dropdown-item" href="#">
-                        <i class="fa-solid fa-triangle-exclamation"></i> Report (NYI)
-                    </a>
-                </li>
-                {% endif %}
-                <li>
-                    <span class="dropdown-item"><i class="fa-solid fa-link"></i> Permalink (NYI)</span>
-                </li>
-            </ul>
+        <!-- Reply buttons -->
+        <div class="reply-menu">
+            {% if request.user == post.user %}
+            <a href="">
+                <i class="fa-solid fa-eye-slash"></i>
+            </a> 
+            {% endif %}
+            {% if request.user == reply.user %}
+            <a href="{% url 'edit_reply' reply.id %}">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+            {% endif %}
         </div>
-        <!-- Reply menu ends -->
+        <!-- Reply buttons -->
     </div>
     <!-- Reply bubble ends -->
 </div>

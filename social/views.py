@@ -113,6 +113,18 @@ class EditPost(UpdateView):
         })
 
 
+# Edit reply
+class EditReply(UpdateView):
+    model = Reply
+    form_class = ReplyForm
+    template_name = 'edit-reply.html'
+
+    def get_success_url(self):
+        return reverse_lazy('post', kwargs={
+            'post_id': self.object.post.id,
+        })
+
+
 # Delete post
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)

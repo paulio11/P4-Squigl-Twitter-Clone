@@ -287,6 +287,12 @@ label[for=id_reply] {
     position: absolute;
     bottom: 0;
     right: 0;
+    margin-right: 3px;
+}
+
+.reply-menu a {
+    text-decoration: none;
+    color: #d1d1d1;
 }
 
 /* ----------------------------------------------------- Repost */
