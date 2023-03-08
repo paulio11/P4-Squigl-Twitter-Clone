@@ -201,7 +201,7 @@ header a:hover {
 }
 
 #search-pills-tab li button {
-    width: 125px;
+    gap: 16px;
     margin-right: 10px;
     display: flex;
     align-items: center;
