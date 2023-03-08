@@ -29,7 +29,7 @@ Messages
     <div class="tab-pane fade show active" id="pills-unread" role="tabpanel" aria-labelledby="pills-unread-tab" tabindex="0">
         {% if unread_messages %}
         {% for message in unread_messages %}
-        {% include 'message-template.html' %}
+        {% include 'templates/message-template.html' %}
         {% endfor %}
         {% else %}
         <div class="alert alert-light" role="alert">
@@ -42,7 +42,7 @@ Messages
     <div class="tab-pane fade" id="pills-read" role="tabpanel" aria-labelledby="pills-read-tab" tabindex="0">
         {% if messages %}
         {% for message in messages %}
-        {% include 'message-template.html' %}
+        {% include 'templates/message-template.html' %}
         {% endfor %}
         {% else %}
         <div class="alert alert-light" role="alert">
@@ -55,7 +55,7 @@ Messages
     <div class="tab-pane fade" id="pills-sent" role="tabpanel" aria-labelledby="pills-sent-tab" tabindex="0">
         {% if sent_messages %}
         {% for message in sent_messages %}
-        {% include 'message-template.html' %}
+        {% include 'templates/message-template.html' %}
         {% endfor %}
         {% else %}
         <div class="alert alert-light" role="alert">
@@ -68,6 +68,6 @@ Messages
 {% endblock %}
 
 {% block rightsidebar %}
-{% include 'hashtags-side-template.html' %}
-{% include 'users-side-template.html' %}
+{% include 'side/hashtags-side-template.html' %}
+{% include 'side/users-side-template.html' %}
 {% endblock %}

@@ -39,14 +39,14 @@ Mentions
     <!-- Mentions - posts -->
     <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab" tabindex="0">
         {% for post in posts %}
-        {% include 'post-template.html' %}
+        {% include 'templates/post-template.html' %}
         {% endfor %}
     </div>
     <!-- Mentions - posts ends -->
     <!-- Mentions - replies -->
     <div class="tab-pane fade {% if not posts %}show active{% endif %}" id="pills-replies" role="tabpanel" aria-labelledby="pills-replies-tab" tabindex="0">
         {% for reply in replies %}
-        {% include 'reply-template.html' %}
+        {% include 'templates/reply-template.html' %}
         {% endfor %}
     </div>
     <!-- Mentions - replies ends -->
@@ -54,6 +54,6 @@ Mentions
 {% endblock %}
 
 {% block rightsidebar %}
-{% include 'hashtags-side-template.html' %}
-{% include 'users-side-template.html' %}
+{% include 'side/hashtags-side-template.html' %}
+{% include 'side/users-side-template.html' %}
 {% endblock %}

@@ -2,21 +2,20 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-Repost
+New Post
 {% endblock %}
 
 {% block content %}
-<h2>Repost</h2>
+<h2>New Post</h2>
 <hr>
-{% include 'post-template.html' %}
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form | crispy }}
-    <button type="submit" class="btn btn-dark">Repost</button>
+    <button type="submit" class="btn btn-dark">Post</button>
 </form>
 {% endblock %}
 
 {% block rightsidebar %}
-{% include 'hashtags-side-template.html' %}
-{% include 'users-side-template.html' %}
+{% include 'side/hashtags-side-template.html' %}
+{% include 'side/users-side-template.html' %}
 {% endblock %}

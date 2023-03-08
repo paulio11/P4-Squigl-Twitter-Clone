@@ -32,7 +32,7 @@ def feed(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'feed.html', {
+    return render(request, 'social/feed.html', {
         'post_count': posts.count(),
         'page_obj': page_obj,
     })
@@ -49,14 +49,14 @@ def search(request):
             post__icontains=query).order_by('-date')
         replies = Reply.objects.filter(
             reply__icontains=query).exclude(hidden=True).order_by('-date')
-        return render(request, 'search.html', {
+        return render(request, 'social/search.html', {
             'query': query,
             'posts': posts,
             'users': users,
             'replies': replies,
         })
     else:
-        return render(request, 'search.html')
+        return render(request, 'social/search.html')
 
 
 # Post
@@ -72,7 +72,7 @@ def post(request, post_id):
             form.save()
             return HttpResponseRedirect(request.path_info)
     else:
-        return render(request, 'post.html', {
+        return render(request, 'social/post.html', {
             'post': post,
             'replies': replies,
             'form': ReplyForm(),
@@ -84,7 +84,6 @@ def user(request, user):
     queryset = CustomUser.objects
     user = get_object_or_404(queryset, username=user)
     posts = Post.objects.filter(user_id=user.id).order_by('-date')
-    # liked_posts = user.post_likes.all()
     following = False
 
     paginator = Paginator(posts, 20)
@@ -95,11 +94,10 @@ def user(request, user):
         if request.user.following.filter(id=user.id):
             following = True
 
-    return render(request, 'user.html', {
+    return render(request, 'social/user.html', {
         'user': user,
         'page_obj': page_obj,
         'post_count': posts.count(),
-        # 'liked_posts': liked_posts,
         'following': following,
     })
 
@@ -115,7 +113,7 @@ def new_post(request):
             post.save()
             return redirect('post', post.id)
     else:
-        return render(request, 'new-post.html', {'form': PostForm()})
+        return render(request, 'new/new-post.html', {'form': PostForm()})
 
 
 # Repost
@@ -132,7 +130,7 @@ def repost(request, post_id):
             return redirect('post', post.id)
     else:
         return render(
-            request, 'new-repost.html', {
+            request, 'new/new-repost.html', {
                 'form': PostForm(), 'post': old_post})
 
 
@@ -140,7 +138,7 @@ def repost(request, post_id):
 class EditPost(UpdateView):
     model = Post
     form_class = PostForm
-    template_name = 'edit-post.html'
+    template_name = 'edit/edit-post.html'
 
     def get_success_url(self):
         return reverse_lazy('post', kwargs={
@@ -152,7 +150,7 @@ class EditPost(UpdateView):
 class EditReply(UpdateView):
     model = Reply
     form_class = ReplyForm
-    template_name = 'edit-reply.html'
+    template_name = 'edit/edit-reply.html'
 
     def get_success_url(self):
         return reverse_lazy('post', kwargs={
@@ -168,7 +166,7 @@ def delete_post(request, post_id):
         return redirect('feed')
     else:
         e = 'You can not delete this post because you are not the author.'
-        return render(request, 'error.html', {'e': e})
+        return render(request, 'error/error.html', {'e': e})
 
 
 # Delete reply
@@ -179,7 +177,7 @@ def delete_reply(request, reply_id):
         return redirect('post', reply.post.id)
     else:
         e = 'You can not delete this reply because you are not the author.'
-        return render(request, 'error.html', {'e': e})
+        return render(request, 'error/error.html', {'e': e})
 
 
 # Like post
@@ -233,7 +231,7 @@ def mentions(request):
         read=request.user).order_by('-date')
     replies = Reply.objects.filter(reply__icontains=request.user).exclude(
         hidden=True).exclude(read=request.user).order_by('-date')
-    return render(request, 'mentions.html', {
+    return render(request, 'social/mentions.html', {
         'posts': posts,
         'replies': replies,
     })

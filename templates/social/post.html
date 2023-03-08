@@ -6,7 +6,7 @@ Post: {{ post.id }}
 {% endblock %}
 
 {% block content %}
-{% include 'post-template.html' %}
+{% include 'templates/post-template.html' %}
 {% if request.user in post.reported.all %}
 <div class="alert alert-warning" role="alert">
     You have reported this post. It is now hidden to you.
@@ -16,10 +16,10 @@ Post: {{ post.id }}
 {% if replies %}
     {% for reply in replies %}
         {% if reply.user == request.user and reply.hidden %}
-            {% include 'reply-template.html' %}
+            {% include 'templates/reply-template.html' %}
         {% endif %}
         {% if reply.hidden == False %}
-            {% include 'reply-template.html' %}
+            {% include 'templates/reply-template.html' %}
         {% endif %}
     {% endfor %}
 {% else %}

@@ -8,7 +8,7 @@ Error
 <h2>Error</h2>
 <hr>
 <div class="alert alert-warning" role="alert">
-    You do not have permission to do that.
+    {{ e }}
 </div>
 <button type="button" class="btn btn-secondary" onclick="javascript:history.back()">
     Go back
@@ -16,6 +16,4 @@ Error
 {% endblock %}
 
 {% block rightsidebar %}
-{% include 'hashtags-side-template.html' %}
-{% include 'users-side-template.html' %}
 {% endblock %}

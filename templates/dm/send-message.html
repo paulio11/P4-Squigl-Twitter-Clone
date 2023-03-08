@@ -9,7 +9,7 @@ Send Message
 <h2>Send {% if message %}Reply to ~{{ message.sender }}{% else %} Message to ~{{ recipient }}{% endif %}</h2>
 <hr>
 {% if message %}
-{% include 'message-template.html' %}
+{% include 'templates/message-template.html' %}
 {% endif %}
 <form method="POST">
     {% csrf_token %}

@@ -7,7 +7,7 @@ Feed
 
 {% block content %}
 {% for post in page_obj %}
-{% include 'post-template.html' %}
+{% include 'templates/post-template.html' %}
 {% endfor %}
 <!-- Page navigation -->
 {% if post_count == 0 %}
@@ -37,6 +37,6 @@ Feed
 {% endblock %}
 
 {% block rightsidebar %}
-{% include 'hashtags-side-template.html' %}
-{% include 'users-side-template.html' %}
+{% include 'side/hashtags-side-template.html' %}
+{% include 'side/users-side-template.html' %}
 {% endblock %}

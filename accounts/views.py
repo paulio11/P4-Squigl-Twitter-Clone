@@ -22,7 +22,7 @@ class SignUpView(CreateView):
 class EditProfile(UpdateView):
     model = CustomUser
     form_class = CustomUserChangeForm
-    template_name = 'edit-profile.html'
+    template_name = 'accounts/edit-profile.html'
 
     def get_success_url(self):
         return reverse_lazy('user', kwargs={
@@ -49,7 +49,7 @@ def change_password(request):
             return redirect('settings', form.user.id)
     else:
         form = PasswordChangeForm(user=request.user)
-    return render(request, 'password.html', {'form': form})
+    return render(request, 'accounts/password.html', {'form': form})
 
 
 # Delete account
@@ -60,4 +60,4 @@ def delete_account(request):
         return redirect('home')
     else:
         e = 'You do not have permission to do this.'
-        return render(request, 'error.html', {'e': e})
+        return render(request, 'error/error.html', {'e': e})
