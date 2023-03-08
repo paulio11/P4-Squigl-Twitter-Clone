@@ -170,7 +170,8 @@ header a:hover {
     font-size: 12px;
 }
 
-.reply {
+.reply,
+.reply-form {
 	position: relative;
     width: 100%;
     padding: 20px;
@@ -179,7 +180,8 @@ header a:hover {
     box-shadow: 0 0 0 1px #d1d1d1;
 }
 
-.reply::before {
+.reply::before,
+.reply-form::before {
 	content: '';
 	position: absolute;
 	width: 0;
@@ -190,6 +192,16 @@ header a:hover {
 	border-top: none;
 	border-bottom-color: #f8f8f8;
 	filter: drop-shadow(0 -1px 1px #d1d1d1);
+}
+
+.reply-form {
+    margin-bottom: 20px;
+}
+
+.reply-input {
+    background-color: #f8f8f8;
+    border: none;
+    padding-left: 0;
 }
 
 .reply-menu {

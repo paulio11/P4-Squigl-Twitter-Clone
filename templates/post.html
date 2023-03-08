@@ -10,13 +10,35 @@ Post: {{ post.id }}
 {% include 'post-template.html' %}
 <!-- Replies -->
 {% if request.user.is_authenticated %}
-<!-- Reply form -->
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form | crispy }}
-    <button type="submit" class="btn btn-dark">Reply</button>
-</form>
-<!-- Reply form ends -->
+<div class="reply-container">
+    <!-- User info -->
+    <div class="reply-header">
+        <a href="{% url 'user' request.user %}">
+            {% if request.user.avatar %}
+            <img src="{{ request.user.avatar.url }}" class="reply-avatar">
+            {% else %}
+            <img src="{% static 'images/avatar.jpg' %}" class="reply-avatar">
+            {% endif %}
+        </a>
+        <div>
+            <a href="{% url 'user' request.user %}" class="user-link">
+                <strong>{{ request.user.display_name }}</strong>
+                {% if request.user.verified %}
+                <i class="fa-solid fa-square-check verified"></i>
+                {% endif %}
+                ~{{ request.user }}
+            </a>    
+        </div>
+    </div> 
+    <!-- User info ends -->
+    <!-- Reply form -->
+    <form method="POST" enctype="multipart/form-data" class="reply-form">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button class="btn btn-dark" type="submit">Reply</button>
+    </form>     
+    <!-- Reply form ends -->
+</div>   
 {% else %}
 <p><a href="{% url 'login' %}">Login</a> if you want to reply to this post.</p>
 {% endif %}

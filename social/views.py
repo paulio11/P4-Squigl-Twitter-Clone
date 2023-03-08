@@ -28,7 +28,7 @@ def feed(request):
 # Post
 def post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    replies = Reply.objects.filter(post_id=post_id).order_by('date')
+    replies = Reply.objects.filter(post_id=post_id).order_by('-date')
 
     if request.method == 'POST':
         form = ReplyForm(data=request.POST)
