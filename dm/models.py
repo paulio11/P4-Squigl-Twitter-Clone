@@ -14,6 +14,8 @@ class Message(models.Model):
     message = models.TextField(max_length=400)
     date = models.DateTimeField(auto_now_add=True)
     read = models.BooleanField(default=False)
+    sender_del = models.BooleanField(default=False)
+    recipient_del = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-date']

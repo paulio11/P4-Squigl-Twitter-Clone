@@ -14,7 +14,8 @@ def messages(request):
     unread_messages = Message.objects.filter(
         recipient=request.user).filter(read=False).order_by('-date')
     messages = Message.objects.filter(
-        recipient=request.user).filter(read=True).order_by('-date')
+        recipient=request.user).filter(read=True).exclude(
+            recipient_del=True).order_by('-date')
     sent_messages = Message.objects.filter(
         sender=request.user).order_by('-date')
     return render(request, 'dm/messages.html', {
@@ -50,7 +51,22 @@ def mark_read(request, message_id):
         return render(request, 'permission-error.html')
 
 
-
+# Delete message
+@login_required
+def delete_message(request, message_id):
+    message = get_object_or_404(Message, id=message_id)
+    if request.user == message.sender:
+        message.sender_del = True
+        message.save()
+    elif request.user == message.recipient:
+        message.read = True
+        message.recipient_del = True
+        message.save()
+    else:
+        return render(request, 'permission-error.html')
+    if message.recipient_del and message.sender_del:
+        message.delete()
+    return redirect('messages')
 
 
 
