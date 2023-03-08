@@ -137,6 +137,11 @@ header a:hover {
 
 /* ----------------------------------------------------- Left Sidebar Navigation */
 
+#tiny-nav a {
+    width: 100%;
+    text-align: center;
+}
+
 .nav-link {
     margin-bottom: 4px;
     color: #212529;
