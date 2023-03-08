@@ -86,6 +86,7 @@
                     <a class="nav-link" href="{% url 'feed' %}">Feed</a>
                     {% endif %}                    
                     <a class="nav-link {% if request.user.username in request.path %}menu-active{% endif %}" href="{% url 'user' request.user %}">My Page</a>
+                    <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="#">Explore (NYI)</a>
                     <a class="nav-link {% if '/new-post/' in request.path %}menu-active{% endif %}" href="{% url 'new_post' %}">New Post</a>
                     <a class="nav-link {% if '/mentions/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'mentions' %}">
                         Mentions
