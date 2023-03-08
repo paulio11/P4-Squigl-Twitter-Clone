@@ -1,0 +1,40 @@
+{% load static %}
+{% load social_extras %}
+{% suggested_users request.user as users %}
+{% if users %}
+<!-- Who to follow -->
+<div class="card sidebar-card">
+    <div class="card-header">
+        <strong>Who To Follow</strong>
+    </div>
+    {% for user in users %}
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <a href="{% url 'user' user %}" class="user-link">
+                <div class="d-inline">
+                    {% if user.avatar %}
+                    <img src="{{ user.avatar.url }}" class="avatar-small">
+                    {% else %}
+                    <img src="{% static 'images/avatar.jpg' %}" class="avatar-small">
+                    {% endif %}
+                    
+                </div>
+                <div class="small-span wtf-names">    
+                    <span>~{{ user }}</span>                
+                    <strong>
+                        {{ user.name }}
+                        {% if user.verified %}
+                        <i class="fa-solid fa-square-check verified"></i>
+                        {% endif %}
+                    </strong>                    
+                </div>                    
+            </a>
+            <form action="{% url 'follow' user %}">
+                <button class="btn btn-dark">Follow</button> 
+            </form>
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+<!-- Who to follow ends -->
+{% endif %}

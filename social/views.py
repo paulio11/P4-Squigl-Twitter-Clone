@@ -24,18 +24,12 @@ def feed(request):
     following = request.user.following
     posts = Post.objects.filter(
         Q(user__in=following.all()) | Q(user=request.user))
-    users = CustomUser.objects.exclude(
-        id__in=following.all()).exclude(id=request.user.id).order_by('?')[:10]
-    recent_hashtags = Post.objects.filter(
-        post__contains='#')[:100]
 
     paginator = Paginator(posts, 20)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     return render(request, 'feed.html', {
-        'users': users,
-        'recent_hashtags': recent_hashtags,
         'post_count': posts.count(),
         'page_obj': page_obj,
     })

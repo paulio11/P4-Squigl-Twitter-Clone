@@ -86,9 +86,9 @@
                     <a class="nav-link menu-active" href="{% url 'feed' %}" id="feed-link">Refresh Feed <i id="feed-icon" class="fa-solid fa-arrows-rotate"></i></a>
                     {% else %}
                     <a class="nav-link" href="{% url 'feed' %}">Feed</a>
-                    {% endif %}                    
+                    {% endif %}
+                    <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="{% url 'search' %}">Search</a>                    
                     <a class="nav-link {% if request.user.username in request.path %}menu-active{% endif %}" href="{% url 'user' request.user %}">My Page</a>
-                    <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="{% url 'search' %}">Search</a>
                     <a class="nav-link {% if '/new-post/' in request.path %}menu-active{% endif %}" href="{% url 'new_post' %}">New Post</a>
                     <a class="nav-link {% if '/mentions/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'mentions' %}">
                         Mentions

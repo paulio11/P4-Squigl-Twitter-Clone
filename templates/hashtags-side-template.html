@@ -1,0 +1,18 @@
+{% load social_extras %}
+{% recent_hashtags as recent_hashtags %}
+<!-- Posts with hashtags (hidden) -->
+<div id="hidden-posts">
+    {% for tag in recent_hashtags %}
+    <div class="hidden-post post-body">{{ tag.post }}</div>
+    {% endfor %}
+</div>
+<!-- Posts with hashtags (hidden) ends -->
+<!-- Trending hashtags -->
+<div class="card sidebar-card">
+    <div class="card-header">
+        <strong>Trending Hashtags</strong>
+    </div>
+    <ul id="trending-ul" class="list-group list-group-flush">
+    </ul>
+</div>
+<!-- Trending hashtags ends -->

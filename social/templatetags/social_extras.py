@@ -4,9 +4,27 @@ from django.template.defaultfilters import stringfilter
 
 # My imports
 from ..models import Post, Reply
+from accounts.models import CustomUser
 
 
 register = template.Library()
+
+
+# Suggested users to follow
+@register.simple_tag
+def suggested_users(user):
+    following = user.following
+    users = CustomUser.objects.exclude(
+        id__in=following.all()).exclude(id=user.id).order_by('?')[:10]
+    return users
+
+
+# Recent posts with hashtags
+@register.simple_tag
+def recent_hashtags():
+    recent_hashtags = Post.objects.filter(
+        post__contains='#')[:100]
+    return recent_hashtags
 
 
 # Count user mentions (for navigation badge)
