@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Error 500
+{% endblock %}
+
+{% block content%}
+<h2>Error 500</h2>
+<hr>
+<div class="alert alert-warning" role="alert">
+    The server encountered an unexpected condition that prevented it from fulfilling your request.
+</div>
+<button type="button" class="btn btn-secondary" onclick="javascript:history.back()">
+    Go back
+</button>
+{% endblock %}
+
+{% block rightsidebar %}
+{% endblock %}

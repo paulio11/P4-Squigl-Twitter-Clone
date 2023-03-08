@@ -166,7 +166,7 @@ def delete_post(request, post_id):
         return redirect('feed')
     else:
         e = 'You can not delete this post because you are not the author.'
-        return render(request, 'error/error.html', {'e': e})
+        return render(request, 'error.html', {'e': e})
 
 
 # Delete reply
@@ -177,7 +177,7 @@ def delete_reply(request, reply_id):
         return redirect('post', reply.post.id)
     else:
         e = 'You can not delete this reply because you are not the author.'
-        return render(request, 'error/error.html', {'e': e})
+        return render(request, 'error.html', {'e': e})
 
 
 # Like post

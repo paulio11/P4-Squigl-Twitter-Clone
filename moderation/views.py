@@ -44,7 +44,7 @@ def mod_delete_post(request, post_id):
         return redirect('moderation')
     else:
         e = 'You can not delete this message post you are not a Squigl moderator.'
-        return render(request, 'error/error.html', {'e': e})
+        return render(request, 'error.html', {'e': e})
 
 
 # Moderator delete reply
@@ -58,7 +58,7 @@ def mod_delete_reply(request, reply_id):
         return redirect('moderation')
     else:
         e = 'You can not delete this reply because you are not a Squigl moderator.'
-        return render(request, 'error/error.html', {'e': e})
+        return render(request, 'error.html', {'e': e})
 
 
 # Moderator delete message
@@ -85,7 +85,7 @@ def post_is_okay(request, post_id):
         return redirect('moderation')
     else:
         e = 'You can not okay this post because you are not a Squigl moderator.'
-        return render(request, 'error/error.html', {'e': e})
+        return render(request, 'error.html', {'e': e})
 
 
 # Reply is okay
@@ -99,7 +99,7 @@ def reply_is_okay(request, reply_id):
         return redirect('moderation')
     else:
         e = 'You can not okay this reply because you are not a Squigl moderator.'
-        return render(request, 'error/error.html', {'e': e})
+        return render(request, 'error.html', {'e': e})
 
 
 # Message is okay
@@ -112,7 +112,7 @@ def msg_is_okay(request, message_id):
         return redirect('moderation')
     else:
         e = 'You can not okay this message because you are not a Squigl moderator.'
-        return render(request, 'error/error.html', {'e': e})
+        return render(request, 'error.html', {'e': e})
 
 
 # Ban user
@@ -129,4 +129,4 @@ def ban_user(request, user_id):
         return redirect('moderation')
     else:
         e = 'You can not ban this user because you are not a Squigl moderator.'
-        return render(request, 'error/error.html', {'e': e})
+        return render(request, 'error.html', {'e': e})
