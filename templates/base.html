@@ -24,7 +24,7 @@
             <div class="row header-row">
                 <!-- Title -->
                 <div class="d-none d-sm-block col-sm-2">
-                    <a href="{% url 'home' %}"><h1>~squigl</h1></a>
+                    <a href="{% url 'home' %}"><h1><span class="logo-squigl">~</span>squ<span class="logo-i">i</span>gl</h1></a>
                 </div>
                 <!-- Title ends -->
                 <!-- Search -->
@@ -94,14 +94,14 @@
                         <span><i class="fa-solid fa-quote-left"></i> Mentions</span>    
                         {% mentions_count request.user as mentions %}
                         {% if mentions > 0 %}
-                        <span class="badge text-bg-danger">{{ mentions }}</span>
+                        <span class="badge text-bg-info">{{ mentions }}</span>
                         {% endif %}                        
                     </a>
                     <a class="nav-link {% if '/messages/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'messages' %}">
                         <span><i class="fa-solid fa-envelope"></i> Messages</span>
                         {% unread_count request.user as unread %}
                         {% if unread > 0 %}
-                        <span class="badge text-bg-danger">{{ unread }}</span>
+                        <span class="badge text-bg-info">{{ unread }}</span>
                         {% endif %}         
                     </a>
                     <a class="nav-link {% if '/accounts/settings' in request.path %}menu-active{% endif %}" href="{% url 'settings' request.user.id %}">
@@ -125,7 +125,7 @@
                         <span><i class="fa-solid fa-thumbs-up"></i> Moderation</span>
                         {% mod_count as mod_count %}
                         {% if mod_count > 0 %}
-                        <span class="badge text-bg-danger">{% mod_count %}</span>
+                        <span class="badge text-bg-info">{% mod_count %}</span>
                         {% endif %}
                     </a>
                     {% endif %}
@@ -250,14 +250,14 @@
                                     <span><i class="fa-solid fa-quote-left"></i> Mentions</span>    
                                     {% mentions_count request.user as mentions %}
                                     {% if mentions > 0 %}
-                                    <span class="badge text-bg-danger">{{ mentions }}</span>
+                                    <span class="badge text-bg-info">{{ mentions }}</span>
                                     {% endif %}                        
                                 </a>
                                 <a class="nav-link {% if '/messages/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'messages' %}">
                                     <span><i class="fa-solid fa-envelope"></i> Messages</span>
                                     {% unread_count request.user as unread %}
                                     {% if unread > 0 %}
-                                    <span class="badge text-bg-danger">{{ unread }}</span>
+                                    <span class="badge text-bg-info">{{ unread }}</span>
                                     {% endif %}         
                                 </a>
                                 <a class="nav-link {% if '/accounts/settings' in request.path %}menu-active{% endif %}" href="{% url 'settings' request.user.id %}">
@@ -281,15 +281,11 @@
                                     <span><i class="fa-solid fa-thumbs-up"></i> Moderation</span>
                                     {% mod_count as mod_count %}
                                     {% if mod_count > 0 %}
-                                    <span class="badge text-bg-danger">{% mod_count %}</span>
+                                    <span class="badge text-bg-info">{% mod_count %}</span>
                                     {% endif %}
                                 </a>
                                 {% endif %}
                             </div>
-                            <!-- <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </form> -->
                         </div>
                     </div>
                 </nav>

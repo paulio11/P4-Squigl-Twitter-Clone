@@ -20,19 +20,16 @@
 
 /* ----------------------------------------------------- Text, Headings, Links */
 
-h1, h4, h5 {
+h1, h4 {
     font-family: 'Fredoka One';
-}
-
-body {
-    font-family: 'Roboto';
 }
 
 .small-span {
     font-size: 12px;
 }
 
-.verified {
+.verified,
+.logo-i {
     color: goldenrod;
 }
 
@@ -47,6 +44,10 @@ body {
 
 .btn-link {
     text-decoration: none;
+}
+
+.logo-squigl {
+    color: #56008b;
 }
 
 /* ----------------------------------------------------- Usertags and hashtags */
@@ -191,7 +192,12 @@ header a:hover {
 }
 
 .tiny-alert {
-    color: red !important;
+    color: #56008b !important;
+}
+
+.text-bg-info {
+    color: white !important;
+    background-color: #56008b !important;
 }
 
 #hamburger-div {
