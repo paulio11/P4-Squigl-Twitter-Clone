@@ -163,8 +163,6 @@ class EditReply(UpdateView):
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     if request.user == post.user:
-        if post.repost_post.reposter.filter(id=request.user.id).exists():
-            post.repost_post.reposter.remove(request.user)
         post.delete()
         return redirect('feed')
     else:

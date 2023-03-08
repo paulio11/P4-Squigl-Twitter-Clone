@@ -101,11 +101,7 @@
         <!-- Like ends -->
         <!-- Repost -->
         <a href="{% url 'repost' post.id %}" class="footer-link">
-            {% if request.user in post.reposter.all %}
-            <i class="fa-solid fa-retweet reposted-icon"></i>
-            {% else %}
             <i class="fa-solid fa-retweet footer-icon"></i>
-            {% endif %}
             <span class="footer-num">{{ post.repost_count }}</span>
         </a>
         <!-- Repost ends -->

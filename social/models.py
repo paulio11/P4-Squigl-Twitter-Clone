@@ -16,8 +16,8 @@ class Post(models.Model):
     link = models.CharField(max_length=50, blank=True)
     likes = models.ManyToManyField(
         CustomUser, related_name='post_likes', blank=True)
-    reposter = models.ManyToManyField(
-        CustomUser, related_name='reposter', blank=True)
+    # reposter = models.ManyToManyField(
+    #     CustomUser, related_name='reposter', blank=True)
     repost_post = models.ForeignKey(
         'self',
         on_delete=models.CASCADE,
