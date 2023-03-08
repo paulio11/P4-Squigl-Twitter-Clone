@@ -99,7 +99,9 @@
         <!-- Posts with images ends -->
     </div>
     <div class="tab-pane fade" id="liked-tab-pane" role="tabpanel" aria-labelledby="liked-tab" tabindex="0">
-        Liked Posts
+        {% for post in liked_posts %}
+        {% include 'post-template.html' %}
+        {% endfor %}
     </div>
 </div>
 <!-- Tab navigation ends -->
