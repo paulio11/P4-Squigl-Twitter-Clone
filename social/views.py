@@ -41,7 +41,7 @@ def feed(request):
 # Search
 def search(request):
     if request.method == 'POST':
-        query = request.POST['query']
+        query = request.POST['query'].strip().lower()
         users = CustomUser.objects.filter(
             username__icontains=query).order_by('username')
         posts = Post.objects.filter(
