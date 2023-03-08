@@ -1,4 +1,23 @@
 {% load static %}
+<!-- Hide reply modal -->
+<div class="modal fade" id="hideReply{{ reply.id}}Modal" tabindex="-1" aria-labelledby="hideReply{{ reply.id}}ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="hideReply{{ reply.id }}ModalLabel">Hide Reply</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to hide this reply from other users?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <a href="{% url 'hide_reply' reply.id %}"><button type="button" class="btn btn-danger">Yes</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hide reply modal ends -->
 <div class="reply-container">
     <!-- Reply user and date info -->
     <div class="reply-header">
@@ -34,9 +53,9 @@
         <!-- Reply buttons -->
         <div class="reply-menu">
             {% if request.user == post.user and request.user != reply.user %}
-            <a href="{% url 'hide_reply' reply.id %}">
+            <button type="button" class="hide-btn" data-bs-toggle="modal" data-bs-target="#hideReply{{ reply.id }}Modal">
                 <i class="fa-solid fa-eye-slash"></i>
-            </a> 
+            </button>
             {% endif %}
             {% if request.user == reply.user %}
             <a href="{% url 'edit_reply' reply.id %}">

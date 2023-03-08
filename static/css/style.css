@@ -316,6 +316,13 @@ label[for=id_reply] {
     color: #d1d1d1;
 }
 
+.hide-btn {
+    background: none;
+    border: none;
+    color: #d1d1d1;
+    padding: 0;
+}
+
 /* ----------------------------------------------------- Repost */
 
 .repost {
