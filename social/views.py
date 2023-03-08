@@ -83,6 +83,23 @@ def new_post(request):
         return render(request, 'new-post.html', {'form': PostForm()})
 
 
+# Repost
+def repost(request, post_id):
+    if request.method == 'POSt':
+        form = PostForm(request.POST, request.FILES or None)
+        old_post = get_object_or_404(Post, id=post_id)
+        if form.is_valid():
+            post = form.save(commit=False)
+            old_post.reposter.add(request.user)
+            post.user = request.user
+            post.repost_post = old_post
+            post.save()
+            return redirect('post', post.id)
+    else:
+        return render(
+            request, 'repost.html', {'form': PostForm(), 'old_post': old_post})
+
+
 # Edit post
 class EditPost(UpdateView):
     model = Post
