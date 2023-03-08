@@ -23,8 +23,11 @@ class Post(models.Model):
     def __str__(self):
         return f'Post: {self.id}, by: {self.user}, on: {self.date}'
 
-    def likes_count(self):
+    def like_count(self):
         return self.likes.count()
+
+    def reply_count(self):
+        return Reply.objects.filter(post=self.id).count()
 
 
 class Reply(models.Model):
