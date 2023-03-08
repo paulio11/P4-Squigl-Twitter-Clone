@@ -97,7 +97,8 @@ def repost(request, post_id):
             return redirect('post', post.id)
     else:
         return render(
-            request, 'repost.html', {'form': PostForm(), 'old_post': old_post})
+            request, 'new-repost.html', {
+                'form': PostForm(), 'old_post': old_post})
 
 
 # Edit post
