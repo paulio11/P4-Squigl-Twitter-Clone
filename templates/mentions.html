@@ -20,7 +20,7 @@ Mentions
         {% endif %}
         {% if replies %}
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-replies-tab" data-bs-toggle="pill" data-bs-target="#pills-replies"
+            <button class="nav-link {% if not posts %}active{% endif %}" id="pills-replies-tab" data-bs-toggle="pill" data-bs-target="#pills-replies"
                 type="button" role="tab" aria-controls="pills-replies" aria-selected="false">Replies <span class="badge text-bg-danger">{{ replies.count }}</span></button>
         </li>
         {% endif %}
@@ -42,7 +42,7 @@ Mentions
     </div>
     <!-- Mentions - posts ends -->
     <!-- Mentions - replies -->
-    <div class="tab-pane fade" id="pills-replies" role="tabpanel" aria-labelledby="pills-replies-tab" tabindex="0">
+    <div class="tab-pane fade {% if not posts %}show active{% endif %}" id="pills-replies" role="tabpanel" aria-labelledby="pills-replies-tab" tabindex="0">
         {% for reply in replies %}
         {% include 'reply-template.html' %}
         {% endfor %}
