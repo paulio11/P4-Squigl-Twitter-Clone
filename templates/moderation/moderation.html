@@ -26,8 +26,7 @@ Moderation
             </div> 
             <div class="modal-footer">                          
                 <a href="{% url 'mod_post_okay' post.id %}"><button class="btn btn-success">Post Is Okay</button></a>
-                <a href="{% url 'mod_delete_post' post.id %}"><button class="btn btn-warning">Delete Post</button></a>
-                <button class="btn btn-danger">Ban User (NYI)</button>
+                <a href="{% url 'mod_delete_post' post.id %}"><button class="btn btn-danger">Delete Post</button></a>
             </div>
         </div>
     </div>
@@ -57,8 +56,7 @@ Moderation
             </div> 
             <div class="modal-footer">
                 <a href="{% url 'mod_reply_okay' reply.id %}"><button class="btn btn-success">Reply Is Okay</button></a>
-                <a href="{% url 'mod_delete_reply' reply.id %}"><button class="btn btn-warning">Delete Reply</button></a> 
-                <button class="btn btn-danger">Ban User (NYI)</button>
+                <a href="{% url 'mod_delete_reply' reply.id %}"><button class="btn btn-danger">Delete Reply</button></a> 
             </div>
         </div>
     </div>
@@ -87,8 +85,7 @@ Moderation
             </div> 
             <div class="modal-footer">
                 <a href="{% url 'mod_msg_okay' message.id %}"><button class="btn btn-success">Message Is Okay</button></a>
-                <a href="{% url 'mod_delete_msg' message.id %}"><button class="btn btn-warning">Delete Message</button></a> 
-                <button class="btn btn-danger">Ban User (NYI)</button>
+                <a href="{% url 'mod_delete_msg' message.id %}"><button class="btn btn-danger">Delete Message</button></a> 
             </div>
         </div>
     </div>
