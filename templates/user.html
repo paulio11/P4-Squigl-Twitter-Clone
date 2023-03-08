@@ -20,7 +20,7 @@
     {% endif %}
     <div class="card-body user-buttons">
         {% if request.user == user %}
-        <a href="{% url 'edit_profile' request.user.id %}" class="btn btn-dark">Edit Profile</a>
+        <a href="{% url 'edit_profile' request.user.id %}" class="btn btn-dark edit-profile-link">Edit Profile</a>
         {% else %}
         <a href="{% url 'follow' user %}" id="follow-btn" class="btn btn-dark">
             {% if following %}
