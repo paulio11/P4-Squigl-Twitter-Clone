@@ -249,3 +249,13 @@ def mark_read(request):
     for reply in replies:
         reply.read.add(request.user)
     return redirect('mentions')
+
+
+# Trending hashtags
+def trending(request):
+    return render(request, 'social/hashtags.html')
+
+
+# User list
+def user_list(request):
+    return render(request, 'social/user-list.html')
