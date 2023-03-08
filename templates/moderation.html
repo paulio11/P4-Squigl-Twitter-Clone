@@ -45,6 +45,7 @@ Moderation
     <hr>
     <table class="table">
         <tr>
+            <th>ID</th>
             <th>User</th>
             <th>Post Link</th>
             <th>Reports</th>
@@ -52,6 +53,7 @@ Moderation
         </tr>
         {% for post in reported_posts %}
         <tr>
+            <td>{{ post.id }}</td>
             <td><a href="{% url 'user' post.user %}" class="user-link"><strong>~{{ post.user }}</strong></a></td>
             <td><a href="{% url 'post' post.id %}">Link</a></td>
             <td>{{ post.reported_count }}</td>
@@ -109,6 +111,7 @@ Moderation
     <hr>
     <table class="table">
         <tr>
+            <th>ID</th>
             <th>User</th>
             <th>Post Link</th>
             <th>Reports</th>
@@ -117,6 +120,7 @@ Moderation
         </tr>
         {% for reply in reported_replies %}
         <tr>
+            <td>{{ reply.id }}</td>
             <td><a href="{% url 'user' reply.user %}" class="user-link"><strong>~{{ reply.user }}</strong></a></td>
             <td><a href="{% url 'post' reply.post.id %}">Link</a></td>
             <td>{{ reply.reported_count }}</td>
