@@ -31,11 +31,12 @@ def post(request, post_id):
     replies = Reply.objects.filter(post_id=post_id).order_by('date')
 
     if request.method == 'POST':
-        form = ReplyForm()
-        form.instance.user = request.user
-        form.instance.post = post
-        form.save()
-        return HttpResponseRedirect(request.path_info)
+        form = ReplyForm(data=request.POST)
+        if form.is_valid():
+            form.instance.user = request.user
+            form.instance.post = post
+            form.save()
+            return HttpResponseRedirect(request.path_info)
     else:
         return render(request, 'post.html', {
             'post': post,
