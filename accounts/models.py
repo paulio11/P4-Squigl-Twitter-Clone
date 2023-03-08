@@ -18,3 +18,9 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
+
+    def following_count(self):
+        return self.following.count()
+
+    def followers_count(self):
+        return CustomUser.objects.filter(following=self.id).count()
