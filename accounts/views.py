@@ -25,3 +25,11 @@ class EditProfile(UpdateView):
         return reverse_lazy('user', kwargs={
             'user': self.object
         })
+
+
+# User settings
+class UserSettings(UpdateView):
+    model = CustomUser
+    template_name = 'user-settings.html'
+    fields = ['username', 'email']
+    success_url = reverse_lazy('feed')

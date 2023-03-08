@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{%block title%}
+Settings
+{%endblock%}
+
+{%block content%}
+<h2>Settings</h2>
+<hr>
+{% if request.user.id == user.id %}
+<form method="POST">
+    {{ form | crispy }}
+    {% csrf_token %}
+    <button class="btn btn-dark" type="submit">Save changes</button>
+    <button type="button" class="btn btn-dark">
+        Change Password
+    </button>
+    <button type="button" class="btn btn-danger">
+        Delete Account
+    </button>
+</form>
+{% else %}
+<div class="alert alert-warning" role="alert">
+    You do not have permission to edit this user's settings.
+</div>
+<button type="button" class="btn btn-secondary" onclick="javascript:history.back()">
+    Go back
+</button>
+{% endif %}
+{% endblock %}
