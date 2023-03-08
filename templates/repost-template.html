@@ -9,14 +9,17 @@
                 <img src="{% static 'images/avatar.jpg' %}" class="avatar-xs">
                 {% endif %}
             </a>
-            <strong>
-                {{ post.repost_post.user.name }}
-                {% if post.repost_post.user.verified %}
-                <i class="fa-solid fa-square-check verified"></i>
-                {% endif %}
-            </strong>
-            ~{{ post.repost_post.user }}
-            <span class="text-muted"> · {{ post.repost_post.date | date:'M d, Y' }}</span>
+            <a href="{% url 'user' post.repost_post.user %}" class="user-link">
+                <strong>
+                    {{ post.repost_post.user.name }}
+                    {% if post.repost_post.user.verified %}
+                    <i class="fa-solid fa-square-check verified"></i>
+                    {% endif %}
+                </strong>
+                ~{{ post.repost_post.user }}
+            </a>
+            · 
+            <a href="{% url 'post' post.repost_post.id %}" class="text-muted">{{ post.repost_post.date | date:'M d, Y' }}</a>
         </div>
         <div>
             <p>{{ post.repost_post.post | linebreaksbr }}</p>            
