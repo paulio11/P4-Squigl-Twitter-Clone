@@ -1,3 +1,6 @@
+Alphanumeric username:
+https://stackoverflow.com/questions/17165147/how-can-i-make-a-django-form-field-contain-only-alphanumeric-characters
+
 Custom user model:
 https://learndjango.com/tutorials/django-custom-user-model
 
