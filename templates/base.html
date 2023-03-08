@@ -72,6 +72,10 @@
                     <a class="nav-link" href="{% url 'login' %}">Login</a>
                     <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
                     {% endif %}
+                    {% if request.user.is_superuser %}
+                    <hr>
+                    <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+                    {% endif %}
                 </nav>
             </div>
             <!-- Right nav sidebar ends -->
