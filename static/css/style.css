@@ -171,16 +171,39 @@ header a:hover {
 
 .tiny-nav {
     display: flex;
-    justify-content: center;
-    gap: 6px;
+    justify-content: space-between;
 }
 
-.tiny-nav .nav-link {
-    border: 1px solid #c4c4c4;
+#hamburger-div {
+    background-color: #c4c4c4;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    padding-top: 12px;
 }
 
-.tiny-nav .nav-link:last-of-type {
-    margin-bottom: 6px;
+#hamburger-nav {
+    background-color: inherit !important;
+}
+
+#hamburger-container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.hamburger-user-info {
+    background-color: white;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+#navbarToggler {
+    padding-top: 12px;
+}
+
+.navbar-toggler {
+    padding: 8px 16px;
+    background-color: white !important;
+    border: 1px solid #3b434b !important;
 }
 
 @media screen and (max-width: 575px) {
@@ -188,7 +211,19 @@ header a:hover {
         border-top-right-radius: 0 !important;
         border-top-left-radius: 0 !important;
     }
+    #hamburger-div {
+        margin-top: 0 !important;
+        border-top-right-radius: 0 !important;
+        border-top-left-radius: 0 !important;
+    }
 }
+
+@media screen and (max-width: 767px) {
+    #hamburger-div {
+        margin-top: 24px;
+    }
+}
+
 
 @media screen and (max-width: 991px) {
     .tiny-nav {

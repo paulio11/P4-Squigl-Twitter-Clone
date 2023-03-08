@@ -20,11 +20,11 @@
     <!-- Container -->
     <div class="container">
         <!-- Header -->
-        <header>
+        <header class="col-md-12 d-md-block d-none">
             <div class="row header-row">
                 <!-- Title -->
                 <div class="d-none d-sm-block col-sm-2">
-                    <a href="{% url 'home' %}"><h1>Squigl</a>
+                    <a href="{% url 'home' %}"><h1>Squigl</h1></a>
                 </div>
                 <!-- Title ends -->
                 <!-- Search -->
@@ -133,7 +133,7 @@
             </div>
             <!-- Left nav sidebar ends -->
             <!-- Left tiny nav sidebar -->
-            <div class="d-xl-none col-lg-1 col-12" id="tiny-nav-div">
+            <div class="d-xl-none col-lg-1 col-md-12 d-md-block d-none" id="tiny-nav-div">
                 <nav class="nav nav-pills tiny-nav">
                     {% if request.user.is_authenticated %}
                     <a class="nav-link {% if '/feed/' in request.path %}menu-active{% endif %}" href="{% url 'feed' %}">
@@ -190,6 +190,91 @@
                 </nav>
             </div>
             <!-- Left tiny nav sidebar ends -->
+            <!-- Hamburger menu -->
+            <div class="d-md-none col-12" id="hamburger-div">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary" id="hamburger-nav">
+                    <div class="container-fluid" id="hamburger-container">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+                            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        <a href="{% url 'user' request.user %}" class="user-link hamburger-user-info">
+                            <strong>{{ request.user.name }}</strong>
+                            {% if request.user.verified %}
+                            <i class="fa-solid fa-square-check verified"></i>
+                            {% endif %}
+                            ~{{ request.user }}
+                        </a>
+                        <div class="collapse navbar-collapse" id="navbarToggler">
+                            <div class="nav flex-column nav-pills">
+                                {% if request.user.is_authenticated %}
+                                {% if '/feed/' in request.path %}
+                                <a class="nav-link menu-active" href="{% url 'feed' %}">
+                                    <i class="fa-solid fa-arrows-rotate"></i> Refresh Feed
+                                </a>
+                                {% else %}
+                                <a class="nav-link" href="{% url 'feed' %}">
+                                    <i class="fa-solid fa-comments"></i> Feed
+                                </a>
+                                {% endif %}
+                                <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="{% url 'search' %}">
+                                    <i class="fa-solid fa-magnifying-glass"></i> Search
+                                </a>                    
+                                <a class="nav-link {% if request.user.username in request.path %}menu-active{% endif %}" href="{% url 'user' request.user %}">
+                                    <i class="fa-solid fa-user"></i> My Page
+                                </a>
+                                <a class="nav-link {% if '/new-post/' in request.path %}menu-active{% endif %}" href="{% url 'new_post' %}">
+                                    <i class="fa-solid fa-pen-to-square"></i> New Post
+                                </a>
+                                <a class="nav-link {% if '/mentions/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'mentions' %}">
+                                    <span><i class="fa-solid fa-quote-left"></i> Mentions</span>    
+                                    {% mentions_count request.user as mentions %}
+                                    {% if mentions > 0 %}
+                                    <span class="badge text-bg-danger">{{ mentions }}</span>
+                                    {% endif %}                        
+                                </a>
+                                <a class="nav-link {% if '/messages/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'messages' %}">
+                                    <span><i class="fa-solid fa-envelope"></i> Messages</span>
+                                    {% unread_count request.user as unread %}
+                                    {% if unread > 0 %}
+                                    <span class="badge text-bg-danger">{{ unread }}</span>
+                                    {% endif %}         
+                                </a>
+                                <a class="nav-link {% if '/accounts/settings' in request.path %}menu-active{% endif %}" href="{% url 'settings' request.user.id %}">
+                                    <i class="fa-solid fa-gear"></i> Settings
+                                </a>
+                                <a class="nav-link" href="{% url 'logout' %}">
+                                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                                </a>
+                                {% else %}
+                                <a class="nav-link {% if '/login/' in request.path %}menu-active{% endif %}" href="{% url 'login' %}">Login</a>
+                                <a class="nav-link {% if '/signup/' in request.path %}menu-active{% endif %}" href="{% url 'signup' %}">Sign Up</a>
+                                {% endif %}
+                                {% if request.user.is_superuser %}
+                                <hr>
+                                <a class="nav-link" href="{% url 'admin:index' %}">
+                                    <i class="fa-solid fa-lock"></i> Django Admin
+                                </a>
+                                {% endif %}
+                                {% if request.user.is_staff %}
+                                <a class="nav-link {% if '/mod/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'moderation' %}">
+                                    <span><i class="fa-solid fa-thumbs-up"></i> Moderation</span>
+                                    {% mod_count as mod_count %}
+                                    {% if mod_count > 0 %}
+                                    <span class="badge text-bg-danger">{% mod_count %}</span>
+                                    {% endif %}
+                                </a>
+                                {% endif %}
+                            </div>
+                            <!-- <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form> -->
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- Hamburger menu ends -->
             <!-- Main block -->
             <div class="col-xl-6 col-lg-8 col-12" id="block-content-div">
                 {% block content %}
