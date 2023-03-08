@@ -35,7 +35,7 @@ class Post(models.Model):
         return self.likes.count()
 
     def reply_count(self):
-        return Reply.objects.filter(post=self.id).count()
+        return Reply.objects.filter(post=self.id).exclude(hidden=True).count()
 
     def repost_count(self):
         return Post.objects.filter(repost_post=self).count()
