@@ -42,6 +42,11 @@ Edit Post
 
 <!-- Delet post button ends -->
 {% else %}
-<p>You do not have permission to edit this post.</p>
+<div class="alert alert-warning" role="alert">
+    You do not have permission to edit this post.
+</div>
+<button type="button" class="btn btn-secondary" onclick="javascript:history.back()">
+    Go back
+</button>
 {% endif %}
 {% endblock %}
