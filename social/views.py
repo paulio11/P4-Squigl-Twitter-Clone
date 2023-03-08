@@ -36,6 +36,7 @@ def feed(request):
     return render(request, 'feed.html', {
         'users': users,
         'recent_hashtags': recent_hashtags,
+        'post_count': posts.count(),
         'page_obj': page_obj,
     })
 

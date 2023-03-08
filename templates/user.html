@@ -66,16 +66,15 @@
     </div>
 </div>
 <!-- User profile card ends -->
-{% if page_obj %}
 {% for post in page_obj %}
 {% include 'post-template.html' %}
 {% endfor %}
-{% else %}
+<!-- Page navigation -->
+{% if post_count == 0 %}
 <div class="alert alert-secondary" role="alert">
     ~{{ user }} has not posted yet.
 </div>
-{% endif %}
-<!-- Page navigation -->
+{% else %}
 <div class="alert alert-secondary page-nav" role="alert">    
     <span>
         {% if page_obj.has_previous %}
@@ -93,6 +92,7 @@
         {% endif %}
     </span>
 </div>
+{% endif %}
 <!-- Page navigation ends -->
 {% endblock %}
 
