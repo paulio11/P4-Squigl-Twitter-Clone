@@ -29,7 +29,7 @@
                 </div>
                 <!-- Post author and date ends -->
                 <!-- Post body, image and link -->
-                <p class="post-reply-body">{{ post.post | linebreaksbr }}</p>
+                <p class="post-body">{{ post.post | linebreaksbr }}</p>
                 {% if post.link %}
                 <p><i class="fa-solid fa-link"></i> <a href="{{ post.link }}" class="post-link">{{ post.link }}</a></p>
                 {% endif %}
@@ -59,6 +59,7 @@
         </a>        
         <!-- Reply ends -->
         <!-- Like -->
+        {% if request.user.is_authenticated %}
         <div id="like-link-{{ post.id }}" class="like-link">
             {% if request.user in post.likes.all %}
             <i id="like-heart-{{ post.id }}" class="fa-solid fa-heart like-heart"></i>
@@ -90,7 +91,13 @@
                     }
                 )
             })
-        </script>     
+        </script>
+        {% else %}
+        <span>
+            <i id="like-heart-{{ post.id }}" class="fa-regular fa-heart"></i>
+            {{ post.like_count }}
+        </span>
+        {% endif %}       
         <!-- Like ends -->
         <!-- Repost -->
         <a href="{% url 'repost' post.id %}" class="footer-link">

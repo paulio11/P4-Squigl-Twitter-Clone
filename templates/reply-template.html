@@ -49,7 +49,7 @@
             This reply has been hidden by ~{{ post.user }}.
         </div>
         {% endif %}
-        <span class="post-reply-body">{{ reply.reply }}</span>
+        <span class="post-body">{{ reply.reply }}</span>
         <!-- Reply buttons -->
         <div class="reply-menu">
             {% if request.user == post.user and request.user != reply.user %}

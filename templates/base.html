@@ -108,19 +108,19 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/9446ef5fe5.js" crossorigin="anonymous"></script>
-    <script src="{% static 'js/script.js' %}"></script>
     <script>
         // Turns '~text' into profile links
-        $('.post-reply-body').each(function () {
+        $('.post-body').each(function () {
             html = $(this).html();
             $(this).html(html.replace(/~(\w+)/g, '<a href="{% url 'user' '$1' %}" class="user-tag">~$1</a>'));
         });
         // Turns '#text' into search links
-        $('.post-reply-body').each(function () {
+        $('.post-body').each(function () {
             html = $(this).html();
             $(this).html(html.replace(/#(\w+)/g, '<form class="hash-form" method="POST" action="{% url 'search' %}">{% csrf_token %}<button class="hash-button" type="submit" value="$1" name="query">#$1</button></form>'));
         });
     </script>
+    <script src="{% static 'js/script.js' %}"></script>
     <!-- Scripts end -->
 </body>
 
