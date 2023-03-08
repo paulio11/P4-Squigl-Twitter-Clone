@@ -31,7 +31,7 @@ class Post(models.Model):
         blank=True,
         null=True)
     reported = models.ManyToManyField(
-        CustomUser, related_name='reported_post', blank=True)
+        CustomUser, related_name='reported', blank=True)
 
     class Meta:
         ordering = ['-date']

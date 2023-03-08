@@ -1,5 +1,6 @@
 {% load static %}
 {% load social_extras %}
+{% if request.user not in post.reported.all %}
 <!-- Delete modal -->
 <div class="modal fade" id="report{{ post.id }}Modal" tabindex="-1" aria-labelledby="report{{ post.id }}ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -23,7 +24,6 @@
 </div>
 <!-- Delete modal ends -->
 <!-- Post -->
-Post {{ post.id }} reported by: {{ post.reported.all }}
 <div class="card post-card">
     <div class="card-body">
         <div class="row">
@@ -168,4 +168,5 @@ Post {{ post.id }} reported by: {{ post.reported.all }}
     </div>
     <!-- Post footer ends -->
 </div>
+{% endif %}
 <!-- Post ends -->
