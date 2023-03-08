@@ -96,7 +96,10 @@
                     {% endif %}
                     {% if request.user.is_superuser %}
                     <hr>
-                    <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+                    <a class="nav-link" href="{% url 'admin:index' %}">Django Admin</a>
+                    {% endif %}
+                    {% if request.user.is_staff %}
+                    <a class="nav-link {% if '/mod/moderation/' in request.path %}menu-active{% endif %}" href="{% url 'moderation' %}">Moderation</a>
                     {% endif %}
                 </nav>
             </div>

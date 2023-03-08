@@ -441,3 +441,18 @@ label[for=id_reply] {
 #hidden-posts {
     display: none;
 }
+
+/* ----------------------------------------------------- Moderation */
+
+.mod-section {
+    margin-bottom: 50px;
+}
+
+td {
+    vertical-align: middle;
+}
+
+th:hover {
+    color: #0e60cc;
+    text-decoration: underline;
+}

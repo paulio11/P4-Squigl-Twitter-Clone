@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Moderation
+{% endblock %}
+
+{% block content %}
+{% if reported_posts %}
+{% for post in reported_posts %}
+<!-- View post modal -->
+<div class="modal fade" id="view{{ post.id }}Modal" tabindex="-1" aria-labelledby="view{{ post.id }}ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="view{{ post.id }}ModalLabel">Viewing post {{ post.id }}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <a href="{% url 'user' post.user %}" class="user-link"><strong>~{{ post.user }}</strong></a>
+                <span class="text-muted"> · {{ post.date | date:'M d, Y' }}</span>
+                <p class="post-body">{{ post.post | linebreaksbr }}</p>
+                <hr>
+                <p class="text-muted">
+                    Number of posts and replies from <a href="{% url 'user' post.user %}" class="user-link"><strong>~{{ post.user }}</strong></a>
+                    that have been removed by Squigl moderators: <strong>{{ post.user.deleted_posts }}</strong>
+                </p>
+            </div> 
+            <div class="modal-footer">
+                <button class="btn btn-dark">Message User (NYI)</button>                             
+                <button class="btn btn-danger">Ban User</button>
+                <a href="{% url 'mod_delete_post' post.id %}"><button class="btn btn-danger">Delete Post</button></a> 
+            </div>
+        </div>
+    </div>
+</div>
+<!-- View post ends -->
+{% endfor %}
+<!-- Reported posts -->
+<div class="mod-section">
+    <h2>Reported Posts</h2>
+    <hr>
+    <p>You can sort the table by clicking on the column headers.</p>
+    <table class="table">
+        <tr>
+            <th>User</th>
+            <th>Post Link</th>
+            <th>Reports</th>
+            <th></th>
+        </tr>
+        {% for post in reported_posts %}
+        <tr>
+            <td><a href="{% url 'user' post.user %}" class="user-link"><strong>~{{ post.user }}</strong></a></td>
+            <td><a href="{% url 'post' post.id %}">Link</a></td>
+            <td>{{ post.reported_count }}</td>
+            <td>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#view{{ post.id }}Modal">
+                    View
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <div class="alert alert-secondary" role="alert">
+        There are no reported posts.
+    </div>
+    {% endif %}
+</div>
+<!-- Reported posts ends -->
+<!-- Reported replies -->
+<div class="mod-section">
+    <h2>Reported Replies</h2>
+    <hr>
+</div>
+<!-- Reported replies ends -->
+<!-- Banned users -->
+<div class="mod-section">
+    <h2>Banned Users</h2>
+    <hr>
+</div>
+<!-- Banned users ends -->
+{% endblock %}

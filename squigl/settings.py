@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'social',
     'accounts',
+    'moderation',
     'cloudinary',
     'crispy_forms',
     'crispy_bootstrap5',
