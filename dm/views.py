@@ -3,8 +3,20 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 # My imports
+from .models import Message
 from .forms import MessageForm
 from accounts.models import CustomUser
+
+
+# Message inbox
+@login_required
+def inbox(request):
+    unread_messages = Message.objects.filter(
+        recipient=request.user).filter(read=False).order_by('-date')
+    messages = Message.objects.filter(
+        recipient=request.user).filter(read=True).order_by('-date')
+    return render(request, 'dm/inbox.html', {
+        'unread_messages': unread_messages, 'messages': messages})
 
 
 # Send user message
