@@ -30,7 +30,7 @@ def moderation(request):
 def mod_delete_post(request, post_id):    
     if request.user.is_staff:
         post = get_object_or_404(Post, id=post_id)
-        post.user.mod_deleted += 1
+        post.user.strikes += 1
         post.user.save()
         post.delete()
         return redirect('moderation')
@@ -43,7 +43,7 @@ def mod_delete_post(request, post_id):
 def mod_delete_reply(request, reply_id):
     reply = get_object_or_404(Reply, id=reply_id)
     if request.user.is_staff:
-        reply.user.mod_deleted += 1
+        reply.user.strikes += 1
         reply.user.save()
         reply.delete()
         return redirect('moderation')
