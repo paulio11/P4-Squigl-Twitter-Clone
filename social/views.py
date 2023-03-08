@@ -22,7 +22,6 @@ def feed(request):
 
     return render(request, 'feed.html', {
         'posts': posts,
-        'nbar': 'feed'
     })
 
 
@@ -55,5 +54,4 @@ def user(request, user_username):
     return render(request, 'user.html', {
         'user': user,
         'posts': posts,
-        'nbar': 'user',
     })
