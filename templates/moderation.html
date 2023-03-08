@@ -26,8 +26,8 @@ Moderation
                 <p class="post-body">{{ post.post | linebreaksbr }}</p>
                 <hr>
                 <p class="text-muted">
-                    Number of posts and replies from <a href="{% url 'user' post.user %}" class="user-link"><strong>~{{ post.user }}</strong></a>
-                    that have been removed by Squigl moderators: <strong>{{ post.user.mod_deleted }}</strong>
+                    Number of posts, replies and messages from <a href="{% url 'user' post.user %}" class="user-link"><strong>~{{ post.user }}</strong></a>
+                    that have been removed by Squigl moderators: <strong>{{ post.user.strikes }}</strong>
                 </p>
             </div> 
             <div class="modal-footer">                          
@@ -92,8 +92,8 @@ Moderation
                 <p class="post-body">{{ reply.reply }}</p>
                 <hr>
                 <p class="text-muted">
-                    Number of posts and replies from <a href="{% url 'user' reply.user %}" class="user-link"><strong>~{{ reply.user }}</strong></a>
-                    that have been removed by Squigl moderators: <strong>{{ reply.user.mod_deleted }}</strong>
+                    Number of posts, replies and messages from <a href="{% url 'user' reply.user %}" class="user-link"><strong>~{{ reply.user }}</strong></a>
+                    that have been removed by Squigl moderators: <strong>{{ reply.user.strikes }}</strong>
                 </p>
             </div> 
             <div class="modal-footer">
