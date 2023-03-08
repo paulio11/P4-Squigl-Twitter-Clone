@@ -24,9 +24,9 @@ def feed(request):
     posts = Post.objects.filter(
         Q(user__in=following.all()) | Q(user=request.user))
     users = CustomUser.objects.exclude(
-        id__in=following.all()).exclude(id=request.user.id).order_by('?')[:5]
+        id__in=following.all()).exclude(id=request.user.id).order_by('?')[:10]
     recent_hashtags = Post.objects.filter(
-        post__contains='#').order_by('-date')[:10]
+        post__contains='#')[:100]
 
     return render(request, 'feed.html', {
         'posts': posts,
