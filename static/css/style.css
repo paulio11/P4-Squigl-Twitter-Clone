@@ -172,7 +172,39 @@ header a:hover {
 .tiny-nav {
     display: flex;
     justify-content: center;
+    gap: 6px;
 }
+
+.tiny-nav .nav-link {
+    border: 1px solid #c4c4c4;
+}
+
+.tiny-nav .nav-link:last-of-type {
+    margin-bottom: 6px;
+}
+
+@media screen and (max-width: 575px) {
+    #tiny-nav-div {
+        border-top-right-radius: 0 !important;
+        border-top-left-radius: 0 !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .tiny-nav {
+        background: #c4c4c4;
+        padding-top: 12px;
+    }
+    #block-content-div {
+        border-radius: 0;
+    }
+    #tiny-nav-div {
+        background-color: #c4c4c4;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+}
+
 
 /* ----------------------------------------------------- Navigation pills */
 
@@ -331,7 +363,7 @@ header a:hover {
 .reply-header {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 18px;
     padding-left: 10px;
     margin-bottom: 20px;
 }
@@ -438,6 +470,7 @@ label[for=id_reply] {
 .user-buttons {
     height: 75px;
     text-align: right;
+    padding: 16px;
 }
 
 .user-buttons a {
@@ -452,6 +485,15 @@ label[for=id_reply] {
     border-color: #f8f8f8;
     border-bottom: none;
     margin-left: 5px;
+}
+
+@media screen and (max-width: 430px) {
+    .user-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 8px !important;
+    }
 }
 
 /* ----------------------------------------------------- Feed */

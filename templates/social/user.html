@@ -18,7 +18,7 @@
     {% else %}
     <img src="{% static 'images/avatar.jpg' %}" class="avatar-xl">
     {% endif %}
-    <div class="card-body user-buttons">
+    <div class="user-buttons">
         {% if request.user == user %}
         <a href="{% url 'edit_profile' request.user.id %}" class="btn btn-dark edit-profile-link">Edit Profile</a>
         {% else %}

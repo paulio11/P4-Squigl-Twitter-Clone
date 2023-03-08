@@ -133,7 +133,7 @@
             </div>
             <!-- Left nav sidebar ends -->
             <!-- Left tiny nav sidebar -->
-            <div class="d-xl-none col-lg-1 col-12">
+            <div class="d-xl-none col-lg-1 col-12" id="tiny-nav-div">
                 <nav class="nav nav-pills tiny-nav">
                     {% if request.user.is_authenticated %}
                     <a class="nav-link {% if '/feed/' in request.path %}menu-active{% endif %}" href="{% url 'feed' %}">
@@ -158,8 +158,11 @@
                     <a class="nav-link {% if '/new-post/' in request.path %}menu-active{% endif %}" href="{% url 'new_post' %}">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
-                    <a class="nav-link {% if '/mentions/' in request.path %}menu-active{% endif %}" href="{% url 'mentions' %}">
-                        <i class="fa-solid fa-quote-left"></i>                        
+                    <a class="nav-link {% if '/mentions/' in request.path %}menu-active{% endif %} position-relative" href="{% url 'mentions' %}">
+                        <i class="fa-solid fa-quote-left"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>                       
                     </a>
                     <a class="nav-link {% if '/messages/' in request.path %}menu-active{% endif %}" href="{% url 'messages' %}">
                         <i class="fa-solid fa-envelope"></i>       

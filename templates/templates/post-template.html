@@ -41,7 +41,7 @@
             <div class="col-sm-11 col-12 post-col">
                 <!-- Post author and date -->
                 <div class="post-header">
-                    <a href="{% url 'user' post.user %}" class="user-link"></a>
+                    <a href="{% url 'user' post.user %}" class="user-link">
                         <span class="d-sm-none">
                             {% if post.user.avatar %}
                             <img src="{{ post.user.avatar.url }}" class="avatar-xs">
