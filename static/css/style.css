@@ -14,6 +14,14 @@ h1, h4 {
     font-weight: bold;
 }
 
+h5 {
+    font-size: 16px;
+}
+
+.verified {
+    color: goldenrod;
+}
+
 /* ----------------------------------------------------- Header */
 
 .header-row {
@@ -66,4 +74,47 @@ header a:hover {
 .content-row {
     display: flex;
     justify-content: space-between;
+}
+
+/* ----------------------------------------------------- Posts */
+
+.post-card {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.post-header {
+    margin-bottom: 10px;
+}
+
+.post-avatar {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.avatar-col {
+    padding: 0 0 0 6px;
+}
+
+.post-col {
+    padding-left: 25px;
+}
+
+.post-link {
+    color: #212529;
+    font-weight: bold;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 40px;
+}
+
+.dropdown-item i {
+    color: #212529;
+    width: 20%;
+    text-align: center;
 }
