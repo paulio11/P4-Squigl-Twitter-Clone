@@ -25,7 +25,15 @@
                         {% endif %}
                         <span>~{{ post.user }}</span>
                     </a>
-                    <span> · <a href="{% url 'post' post.id %}" class="post-permalink">{{ post.date | date:'M d, Y' }}</a></span>
+                    <span> · 
+                        <a href="{% url 'post' post.id %}" class="post-permalink">
+                            {% if post.time_check %}
+                            {{ post.date | timesince | upto:',' }} ago
+                            {% else %}
+                            {{ post.date | date:'M d, Y' }}
+                            {% endif %}
+                        </a>
+                    </span>
                 </div>
                 <!-- Post author and date ends -->
                 <!-- Post body, image and link -->

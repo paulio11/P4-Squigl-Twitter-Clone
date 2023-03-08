@@ -3,6 +3,7 @@ from django.db import models
 
 # Other imports
 from django_resized import ResizedImageField
+from datetime import datetime, timezone
 
 # My imports
 from accounts.models import CustomUser
@@ -23,8 +24,6 @@ class Post(models.Model):
     link = models.CharField(max_length=50, blank=True)
     likes = models.ManyToManyField(
         CustomUser, related_name='post_likes', blank=True)
-    # reposter = models.ManyToManyField(
-    #     CustomUser, related_name='reposter', blank=True)
     repost_post = models.ForeignKey(
         'self',
         on_delete=models.CASCADE,
@@ -46,6 +45,16 @@ class Post(models.Model):
 
     def repost_count(self):
         return Post.objects.filter(repost_post=self).count()
+
+    def time_check(self):
+        now = datetime.now(timezone.utc)
+        time_since = now - self.date
+        hours_since = int(time_since.total_seconds() / 60 / 60)
+        if hours_since < 24:
+            less_than_a_day = True
+        else:
+            less_than_a_day = False
+        return less_than_a_day
 
 
 class Reply(models.Model):

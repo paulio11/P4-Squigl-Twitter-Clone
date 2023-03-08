@@ -1,5 +1,6 @@
 # Django imports
 from django import template
+from django.template.defaultfilters import stringfilter
 
 # My imports
 from ..models import Reply
@@ -17,3 +18,13 @@ def user_has_replied(user, post):
         return True
     else:
         return False
+
+
+# Used to strip timesince down to just miunutes or hours
+@register.filter
+@stringfilter
+def upto(value, delimiter=None):
+    return value.split(delimiter)[0]
+
+
+upto.is_safe = True
