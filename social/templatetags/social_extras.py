@@ -2,7 +2,7 @@
 from django import template
 
 # My imports
-from ..models import Post, Reply
+from ..models import Reply
 
 
 register = template.Library()
