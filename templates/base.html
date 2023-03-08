@@ -1,5 +1,6 @@
 {% load static %}
 {% load social_extras %}
+{% load moderation_extras %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,7 +107,13 @@
                     <a class="nav-link" href="{% url 'admin:index' %}">Django Admin</a>
                     {% endif %}
                     {% if request.user.is_staff %}
-                    <a class="nav-link {% if '/mod/' in request.path %}menu-active{% endif %}" href="{% url 'moderation' %}">Moderation</a>
+                    <a class="nav-link {% if '/mod/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'moderation' %}">
+                        Moderation
+                        {% mod_count as mod_count %}
+                        {% if mod_count > 0 %}
+                        <span class="badge text-bg-danger">{% mod_count %}</span>
+                        {% endif %}
+                    </a>
                     {% endif %}
                 </nav>
             </div>
