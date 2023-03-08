@@ -1,5 +1,5 @@
 # Django imports
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 # My imports
@@ -17,6 +17,6 @@ def send_message(request, user_id):
             message.sender = request.user
             message.recipient = get_object_or_404(CustomUser, id=user_id)
             message.save()
-            return redirect('user', user_id)
+            return redirect('user', message.recipient)
     else:
         return render(request, 'dm/send-message.html', {'form': MessageForm()})
