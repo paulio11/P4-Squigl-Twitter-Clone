@@ -17,7 +17,7 @@ def messages(request):
         recipient=request.user).filter(read=True).exclude(
             recipient_del=True).order_by('-date')
     sent_messages = Message.objects.filter(
-        sender=request.user).order_by('-date')
+        sender=request.user).exclude(sender_del=True).order_by('-date')
     return render(request, 'dm/messages.html', {
         'unread_messages': unread_messages,
         'messages': messages,
