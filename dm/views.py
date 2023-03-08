@@ -39,6 +39,27 @@ def send_message(request, user_id):
         return render(request, 'dm/send-message.html', {'form': MessageForm()})
 
 
+# Send reply
+@login_required
+def send_reply(request, message_id):
+    old_msg = get_object_or_404(Message, id=message_id)
+    if old_msg.recipient == request.user:
+        if request.method == 'POST':
+            form = MessageForm(request.POST)
+            if form.is_valid():
+                old_msg.read = True
+                message = form.save(commit=False)
+                message.sender = old_msg.recipient
+                message.recipient = old_msg.sender
+                message.save()
+                return redirect('messages')
+        else:
+            return render(request, 'dm/send-message.html', {
+                'form': MessageForm()})
+    else:
+        return render(request, 'permission-error.html')
+
+
 # Mark message read
 @login_required
 def mark_read(request, message_id):
