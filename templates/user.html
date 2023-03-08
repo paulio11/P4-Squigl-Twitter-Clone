@@ -20,7 +20,7 @@
     {% endif %}
     <div class="card-body user-buttons">
         {% if request.user == user %}
-        <a href="#" class="btn btn-dark">Edit Profile (NYI)</a>
+        <a href="{% url 'edit_profile' request.user.id %}" class="btn btn-dark">Edit Profile</a>
         {% else %}
         <a href="{% url 'follow' user %}" id="follow-btn" class="btn btn-dark">
             {% if following %}
@@ -49,18 +49,18 @@
     </div>
     <div class="card-footer">
         <span><strong>{{ user.followers_count }}</strong>
-            {% if user.followers_count <= 1 %}
-            Follower
-            {% else %}
+            {% if user.followers_count != 1 %}
             Followers
+            {% else %}
+            Follower
             {% endif %}
         </span>
         <span><strong>{{ user.following_count }}</strong> Following</span>
         <span><strong>{{ posts.count }}</strong>
-            {% if posts.count <= 1 %}
-            Post
-            {% else %}
+            {% if posts.count != 1 %}
             Posts
+            {% else %}
+            Post
             {% endif %}
         </span>
     </div>
