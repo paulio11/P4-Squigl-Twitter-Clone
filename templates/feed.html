@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 Feed
@@ -20,7 +21,11 @@ Feed
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
             <a href="{% url 'user' user %}" class="user-link">
+                {% if user.avatar %}
                 <img src="{{ user.avatar.url }}" class="reply-avatar">
+                {% else %}
+                <img src="{% static 'images/avatar.jpg' %}" class="reply-avatar">
+                {% endif %}
                 <strong>~{{ user }}</strong>
             </a>
             <a href="{% url 'follow' user %}">
