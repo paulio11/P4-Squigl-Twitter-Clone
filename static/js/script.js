@@ -81,3 +81,31 @@ if (href.indexOf('/mod/') > -1){
     }
     function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
 }
+
+//Scroll to top button
+let topButton = document.getElementById('top-button');
+window.onscroll = function () {
+    scrollFunction();
+};
+
+/**
+ * Shows or hides scroll to top button based on scrolled distance from top of page.
+ */
+function scrollFunction() {
+    if (document.body.scrollTop > 64 || document.documentElement.scrollTop > 64) {
+        //if user scrolls below header (64px).
+        topButton.style.display = 'block';
+    } else {
+        topButton.style.display = 'none';
+    }
+}
+
+document.getElementById('top-button').addEventListener('click', toTop);
+
+/**
+ * Scrolls page back to top.
+ */
+function toTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}

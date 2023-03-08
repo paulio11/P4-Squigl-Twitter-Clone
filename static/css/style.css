@@ -72,6 +72,25 @@ h1, h4 {
     cursor: pointer;
 }
 
+/* ----------------------------------------------------- Back to top Btn */
+
+#top-button {
+    display: none;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 99;
+    border: none;
+    color: white;
+    background-color: #56008b;
+    border: 2px solid goldenrod;
+}
+
+#top-button:hover {
+    background-color: white;
+    color: #56008b;
+}
+
 /* ----------------------------------------------------- Avatars */
 
 .avatar-xl {
