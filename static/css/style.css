@@ -195,12 +195,16 @@ header a:hover {
     color: #0e60cc;
 }
 
-.reply-link {
+.reposted-icon {
+    color: #126f12;
+}
+
+.footer-link {
     text-decoration: none;
 }
 
-.reply-count,
-.reply-bubble {
+.footer-num,
+.footer-icon {
     color: #212529;
 }
 

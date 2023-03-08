@@ -49,13 +49,13 @@
     <div class="card-footer">
         <!-- Reply -->
         {% user_has_replied user.id post.id as replied %}        
-        <a href="{% url 'post' post.id %}" class="reply-link">
+        <a href="{% url 'post' post.id %}" class="footer-link">
             {% if replied %}
             <i class="fa-solid fa-comment replied-bubble"></i>
             {% else %}
-            <i class="fa-regular fa-comment reply-bubble"></i>
+            <i class="fa-regular fa-comment footer-icon"></i>
             {% endif %}
-            <span class="reply-count">{{ post.reply_count }}</span>
+            <span class="footer-num">{{ post.reply_count }}</span>
         </a>        
         <!-- Reply ends -->
         <!-- Like -->
@@ -100,7 +100,14 @@
         {% endif %}       
         <!-- Like ends -->
         <!-- Repost -->
-        <a href="{% url 'repost' post.id %}"><i class="fa-solid fa-retweet"></i> {{ post.repost_count }}</a>
+        <a href="{% url 'repost' post.id %}" class="footer-link">
+            {% if request.user in post.reposter.all %}
+            <i class="fa-solid fa-retweet reposted-icon"></i>
+            {% else %}
+            <i class="fa-solid fa-retweet footer-icon"></i>
+            {% endif %}
+            <span class="footer-num">{{ post.repost_count }}</span>
+        </a>
         <!-- Repost ends -->
         <!-- Footer menu -->
         <div class="btn-group dropup">
@@ -111,7 +118,7 @@
                 {% if request.user == post.user %}
                 <li>
                     <a class="dropdown-item" href="{% url 'edit_post' post.id %}">
-                        <i class="fa-solid fa-pen-to-square"></i> Edit | Delete
+                        <i class="fa-solid fa-pen-to-square"></i> Edit / Delete
                     </a>
                 </li>
                 {% else %}
