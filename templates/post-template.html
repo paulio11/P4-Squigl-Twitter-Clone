@@ -59,7 +59,7 @@
                 {% if request.user == post.user %}
                 <li>
                     <a class="dropdown-item" href="{% url 'edit_post' post.id %}">
-                        <i class="fa-solid fa-pen-to-square"></i> Edit/Delete
+                        <i class="fa-solid fa-pen-to-square"></i> Edit | Delete
                     </a>
                 </li>
                 {% else %}
