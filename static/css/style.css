@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
 
 #block-content-div {
-    background: rgb(150,194,255);
-    background: linear-gradient(180deg, #e6e4e4 0%, #ffffff 100%);
+    background: linear-gradient(180deg, #c4c4c4 0%, #ffffff 100%);
     padding-top: 12px;
     border-radius: 5px;
+    height: 100vh;
 }
 
 /* ----------------------------------------------------- Text, Headings, Links */
@@ -168,6 +168,14 @@ header a:hover {
 
 #nav-pills-tab li .active {
     background-color: #212529 !important;
+}
+
+.nav-pills .nav-link {
+    background-color: white;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: grey;
 }
 
 /* ----------------------------------------------------- Page navigation */
@@ -418,6 +426,10 @@ label[for=id_reply] {
     width: 100px;
 }
 
+.edit-profile-link {
+    width: 140px !important;
+}
+
 .nav-tabs {
     border-color: #f8f8f8;
     border-bottom: none;
@@ -482,4 +494,22 @@ td {
 th:hover {
     color: #0e60cc;
     text-decoration: underline;
+}
+
+/* ----------------------------------------------------- Messages */
+
+.message-card {
+    margin-bottom: 20px;
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.message-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
 }

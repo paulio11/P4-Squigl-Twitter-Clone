@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-Inbox
+Messages
 {% endblock %}
 
 {% block content %}
@@ -24,12 +24,32 @@ Inbox
     </li>
 </ul>
 <!-- Messages navigation ends -->
-{{ unread_messages }}
-<br>
-{{ messages }}
-<br>
-{{ sent_messages }}
+<div class="tab-content" id="pills-tabContent">
+    <!-- Unread messages -->
+    <div class="tab-pane fade show active" id="pills-unread" role="tabpanel" aria-labelledby="pills-unread-tab" tabindex="0">
+        {% for message in unread_messages %}
+        {% include 'message-template.html' %}
+        {% endfor %}
+    </div>
+    <!-- Unread messages ends -->
+    <!-- Read messages -->
+    <div class="tab-pane fade" id="pills-read" role="tabpanel" aria-labelledby="pills-read-tab" tabindex="0">
+        {% for message in messages %}
+        {% include 'message-template.html' %}
+        {% endfor %}
+    </div>
+    <!-- Read messages ends -->
+    <!-- Sent messages -->
+    <div class="tab-pane fade" id="pills-sent" role="tabpanel" aria-labelledby="pills-sent-tab" tabindex="0">
+        {% for message in sent_messages %}
+        {% include 'message-template.html' %}
+        {% endfor %}
+    </div>
+    <!-- Sent messages ends -->
+</div>
 {% endblock %}
 
 {% block rightsidebar %}
+{% include 'hashtags-side-template.html' %}
+{% include 'users-side-template.html' %}
 {% endblock %}

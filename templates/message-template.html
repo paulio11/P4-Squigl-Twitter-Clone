@@ -1,0 +1,54 @@
+{% load static %}
+<div class="card message-card">
+    <div class="card-header message-header">
+        {% if request.user != message.sender %}
+        <a href="{% url 'user' message.sender %}">
+            {% if message.sender.avatar %}
+            <img src="{{ message.sender.avatar.url }}" class="avatar-small">
+            {% else %}
+            <img src="{% static 'images/avatar.jpg' %}" class="avatar-small">
+            {% endif %}
+        </a>
+        <div>
+            <div>
+                <a href="{% url 'user' message.sender %}" class="user-link">
+                    <strong>{{ message.sender.name }}</strong>
+                    {% if message.sender.verified %}
+                    <i class="fa-solid fa-square-check verified"></i>
+                    {% endif %}
+                    ~{{ message.sender }}
+                </a>
+            </div>            
+            <span class="small-span">{{ message.date | date:'M d, Y' }}</span>
+        </div>
+        {% else %}
+        <a href="{% url 'user' message.recipient %}">
+            {% if message.recipient.avatar %}
+            <img src="{{ message.recipient.avatar.url }}" class="avatar-small">
+            {% else %}
+            <img src="{% static 'images/avatar.jpg' %}" class="avatar-small">
+            {% endif %}
+        </a>
+        <div>
+            <div>
+                <a href="{% url 'user' message.recipient %}" class="user-link">
+                    <strong>{{ message.recipient.name }}</strong>
+                    {% if message.recipient.verified %}
+                    <i class="fa-solid fa-square-check verified"></i>
+                    {% endif %}
+                    ~{{ message.recipient }}
+                </a>
+            </div>            
+            <span class="small-span">{{ message.date | date:'M d, Y' }}</span>
+        </div>
+        {% endif %}
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{ message.message | linebreaksbr }}</p>
+        <div class="message-btns">
+            <a href="#" class="btn btn-dark">Mark Read</a>
+            <a href="#" class="btn btn-dark">Reply</a>
+            <a href="#" class="btn btn-danger">Delete</a>
+        </div>        
+    </div>
+</div>
