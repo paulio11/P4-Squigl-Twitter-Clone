@@ -1,7 +1,9 @@
 # Django imports
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 
 # My imports
 from .forms import CustomUserCreationForm, CustomUserChangeForm
@@ -33,3 +35,16 @@ class UserSettings(UpdateView):
     template_name = 'user-settings.html'
     fields = ['username', 'email']
     success_url = reverse_lazy('feed')
+
+
+# Change user password
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return redirect('settings', form.user.id)
+    else:
+        form = PasswordChangeForm(user=request.user)
+    return render(request, 'password.html', {'form': form})

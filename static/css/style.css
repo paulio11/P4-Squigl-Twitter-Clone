@@ -32,6 +32,10 @@ h1, h4, h5 {
     color: #3b434b;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* ----------------------------------------------------- Usertags and hashtags */
 
 .user-tag {
