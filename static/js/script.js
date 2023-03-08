@@ -50,9 +50,9 @@ for (var key in sorted_obj){
     if (key == 10) {
         break;
     } else {
-        container = $('<li class="list-group-item post-body"></li>');
+        container = $('<li class="list-group-item hashtag-li"></li>');
         trending_ul.append(container);
         container.append('<span>#' + sorted_obj[key][0] + '</span');
-        container.append('<span>Posts: ' + sorted_obj[key][1] + '</span');
+        container.append('<span>' + sorted_obj[key][1] + '</span');
     };
-};
+}; 
