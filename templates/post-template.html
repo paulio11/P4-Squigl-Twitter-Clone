@@ -48,7 +48,7 @@
     <!-- Post footer -->
     <div class="card-footer">
         <!-- Reply -->
-        {% user_has_replied user.id post.id as replied %}        
+        {% user_has_replied request.user.id post.id as replied %}        
         <a href="{% url 'post' post.id %}" class="footer-link">
             {% if replied %}
             <i class="fa-solid fa-comment replied-bubble"></i>
