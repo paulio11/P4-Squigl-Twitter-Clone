@@ -8,25 +8,30 @@ Search Results
 {% block content %}
 <h2>Search results for "{{query}}"</h2>
 <hr>
+<!-- Search navigation -->
 <ul class="nav nav-pills mb-3" id="search-pills-tab" role="tablist">
-    {% if users %}
+    {% if users.count > 0 %}
     <li class="nav-item" role="presentation">
         <button class="nav-link active" id="pills-users-tab" data-bs-toggle="pill" data-bs-target="#pills-users"
             type="button" role="tab" aria-controls="pills-users" aria-selected="true">Users <span class="badge text-bg-danger">{{ users.count }}</span></button>
     </li>
     {% endif %}
-    {% if posts %}
+    {% if posts.count > 0 %}
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-posts-tab" data-bs-toggle="pill" data-bs-target="#pills-posts"
             type="button" role="tab" aria-controls="pills-posts" aria-selected="false">Posts <span class="badge text-bg-danger">{{ posts.count }}</span></button>
     </li>
     {% endif %}
+    {% if replies.count > 0 %}
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-replies-tab" data-bs-toggle="pill" data-bs-target="#pills-replies"
             type="button" role="tab" aria-controls="pills-replies" aria-selected="false">Replies <span class="badge text-bg-danger">{{ replies.count }}</span></button>
     </li>
+    {% endif %}
 </ul>
+<!-- Search navigation ends -->
 <div class="tab-content" id="pills-tabContent">
+    <!-- Results - users -->
     <div class="tab-pane fade show active" id="pills-users" role="tabpanel" aria-labelledby="pills-users-tab" tabindex="0">
         {% for user in users %}
         <!-- User profile card -->
@@ -58,15 +63,20 @@ Search Results
         <!-- User profile card ends -->
         {% endfor %}
     </div>
+    <!-- Results - users ends -->
+    <!-- Results - posts -->
     <div class="tab-pane fade" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab" tabindex="0">
         {% for post in posts %}
         {% include 'post-template.html' %}
         {% endfor %}
     </div>
+    <!-- Results - posts ends -->
+    <!-- Results - replies -->
     <div class="tab-pane fade" id="pills-replies" role="tabpanel" aria-labelledby="pills-replies-tab" tabindex="0">
         {% for reply in replies %}
         {% include 'reply-template.html' %}
         {% endfor %}
     </div>
+    <!-- Results - replies ends -->
 </div>
 {% endblock %}
