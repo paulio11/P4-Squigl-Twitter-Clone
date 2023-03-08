@@ -62,7 +62,7 @@
                 <nav class="nav flex-column nav-pills">
                     {% if request.user.is_authenticated %}
                     <a class="nav-link {% if 'feed' in request.path %}menu-active{% endif %}" href="{% url 'feed' %}">Feed</a>
-                    <a class="nav-link" href="{% url 'user' request.user %}">My Page</a>
+                    <a class="nav-link {% if request.user.username in request.path %}menu-active{% endif %}" href="{% url 'user' request.user %}">My Page</a>
                     <a class="nav-link" href="#">New Post (NYI)</a>
                     <a class="nav-link" href="#">Mentions (NYI)</a>
                     <a class="nav-link" href="#">Messages (NYI)</a>
