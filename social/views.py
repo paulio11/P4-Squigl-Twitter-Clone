@@ -122,7 +122,6 @@ def repost(request, post_id):
         form = PostForm(request.POST, request.FILES or None)
         if form.is_valid():
             post = form.save(commit=False)
-            old_post.reposter.add(request.user)
             post.user = request.user
             post.repost_post = old_post
             post.save()

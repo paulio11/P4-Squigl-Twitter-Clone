@@ -59,7 +59,7 @@
                         <h4>
                             <a href="{% url 'user' request.user %}">
                                 {{ request.user.name }}
-                                {% if user.verified %}
+                                {% if request.user.verified %}
                                 <i class="fa-solid fa-square-check verified"></i>
                                 {% endif %}
                             </a>

@@ -7,6 +7,8 @@ Mentions
 {% endblock %}
 
 {% block content %}
+<h2>Mentions</h2>
+<hr>
 {% mentions_count request.user as mentions %}
 {% if mentions > 0 %}
 <!-- Mentions navigation -->
