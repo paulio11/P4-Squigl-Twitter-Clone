@@ -6,6 +6,8 @@ from .models import CustomUser
 # Custom user creation form
 class CustomUserCreationForm(UserCreationForm):
 
+    # email = forms.EmailField(max_length=75, required=True)
+
     class Meta:
         model = CustomUser
         fields = ('username', 'name', 'email')
@@ -15,7 +17,7 @@ class CustomUserCreationForm(UserCreationForm):
             'name': forms.TextInput(
                 attrs={'placeholder': 'Pick a name to display on your profile.'}),
             'email': forms.TextInput(
-                attrs={'placeholder': 'Used when you need to reset your password. Your email is private.'},
+                attrs={'placeholder': 'Used when you need to reset your password. Your email kept is private.'}
             )
         }
 
@@ -26,7 +28,6 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
         fields = (
-            'username',
             'name',
             'about',
             'website',
@@ -34,8 +35,6 @@ class CustomUserChangeForm(UserChangeForm):
             'profile_background',
             )
         widgets = {
-            'username': forms.TextInput(
-                attrs={'placeholder': 'Used in your profile URL and for logging in.'}),
             'name': forms.TextInput(
                 attrs={'placeholder': 'Pick a name to display on your profile.'}),
             'about': forms.TextInput(
