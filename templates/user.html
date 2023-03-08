@@ -6,7 +6,33 @@
 {% endblock %}
 
 {% block content %}
-Content block
+<div class="card user-card">
+    {% if user.profile_background %}
+    <img src="{{ user.profile_background.url }}" class="card-img-top user-background">
+    {% else %}
+    <div class="user-background"></div>
+    {% endif %}
+    {% if user.avatar %}
+    <img src="{{ user.avatar.url }}" class="user-avatar">
+    {% else %}
+    <img src="{% static 'images/avatar.jpg' %}" class="user-avatar">
+    {% endif %}
+    <div class="card-body user-buttons">
+        <a href="#" class="btn btn-dark">Follow (NYI)</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">
+            {{ user.display_name }}
+            {% if user.verified %}
+            <i class="fa-solid fa-square-check verified"></i>
+            {% endif %}
+        </h4>
+        <p class="text-muted">~{{ user }}</p>
+        {% if user.about %}
+        <p class="card-text">{{ user.about }}</p>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
 
 {% block rightsidebar %}

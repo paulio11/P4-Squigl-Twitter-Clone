@@ -197,3 +197,30 @@ header a:hover {
     bottom: 0;
     right: 0;
 }
+
+/* ----------------------------------------------------- User */
+
+.user-card {
+    width: 100%;
+    position: relative;
+}
+
+.user-background {
+    height: 200px;
+    background-color: #f8f8f8;
+}
+
+.user-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: solid white 4px;
+    position: absolute;
+    left: 20px;
+    top: 125px;
+}
+
+.user-buttons {
+    height: 75px;
+    text-align: right;
+}

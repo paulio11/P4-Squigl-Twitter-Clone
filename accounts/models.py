@@ -9,6 +9,7 @@ class CustomUser(AbstractUser):
     username = models.CharField(max_length=20, unique=True)
     display_name = models.CharField(max_length=30, blank=True)
     avatar = models.ImageField(upload_to='avatars/', blank=True)
+    profile_background = models.ImageField(upload_to='backgrounds', blank=True)
     about = models.CharField(max_length=200, blank=True)
     verified = models.BooleanField(default=False)
     following = models.ManyToManyField(
