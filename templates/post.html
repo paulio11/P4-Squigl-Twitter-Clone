@@ -9,39 +9,6 @@ Post: {{ post.id }}
 {% block content %}
 {% include 'post-template.html' %}
 <!-- Replies -->
-{% if request.user.is_authenticated %}
-<div class="reply-container">
-    <!-- User info -->
-    <div class="reply-header">
-        <a href="{% url 'user' request.user %}">
-            {% if request.user.avatar %}
-            <img src="{{ request.user.avatar.url }}" class="reply-avatar">
-            {% else %}
-            <img src="{% static 'images/avatar.jpg' %}" class="reply-avatar">
-            {% endif %}
-        </a>
-        <div>
-            <a href="{% url 'user' request.user %}" class="user-link">
-                <strong>{{ request.user.display_name }}</strong>
-                {% if request.user.verified %}
-                <i class="fa-solid fa-square-check verified"></i>
-                {% endif %}
-                ~{{ request.user }}
-            </a>    
-        </div>
-    </div> 
-    <!-- User info ends -->
-    <!-- Reply form -->
-    <form method="POST" class="reply-form">
-        {% csrf_token %}
-        {{ form | crispy }}
-        <button class="btn btn-dark" type="submit">Reply</button>
-    </form>     
-    <!-- Reply form ends -->
-</div>   
-{% else %}
-<p><a href="{% url 'login' %}">Login</a> if you want to reply to this post.</p>
-{% endif %}
 {% if replies %}
 {% for reply in replies %}
 <div class="reply-container">
@@ -74,7 +41,7 @@ Post: {{ post.id }}
         <!-- Reply menu -->
         <div class="btn-group dropup reply-menu">
             <button class="btn btn-sm post-menu-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-ellipsis"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
                 {% if request.user == reply.user %}
@@ -114,11 +81,25 @@ Post: {{ post.id }}
 </div>
 {% endfor %}
 {% else %}
-<p>This post has no replies.</p>
+<div class="alert alert-light" role="alert">
+    This post has no replies.
+</div>
 {% endif %}
 <!-- Replies end -->
 {% endblock %}
 
 {% block rightsidebar %}
-Right block
+{% if request.user.is_authenticated %}
+<div class="reply-container">
+    <!-- Reply form -->
+    <form method="POST" class="reply-form">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button class="btn btn-dark" type="submit">Reply</button>
+    </form>     
+    <!-- Reply form ends -->
+</div>   
+{% else %}
+<p><a href="{% url 'login' %}">Login</a> if you want to reply to this post.</p>
+{% endif %}
 {% endblock %}

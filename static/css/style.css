@@ -194,11 +194,18 @@ header a:hover {
 	width: 0;
 	height: 0;
 	bottom: 100%;
-	left: 17px;
 	border: .75rem solid transparent;
 	border-top: none;
 	border-bottom-color: #f8f8f8;
 	filter: drop-shadow(0 -1px 1px #d1d1d1);
+}
+
+.reply::before {
+    left: 17px;
+}
+
+.reply-form::before {
+    right: 25px;
 }
 
 .reply-form {
