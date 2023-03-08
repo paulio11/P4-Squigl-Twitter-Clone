@@ -85,9 +85,9 @@ def new_post(request):
 
 # Repost
 def repost(request, post_id):
-    if request.method == 'POSt':
+    old_post = get_object_or_404(Post, id=post_id)
+    if request.method == 'POST':
         form = PostForm(request.POST, request.FILES or None)
-        old_post = get_object_or_404(Post, id=post_id)
         if form.is_valid():
             post = form.save(commit=False)
             old_post.reposter.add(request.user)
