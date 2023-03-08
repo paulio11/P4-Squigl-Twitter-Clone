@@ -70,7 +70,7 @@
         <!-- Header ends -->
         <!-- Main content row -->
         <div class="row content-row">
-            <!-- Right nav sidebar -->
+            <!-- Left nav sidebar -->
             <div class="col-2">
                 <nav class="nav flex-column nav-pills">
                     {% if request.user.is_authenticated %}
@@ -118,17 +118,19 @@
                     {% endif %}
                 </nav>
             </div>
-            <!-- Right nav sidebar ends -->
+            <!-- Left nav sidebar ends -->
             <!-- Main block -->
             <div class="col-6" id="block-content-div">
                 {% block content %}
                 {% endblock %}
             </div>
+            <!-- Main block ends -->
+            <!-- Right sidebar -->
             <div class="col-3">
                 {% block rightsidebar %}
                 {% endblock %}
             </div>
-            <!-- Main block ends -->
+            <!-- Right sidebar ends -->
         </div>
         <!-- Main content row ends -->
     </div>
