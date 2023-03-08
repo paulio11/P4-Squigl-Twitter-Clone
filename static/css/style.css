@@ -144,6 +144,25 @@ header a:hover {
     justify-content: space-between;
 }
 
+/* ----------------------------------------------------- Page navigation */
+
+.page-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-nav span {
+    width: 30%;
+}
+
+.page-nav span:nth-child(2) {
+    text-align: center;
+}
+
+.page-nav span:nth-child(3) {
+    text-align: right;
+}
+
 /* ----------------------------------------------------- Main Content Row */
 
 .content-row {

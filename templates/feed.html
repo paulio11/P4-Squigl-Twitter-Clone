@@ -6,9 +6,28 @@ Feed
 {% endblock %}
 
 {% block content %}
-{% for post in posts %}
+{% for post in page_obj %}
 {% include 'post-template.html' %}
 {% endfor %}
+<!-- Page navigation -->
+<div class="alert alert-secondary page-nav" role="alert">    
+    <span>
+        {% if page_obj.has_previous %}
+        <a href="?page=1" class="alert-link"><i class="fa-solid fa-backward-step"></i></a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="alert-link"><i class="fa-solid fa-backward"></i></a>
+        {% endif %}
+    </span>    
+    <span class="current">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    </span>
+    <span>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="alert-link"><i class="fa-sharp fa-solid fa-forward"></i></a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="alert-link"><i class="fa-solid fa-forward-step"></i></a>    
+        {% endif %}
+    </span>
+</div>
+<!-- Page navigation ends -->
 {% endblock %}
 
 {% block rightsidebar %}

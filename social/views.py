@@ -5,6 +5,7 @@ from django.db.models import Q
 from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 # My imports
 from .models import Post, Reply
@@ -28,10 +29,14 @@ def feed(request):
     recent_hashtags = Post.objects.filter(
         post__contains='#')[:100]
 
+    paginator = Paginator(posts, 20)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     return render(request, 'feed.html', {
-        'posts': posts,
         'users': users,
         'recent_hashtags': recent_hashtags,
+        'page_obj': page_obj,
     })
 
 
