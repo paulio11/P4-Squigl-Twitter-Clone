@@ -22,7 +22,7 @@
             <a href="{% url 'post' post.repost_post.id %}" class="text-muted">{{ post.repost_post.date | date:'M d, Y' }}</a>
         </div>
         <div>
-            <p class="post-reply-body">{{ post.repost_post.post | linebreaksbr }}</p>            
+            <p class="post-body">{{ post.repost_post.post | linebreaksbr }}</p>            
             {% if post.repost_post.link %}
             <p><i class="fa-solid fa-link"></i> <a href="{{ post.repost_post.link }}" class="post-link">{{ post.repost_post.link }}</a></p>
             {% endif %}
