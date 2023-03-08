@@ -65,7 +65,7 @@ for (var key in sorted_obj){
 }; 
 
 // Table sorting
-if (href.indexOf('/mod/moderation/') > -1){
+if (href.indexOf('/mod/') > -1){
     $('th').click(function(){
         var table = $(this).parents('table').eq(0)
         var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
