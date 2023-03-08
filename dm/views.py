@@ -51,6 +51,7 @@ def send_reply(request, message_id):
             form = MessageForm(request.POST)
             if form.is_valid():
                 old_msg.read = True
+                old_msg.save()
                 message = form.save(commit=False)
                 message.sender = old_msg.recipient
                 message.recipient = old_msg.sender
