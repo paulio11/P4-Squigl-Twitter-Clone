@@ -1,5 +1,5 @@
 # Django imports
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.forms import PasswordChangeForm
@@ -50,3 +50,11 @@ def change_password(request):
     else:
         form = PasswordChangeForm(user=request.user)
     return render(request, 'password.html', {'form': form})
+
+
+# Delete account
+def delete_account(request):
+    account = get_object_or_404(CustomUser, id=request.user.id)
+    if request.method == 'POST':
+        account.delete()
+        return redirect('home')
