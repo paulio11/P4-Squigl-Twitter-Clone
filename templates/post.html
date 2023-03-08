@@ -37,7 +37,7 @@ Post: {{ post.id }}
     <!-- Reply user and date info ends -->
     <!-- Reply bubble -->
     <div class="reply">
-        {{ reply.reply }}
+        <span class="post-reply-body">{{ reply.reply }}</span>
         <!-- Reply buttons -->
         <div class="reply-menu">
             {% if request.user == post.user %}
