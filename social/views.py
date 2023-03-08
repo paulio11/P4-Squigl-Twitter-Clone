@@ -212,10 +212,10 @@ def report_post(request, post_id):
 
     if post.reported.filter(id=request.user.id).exists():
         post.reported.remove(request.user)
-        return HttpResponse('removed report')
+        return redirect('post', post.id)
     else:
         post.reported.add(request.user)
-        return HttpResponse('added report')
+        return redirect('post', post.id)
 
 
 # Follow user
