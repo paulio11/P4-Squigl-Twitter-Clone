@@ -12,8 +12,10 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ['post', 'link', 'image']
         widgets = {
+            'post': forms.Textarea(
+                attrs={'placeholder': 'Use ~ to tag a ~username, or # to create a #hashtag.'}),
             'link': forms.TextInput(
-                attrs={'placeholder': 'Enter the FULL url'})
+                attrs={'placeholder': 'Enter the FULL url. Example: https://www.squigl.com/'})
         }
 
 
@@ -27,7 +29,7 @@ class ReplyForm(forms.ModelForm):
             'reply': forms.Textarea(attrs={
                 'class': 'reply-input',
                 'aria-label': 'reply',
-                'placeholder': 'Type your reply here...',
+                'placeholder': 'Type your reply here. Use ~ to tag a ~username, or # to create a #hashtag.',
                 'rows': '4',
             }),
         }
