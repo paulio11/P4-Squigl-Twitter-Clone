@@ -11,7 +11,7 @@ class Message(models.Model):
         CustomUser, on_delete=models.CASCADE, related_name='sender')
     recipient = models.ForeignKey(
         CustomUser, on_delete=models.CASCADE, related_name='recipient')
-    message = models.CharField(max_length=400)
+    message = models.TextField(max_length=400)
     date = models.DateTimeField(auto_now_add=True)
     read = models.BooleanField(default=False)
 
