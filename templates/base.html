@@ -24,7 +24,7 @@
             <div class="row header-row">
                 <!-- Title -->
                 <div class="d-none d-sm-block col-sm-2">
-                    <a href="{% url 'home' %}"><h1>Squigl</h1></a>
+                    <a href="{% url 'home' %}"><h1>~squigl</h1></a>
                 </div>
                 <!-- Title ends -->
                 <!-- Search -->
@@ -171,8 +171,12 @@
                         <i class="fa-solid fa-right-from-bracket"></i>
                     </a>
                     {% else %}
-                    <a class="nav-link {% if '/login/' in request.path %}menu-active{% endif %}" href="{% url 'login' %}">Login</a>
-                    <a class="nav-link {% if '/signup/' in request.path %}menu-active{% endif %}" href="{% url 'signup' %}">Sign Up</a>
+                    <a class="nav-link {% if '/login/' in request.path %}menu-active{% endif %}" href="{% url 'login' %}">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                    </a>
+                    <a class="nav-link {% if '/signup/' in request.path %}menu-active{% endif %}" href="{% url 'signup' %}">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </a>
                     {% endif %}
                     {% if request.user.is_superuser %}
                     <a class="nav-link" href="{% url 'admin:index' %}">
@@ -195,8 +199,8 @@
                             aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                             <i class="fa-solid fa-bars"></i>
                         </button>
-                        <div class="user-info tiny-user-info">
-                            {% if request.user.is_authenticated %}
+                        {% if request.user.is_authenticated %}
+                        <div class="user-info tiny-user-info">                            
                             <div>
                                 <h5><a href="{% url 'user' request.user %}" class="user-link">~{{ request.user }}</a></h5>
                                 <h4>
@@ -212,9 +216,9 @@
                             <a href="{% url 'user' request.user %}"><img src="{{ request.user.avatar.url }}" class="avatar-large"></a>
                             {% else %}
                             <a href="{% url 'user' request.user %}"><img src="{% static 'images/avatar.jpg' %}" class="avatar-large"></a>
-                            {% endif %}
-                            {% endif %}
+                            {% endif %}                            
                         </div>
+                        {% endif %}
                         <div class="collapse navbar-collapse" id="navbarToggler">
                             <div class="nav flex-column nav-pills">
                                 {% if request.user.is_authenticated %}

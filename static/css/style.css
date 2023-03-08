@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 /* ----------------------------------------------------- base.html */
 
@@ -18,8 +21,11 @@
 /* ----------------------------------------------------- Text, Headings, Links */
 
 h1, h4, h5 {
-    font-family: 'IBM Plex Sans';
-    font-weight: bold;
+    font-family: 'Fredoka One';
+}
+
+body {
+    font-family: 'Roboto';
 }
 
 .small-span {
@@ -331,6 +337,8 @@ header a:hover {
     margin-bottom: 25px;
 }
 
+
+
 .post-header {
     margin-bottom: 10px;
 }
@@ -349,6 +357,12 @@ header a:hover {
 
 .post-col {
     padding-left: 25px;
+}
+
+@media screen and (max-width: 575px) {
+    .post-col {
+        padding-left:12px;
+    }
 }
 
 .post-link {
