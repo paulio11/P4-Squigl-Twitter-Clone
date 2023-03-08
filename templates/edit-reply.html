@@ -57,6 +57,11 @@ Edit Reply
 <!-- Reply user and date info ends -->
 <!-- Edit post form -->
 <form method="POST" class="reply">
+    {% if reply.hidden %}
+    <div class="alert alert-danger" role="alert">
+        This reply has been hidden by ~{{ reply.post.user }}.
+    </div>
+    {% endif %}
     {% csrf_token %}
     {{ form | crispy }}
     <button type="submit" class="btn btn-dark">Save Changes</button>

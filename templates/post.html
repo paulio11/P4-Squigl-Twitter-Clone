@@ -10,56 +10,18 @@ Post: {{ post.id }}
 {% include 'post-template.html' %}
 <!-- Replies -->
 {% if replies %}
-{% for reply in replies %}
-<div class="reply-container">
-    <!-- Reply user and date info -->
-    <div class="reply-header">
-        <a href="{% url 'user' reply.user %}">
-            {% if reply.user.avatar %}
-            <img src="{{ reply.user.avatar.url }}" class="avatar-small">
-            {% else %}
-            <img src="{% static 'images/avatar.jpg' %}" class="avatar-small">
-            {% endif %}
-        </a>
-        <div>
-            <div>
-                <a href="{% url 'user' reply.user %}" class="user-link">
-                    <strong>{{ reply.user.name }}</strong>
-                    {% if reply.user.verified %}
-                    <i class="fa-solid fa-square-check verified"></i>
-                    {% endif %}
-                    ~{{ reply.user }}
-                </a>
-            </div>
-            <span class="small-span">{{ reply.date | date:'M d, Y' }}</span>
-        </div>
-    </div> 
-    <!-- Reply user and date info ends -->
-    <!-- Reply bubble -->
-    <div class="reply">
-        <span class="post-reply-body">{{ reply.reply }}</span>
-        <!-- Reply buttons -->
-        <div class="reply-menu">
-            {% if request.user == post.user %}
-            <a href="">
-                <i class="fa-solid fa-eye-slash"></i>
-            </a> 
-            {% endif %}
-            {% if request.user == reply.user %}
-            <a href="{% url 'edit_reply' reply.id %}">
-                <i class="fa-solid fa-pen-to-square"></i>
-            </a>
-            {% endif %}
-        </div>
-        <!-- Reply buttons -->
-    </div>
-    <!-- Reply bubble ends -->
-</div>
-{% endfor %}
+    {% for reply in replies %}
+        {% if reply.user == request.user and reply.hidden %}
+            {% include 'reply-template.html' %}
+        {% endif %}
+        {% if reply.hidden == False %}
+            {% include 'reply-template.html' %}
+        {% endif %}
+    {% endfor %}
 {% else %}
-<div class="alert alert-light" role="alert">
-    This post has no replies.
-</div>
+    <div class="alert alert-light" role="alert">
+        This post has no replies.
+    </div>
 {% endif %}
 <!-- Replies end -->
 {% endblock %}
