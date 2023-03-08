@@ -53,6 +53,7 @@ Feed
     </ul>
 </div>
 <!-- Trending hashtags ends -->
+{% if users %}
 <!-- Who to follow -->
 <div class="card sidebar-card">
     <div class="card-header">
@@ -88,4 +89,5 @@ Feed
     {% endfor %}
 </div>
 <!-- Who to follow ends -->
+{% endif %}
 {% endblock %}
