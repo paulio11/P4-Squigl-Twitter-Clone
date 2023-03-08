@@ -1,6 +1,7 @@
 {% load static %}
 {% load social_extras %}
 {% suggested_users request.user as users %}
+{% if request.user.is_authenticated %}
 {% if users %}
 <!-- Who to follow -->
 <div class="card sidebar-card">
@@ -37,4 +38,5 @@
     {% endfor %}
 </div>
 <!-- Who to follow ends -->
+{% endif %}
 {% endif %}
