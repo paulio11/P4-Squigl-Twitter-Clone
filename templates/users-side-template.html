@@ -1,7 +1,7 @@
 {% load static %}
 {% load social_extras %}
-{% suggested_users request.user as users %}
 {% if request.user.is_authenticated %}
+{% suggested_users request.user as users %}
 {% if users %}
 <!-- Who to follow -->
 <div class="card sidebar-card">
