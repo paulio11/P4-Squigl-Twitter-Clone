@@ -1,14 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
 
-/* * {
-    outline: solid 1px red;
-} */
-
 /* ----------------------------------------------------- Text, Headings, Links */
-
-body {
-    /* color: #212529; */
-}
 
 h1, h4, h5 {
     font-family: 'IBM Plex Sans';
@@ -41,7 +33,7 @@ h1, h4, h5 {
 .user-tag {
     text-decoration: none;
     font-weight: bold;
-    color: darkgreen;
+    color: #640023;
 }
 
 .hash-form {
@@ -102,9 +94,6 @@ h1, h4, h5 {
     border-radius: 50%; 
     border: solid white 4px;    
     background-color: white;
-    /* position: absolute;
-    top: 25px;
-    left: 25px; */
 }
 
 /* ----------------------------------------------------- Header */
@@ -220,10 +209,6 @@ header a:hover {
 }
 
 /* ----------------------------------------------------- Posts */
-
-/* .card-body {
-    padding-bottom: 0;
-} */
 
 .post-card {
     width: 100%;
