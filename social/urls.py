@@ -13,7 +13,7 @@ urlpatterns = [
     # Search
     path('search/', views.search, name='search'),
     # Post
-    path('post/<post_id>', views.post, name='post'),
+    path('p/<post_id>', views.post, name='post'),
     path('edit-post/<int:pk>', views.EditPost.as_view(), name='edit_post'),
     path('delete-post/<post_id>', views.delete_post, name='delete_post'),
     path('new-post/', views.new_post, name='new_post'),
