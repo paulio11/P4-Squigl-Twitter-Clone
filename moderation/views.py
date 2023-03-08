@@ -106,3 +106,19 @@ def msg_is_okay(request, message_id):
         return redirect('moderation')
     else:
         return render(request, 'permission-error.html')
+
+
+# Ban user
+@login_required
+def ban_user(request, user_id):
+    if request.user.is_staff:
+        user = get_object_or_404(CustomUser, id=user_id)
+        if user.is_active:
+            user.is_active = False
+            user.save()
+        else:
+            user.is_active = True
+            user.save()
+        return redirect('moderation')
+    else:
+        return render(request, 'permission-error.html')

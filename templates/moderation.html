@@ -241,7 +241,7 @@ Moderation
                     <th>ID</th>
                     <th>Username</th>
                     <th>Strikes</th>
-                    <th>Status</th>
+                    <th></th>
                     <th></th>
                 </tr>
                 {% for user in users %}
@@ -249,8 +249,12 @@ Moderation
                     <td>{{ user.id }}</td>
                     <td><a href="{% url 'user' user %}" class="user-link"><strong>~{{ user }}</strong></a></td>
                     <td>{{ user.strikes }}</td>
-                    <td>NYI</td>
-                    <td>Btn</td>    
+                    <td><a href="{% url 'send_message' user.id %}"><button class="btn btn-dark">Message</button></a></td> 
+                    {% if user.is_active %}   
+                    <td><a href="{% url 'ban_user' user.id %}"><button class="btn btn-danger">Ban</button></a></td>
+                    {% else %}    
+                    <td><a href="{% url 'ban_user' user.id %}"><button class="btn btn-success">Unban</button></a></td>
+                    {% endif %}    
                 </tr>
                 {% endfor %}
             </table>
