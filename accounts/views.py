@@ -23,5 +23,5 @@ class EditProfile(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('user', kwargs={
-            'user': self.object.request.user
+            'user': self.object
         })
