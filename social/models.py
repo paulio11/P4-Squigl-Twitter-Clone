@@ -1,6 +1,9 @@
 # Django imports
 from django.db import models
 
+# Other imports
+from django_resized import ResizedImageField
+
 # My imports
 from accounts.models import CustomUser
 
@@ -12,7 +15,11 @@ class Post(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     post = models.TextField(max_length=400)
-    image = models.ImageField(upload_to='post-images/', blank=True)
+    image = ResizedImageField(
+        upload_to='post-images/',
+        blank=True,
+        size=[600, None],
+        force_format='JPEG')
     link = models.CharField(max_length=50, blank=True)
     likes = models.ManyToManyField(
         CustomUser, related_name='post_likes', blank=True)

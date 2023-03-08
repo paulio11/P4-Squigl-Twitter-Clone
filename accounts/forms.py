@@ -1,12 +1,13 @@
+# Django imports
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+
+# My imports
 from .models import CustomUser
 
 
 # Custom user creation form
 class CustomUserCreationForm(UserCreationForm):
-
-    # email = forms.EmailField(max_length=75, required=True)
 
     class Meta:
         model = CustomUser
