@@ -83,9 +83,15 @@
 </ul>
 <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="posts-tab-pane" role="tabpanel" aria-labelledby="posts-tab" tabindex="0">
+        {% if posts %}
         {% for post in posts %}
         {% include 'post-template.html' %}
         {% endfor %}
+        {% else %}
+        <div class="alert alert-secondary" role="alert">
+            ~{{ user }} has not posted yet.
+        </div>
+        {% endif %}
     </div>
     <div class="tab-pane fade" id="images-tab-pane" role="tabpanel" aria-labelledby="images-tab" tabindex="0">
         <!-- Posts with images -->
@@ -99,9 +105,15 @@
         <!-- Posts with images ends -->
     </div>
     <div class="tab-pane fade" id="liked-tab-pane" role="tabpanel" aria-labelledby="liked-tab" tabindex="0">
+        {% if liked_posts %}
         {% for post in liked_posts %}
         {% include 'post-template.html' %}
         {% endfor %}
+        {% else %}
+        <div class="alert alert-secondary" role="alert">
+            ~{{ user }} has not liked any posts.
+        </div>
+        {% endif %}
     </div>
 </div>
 <!-- Tab navigation ends -->
