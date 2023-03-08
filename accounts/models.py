@@ -13,7 +13,7 @@ alphanumeric = RegexValidator(
 class CustomUser(AbstractUser):
     username = models.CharField(
         max_length=20, unique=True, validators=[alphanumeric])
-    display_name = models.CharField(max_length=30, blank=True)
+    name = models.CharField(max_length=30)
     avatar = models.ImageField(upload_to='avatars/', blank=True)
     profile_background = models.ImageField(
         upload_to='backgrounds/', blank=True)

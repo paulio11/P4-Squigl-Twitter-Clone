@@ -19,7 +19,7 @@
                 <!-- Post author and date -->
                 <div class="post-header">
                     <a href="{% url 'user' post.user %}" class="user-link">
-                        <strong>{{ post.user.display_name }}</strong>
+                        <strong>{{ post.user.name }}</strong>
                         {% if post.user.verified %}
                         <i class="fa-solid fa-square-check verified"></i>
                         {% endif %}

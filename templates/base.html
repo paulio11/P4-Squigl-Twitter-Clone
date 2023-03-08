@@ -43,7 +43,7 @@
                     {% if request.user.is_authenticated %}
                     <div>
                         <h5><a href="{% url 'user' request.user %}">~{{ request.user }}</a></h5>
-                        <h4><a href="{% url 'user' request.user %}">{{ request.user.display_name }}</a></h4>
+                        <h4><a href="{% url 'user' request.user %}">{{ request.user.name }}</a></h4>
                     </div>
                     {% if request.user.avatar %}
                     <a href="{% url 'user' request.user %}"><img src="{{ request.user.avatar.url }}" class="header-avatar"></a>

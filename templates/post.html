@@ -24,7 +24,7 @@ Post: {{ post.id }}
         <div>
             <div>
                 <a href="{% url 'user' reply.user %}" class="user-link">
-                    <strong>{{ reply.user.display_name }}</strong>
+                    <strong>{{ reply.user.name }}</strong>
                     {% if reply.user.verified %}
                     <i class="fa-solid fa-square-check verified"></i>
                     {% endif %}
