@@ -396,17 +396,17 @@ label[for=id_reply] {
 
 /* ----------------------------------------------------- Feed */
 
-.wtf-card {
-    width: 100%;
+.sidebar-card {
+    margin-bottom: 30px;
 }
 
-.wtf-card li {
+.sidebar-card li {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.wtf-card li a {
+.sidebar-card li a {
     display: flex;
     gap: 10px;
 }
@@ -415,4 +415,8 @@ label[for=id_reply] {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+#hidden-posts {
+    display: none;
 }
