@@ -126,6 +126,16 @@ h1, h4, h5 {
     text-align: right;
 }
 
+.tiny-user-info {
+    background-color: #212529;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.tiny-user-info .user-link {
+    color: white;
+}
+
 header a {
     text-decoration: none;
     color: #212529;
@@ -174,6 +184,10 @@ header a:hover {
     justify-content: space-between;
 }
 
+.tiny-alert {
+    color: red !important;
+}
+
 #hamburger-div {
     background-color: #c4c4c4;
     border-top-right-radius: 5px;
@@ -192,7 +206,7 @@ header a:hover {
 
 .hamburger-user-info {
     background-color: white;
-    padding: 4px;
+    padding: 4px 16px;
     border-radius: 5px;
 }
 

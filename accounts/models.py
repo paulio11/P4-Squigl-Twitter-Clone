@@ -19,7 +19,7 @@ class CustomUser(AbstractUser):
     username = models.CharField(
         max_length=20, unique=True, validators=[alphanumeric])
     email = models.EmailField(unique=True)
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=20)
     avatar = ResizedImageField(
         upload_to='avatars/',
         blank=True,

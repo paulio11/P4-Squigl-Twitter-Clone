@@ -159,13 +159,10 @@
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
                     <a class="nav-link {% if '/mentions/' in request.path %}menu-active{% endif %} position-relative" href="{% url 'mentions' %}">
-                        <i class="fa-solid fa-quote-left"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            3
-                        </span>                       
+                        <i class="fa-solid fa-quote-left {% if mentions > 0 %}tiny-alert{% endif %}"></i>                  
                     </a>
                     <a class="nav-link {% if '/messages/' in request.path %}menu-active{% endif %}" href="{% url 'messages' %}">
-                        <i class="fa-solid fa-envelope"></i>       
+                        <i class="fa-solid fa-envelope  {% if unread > 0 %}tiny-alert{% endif %}"></i>       
                     </a>
                     <a class="nav-link {% if '/accounts/settings' in request.path %}menu-active{% endif %}" href="{% url 'settings' request.user.id %}">
                         <i class="fa-solid fa-gear"></i>
@@ -184,7 +181,7 @@
                     {% endif %}
                     {% if request.user.is_staff %}
                     <a class="nav-link {% if '/mod/' in request.path %}menu-active{% endif %}" href="{% url 'moderation' %}">
-                        <i class="fa-solid fa-thumbs-up"></i>
+                        <i class="fa-solid fa-thumbs-up  {% if mod_count > 0 %}tiny-alert{% endif %}"></i>
                     </a>
                     {% endif %}
                 </nav>
@@ -198,13 +195,26 @@
                             aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                             <i class="fa-solid fa-bars"></i>
                         </button>
-                        <a href="{% url 'user' request.user %}" class="user-link hamburger-user-info">
-                            <strong>{{ request.user.name }}</strong>
-                            {% if request.user.verified %}
-                            <i class="fa-solid fa-square-check verified"></i>
+                        <div class="user-info tiny-user-info">
+                            {% if request.user.is_authenticated %}
+                            <div>
+                                <h5><a href="{% url 'user' request.user %}" class="user-link">~{{ request.user }}</a></h5>
+                                <h4>
+                                    <a href="{% url 'user' request.user %}" class="user-link">
+                                        {{ request.user.name }}
+                                        {% if request.user.verified %}
+                                        <i class="fa-solid fa-square-check verified"></i>
+                                        {% endif %}
+                                    </a>
+                                </h4>
+                            </div>
+                            {% if request.user.avatar %}
+                            <a href="{% url 'user' request.user %}"><img src="{{ request.user.avatar.url }}" class="avatar-large"></a>
+                            {% else %}
+                            <a href="{% url 'user' request.user %}"><img src="{% static 'images/avatar.jpg' %}" class="avatar-large"></a>
                             {% endif %}
-                            ~{{ request.user }}
-                        </a>
+                            {% endif %}
+                        </div>
                         <div class="collapse navbar-collapse" id="navbarToggler">
                             <div class="nav flex-column nav-pills">
                                 {% if request.user.is_authenticated %}
