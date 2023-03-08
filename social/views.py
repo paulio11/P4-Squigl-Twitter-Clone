@@ -30,6 +30,26 @@ def feed(request):
     })
 
 
+# Search
+def search(request):
+    if request.method == 'POST':
+        query = request.POST['query']
+        users = CustomUser.objects.filter(
+            username__icontains=query).order_by('username')
+        posts = Post.objects.filter(
+            post__icontains=query).order_by('-date')
+        replies = Reply.objects.filter(
+            reply__icontains=query).order_by('-date')
+        return render(request, 'search.html', {
+            'query': query,
+            'posts': posts,
+            'users': users,
+            'replies': replies
+        })
+    else:
+        return render(request, 'search.html')
+
+
 # Post
 def post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
@@ -133,6 +153,15 @@ def delete_post(request, post_id):
             post.repost_post.reposter.remove(request.user)
         post.delete()
         return redirect('feed')
+    else:
+        return render(request, 'delete-error.html')
+
+
+def delete_reply(request, reply_id):
+    reply = get_object_or_404(Reply, id=reply_id)
+    if request.user == reply.user:
+        reply.delete()
+        return redirect('post', reply.post.id)
     else:
         return render(request, 'delete-error.html')
 

@@ -26,10 +26,10 @@
                 <!-- Title ends -->
                 <!-- Search -->
                 <div class="col-4">
-                    <form method="POST" action="#">
+                    <form method="POST" action="{% url 'search' %}">
                         {% csrf_token %}
                         <div class="input-group flex-nowrap">
-                            <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+                            <input type="text" class="form-control" placeholder="Explore Squigl" aria-label="Search"
                                 aria-describedby="addon-wrapping" name="query">
                             <button class="input-group-text" id="addon-wrapping">
                                 <i class="fa-solid fa-magnifying-glass"></i>

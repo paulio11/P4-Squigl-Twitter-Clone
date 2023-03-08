@@ -20,7 +20,7 @@ Edit Reply
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                <a href=""><button type="button" class="btn btn-danger">Yes</button></a>
+                <a href="{% url 'delete_reply' reply.id %}"><button type="button" class="btn btn-danger">Yes</button></a>
             </div>
         </div>
     </div>
