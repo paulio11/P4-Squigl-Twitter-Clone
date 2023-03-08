@@ -48,6 +48,9 @@ class Post(models.Model):
     def repost_count(self):
         return Post.objects.filter(repost_post=self).count()
 
+    def reported_count(self):
+        return self.reported.count()
+
     def time_check(self):
         now = datetime.now(timezone.utc)
         time_since = now - self.date
