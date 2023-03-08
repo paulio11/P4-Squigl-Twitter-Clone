@@ -9,6 +9,7 @@ Repost
 <h2>Repost</h2>
 <hr>
 {% if request.user.is_authenticated %}
+{% include 'post-template.html' %}
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form | crispy }}
