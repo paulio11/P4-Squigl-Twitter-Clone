@@ -29,14 +29,14 @@ Feed
                     {% endif %}
                     
                 </div>
-                <div class="small-span wtf-names">                    
+                <div class="small-span wtf-names">    
+                    <span>~{{ user }}</span>                
                     <strong>
                         {{ user.display_name }}
                         {% if user.verified %}
                         <i class="fa-solid fa-square-check verified"></i>
                         {% endif %}
-                    </strong>
-                    <span>~{{ user }}</span>
+                    </strong>                    
                 </div>                    
             </a>
             <form action="{% url 'follow' user %}">
