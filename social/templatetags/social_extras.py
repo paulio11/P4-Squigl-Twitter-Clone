@@ -13,7 +13,8 @@ register = template.Library()
 @register.simple_tag
 def mentions_count(user):
     posts = Post.objects.filter(post__icontains=user).count()
-    replies = Reply.objects.filter(reply__icontains=user).count()
+    replies = Reply.objects.filter(
+        reply__icontains=user).exclude(hidden=True).count()
     return posts + replies
 
 

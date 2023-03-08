@@ -231,7 +231,8 @@ def follow(request, user):
 @login_required
 def mentions(request):
     posts = Post.objects.filter(post__icontains=request.user)
-    replies = Reply.objects.filter(reply__icontains=request.user)
+    replies = Reply.objects.filter(
+        reply__icontains=request.user).exclude(hidden=True)
     return render(request, 'mentions.html', {
         'posts': posts,
         'replies': replies,
