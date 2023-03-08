@@ -23,4 +23,6 @@ urlpatterns = [
     # User
     path('u/<user>', views.user, name='user'),
     path('follow/<user>', views.follow, name='follow'),
+    # Mentions
+    path('mentions/', views.mentions, name='mentions'),
 ]

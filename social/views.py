@@ -214,3 +214,14 @@ def follow(request, user):
         request.user.following.add(user)
 
     return redirect('user', user)
+
+
+# Mentions
+@login_required
+def mentions(request):
+    posts = Post.objects.filter(post__icontains=request.user)
+    replies = Reply.objects.filter(reply__icontains=request.user)
+    return render(request, 'mentions.html', {
+        'posts': posts,
+        'replies': replies,
+    })
