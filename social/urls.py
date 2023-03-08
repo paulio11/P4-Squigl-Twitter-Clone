@@ -8,6 +8,7 @@ urlpatterns = [
     path('feed/', views.feed, name='feed'),
     # Post
     path('post/<post_id>', views.post, name='post'),
+    path('edit-post/<post_id>', views.edit_post, name='edit_post'),
     path('new-post/', views.new_post, name='new_post'),
     # User
     path('u/<user_username>', views.user, name='user'),

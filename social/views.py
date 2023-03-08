@@ -68,3 +68,17 @@ def new_post(request):
             return redirect('post', post.id)
     else:
         return render(request, 'new-post.html', {'form': PostForm()})
+
+
+# Edit post
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES or None)
+        if form.is_valid():
+            post.save()
+            return redirect('post', post.id)
+    else:
+        return render(
+            request, 'edit-post.html', {'form': PostForm(instance=post)})
