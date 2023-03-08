@@ -88,7 +88,7 @@
                         </div>
                         <!-- Post author and date ends -->
                         <!-- Post body, image and link -->
-                        <p>{{ post.post }}</p>
+                        <p>{{ post.post | linebreaksbr }}</p>
                         {% if post.link %}
                         <p><i class="fa-solid fa-link"></i> <a href="{{ post.link }}" class="post-link">{{ post.link }}</a></p>
                         {% endif %}
@@ -184,7 +184,7 @@
                         </div>
                         <!-- Post author and date ends -->
                         <!-- Post body, image and link -->
-                        <p>{{ post.post }}</p>
+                        <p>{{ post.post | linebreaksbr }}</p>
                         {% if post.link %}
                         <p><i class="fa-solid fa-link"></i> <a href="{{ post.link }}" class="post-link">{{ post.link }}</a></p>
                         {% endif %}
