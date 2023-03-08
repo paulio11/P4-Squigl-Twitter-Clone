@@ -442,6 +442,21 @@ label[for=id_reply] {
     display: none;
 }
 
+/* ----------------------------------------------------- Mentions */
+
+.mentions-ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mentions-menu {
+    display: flex;
+}
+
+.read-btn {
+    margin-right: 0 !important;
+}
+
 /* ----------------------------------------------------- Moderation */
 
 .mod-section {

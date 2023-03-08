@@ -6,7 +6,42 @@ Mentions
 {% endblock %}
 
 {% block content %}
-main
+<!-- Mentions navigation -->
+<ul class="nav nav-pills mb-3 mentions-ul" id="search-pills-tab" role="tablist">
+    <div class="mentions-menu">
+        {% if posts %}
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-posts-tab" data-bs-toggle="pill" data-bs-target="#pills-posts"
+                type="button" role="tab" aria-controls="pills-posts" aria-selected="true">Posts <span class="badge text-bg-danger">{{ posts.count }}</span></button>
+        </li>
+        {% endif %}
+        {% if replies %}
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-replies-tab" data-bs-toggle="pill" data-bs-target="#pills-replies"
+                type="button" role="tab" aria-controls="pills-replies" aria-selected="false">Replies <span class="badge text-bg-danger">{{ replies.count }}</span></button>
+        </li>
+        {% endif %}
+    </div>    
+    <li><button class="btn btn-success read-btn">Mark All Read</button></li>
+</ul>
+<!-- Mentions navigation ends -->
+
+<div class="tab-content" id="pills-tabContent">
+    <!-- Mentions - posts -->
+    <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab" tabindex="0">
+        {% for post in posts %}
+        {% include 'post-template.html' %}
+        {% endfor %}
+    </div>
+    <!-- Mentions - posts ends -->
+    <!-- Mentions - replies -->
+    <div class="tab-pane fade" id="pills-replies" role="tabpanel" aria-labelledby="pills-replies-tab" tabindex="0">
+        {% for reply in replies %}
+        {% include 'reply-template.html' %}
+        {% endfor %}
+    </div>
+    <!-- Mentions - replies ends -->
+</div>
 {% endblock %}
 
 {% block rightsidebar %}
