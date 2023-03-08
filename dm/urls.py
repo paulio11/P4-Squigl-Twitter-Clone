@@ -6,6 +6,7 @@ from . import views
 
 
 urlpatterns = [
-    path('send/<user_id>', views.send_message, name='send_message'),
     path('', views.messages, name='messages'),
+    path('send/<user_id>', views.send_message, name='send_message'),    
+    path('read/<message_id>', views.mark_read, name='mark_read'),
 ]

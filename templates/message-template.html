@@ -46,8 +46,13 @@
     <div class="card-body">
         <p class="card-text">{{ message.message | linebreaksbr }}</p>
         <div class="message-btns">
-            <a href="#" class="btn btn-dark">Mark Read</a>
+            {% if request.user == message.recipient %}
+            {% if not message.read %}
+            <a href="{% url 'mark_read' message.id %}" class="btn btn-dark">Mark Read</a>
+            {% endif %}            
             <a href="#" class="btn btn-dark">Reply</a>
+            <a href="#" class="btn btn-warning">Report</a>
+            {% endif %}
             <a href="#" class="btn btn-danger">Delete</a>
         </div>        
     </div>

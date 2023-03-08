@@ -36,3 +36,24 @@ def send_message(request, user_id):
             return redirect('user', message.recipient)
     else:
         return render(request, 'dm/send-message.html', {'form': MessageForm()})
+
+
+# Mark message read
+@login_required
+def mark_read(request, message_id):
+    message = get_object_or_404(Message, id=message_id)
+    if message.recipient == request.user:
+        message.read = True
+        message.save()
+        return redirect('messages')
+    else:
+        return render(request, 'permission-error.html')
+
+
+
+
+
+
+# Report
+# Mark read
+
