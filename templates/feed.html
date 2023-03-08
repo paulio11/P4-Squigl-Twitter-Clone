@@ -11,5 +11,24 @@ Feed
 {% endblock %}
 
 {% block rightsidebar %}
-Right block
+<!-- Who to follow -->
+<div class="card follow-card">
+    <div class="card-header">
+        <strong>Who To Follow</strong>
+    </div>
+    {% for user in users %}
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <a href="{% url 'user' user %}" class="user-link">
+                <img src="{{ user.avatar.url }}" class="reply-avatar">
+                <strong>~{{ user }}</strong>
+            </a>
+            <a href="{% url 'follow' user %}">
+                <button class="btn btn-dark">Follow</button>
+            </a>  
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+<!-- Who to follow ends -->
 {% endblock %}

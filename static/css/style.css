@@ -297,3 +297,15 @@ label[for=id_reply] {
     height: 150px;
     border-radius: 5px;
 }
+
+/* ----------------------------------------------------- Feed */
+
+.follow-card {
+    width: 100%;
+}
+
+.follow-card li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

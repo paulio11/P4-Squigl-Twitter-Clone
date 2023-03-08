@@ -21,9 +21,12 @@ def feed(request):
     following = request.user.following
     posts = Post.objects.filter(
         Q(user__in=following.all()) | Q(user=request.user))
+    users = CustomUser.objects.exclude(
+        id__in=following.all()).exclude(id=request.user.id).order_by('?')[:5]
 
     return render(request, 'feed.html', {
         'posts': posts,
+        'users': users,
     })
 
 
