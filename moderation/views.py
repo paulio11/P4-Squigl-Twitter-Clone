@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 # My imports
 from social.models import Post, Reply
 from dm.models import Message
+from accounts.models import CustomUser
 
 
 # Moderation page
@@ -17,12 +18,15 @@ def moderation(request):
         reported_replies = Reply.objects.annotate(
             nreports=Count('reported')).filter(nreports__gt=0)
         reported_messages = Message.objects.filter(reported=True)
+        users = CustomUser.objects.filter(strikes__gt=0).order_by('-strikes')
+
         return render(
             request,
             'moderation.html', {
                 'reported_posts': reported_posts,
                 'reported_replies': reported_replies,
                 'reported_messages': reported_messages,
+                'users': users,
                 })
     else:
         return render(request, 'permission-error.html')

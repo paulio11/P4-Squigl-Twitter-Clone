@@ -102,15 +102,27 @@ Moderation
 <ul class="nav nav-pills mb-3" id="nav-pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
         <button class="nav-link active" id="pills-posts-tab" data-bs-toggle="pill" data-bs-target="#pills-posts"
-            type="button" role="tab" aria-controls="pills-posts" aria-selected="true">Posts <span class="badge text-bg-danger">{{ reported_posts.count }}</span></button>
+            type="button" role="tab" aria-controls="pills-posts" aria-selected="true">Posts
+            {% if reported_posts.count > 0 %}
+            <span class="badge text-bg-danger">{{ reported_posts.count }}</span>
+            {% endif %}
+        </button>
     </li>
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-replies-tab" data-bs-toggle="pill" data-bs-target="#pills-replies"
-            type="button" role="tab" aria-controls="pills-replies" aria-selected="false">Replies <span class="badge text-bg-danger">{{ reported_replies.count }}</span></button>
+            type="button" role="tab" aria-controls="pills-replies" aria-selected="false">Replies
+            {% if reported_replies.count > 0 %}
+            <span class="badge text-bg-danger">{{ reported_replies.count }}</span>
+            {% endif %}
+        </button>
     </li>
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-messages-tab" data-bs-toggle="pill" data-bs-target="#pills-messages"
-            type="button" role="tab" aria-controls="pills-messages" aria-selected="false">Messages <span class="badge text-bg-danger">{{ reported_messages.count }}</span></button>
+            type="button" role="tab" aria-controls="pills-messages" aria-selected="false">Messages
+            {% if reported_messages.count > 0 %}
+            <span class="badge text-bg-danger">{{ reported_messages.count }}</span>
+            {% endif %}
+        </button>
     </li>
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-users-tab" data-bs-toggle="pill" data-bs-target="#pills-users"
@@ -222,7 +234,33 @@ Moderation
         {% endif %}
     </div>
     <div class="tab-pane fade" id="pills-users" role="tabpanel" aria-labelledby="pills-users-tab" tabindex="0">
-        Users
+        {% if users %}
+        <div class="mod-section">
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Strikes</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td><a href="{% url 'user' user %}" class="user-link"><strong>~{{ user }}</strong></a></td>
+                    <td>{{ user.strikes }}</td>
+                    <td>NYI</td>
+                    <td>Btn</td>    
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        
+        {% else %}
+        <div class="alert alert-secondary" role="alert">
+            There are no users with strikes 🙂
+        </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
