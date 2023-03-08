@@ -1,46 +1,72 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
+{% load static %}
 
-{%block title%}
+{% block title %}
 Search Results
-{%endblock%}
+{% endblock %}
 
-{%block content%}
+{% block content %}
 <h2>Search results for "{{query}}"</h2>
 <hr>
-<!-- Users -->
-{%if users%}
-<h2>Users</h2>
-<ul>
-    {%for user in users%}
-    <li>
-        <a href="{%url 'user' user%}">{{user.username}}</a>
+<ul class="nav nav-pills mb-3" id="search-pills-tab" role="tablist">
+    {% if users %}
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-users-tab" data-bs-toggle="pill" data-bs-target="#pills-users"
+            type="button" role="tab" aria-controls="pills-users" aria-selected="true">Users <span class="badge text-bg-danger">{{ users.count }}</span></button>
     </li>
-    {%endfor%}
+    {% endif %}
+    {% if posts %}
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-posts-tab" data-bs-toggle="pill" data-bs-target="#pills-posts"
+            type="button" role="tab" aria-controls="pills-posts" aria-selected="false">Posts <span class="badge text-bg-danger">{{ posts.count }}</span></button>
+    </li>
+    {% endif %}
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-replies-tab" data-bs-toggle="pill" data-bs-target="#pills-replies"
+            type="button" role="tab" aria-controls="pills-replies" aria-selected="false">Replies <span class="badge text-bg-danger">{{ replies.count }}</span></button>
+    </li>
 </ul>
-{%endif%}
-<!-- Users ends -->
-<!-- Posts -->
-{%if posts%}
-<h2>Posts</h2>
-{%for post in posts%}
-<ul>
-    <li><a href="{%url 'user' post.user %}">{{post.user}}</a></li>
-    <li><a href="{%url 'post' post.id %}">{{post.date}}</a></li>
-    <li class="post">{{post.post}}</li>
-</ul>
-{%endfor%}
-{%endif%}
-<!-- Posts ends -->
-<!-- Replies -->
-{%if replies%}
-<h2>Replies</h2>
-{%for reply in replies%}
-<ul>
-    <li><a href="{%url 'user' reply.user%}">{{reply.user}}</a></li>
-    <li class="post">{{reply.reply}}</li>
-    <li><a href="{%url 'post' reply.post.id%}">Parent post</a></li>
-</ul>
-{%endfor%}
-{%endif%}
-<!-- Replies ends -->
-{%endblock%}
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-users" role="tabpanel" aria-labelledby="pills-users-tab" tabindex="0">
+        {% for user in users %}
+        <!-- User profile card -->
+        <a href="{% url 'user' user %}">
+            <div class="card user-card">
+                {% if user.profile_background %}
+                <img src="{{ user.profile_background.url }}" class="card-img-top user-background">
+                {% else %}
+                <div class="user-background"></div>
+                {% endif %}
+                <div class="user-search-container">
+                    {% if user.avatar %}
+                    <img src="{{ user.avatar.url }}" class="avatar-search">
+                    {% else %}
+                    <img src="{% static 'images/avatar.jpg' %}" class="avatar-search">
+                    {% endif %}
+                    <div class="user-search-text">
+                        ~{{ user }}<br>
+                        <strong>
+                            {{ user.name }}
+                            {% if user.verified %}
+                            <i class="fa-solid fa-square-check verified"></i>
+                            {% endif %}
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <!-- User profile card ends -->
+        {% endfor %}
+    </div>
+    <div class="tab-pane fade" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab" tabindex="0">
+        {% for post in posts %}
+        {% include 'post-template.html' %}
+        {% endfor %}
+    </div>
+    <div class="tab-pane fade" id="pills-replies" role="tabpanel" aria-labelledby="pills-replies-tab" tabindex="0">
+        {% for reply in replies %}
+        {% include 'reply-template.html' %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
