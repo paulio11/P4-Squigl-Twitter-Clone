@@ -100,7 +100,7 @@
         {% endif %}       
         <!-- Like ends -->
         <!-- Repost -->
-        <a href="{% url 'repost' post.id %}"><i class="fa-solid fa-retweet"></i> 107</a>
+        <a href="{% url 'repost' post.id %}"><i class="fa-solid fa-retweet"></i> {{ post.repost_count }}</a>
         <!-- Repost ends -->
         <!-- Footer menu -->
         <div class="btn-group dropup">

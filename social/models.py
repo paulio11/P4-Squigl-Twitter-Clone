@@ -37,6 +37,9 @@ class Post(models.Model):
     def reply_count(self):
         return Reply.objects.filter(post=self.id).count()
 
+    def repost_count(self):
+        return Post.objects.filter(repost_post=self).count()
+
 
 class Reply(models.Model):
 
