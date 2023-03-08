@@ -14,12 +14,17 @@ class Post(models.Model):
     post = models.TextField(max_length=400)
     image = models.ImageField(upload_to='post-images/', blank=True)
     link = models.CharField(max_length=50, blank=True)
+    likes = models.ManyToManyField(
+        CustomUser, related_name='post_likes', blank=True)
 
     class Meta:
         ordering = ['-date']
 
     def __str__(self):
         return f'Post: {self.id}, by: {self.user}, on: {self.date}'
+
+    def likes_count(self):
+        return self.likes.count()
 
 
 class Reply(models.Model):
