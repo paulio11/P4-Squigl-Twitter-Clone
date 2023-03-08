@@ -6,3 +6,6 @@ https://pypi.org/project/django-cloudinary-storage/
 
 Speech bubble:
 https://codepen.io/rikschennink/pen/mjywQb
+
+Active nav link:
+https://stackoverflow.com/questions/25044370/make-clicked-tab-active-in-bootstrap

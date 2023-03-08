@@ -73,6 +73,7 @@ header a:hover {
 
 .menu-active {
     background-color: #212529 !important;
+    color: white;
 }
 
 /* ----------------------------------------------------- Main Content Row */
