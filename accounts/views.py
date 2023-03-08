@@ -58,3 +58,5 @@ def delete_account(request):
     if request.method == 'POST':
         account.delete()
         return redirect('home')
+    else:
+        return render(request, 'permission-error.html')
