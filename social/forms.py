@@ -2,7 +2,19 @@
 from django import forms
 
 # My imports
-from .models import Reply
+from .models import Post, Reply
+
+
+# New post form
+class PostForm(forms.ModelForm):
+
+    class Meta:
+        model = Post
+        fields = ['post', 'link', 'image']
+        widgets = {
+            'link': forms.TextInput(
+                attrs={'placeholder': 'Enter the FULL url'})
+        }
 
 
 # Reply form
