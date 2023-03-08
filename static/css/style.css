@@ -142,6 +142,11 @@ header a:hover {
     color: #212529;
 }
 
+.nav-link i {
+    width: 25px;
+    text-align: center;
+}
+
 .nav-link:hover {
     background-color: grey;
     color: white;

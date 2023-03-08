@@ -75,41 +75,54 @@
                 <nav class="nav flex-column nav-pills">
                     {% if request.user.is_authenticated %}
                     {% if '/feed/' in request.path %}
-                    <a class="nav-link menu-active" href="{% url 'feed' %}" id="feed-link">Refresh Feed <i id="feed-icon" class="fa-solid fa-arrows-rotate"></i></a>
+                    <a class="nav-link menu-active" href="{% url 'feed' %}" id="feed-link">Refresh Feed <span id="feed-icon" class="fa-solid fa-arrows-rotate"></span></a>
                     {% else %}
-                    <a class="nav-link" href="{% url 'feed' %}">Feed</a>
+                    <a class="nav-link" href="{% url 'feed' %}">
+                        <i class="fa-solid fa-comments"></i> Feed
+                    </a>
                     {% endif %}
-                    <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="{% url 'search' %}">Search</a>                    
-                    <a class="nav-link {% if request.user.username in request.path %}menu-active{% endif %}" href="{% url 'user' request.user %}">My Page</a>
-                    <a class="nav-link {% if '/new-post/' in request.path %}menu-active{% endif %}" href="{% url 'new_post' %}">New Post</a>
+                    <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="{% url 'search' %}">
+                        <i class="fa-solid fa-magnifying-glass"></i> Search
+                    </a>                    
+                    <a class="nav-link {% if request.user.username in request.path %}menu-active{% endif %}" href="{% url 'user' request.user %}">
+                        <i class="fa-solid fa-user"></i> My Page
+                    </a>
+                    <a class="nav-link {% if '/new-post/' in request.path %}menu-active{% endif %}" href="{% url 'new_post' %}">
+                        <i class="fa-solid fa-pen-to-square"></i> New Post
+                    </a>
                     <a class="nav-link {% if '/mentions/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'mentions' %}">
-                        Mentions
+                        <span><i class="fa-solid fa-quote-left"></i> Mentions</span>    
                         {% mentions_count request.user as mentions %}
                         {% if mentions > 0 %}
                         <span class="badge text-bg-danger">{{ mentions }}</span>
                         {% endif %}                        
                     </a>
                     <a class="nav-link {% if '/messages/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'messages' %}">
-                        Messages
+                        <span><i class="fa-solid fa-envelope"></i> Messages</span>
                         {% unread_count request.user as unread %}
                         {% if unread > 0 %}
                         <span class="badge text-bg-danger">{{ unread }}</span>
                         {% endif %}         
                     </a>
-                    <a class="nav-link {% if '/accounts/settings' in request.path %}menu-active{% endif %}" href="{% url 'settings' request.user.id %}">Settings</a>
-                    <a class="nav-link {% if '/about/' in request.path %}menu-active{% endif %}" href="">About Squigl (NYI)</a>
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    <a class="nav-link {% if '/accounts/settings' in request.path %}menu-active{% endif %}" href="{% url 'settings' request.user.id %}">
+                        <i class="fa-solid fa-gear"></i> Settings
+                    </a>
+                    <a class="nav-link" href="{% url 'logout' %}">
+                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                    </a>
                     {% else %}
                     <a class="nav-link {% if '/login/' in request.path %}menu-active{% endif %}" href="{% url 'login' %}">Login</a>
                     <a class="nav-link {% if '/signup/' in request.path %}menu-active{% endif %}" href="{% url 'signup' %}">Sign Up</a>
                     {% endif %}
                     {% if request.user.is_superuser %}
                     <hr>
-                    <a class="nav-link" href="{% url 'admin:index' %}">Django Admin</a>
+                    <a class="nav-link" href="{% url 'admin:index' %}">
+                        <i class="fa-solid fa-lock"></i> Django Admin
+                    </a>
                     {% endif %}
                     {% if request.user.is_staff %}
                     <a class="nav-link {% if '/mod/' in request.path %}menu-active{% endif %} nav-badge" href="{% url 'moderation' %}">
-                        Moderation
+                        <span><i class="fa-solid fa-thumbs-up"></i> Moderation</span>
                         {% mod_count as mod_count %}
                         {% if mod_count > 0 %}
                         <span class="badge text-bg-danger">{% mod_count %}</span>

@@ -33,7 +33,7 @@ class EditProfile(UpdateView):
 # User settings
 class UserSettings(UpdateView):
     model = CustomUser
-    template_name = 'user-settings.html'
+    template_name = 'accounts/user-settings.html'
     fields = ['username', 'email']
     success_url = reverse_lazy('feed')
 
