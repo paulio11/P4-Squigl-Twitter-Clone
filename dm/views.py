@@ -95,3 +95,14 @@ def delete_message(request, message_id):
 
 
 # Report message
+@login_required
+def report_message(request, message_id):
+    message = get_object_or_404(Message, id=message_id)
+    if request.user == message.recipient:
+        message.reported = True
+        message.read = True
+        message.recipient_del = True
+        message.save()
+        return redirect('messages')
+    else:
+        return render(request, 'permission-error.html')

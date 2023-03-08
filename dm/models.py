@@ -16,6 +16,7 @@ class Message(models.Model):
     read = models.BooleanField(default=False)
     sender_del = models.BooleanField(default=False)
     recipient_del = models.BooleanField(default=False)
+    reported = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-date']

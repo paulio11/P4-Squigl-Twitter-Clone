@@ -6,7 +6,7 @@ from .models import Message
 
 
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ['id', 'sender', 'recipient', 'date']
+    list_display = ['id', 'sender', 'recipient', 'date', 'reported']
     ordering = ['date']
 
 

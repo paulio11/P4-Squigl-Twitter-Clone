@@ -1,10 +1,10 @@
 {% load static %}
 <!-- Delete modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="delete{{ message.id }}Modal" tabindex="-1" aria-labelledby="delete{{ message.id }}ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="deleteModalLabel">Delete Message</h1>
+                <h1 class="modal-title fs-5" id="delete{{ message.id }}ModalLabel">Delete Message</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -18,6 +18,25 @@
     </div>
 </div>
 <!-- Delete modal ends -->
+<!-- Report modal -->
+<div class="modal fade" id="report{{ message.id }}Modal" tabindex="-1" aria-labelledby="report{{ message.id }}ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="report{{ message.id }}ModalLabel">Report Message</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to report this message?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <a href="{% url 'report_message' message.id %}"><button type="button" class="btn btn-danger">Yes</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Report modal ends -->
 <!-- Message -->
 <div class="card message-card">
     <div class="card-header message-header">
@@ -72,9 +91,11 @@
             <a href="{% url 'mark_read' message.id %}" class="btn btn-dark">Mark Read</a>
             {% endif %}            
             <a href="{% url 'send_reply' message.id %}" class="btn btn-dark">Reply</a>
-            <a href="#" class="btn btn-warning">Report</a>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#report{{ message.id }}Modal">
+                Report
+            </button>
             {% endif %}
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete{{ message.id }}Modal">
                 Delete
             </button>
         </div>    
