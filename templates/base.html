@@ -82,6 +82,13 @@
                     <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
                     {% endif %}
                 </nav>
+                <hr>
+                <div>
+                    <h4>Current issues:</h4>
+                    <ul>
+                        <li>Liking posts on a user page is bugged</li>
+                    </ul>
+                </div>
             </div>
             <!-- Right nav sidebar ends -->
             <!-- Main block -->
@@ -105,9 +112,14 @@
     <script>
         // Turns '~text' into profile links
         $('.post-reply-body').each(function () {
-            html = $(this).html()
-            $(this).html(html.replace(/~(\w+)/g, '<a href="{% url 'user' '$1' %}" class="user-tag">~$1</a>'))
-        })
+            html = $(this).html();
+            $(this).html(html.replace(/~(\w+)/g, '<a href="{% url 'user' '$1' %}" class="user-tag">~$1</a>'));
+        });
+        // Turns '#text' into search links
+        $('.post-reply-body').each(function () {
+            html = $(this).html();
+            $(this).html(html.replace(/#(\w+)/g, '<form class="hash-form" method="POST" action="{% url 'search' %}">{% csrf_token %}<button class="hash-button" type="submit" value="$1" name="query">#$1</button></form>'));
+        });
     </script>
     <!-- Scripts end -->
 </body>
