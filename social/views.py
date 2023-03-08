@@ -18,7 +18,7 @@ def home(request):
     if request.user.is_authenticated:
         return redirect('feed')
     else:
-        return render(request, 'home.html')
+        return redirect('login')
 
 
 # Feed (followed user's and own posts)
