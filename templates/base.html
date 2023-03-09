@@ -335,7 +335,7 @@
         // Turns '#text' into search links (repeated for trending hashtags section)
         $('.hashtag-li').each(function () {
             html = $(this).html();
-            $(this).html(html.replace(/#(\w+)/g, '<form class="hash-form" method="POST" action="{% url "search" %}">{% csrf_token %}<button class="hash-button" type="submit" value="$1" name="query">#$1</button></form>'));
+            $(this).html(html.replace(/#(\w+)/g, '<form class="hash-form" method="POST" action="{% url "search" %}">{% csrf_token %}<button class="hash-button side-hash" type="submit" value="$1" name="query">#$1</button></form>'));
         });
     </script>
     <!-- Scripts end -->

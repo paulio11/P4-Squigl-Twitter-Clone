@@ -69,7 +69,13 @@ h1, h4 {
     padding: 0 !important;
     font-weight: bold;
     color: #56008b;
-    cursor: pointer;
+}
+
+.side-hash {
+    max-width: 15ch;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 /* ----------------------------------------------------- Back to top Btn */
