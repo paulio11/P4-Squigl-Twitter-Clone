@@ -1,4 +1,5 @@
 # Squigl
+![Squigl on multiple devicies](#)
 ## Contents
 ## Introduction
 Squigl is a Twitter clone, a social network built using the Django framework. Deployed to Gitpod.  
@@ -12,9 +13,9 @@ The idea behind Squigl was to create an alternative to Twitter. I started on thi
 Squigl allows users to post short posts on their customizable profile pages. Follow other users, like, and comment on posts. Send private messages to each other. Be notified when they are mentioned. See popular trending topics or search for users and posts by a phrase keyword.
 ## Project Planning
 ### GitHub Project
-The GitHub project board feature was used to keep track of what I was working on and what still needed to be done. I created a user story for each feature and moved them when necessary throughout the development of the site. 
+The GitHub project board feature was used to keep track of what I was working on and what still needed to be done. I created a user story for each feature and moved them when necessary throughout the development of the site.
 
-SCREENSHOT OF GITHUB PROJECT PAGE
+![Github Project Board](#)
 ### Database Schema
 The models required for this project are:
 
@@ -23,7 +24,7 @@ The models required for this project are:
  - **Message** - for private messaging between users
  - **CustomUser** - my custom user model which includes additional fields for a user to customise their profile.
  
- SCREENSHOT OF ERD
+![Database Schema](#)
  ### User Stories
 There will be three types of users visiting Squigl. A **new** or **logged out user**, a **registered user**, and **moderators**. User stories were logged as issues on GitHub to track them throughout the project - [Project Issues](https://github.com/paulio11/project-4/issues?q=is:issue%20is:closed%20sort:created-asc). They were subject to manual testing at the end of the project to determine if I was successful with my objectives.
 #### New or Logged Out Users
@@ -41,7 +42,7 @@ There will be three types of users visiting Squigl. A **new** or **logged out us
 |As a user I can **upload an avatar** so that it can represent me as a user|✓|
 |As a user I can **add a link to my profile** so that I can share something important to me or another website relevant to my account|✓|
 |As a user I can **add a short description to my profile** so that other users can find out more about me|✓|
-|As a user I **can add an image as a background to my profile** so that I can further customise my profile|✓|
+|As a user I can **add an image as a background to my profile** so that I can further customise my profile|✓|
 |As a user I can **follow or unfollow other users** so that their posts appear in my feed|✓|
 |As a user I can **create a new post** so that I can share something with my followers|✓|
 |As a user I can **add an image to my post** so that I can share an image with my followers|✓|
@@ -64,7 +65,7 @@ There will be three types of users visiting Squigl. A **new** or **logged out us
 |As a user I can **see trending hashtags** so that I am aware of current popular topics of conversation|✓|
 |As a user I can **delete my account** so that I can leave the website and remove all my content|✓|
 |As a user I can **change my password** so that my account can remain secure|✓|
-|As a user I cant **reset my password** so that I can still log in if I have forgotten my password|✓|
+|As a user I can **reset my password** so that I can still log in if I have forgotten my password|✓|
 #### Moderators
 | User Story |  |
 |--|--|
@@ -75,39 +76,53 @@ There will be three types of users visiting Squigl. A **new** or **logged out us
 |As a moderator I can **ban or unban a user** so that they can be banned or unbanned if necessary|✓|
 ## User Experience
 ### Wireframes
-[Balsamiq for Desktop](https://balsamiq.com/wireframes/) was used ahead of development to plan the basic skeleton of all pages. You can download my wireframes file LINK.
+[Balsamiq for Desktop](https://balsamiq.com/wireframes/) was used ahead of development to plan the basic skeleton of all pages. You can download my wireframes file [here](#).
 
-SCREENSHOT OF WIREFRAMES
+![Feed wireframe](#)
+
+![Post wireframe](#)
+
+![New Post wireframe](#)
+
+![User wireframe](#)
+
+![Search wireframe](#)
+
+![Mobile wireframe](#)
 ### Design Choices
 #### Typography
 Fonts are imported from [Google Fonts](https://fonts.google.com/). The font used for the website logo and some usernames is [Fredoka One](https://fonts.google.com/specimen/Fredoka+One). To keep visual clutter to a minimum only two fonts are used. Fredoka One for elements that are important to the current page, and for the rest of the content the default bootstrap font is used. Simply increasing the font-weight creates enough contrast between titles and body text.
 
-SCREENSHOT OF LOGO
+![Squigl logo](#)
 #### Images
 The only images used on the website are those **added by users**. These include profile backgrounds, user avatars and images shared in posts. This keeps the focus where it should be - on the user generated content. A placeholder image is used in cases where a user has not yet uploaded an avatar.
 
-SCREENSHOT OF PLACEHOLDER AVATAR
+![Placeholder avatar](#)
 #### Colour Scheme
 Squigl uses a restrained colour-scheme. The design focuses mainly on off black text on a white background. The main content column is highlighted by a grey gradient background to draw user's eyes to the middle of the page. Colour mostly comes from the content added by users. 
 
 The colours used in the site logo represent two of the main pillars of squigl - users and trending topics. The letter "i" coloured goldenrod represents the users, as the "i" looks like a person and the colour is also used for the *verified tick* next to usernames. The indigo ~ is the same colour used for hashtags.
 
-SCREENSHOT OF COLOUR PALETTE
+![Colour palette](#)
 #### Layout
 In desktop view the website is structured into three columns. The first being for navigation, the centre for the main content, and the right sidebar is for extra content. The centre column is the largest to highlight it's importance and draw the eye.
 
 For smaller screens such as mobile the navigation shrinks and the right side bar hides - keeping focus on the centre column.
 
-SCREENSHOT OF DESKTOP
-SCREENSHOT OF SMALLER DESKTOP
-SCREENSHOT OF TABLE
-SCREENSHOT OF MOBILE
+![Squigl on a desktop](#)
+
+![Squigl on a desktop small](#)
+
+![Squigl on a tablet](#)
+
+![Squigl on mobile](#)
 ## Features
 ### Site-wide features
 #### Header
 SCREENSHOT OF HEADER
 #### Navigation
 SCREENSHOT OF ALL NAV MENUS
+#### Scroll to top btn
 #### Centre Column
 #### Sidebar
 SCREENSHOT OF SIDEBAR
@@ -116,6 +131,7 @@ SCREENSHOT OF TAGGED USER
 #### Hashtags
 SCREENSHOT OF HASHTAGS IN A POST
 ### Specific pages
+#### Error pages
 #### Login
 SCREENSHOT OF LOGiN
 #### Signup
