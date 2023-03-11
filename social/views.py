@@ -221,7 +221,7 @@ def follow(request, user):
     else:
         request.user.following.add(user)
 
-    return redirect('user', user)
+    return redirect(request.META['HTTP_REFERER'])
 
 
 # Mentions
