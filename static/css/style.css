@@ -51,6 +51,10 @@ h1, h4 {
     color: #56008b;
 }
 
+.side-desc {
+    font-size: small;
+}
+
 /* ----------------------------------------------------- Usertags and hashtags */
 
 .user-tag {
