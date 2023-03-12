@@ -78,17 +78,36 @@ There will be three types of users visiting Squigl. A **new** or **logged out us
 ### Wireframes
 [Balsamiq for Desktop](https://balsamiq.com/wireframes/) was used ahead of development to plan the basic skeleton of all pages. You can download my wireframes file [here](https://github.com/paulio11/project-4/blob/main/documentation/squigl-wireframes.bmpr).
 
-![Feed wireframe](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-feed.png)
+<details>
+    <summary><strong>Feed page wireframe</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-feed.png">
+</details>
 
-![Post wireframe](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-post.png)
+<details>
+    <summary><strong>Post page wireframe</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-post.png">
+</details>
 
-![New Post wireframe](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-newpost.png)
+<details>
+    <summary><strong>New post form wireframe</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-newpost.png">
+</details>
 
-![User wireframe](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-user.png)
+<details>
+    <summary><strong>User page wireframe</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-user.png">
+</details>
 
-![Search wireframe](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-search.png)
+<details>
+    <summary><strong>Search page wireframe</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-search.png">
+</details>
 
-![Mobile wireframe](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-mobile.png)
+<details>
+    <summary><strong>Mobile wireframe</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-mobile.png">
+</details>
+
 ### Design Choices
 #### Typography
 Fonts are imported from [Google Fonts](https://fonts.google.com/). The font used for the website logo and some usernames is [Fredoka One](https://fonts.google.com/specimen/Fredoka+One). To keep visual clutter to a minimum only two fonts are used. Fredoka One for elements that are important to the current page, and for the rest of the content the default bootstrap font is used. Simply increasing the font-weight creates enough contrast between titles and body text.
@@ -109,13 +128,26 @@ In desktop view the website is structured into three columns. The first being fo
 
 For smaller screens such as mobile the navigation shrinks and the right side bar hides - keeping focus on the centre column. The menu will include links to the Trending Hashtags and the Who To Follow pages when the right sidebar is hidden due to screen size.
 
-![Squigl on a desktop](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-desktop.png)
+<details>
+    <summary><strong>Desktop layout</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-desktop.png">
+</details>
 
-![Squigl on a desktop small](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-desktop-small.png)
+<details>
+    <summary><strong>Small desktop layout</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-desktop-small.png">
+</details>
 
-![Squigl on a tablet](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-tablet.png)
+<details>
+    <summary><strong>Tablet layout</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-tablet.png">
+</details>
 
-![Squigl on mobile](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mobile.png)
+<details>
+    <summary><strong>Mobile layout</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mobile.png">
+</details>
+
 ## Features
 ### Site-wide features
 #### Header
@@ -131,15 +163,29 @@ For smaller screens such as mobile the navigation shrinks and the right side bar
 - A logged in user will see the full list of menu options. 
 - A moderator will see two further options, one for the Django admin and another for the moderation tools.
 - Labels are removed from the menu at lower screen widths, on mobile this is then replaced with an expandable hamburger menu.
+- If the logged in user has any unread mentions or messages the relevant menu link is highlighted and includes a count.
 
-![Logged out navigation](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-loggedout-nav.png)
+<details>
+    <summary><strong>Logged out navigation</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-loggedout-nav.png">
+</details>
 
-![Full navigation](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-fullnav.png)
+<details>
+    <summary><strong>Full desktop navigation</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-fullnav.png">
+</details>
 
-![Tablet navigation](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-tablet-nav.png)
+<details>
+    <summary><strong>Portrait tablet navigation</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-tablet-nav.png">
+</details>
 
-![Mobile navigation](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mobile-nav.png)
-#### Scroll to top btn
+<details>
+    <summary><strong>Expanded mobile navigation</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mobile-nav.png">
+</details>
+
+#### Scroll To Top Button
 - A back to top button appears when scrolling below the header to further assist navigation. 
 - The JavaScript code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/static/js/script.js#L85).
 #### Centre Column
@@ -159,16 +205,43 @@ You can see a user tag and hashtags in this example:
 
 ![A post containing user tags and hashtags](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-hash-tag.png)
 #### Trending Hashtags
-- The script looks for a hidden `<div>` containing the last 100 posts that include 
-SCREENSHOT OF HASHTAGS IN A POST
+- JavaScript looks for a hidden `<div>` containing the last 100 posts that include `#` or in other words, a hashtag.
+- The hashtag form inner html is extracted, the number of occurences are counted, then sorted by value.
+- Finally keys from this created JavaScript object are appended into the page html.
+- The code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/static/js/script.js#L33).
+
+![Trending Hashtags](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-trending.png)
 ### Specific pages
 #### Error pages
-#### Login
-SCREENSHOT OF LOGiN
-#### Signup
-SCREENSHOT OF SIGNUP
+- There are error pages for error [404](https://github.com/paulio11/project-4/blob/main/templates/404.html), [500](https://github.com/paulio11/project-4/blob/main/templates/500.html), and a [third one](https://github.com/paulio11/project-4/blob/main/templates/error.html) for squigl specific error messages.
+- A bootstrap alert is used to display the relevant error message.
+- A button using JavaScript can send the user back one page if they want.
+- Custom error messages are sent to the page from the relevant `views.py` file, often the else result of an if statement.
+
+```
+else:
+        e = 'You can not delete this post because you are not the author.'
+        return render(request, 'error.html', {'e': e})
+```
+
+![Error display](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-error.png)
+#### Login and Signup
+- The default django login and signup forms are used. Using [accounts/forms.py](https://github.com/paulio11/project-4/blob/main/accounts/forms.py) I have added placeholder text to the html inputs to assist the user when signing up.
+- In my CustomUser model I made email a requirement, this is so the user can reset their password, and this is reflected while signing up.
+- The login page includes a link to password reset.
+
+![User signup form](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-signup.png)
 #### Feed
-SCREENSHOT OF FEED
+- The home page for a logged in user.
+- The feed displays a timeline of all the user's post and the posts of followed users.
+- If there are no posts to display the user is encouraged to find users to follow.
+- 20 posts are shown at a time, with pagination at the bottom so the user can navigate further into the timeline.
+
+<details>
+    <summary><strong>Example of a user's feed (long image)</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-feed.png">
+</details>
+
 #### Search
 SCREENSHOT OF SEARCH
 #### User Page
@@ -184,10 +257,47 @@ SCREENSHOTS OF MESSAGES
 #### Moderation
 SCREENSHOTS OF MOD PAGE
 ## Technologies
-### Languages
+### Main Languages Used
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+- [HTML5](https://en.wikipedia.org/wiki/HTML)
+    - The HTML is found in the [templates directory](https://github.com/paulio11/project-4/tree/main/templates).
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+    - You can see all my CSS [here](https://github.com/paulio11/project-4/blob/main/static/css/style.css).
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+    - The majority of my JavaScript is [here](https://github.com/paulio11/project-4/blob/main/static/js/script.js).
+    - Hashtag and user tagging functionality can be found [here](https://github.com/paulio11/project-4/blob/main/templates/base.html#L321).
 ### Frameworks
+- [Bootstrap](https://getbootstrap.com/)
+- [Django](https://www.djangoproject.com/)
 ### Python Libraries
-### Software
+- [crispy-bootstrap5](https://pypi.org/project/crispy-bootstrap5/) - A bootstrap5 template pack for django-crispy-forms. Includes [django-crispy-forms](https://pypi.org/project/django-crispy-forms/).
+- [dj-database-url](https://pypi.org/project/dj-database-url/) - Enables the use of database URLS in Django.
+- [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/) - A Django package that provides Cloudinary storages for both media and static files as well as management commands for removing unnecessary files.
+- [django-resized](https://pypi.org/project/django-resized/) - Used to resize images uploaded by the user.
+- [gunicorn](https://pypi.org/project/gunicorn/) - Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX.
+- [oauthlib](https://pypi.org/project/oauthlib/) - A generic, spec-compliant, thorough implementation of the OAuth request-signing logic.
+- [Pillow](https://pypi.org/project/Pillow/) - A Python Imaging Library that adds image processing capabilities to your Python interpreter.
+- [psycopg2](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language.
+- [PyJWT](https://pypi.org/project/PyJWT/) - JSON Web Token implementation in Python.
+- [pytz](https://pypi.org/project/pytz/) - Allows accurate and cross platform timezone calculations using Python 2.4 or higher.
+- [requests-oauthlib](https://pypi.org/project/requests-oauthlib/) - OAuthlib authentication support for Requests.
+- [sqlparse](https://pypi.org/project/sqlparse/) - sqlparse is a non-validating SQL parser for Python.
+### Software and Other
+- [ElephantSQL](https://www.elephantsql.com/)
+- [Balsamiq](https://balsamiq.com/)
+- [GitHub](https://github.com/)
+- [Heroku](https://heroku.com/)
+- [Gitpod](https://www.gitpod.io/)
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/)
+- [Favicon.io](https://favicon.io/)
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)
+- [Cloudinary](https://cloudinary.com/)
+- [Font Awesome](https://fontawesome.com/)
+- [Google Fonts](https://fonts.google.com/)
+- [W3C Markup Validation Service](https://validator.w3.org/)
+- [Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+- [JSHint JavaScript Code Quality Tool](https://jshint.com/)
+- [Am I Responsive](https://ui.dev/amiresponsive)
 ## Testing
 ## Deployment
 ## Credits
