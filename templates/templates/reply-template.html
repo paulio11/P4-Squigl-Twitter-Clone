@@ -24,9 +24,9 @@
     <div class="reply-header">
         <a href="{% url 'user' reply.user %}">
             {% if reply.user.avatar %}
-            <img src="{{ reply.user.avatar.url }}" class="avatar-small">
+            <img src="{{ reply.user.avatar.url }}" class="avatar-small" alt="{{ reply.user }}'s avatar">
             {% else %}
-            <img src="{% static 'images/avatar.jpg' %}" class="avatar-small">
+            <img src="{% static 'images/avatar.jpg' %}" class="avatar-small" alt="{{ reply.user }}'s avatar">
             {% endif %}
         </a>
         <div>
@@ -58,7 +58,7 @@
         <!-- Reply buttons -->
         <div class="reply-menu">
             {% if request.user != reply.user %}
-            <button type="button" class="hide-btn" data-bs-toggle="modal" data-bs-target="#reportReply{{ reply.id }}Modal">
+            <button type="button" class="hide-btn" data-bs-toggle="modal" data-bs-target="#reportReply{{ reply.id }}Modal" aria-label="report reply {{ reply.id }} button">
                 <i class="fa-solid fa-triangle-exclamation"></i>
             </button>
             {% endif %}

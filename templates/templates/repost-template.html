@@ -4,9 +4,9 @@
         <div class="repost-header">
             <a href="{% url 'user' post.repost_post.user %}">
                 {% if post.repost_post.user.avatar %}
-                <img src="{{ post.repost_post.user.avatar.url }}" class="avatar-xs">
+                <img src="{{ post.repost_post.user.avatar.url }}" class="avatar-xs" alt="{{ post.repost_post.user }}'s avatar">
                 {% else %}
-                <img src="{% static 'images/avatar.jpg' %}" class="avatar-xs">
+                <img src="{% static 'images/avatar.jpg' %}" class="avatar-xs" alt="{{ post.repost_post.user }}'s avatar">
                 {% endif %}
             </a>
             <a href="{% url 'user' post.repost_post.user %}" class="user-link">
@@ -27,7 +27,7 @@
             <p><i class="fa-solid fa-link"></i> <a href="{{ post.repost_post.link }}" class="post-link">{{ post.repost_post.link }}</a></p>
             {% endif %}
             {% if post.repost_post.image %}
-            <img src="{{ post.repost_post.image.url }}" class="card-img">
+            <img src="{{ post.repost_post.image.url }}" class="card-img" alt="post {{ post.repost_post.id }}'s image">
             {% endif %}
         </div>
     </div>    

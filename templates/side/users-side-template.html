@@ -15,9 +15,9 @@
             <a href="{% url 'user' user %}" class="user-link">
                 <div class="d-inline">
                     {% if user.avatar %}
-                    <img src="{{ user.avatar.url }}" class="avatar-small">
+                    <img src="{{ user.avatar.url }}" class="avatar-small" alt="{{ user }}'s avatar">
                     {% else %}
-                    <img src="{% static 'images/avatar.jpg' %}" class="avatar-small">
+                    <img src="{% static 'images/avatar.jpg' %}" class="avatar-small" alt="{{ user }}'s avatar">
                     {% endif %}
                     
                 </div>

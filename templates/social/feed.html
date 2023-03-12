@@ -18,8 +18,8 @@ Feed
 <div class="alert alert-secondary page-nav" role="alert">    
     <span>
         {% if page_obj.has_previous %}
-        <a href="?page=1" class="alert-link"><i class="fa-solid fa-backward-step"></i></a>
-        <a href="?page={{ page_obj.previous_page_number }}" class="alert-link"><i class="fa-solid fa-backward"></i></a>
+        <a href="?page=1" class="alert-link" aria-label="first page"><i class="fa-solid fa-backward-step"></i></a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="alert-link" aria-label="previous page"><i class="fa-solid fa-backward"></i></a>
         {% endif %}
     </span>    
     <span class="current">
@@ -27,8 +27,8 @@ Feed
     </span>
     <span>
         {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}" class="alert-link"><i class="fa-sharp fa-solid fa-forward"></i></a>
-        <a href="?page={{ page_obj.paginator.num_pages }}" class="alert-link"><i class="fa-solid fa-forward-step"></i></a>    
+        <a href="?page={{ page_obj.next_page_number }}" class="alert-link" aria-label="next page"><i class="fa-sharp fa-solid fa-forward"></i></a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="alert-link" aria-label="last page"><i class="fa-solid fa-forward-step"></i></a>    
         {% endif %}
     </span>
 </div>

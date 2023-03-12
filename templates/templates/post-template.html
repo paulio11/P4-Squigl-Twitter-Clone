@@ -31,9 +31,9 @@
                 <!-- Post author avatar -->
                 <a href="{% url 'user' post.user %}">
                     {% if post.user.avatar %}
-                    <img src="{{ post.user.avatar.url }}" class="avatar-medium">
+                    <img src="{{ post.user.avatar.url }}" class="avatar-medium" alt="user avatar">
                     {% else %}
-                    <img src="{% static 'images/avatar.jpg' %}" class="avatar-medium">
+                    <img src="{% static 'images/avatar.jpg' %}" class="avatar-medium" alt="user avatar">
                     {% endif %}
                 </a>
                 <!-- Post author avatar ends -->
@@ -72,7 +72,7 @@
                 <p><i class="fa-solid fa-link"></i> <a href="{{ post.link }}" class="post-link">{{ post.link }}</a></p>
                 {% endif %}
                 {% if post.image %}
-                <img src="{{ post.image.url }}" class="card-img">
+                <img src="{{ post.image.url }}" class="card-img" alt="{{ post.id }}'s image">
                 {% endif %}
                 <!-- Post body, image and link ends -->
                 <!-- Repost -->
@@ -145,7 +145,7 @@
         <!-- Repost ends -->
         <!-- Footer menu -->
         <div class="btn-group dropup">
-            <button class="btn btn-sm post-menu-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-sm post-menu-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Post {{ post.id }} menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
@@ -157,9 +157,9 @@
                 </li>
                 {% else %}
                 <li>
-                    <a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#report{{ post.id }}Modal">
+                    <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#report{{ post.id }}Modal">
                         <i class="fa-solid fa-triangle-exclamation"></i> Report
-                    </a>
+                    </div>
                 </li>
                 {% endif %}
                 <li>

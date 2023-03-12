@@ -327,6 +327,7 @@ header a:hover {
 .page-nav {
     display: flex;
     justify-content: space-between;
+    color: black !important;
 }
 
 .page-nav span {
