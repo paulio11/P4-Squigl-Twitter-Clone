@@ -2,24 +2,56 @@
 [Link to live site](http://squigl.herokuapp.com/)
 
 ![Squigl on multiple devicies](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-hero.png)
-## Contents
-1. Yo DAWG
-2. WOOF WOOF
+
+## Contents 
+
+1. [Introduction](#introduction)
+2. [Project Planning](#project-planning)
+    1. [Github Project](#github-project)
+    2. [Database Schema](#database-schema)
+    3. [User Stories](#user-stories)
+3. [User Experience](#user-experience)
+    1. [Wireframes](#wireframes)
+    2. [Design Choices](#design-choices)
+        1. [Typography](#typography)
+        2. [Images](#images)
+        3. [Colour Scheme](#colour-scheme)
+        4. [Layout](#layout)
+4. [Features](#features)
+    1. [Site Wide Features](#site-wide-features)
+    2. [Specific Pages](#specific-pages)
+    3. [Unimplemented Features](#unimplemented-features)
+5. [Technologies](#technologies)
+    1. [Main Languages Used](#main-languages-used)
+    2. [Frameworks](#frameworks)
+    3. [Python Libraries](#python-libraries)
+    4. [Software and Other](#software-and-other)
+6. [Testing](#testing)
+7. [Deployment](#deployment)
+8. [Credits](#credits)
+    1. [Code](#code)
+    2. [Text](#text)
+    3. [Images](#images-1)
+    4. [Acknowledgements](#acknowledgements)
+
 ## Introduction
 Squigl is a Twitter clone, a social network built using the Django framework. Deployed to Gitpod.  
 
-This is the fourth milestone project required to complete my Diploma in Full Stack Software Development at The Code Institute. I was required to build a Full-Stack site based on business logic used to control a centrally-owned dataset. With an authentication mechanism that provides role-based access to the site's data. This was achieved using HTML, CSS, JavaScript, Python and the Django framework paired with a relational database.  
+This is the fourth milestone project required to complete my Diploma in Full Stack Software Development at [Code Institute](https://codeinstitute.net/). I was required to build a Full-Stack site based on business logic used to control a centrally-owned dataset. With an authentication mechanism that provides role-based access to the site's data. This was achieved using HTML, CSS, JavaScript, Python and the Django framework paired with a relational database.  
 
 The name comes from the use of ~ in front of usernames, used here in a similar fashion to @username tags on Twitter. The tilde symbol is on the same keyboard key as # (on a UK keyboard) so it was a natural pairing for me. Its appearance as a squiggly line inspired the project’s name.  
 
 The idea behind Squigl was to create an alternative to Twitter. I started on this project during the beginning of the recent Elon Musk Twitter drama. Basing this project on a pre-existing website helped aid planning early on, establishing expected goals and requirements for end users.  
 
 Squigl allows users to post short posts on their customizable profile pages. Follow other users, like, and comment on posts. Send private messages to each other. Be notified when they are mentioned. See popular trending topics or search for users and posts by a phrase keyword.
+
 ## Project Planning
+
 ### GitHub Project
 The GitHub project board feature was used to keep track of what I was working on and what still needed to be done. I created a user story for each feature and moved them when necessary throughout the development of the site.
 
 ![Github Project Board](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-project-board.png)
+
 ### Database Schema
 The models required for this project are:
 
@@ -29,14 +61,17 @@ The models required for this project are:
  - **CustomUser** - my custom user model which includes additional fields for a user to customise their profile.
  
 ![Database Schema](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-schema.png)
+
  ### User Stories
 There will be three types of users visiting Squigl. A **new** or **logged out user**, a **registered user**, and **moderators**. User stories were logged as issues on GitHub to track them throughout the project - [Project Issues](https://github.com/paulio11/project-4/issues?q=is:issue%20is:closed%20sort:created-asc). They were subject to manual testing at the end of the project to determine if I was successful with my objectives.
+
 #### New or Logged Out Users
 | User Story |  |
 |--|--|
 |As a new user I can **sign up** so that I can have my own account and use the full feature set of the website|✓|
 |As a logged out user I can **sign in** so that I can return to my account|✓|
 |As a logged out user I can **search squigl** so that I can find users, posts and replies that I am looking for|✓|
+
 #### Returning Users
 | User Story |  |
 |--|--|
@@ -70,6 +105,7 @@ There will be three types of users visiting Squigl. A **new** or **logged out us
 |As a user I can **delete my account** so that I can leave the website and remove all my content|✓|
 |As a user I can **change my password** so that my account can remain secure|✓|
 |As a user I can **reset my password** so that I can still log in if I have forgotten my password|✓|
+
 #### Moderators
 | User Story |  |
 |--|--|
@@ -78,8 +114,11 @@ There will be three types of users visiting Squigl. A **new** or **logged out us
 |As a moderator I can **message users** so that we can talk to them with clearly labelled official messages|✓|
 |As a moderator I can **see a list of users with strikes** so that troublesome users are clearly viewable and action can be take if necessary|✓|
 |As a moderator I can **ban or unban a user** so that they can be banned or unbanned if necessary|✓|
+
 ## User Experience
+
 ### Wireframes
+
 [Balsamiq for Desktop](https://balsamiq.com/wireframes/) was used ahead of development to plan the basic skeleton of all pages. You can download my wireframes file [here](https://github.com/paulio11/project-4/blob/main/documentation/squigl-wireframes.bmpr).
 
 <details>
@@ -113,21 +152,29 @@ There will be three types of users visiting Squigl. A **new** or **logged out us
 </details>
 
 ### Design Choices
+
 #### Typography
+
 Fonts are imported from [Google Fonts](https://fonts.google.com/). The font used for the website logo and some usernames is [Fredoka One](https://fonts.google.com/specimen/Fredoka+One). To keep visual clutter to a minimum only two fonts are used. Fredoka One for elements that are important to the current page, and for the rest of the content the default bootstrap font is used. Simply increasing the font-weight creates enough contrast between titles and body text.
 
 ![Squigl logo](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-logo.png)
+
 #### Images
+
 The only images used on the website are those **added by users**. These include profile backgrounds, user avatars and images shared in posts. This keeps the focus where it should be - on the user generated content. A placeholder image is used in cases where a user has not yet uploaded an avatar.
 
 ![Placeholder avatar](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-avatar.png)
+
 #### Colour Scheme
+
 Squigl uses a restrained colour-scheme. The design focuses mainly on off black text on a white background. The main content column is highlighted by a grey gradient background to draw user's eyes to the middle of the page. Colour mostly comes from the content added by users. 
 
 The colours used in the site logo represent two of the main pillars of squigl - users and trending topics. The letter "i" coloured goldenrod represents the users, as the "i" looks like a person and the colour is also used for the *verified tick* next to usernames. The indigo ~ is the same colour used for hashtags.
 
 ![Colour palette](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-colours.png)
+
 #### Layout
+
 In desktop view the website is structured into three columns. The first being for navigation, the centre for the main content, and the right sidebar is for extra content. The centre column is the largest to highlight it's importance and draw the eye.
 
 For smaller screens such as mobile the navigation shrinks and the right side bar hides - keeping focus on the centre column. The menu will include links to the Trending Hashtags and the Who To Follow pages when the right sidebar is hidden due to screen size.
@@ -153,15 +200,20 @@ For smaller screens such as mobile the navigation shrinks and the right side bar
 </details>
 
 ## Features
+
 ### Site-wide features
+
 #### Header
+
 - The header featured on every page is made of three parts. The site logo, a search box, and the logged in user's info. 
 - The logo returns a logged in user to their feed.
 - Having search in the header encourages users to explore squigl. 
 - The user info links the user to their page and helps show that the user is signed in.
 
 ![Header](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-header.png)
+
 #### Navigation
+
 - The user will navigate to all the main pages of the site using the menu in the left sidebar. Depending on the status of the current user this menu changes. 
 - A logged out or new user will see the options to login and sign up. 
 - A logged in user will see the full list of menu options. 
@@ -190,27 +242,38 @@ For smaller screens such as mobile the navigation shrinks and the right side bar
 </details>
 
 #### Scroll To Top Button
+
 - A back to top button appears when scrolling below the header to further assist navigation. 
 - The JavaScript code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/static/js/script.js#L85).
+
 #### Centre Column
+
 - The centre column houses the main content on every page, and is the only column to remain visible at every screen size.
+
 #### Sidebar
+
 - On the majority of pages the sidebar will show a list of recent trending hashtags and a random list of unfollowed users.
 - On the post page the user will find the reply form here.
+
 #### User Tagging
-- User's can mention/tag other users in their posts, replies and messages by using ~ infront of their username.
+
+- User's can mention/tag other users in their posts, replies and messages by using ~ in front of their username.
 - This functionality is made possible using JavaScript, the code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/templates/base.html#L322).
 - This code is included in the html file because it requires django template tags to function. 
+
 #### Hashtags
-- Users can include hashtags in their posts and replies by using # infront of the desired keyword.
+
+- Users can include hashtags in their posts and replies by using # in front of the desired keyword.
 - This functionality is made possible using JavaScript, the code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/templates/base.html#L327).
 
 You can see a user tag and hashtags in this example:
 
 ![A post containing user tags and hashtags](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-hash-tag.png)
+
 #### Trending Hashtags
+
 - JavaScript looks for a hidden `<div>` containing the last 100 posts that include `#` or in other words, a hashtag.
-- The hashtag form inner html is extracted, the number of occurences are counted, then sorted by value.
+- The hashtag form inner html is extracted, the number of occurrences are counted, then sorted by value.
 - Finally keys from this created JavaScript object are appended into the page html.
 - The code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/static/js/script.js#L33).
 
@@ -232,7 +295,9 @@ You can see a user tag and hashtags in this example:
 ![Modal example](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-modal.png)
 
 ### Specific pages
+
 #### Error pages
+
 - There are error pages for error [404](https://github.com/paulio11/project-4/blob/main/templates/404.html), [500](https://github.com/paulio11/project-4/blob/main/templates/500.html), and a [third one](https://github.com/paulio11/project-4/blob/main/templates/error.html) for squigl specific error messages.
 - A bootstrap alert is used to display the relevant error message.
 - A button using JavaScript can send the user back one page if they want.
@@ -245,12 +310,27 @@ else:
 ```
 
 ![Error display](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-error.png)
+
 #### Login and Signup
+
 - The default django login and signup forms are used. Using [accounts/forms.py](https://github.com/paulio11/project-4/blob/main/accounts/forms.py) I have added placeholder text to the html inputs to assist the user when signing up.
 - In my CustomUser model I made email a requirement, this is so the user can reset their password, and this is reflected while signing up.
 - The login page includes a link to password reset.
+- Login is required for most of the functionality. A `@login_required` decorator is used where possible. In cases where this is not an alert will notify the user.
+- A logged out user will be redirected to the login page if they attempt any of these actions:
+    - Change account settings such as password
+    - View, send, mark read, delete, report or reply to messages
+    - Any moderation only action
+    - View feed
+    - Make a new post
+    - Repost a post
+    - Report a post
+    - Follow or unfollow a suer
+    - View mentions
+    - Mark posts and replies as read
 
 ![User signup form](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-signup.png)
+
 #### Feed
 - The home page for a logged in user.
 - The feed displays a timeline of all the user's post and the posts of followed users.
@@ -275,6 +355,7 @@ def feed(request):
 ![Feed](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-feed.png)
 
 #### Search
+
 - All users can search squigl.
 - The user input in the search form is used to filter through posts, replies, and users.
 - Results can be filtered using the navigation below the page title.
@@ -308,7 +389,9 @@ def search(request):
 **Searching for posts example:**
 
 ![Post search](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-search-posts.png)
+
 #### User Page
+
 - Every user that signs up has a profile page.
 - This is where a user's posts will be shown regardless of if you follow them or not.
 - Includes buttons to **Message** and **Follow/Unfollow** the user.
@@ -339,10 +422,12 @@ def user(request, user):
 **User page example:**
 
 ![User page](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-user.png)
+
 #### New Post
+
 - Placeholder text is included to guide a user when making a new post. You can see the code [here](https://github.com/paulio11/project-4/blob/main/social/forms.py#L9).
 - A user has the option to include an image and/or a link to a website.
-- Using the [django-reszied](https://pypi.org/project/django-resized/) package images are scaled to a width of 600px, this ensures images being shared with users of the website are not a large filesize. This also has hosting benefits as well. Images are stored on [Cloudinary](https://cloudinary.com/).
+- Using the [django-reszied](https://pypi.org/project/django-resized/) package images are scaled to a width of 600px, this ensures images being shared with users of the website are not a large file size. This also has hosting benefits as well. Images are stored on [Cloudinary](https://cloudinary.com/).
 - Once the form is submitted the user is redirected to the page for that post. 
 
 ```
@@ -362,6 +447,7 @@ def new_post(request):
 ![New post form](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-newpost.png)
 
 #### Post Page
+
 - Each post has it's own page, this can be accessed by click the post timestamp or permalink in the footer.
 - On the post page a user can read and post their own replies.
 - The date of the post is represented in a few ways.
@@ -399,6 +485,7 @@ def post(request, post_id):
 ![New post form](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-post.png)
 
 #### Mentions
+
 - If a user is mentioned in a public post or reply they will be notified of this by an unread mention count in the menu.
 - A user can view these posts and replies on their Mentions page.
 - Posts and replies are excluded if the logged in user exists in their **read** `ManyToManyField`.
@@ -421,7 +508,8 @@ def mentions(request):
 ![User mentions](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mentions.png)
 
 #### Messages
-- Two logged in users can privatly message each other.
+
+- Two logged in users can privately message each other.
 - A user can either be messaged using the **Message** button on their user page, or by replying to a message they have previously sent.
 - As with mentions above, a user is notified of any unread messages with a count in the menu.
 - A user can view unread, read and sent messages using the message page navigation.
@@ -454,6 +542,7 @@ def messages(request):
 ![Sent messages](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-sent-messages.png)
 
 #### Moderation
+
 - Squigl moderators have access to the moderation page.
 - Posts, replies and messages reported by users can be viewed here by moderators.
 - A moderator can decide whether to ignore a report and mark the content as okay, or if necessary delete the content which will remove it and give the author a strike.
@@ -495,8 +584,20 @@ def moderation(request):
 ![Sent messages](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mod-users.png)
 
 ### Unimplemented Features
+
+If possible I would have liked to have implemented the following features:
+- A dark mode theme.
+- The ability to post other media such as videos including YouTube embeds.
+- A server side trending hashtags list. The current implementation is built with JavaScript that runs client side.
+- Improvements to the user pages, including a gallery of their shared images, and a list of their liked posts.
+- Reposts would notify the author of the original post.
+- Further styling. In my opinion this still looks too much like a Bootstrap website, even though there are almost 700 lines of CSS code!
+- Inline private messaging. Replies to messages appearing as a conversation thread instead of individual separate messages.
+
 ## Technologies
+
 ### Main Languages Used
+
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 - [HTML5](https://en.wikipedia.org/wiki/HTML)
     - The HTML is found in the [templates directory](https://github.com/paulio11/project-4/tree/main/templates).
@@ -505,10 +606,14 @@ def moderation(request):
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
     - The majority of my JavaScript is [here](https://github.com/paulio11/project-4/blob/main/static/js/script.js).
     - Hashtag and user tagging functionality can be found [here](https://github.com/paulio11/project-4/blob/main/templates/base.html#L321).
+
 ### Frameworks
-- [Bootstrap](https://getbootstrap.com/)
-- [Django](https://www.djangoproject.com/)
+
+- [Bootstrap](https://getbootstrap.com/) - A frontend toolkit.
+- [Django](https://www.djangoproject.com/) - A high-level Python web framework.
+
 ### Python Libraries
+
 - [crispy-bootstrap5](https://pypi.org/project/crispy-bootstrap5/) - A bootstrap5 template pack for django-crispy-forms. Includes [django-crispy-forms](https://pypi.org/project/django-crispy-forms/).
 - [dj-database-url](https://pypi.org/project/dj-database-url/) - Enables the use of database URLS in Django.
 - [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/) - A Django package that provides Cloudinary storages for both media and static files as well as management commands for removing unnecessary files.
@@ -521,26 +626,48 @@ def moderation(request):
 - [pytz](https://pypi.org/project/pytz/) - Allows accurate and cross platform timezone calculations using Python 2.4 or higher.
 - [requests-oauthlib](https://pypi.org/project/requests-oauthlib/) - OAuthlib authentication support for Requests.
 - [sqlparse](https://pypi.org/project/sqlparse/) - sqlparse is a non-validating SQL parser for Python.
+
 ### Software and Other
-- [ElephantSQL](https://www.elephantsql.com/)
-- [Balsamiq](https://balsamiq.com/)
-- [GitHub](https://github.com/)
-- [Heroku](https://heroku.com/)
-- [Gitpod](https://www.gitpod.io/)
-- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/)
-- [Favicon.io](https://favicon.io/)
-- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)
-- [Cloudinary](https://cloudinary.com/)
-- [Font Awesome](https://fontawesome.com/)
-- [Google Fonts](https://fonts.google.com/)
-- [W3C Markup Validation Service](https://validator.w3.org/)
-- [Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/)
-- [JSHint JavaScript Code Quality Tool](https://jshint.com/)
-- [Am I Responsive](https://ui.dev/amiresponsive)
+
+- [ElephantSQL](https://www.elephantsql.com/) - Hosting of the PostgreSQL database used by squigl.
+- [Balsamiq](https://balsamiq.com/) - For the creation of my wireframes during the planning stages.
+- [GitHub](https://github.com/) - Repository hosting, commit history and project management with user stories. 
+- [Heroku](https://heroku.com/) - Squigl is deployed to Heroku.
+- [Gitpod](https://www.gitpod.io/) - Used to write code and commit to GitHub.
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - Testing of site performance.
+- [Favicon.io](https://favicon.io/) - Creation of the favicon from an image.
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Used to debug and test website responsiveness.
+- [Cloudinary](https://cloudinary.com/) - Hosting of images and other static files such as CSS and JS.
+- [Font Awesome](https://fontawesome.com/) - Source of icons used in the menu and in posts/replies/messages.
+- [Google Fonts](https://fonts.google.com/) - Fonts imported from Google Fonts, see Typography section above.
+- [W3C Markup Validation Service](https://validator.w3.org/) - Used to validate HTML code.
+- [Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code.
+- [JSHint JavaScript Code Quality Tool](https://jshint.com/) - Used to validate JavaScript code.
+- [Am I Responsive](https://ui.dev/amiresponsive) - Used to create the hero image at the top of this readme.
+
 ## Testing
+
 ## Deployment
+
 ## Credits
+
 ### Code
+
+- Code to make sure usernames are alphanumeric from [StackOverflow](https://stackoverflow.com/questions/17165147/how-can-i-make-a-django-form-field-contain-only-alphanumeric-characters).
+- CSS for reply speech bubbles from [Codepen](https://codepen.io/rikschennink/pen/mjywQb).
+- JavaScript to count occurrences  of hashtags from [StackOverflow](https://stackoverflow.com/questions/14914046/counting-occurrences-of-a-word-in-a-string-javascript).
+- Code to strip irrelevant time since information from post dates from [StackOverflow](https://stackoverflow.com/questions/6481788/format-of-timesince-filter).
+- JavaScript to sort HTML tables from [StackOverflow](https://stackoverflow.com/questions/3160277/jquery-table-sort).
+
 ### Text
+
+- Profile descriptions and posts from real life companies/individuals are taken from their respective Twitter profiles.
+
 ### Images
+
+- Icons from [Font Awesome](https://fontawesome.com/).
+- User avatars and profile backgrounds from real life companies/individuals are taken from their respective Twitter profiles.
+
 ### Acknowledgements
+
+Thanks again to my mentor [Oluwaseun Owonikoko](https://github.com/seunkoko) and the [Code Institute](https://codeinstitute.net/) students from class June 2022 for their help, testing and suggestions throughout the project.
