@@ -63,7 +63,7 @@
             </button>
             {% endif %}
             {% if request.user == reply.user %}
-            <a href="{% url 'edit_reply' reply.id %}">
+            <a href="{% url 'edit_reply' reply.id %}" aria-label="edit reply {{ reply.id }}">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
             {% endif %}

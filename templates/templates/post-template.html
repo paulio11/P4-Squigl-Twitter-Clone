@@ -69,7 +69,7 @@
                 <!-- Post body, image and link -->
                 <p class="post-body">{{ post.post | linebreaksbr }}</p>
                 {% if post.link %}
-                <p><i class="fa-solid fa-link"></i> <a href="{{ post.link }}" class="post-link">{{ post.link }}</a></p>
+                <p><i class="fa-solid fa-link"></i> <a href="{{ post.link }}" class="post-link" target="_blank" aria-label="post {{ post.id }}'s shared link">{{ post.link }}</a></p>
                 {% endif %}
                 {% if post.image %}
                 <img src="{{ post.image.url }}" class="card-img" alt="{{ post.id }}'s image">
