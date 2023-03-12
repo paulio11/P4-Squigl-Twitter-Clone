@@ -24,7 +24,7 @@
 5. [Technologies](#technologies)
     1. [Main Languages Used](#main-languages-used)
     2. [Frameworks](#frameworks)
-    3. [Python Libraries](#python-libraries)
+    3. [Libraries](#libraries)
     4. [Software and Other](#software-and-other)
 6. [Testing](#testing)
 7. [Deployment](#deployment)
@@ -612,8 +612,9 @@ If possible I would have liked to have implemented the following features:
 - [Bootstrap](https://getbootstrap.com/) - A frontend toolkit.
 - [Django](https://www.djangoproject.com/) - A high-level Python web framework.
 
-### Python Libraries
+### Libraries
 
+- [jQuery](https://jquery.com/) - A fast, small, and feature-rich JavaScript library.
 - [crispy-bootstrap5](https://pypi.org/project/crispy-bootstrap5/) - A bootstrap5 template pack for django-crispy-forms. Includes [django-crispy-forms](https://pypi.org/project/django-crispy-forms/).
 - [dj-database-url](https://pypi.org/project/dj-database-url/) - Enables the use of database URLS in Django.
 - [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/) - A Django package that provides Cloudinary storages for both media and static files as well as management commands for removing unnecessary files.
