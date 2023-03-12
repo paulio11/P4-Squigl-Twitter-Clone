@@ -3,6 +3,8 @@
 
 ![Squigl on multiple devicies](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-hero.png)
 ## Contents
+1. Yo DAWG
+2. WOOF WOOF
 ## Introduction
 Squigl is a Twitter clone, a social network built using the Django framework. Deployed to Gitpod.  
 
@@ -213,6 +215,22 @@ You can see a user tag and hashtags in this example:
 - The code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/static/js/script.js#L33).
 
 ![Trending Hashtags](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-trending.png)
+
+#### Modals
+- Modals are used where it's possible to make permanent irreversible changes. Giving the user a chance to reconsider.
+    - Deleting a post
+    - Deleting a reply
+    - Deleting a message
+    - Reporting a post
+    - Reporting a reply
+    - Reporting a message
+    - Moderator functions
+    - Account deletion
+
+**Modal example:**
+
+![Modal example](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-modal.png)
+
 ### Specific pages
 #### Error pages
 - There are error pages for error [404](https://github.com/paulio11/project-4/blob/main/templates/404.html), [500](https://github.com/paulio11/project-4/blob/main/templates/500.html), and a [third one](https://github.com/paulio11/project-4/blob/main/templates/error.html) for squigl specific error messages.
@@ -261,6 +279,7 @@ def feed(request):
 - The user input in the search form is used to filter through posts, replies, and users.
 - Results can be filtered using the navigation below the page title.
 - The number of results in each category are displayed.
+- Replies shown in search results contain a link to the post they are a part of.
 ```
 def search(request):
     if request.method == 'POST':
@@ -345,11 +364,16 @@ def new_post(request):
 #### Post Page
 - Each post has it's own page, this can be accessed by click the post timestamp or permalink in the footer.
 - On the post page a user can read and post their own replies.
+- The date of the post is represented in a few ways.
+    - If the post is less than a minute old it shows as "Now".
+    - If the post is less than 24 hours old then "X hours ago" is shown.
+    - If the post is greater than 24 hours old then the published date will be shown.
 - Each post shows a like count, reply count, repost count and a menu with further options. These are also shown wherever a post is displayed (feed, user page and search results).
 - If the logged in user has replied and/or liked a post the relevant icons will be filled in.
 - Clicking the repost icon or count will let the user repost the post by including it in a post of their own.
 - A user can like a post without the need for a page reload thanks to Ajax. This code can be found [here](https://github.com/paulio11/project-4/blob/main/templates/templates/post-template.html#L109).
 - Each post contains a drop down menu which includes the option to **Report** the post and a **Permalink**. If the logged in user is the author of the post, they will also see the **Edit/Delete** option. 
+- Each reply contains a button to **Report** the reply. If the logged in user is the author of the reply, they will also see the **Edit/Delete** option.
 
 ```
 def post(request, post_id):
@@ -375,7 +399,7 @@ def post(request, post_id):
 ![New post form](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-post.png)
 
 #### Mentions
-- If a user is mentioned in a public post or reply with the use of ~ they will be notified of this by an unread mention count in the menu.
+- If a user is mentioned in a public post or reply they will be notified of this by an unread mention count in the menu.
 - A user can view these posts and replies on their Mentions page.
 - Posts and replies are excluded if the logged in user exists in their **read** `ManyToManyField`.
 - Posts and replies can be marked as **Read** to clear the notification, and be excluding in the future.
@@ -397,9 +421,80 @@ def mentions(request):
 ![User mentions](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mentions.png)
 
 #### Messages
-SCREENSHOTS OF MESSAGES
+- Two logged in users can privatly message each other.
+- A user can either be messaged using the **Message** button on their user page, or by replying to a message they have previously sent.
+- As with mentions above, a user is notified of any unread messages with a count in the menu.
+- A user can view unread, read and sent messages using the message page navigation.
+- Each message has a drop down menu with the options **Mark Read**, **Reply**, **Report**, and **Delete**.
+- If a sent message has been read by the recipient, the sender is notified.
+- Messages from website moderators (django staff role) are labelled.
+- A user can chose to delete a message. The message remains in the database until both the sender and recipient have both chosen to delete it.
+
+```
+def messages(request):
+    unread_messages = Message.objects.filter(
+        recipient=request.user).filter(read=False).order_by('-date')
+    messages = Message.objects.filter(
+        recipient=request.user).filter(read=True).exclude(
+            recipient_del=True).order_by('-date')
+    sent_messages = Message.objects.filter(
+        sender=request.user).exclude(sender_del=True).order_by('-date')
+    return render(request, 'dm/messages.html', {
+        'unread_messages': unread_messages,
+        'messages': messages,
+        'sent_messages': sent_messages})
+```
+
+**Example unread messages:**
+
+![Unread messages](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-unread-messages.png)
+
+**Example sent messages:**
+
+![Sent messages](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-sent-messages.png)
+
 #### Moderation
-SCREENSHOTS OF MOD PAGE
+- Squigl moderators have access to the moderation page.
+- Posts, replies and messages reported by users can be viewed here by moderators.
+- A moderator can decide whether to ignore a report and mark the content as okay, or if necessary delete the content which will remove it and give the author a strike.
+- Users with strikes can be viewed and messaged and banned or unbanned if necessary.
+- All tables can be sorted by clicking on a column header. The code for this can be found [here](https://github.com/paulio11/project-4/blob/main/static/js/script.js#L67).
+
+```
+def moderation(request):
+    if request.user.is_staff:
+        reported_posts = Post.objects.annotate(
+            nreports=Count('reported')).filter(nreports__gt=0)
+        reported_replies = Reply.objects.annotate(
+            nreports=Count('reported')).filter(nreports__gt=0)
+        reported_messages = Message.objects.filter(reported=True)
+        users = CustomUser.objects.filter(strikes__gt=0).order_by('-strikes')
+        return render(
+            request,
+            'moderation/moderation.html', {
+                'reported_posts': reported_posts,
+                'reported_replies': reported_replies,
+                'reported_messages': reported_messages,
+                'users': users,
+                })
+    else:
+        e = 'Only Squigl moderators can view this page.'
+        return render(request, 'error.html', {'e': e})
+```
+
+**Example reported posts:**
+
+![Sent messages](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mod-posts.png)
+
+**Example reported post modal:**
+
+![Sent messages](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mod-modal.png)
+
+**Example naughty users list:**
+
+![Sent messages](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mod-users.png)
+
+### Unimplemented Features
 ## Technologies
 ### Main Languages Used
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
