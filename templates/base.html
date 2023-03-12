@@ -212,7 +212,7 @@
                         {% if request.user.is_authenticated %}
                         <div class="user-info">                            
                             <div>
-                                <h5><a href="{% url 'user' request.user %}" class="user-link">~{{ request.user }}</a></strong>
+                                <h5><a href="{% url 'user' request.user %}" class="user-link">~{{ request.user }}</a></h5>
                                 <h4>
                                     <a href="{% url 'user' request.user %}" class="user-link">
                                         {{ request.user.name }}
