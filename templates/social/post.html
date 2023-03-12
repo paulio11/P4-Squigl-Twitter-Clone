@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block title %}
@@ -13,8 +14,17 @@ Post: {{ post.id }}
 </div>
 {% endif %}
 <!-- Replies -->
+{% if request.user.is_authenticated %}
 <div class="reply-container d-lg-none">
     <!-- Reply form -->
+    <div class="sm-reply-header">
+        <span>Join the conversation?</span>
+        {% if request.user.avatar %}
+        <img src="{{ request.user.avatar.url }}" class="avatar-small">
+        {% else %}
+        <img src="{% static 'images/avatar.jpg' %}" class="avatar-small">
+        {% endif %}
+    </div>    
     <form method="POST" class="reply-form">
         {% csrf_token %}
         {{ form | crispy }}
@@ -22,6 +32,9 @@ Post: {{ post.id }}
     </form>     
     <!-- Reply form ends -->
 </div>   
+{% else %}
+<p><a href="{% url 'login' %}">Login</a> if you want to reply to this post.</p>
+{% endif %}
 {% if replies %}
     {% for reply in replies %}
         {% if reply.user == request.user and reply.hidden %}

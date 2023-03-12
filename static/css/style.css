@@ -543,6 +543,15 @@ label[for=id_reply] {
     padding: 0;
 }
 
+.sm-reply-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 16px 20px 0;
+    font-size: small;
+    gap: 5px;
+}
+
 /* ----------------------------------------------------- Repost */
 
 .repost {
