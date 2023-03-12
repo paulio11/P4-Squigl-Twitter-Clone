@@ -1,4 +1,6 @@
 # Squigl
+[Link to live site](http://squigl.herokuapp.com/)
+
 ![Squigl on multiple devicies](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-hero.png)
 ## Contents
 ## Introduction
@@ -236,22 +238,164 @@ else:
 - The feed displays a timeline of all the user's post and the posts of followed users.
 - If there are no posts to display the user is encouraged to find users to follow.
 - 20 posts are shown at a time, with pagination at the bottom so the user can navigate further into the timeline.
+```
+def feed(request):
+    following = request.user.following
+    posts = Post.objects.filter(
+        Q(user__in=following.all()) | Q(user=request.user))
+    paginator = Paginator(posts, 20)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'social/feed.html', {
+        'post_count': posts.count(),
+        'page_obj': page_obj,
+    })
+```
 
-<details>
-    <summary><strong>Example of a user's feed (long image)</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-feed.png">
-</details>
+**An example feed:**
+
+![Feed](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-feed.png)
 
 #### Search
-SCREENSHOT OF SEARCH
+- All users can search squigl.
+- The user input in the search form is used to filter through posts, replies, and users.
+- Results can be filtered using the navigation below the page title.
+- The number of results in each category are displayed.
+```
+def search(request):
+    if request.method == 'POST':
+        query = request.POST['query'].strip().lower()
+        users = CustomUser.objects.filter(
+            Q(username__icontains=query) | Q(name__icontains=query)).order_by(
+                'username')
+        posts = Post.objects.filter(
+            post__icontains=query).order_by('-date')
+        replies = Reply.objects.filter(
+            reply__icontains=query).exclude(hidden=True).order_by('-date')
+        return render(request, 'social/search.html', {
+            'query': query,
+            'posts': posts,
+            'users': users,
+            'replies': replies,
+        })
+    else:
+        return render(request, 'social/search.html')
+```
+
+**Searching for users example:**
+
+![User search](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-search-users.png)
+
+**Searching for posts example:**
+
+![Post search](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-search-posts.png)
 #### User Page
-SCREENSHOT OF USER PAGE
+- Every user that signs up has a profile page.
+- This is where a user's posts will be shown regardless of if you follow them or not.
+- Includes buttons to **Message** and **Follow/Unfollow** the user.
+- If this is the logged in user's page then a **Edit Profile** button is shown instead.
+- The user can chose to upload and display an avatar, a profile background image, a short description about themselves, change their profile name, and add a link to a website.
+- User stats are also shown: Number of followers, number of users they are following, and number of posts.
+- Like the Feed page, user posts are paginated.
+```
+def user(request, user):
+    queryset = CustomUser.objects
+    user = get_object_or_404(queryset, username=user)
+    posts = Post.objects.filter(user_id=user.id).order_by('-date')
+    following = False
+    paginator = Paginator(posts, 20)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    if request.user.is_authenticated:
+        if request.user.following.filter(id=user.id):
+            following = True
+    return render(request, 'social/user.html', {
+        'user': user,
+        'page_obj': page_obj,
+        'post_count': posts.count(),
+        'following': following,
+    })
+```
+
+**User page example:**
+
+![User page](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-user.png)
 #### New Post
-SCREENSHOT OF NEW POST FORM
+- Placeholder text is included to guide a user when making a new post. You can see the code [here](https://github.com/paulio11/project-4/blob/main/social/forms.py#L9).
+- A user has the option to include an image and/or a link to a website.
+- Using the [django-reszied](https://pypi.org/project/django-resized/) package images are scaled to a width of 600px, this ensures images being shared with users of the website are not a large filesize. This also has hosting benefits as well. Images are stored on [Cloudinary](https://cloudinary.com/).
+- Once the form is submitted the user is redirected to the page for that post. 
+
+```
+def new_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES or None)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+            return redirect('post', post.id)
+    else:
+        return render(request, 'new/new-post.html', {'form': PostForm()})
+```
+**New post form:**
+
+![New post form](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-newpost.png)
+
 #### Post Page
-SCREENSHOT OF POST PAGE
+- Each post has it's own page, this can be accessed by click the post timestamp or permalink in the footer.
+- On the post page a user can read and post their own replies.
+- Each post shows a like count, reply count, repost count and a menu with further options. These are also shown wherever a post is displayed (feed, user page and search results).
+- If the logged in user has replied and/or liked a post the relevant icons will be filled in.
+- Clicking the repost icon or count will let the user repost the post by including it in a post of their own.
+- A user can like a post without the need for a page reload thanks to Ajax. This code can be found [here](https://github.com/paulio11/project-4/blob/main/templates/templates/post-template.html#L109).
+- Each post contains a drop down menu which includes the option to **Report** the post and a **Permalink**. If the logged in user is the author of the post, they will also see the **Edit/Delete** option. 
+
+```
+def post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    replies = Reply.objects.filter(post_id=post_id).order_by('-date')
+    if request.method == 'POST':
+        form = ReplyForm(data=request.POST)
+        if form.is_valid():
+            form.instance.user = request.user
+            form.instance.post = post
+            form.save()
+            return HttpResponseRedirect(request.path_info)
+    else:
+        return render(request, 'social/post.html', {
+            'post': post,
+            'replies': replies,
+            'form': ReplyForm(),
+        })
+```
+
+**An example of a post with replies:**
+
+![New post form](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-post.png)
+
 #### Mentions
-SCREENSHOT OF MENTIONS
+- If a user is mentioned in a public post or reply with the use of ~ they will be notified of this by an unread mention count in the menu.
+- A user can view these posts and replies on their Mentions page.
+- Posts and replies are excluded if the logged in user exists in their **read** `ManyToManyField`.
+- Posts and replies can be marked as **Read** to clear the notification, and be excluding in the future.
+
+```
+def mentions(request):
+    posts = Post.objects.filter(post__icontains=request.user).exclude(
+        read=request.user).order_by('-date')
+    replies = Reply.objects.filter(reply__icontains=request.user).exclude(
+        hidden=True).exclude(read=request.user).order_by('-date')
+    return render(request, 'social/mentions.html', {
+        'posts': posts,
+        'replies': replies,
+    })
+```
+
+**An example of a user's mentions:**
+
+![User mentions](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mentions.png)
+
 #### Messages
 SCREENSHOTS OF MESSAGES
 #### Moderation
