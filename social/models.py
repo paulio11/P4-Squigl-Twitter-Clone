@@ -20,7 +20,7 @@ class Post(models.Model):
         upload_to='post-images/',
         blank=True,
         size=[600, None],
-        force_format='JPEG')
+        force_format='WEBP')
     link = models.CharField(max_length=50, blank=True)
     likes = models.ManyToManyField(
         CustomUser, related_name='post_likes', blank=True)

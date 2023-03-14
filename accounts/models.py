@@ -25,13 +25,13 @@ class CustomUser(AbstractUser):
         blank=True,
         size=[150, 150],
         crop=['middle', 'center'],
-        force_format='JPEG')
+        force_format='WEBP')
     profile_background = ResizedImageField(
         upload_to='backgrounds/',
         blank=True,
         size=[600, 200],
         crop=['middle', 'center'],
-        force_format='JPEG')
+        force_format='WEBP')
     about = models.CharField(max_length=200, blank=True)
     website = models.CharField(max_length=50, blank=True)
     verified = models.BooleanField(default=False)
