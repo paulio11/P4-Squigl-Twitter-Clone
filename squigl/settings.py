@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', 'squigl.herokuapp.com', 'squigl.co.uk']
+ALLOWED_HOSTS = ['localhost', 'squigl.herokuapp.com']
 
 
 # Application definition

@@ -266,7 +266,7 @@ For smaller screens such as mobile the navigation shrinks and the right side bar
 - Users can include hashtags in their posts and replies by using # in front of the desired keyword.
 - This functionality is made possible using JavaScript, the code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/templates/base.html#L327).
 
-You can see a user tag and hashtags in this example:
+**Example of a post with a tagged user and hashtags:**
 
 ![A post containing user tags and hashtags](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-hash-tag.png)
 
@@ -308,12 +308,13 @@ else:
         e = 'You can not delete this post because you are not the author.'
         return render(request, 'error.html', {'e': e})
 ```
+**Error 404 example:**
 
 ![Error display](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-error.png)
 
-#### Login and Signup
+#### Login and Sign up
 
-- The default django login and signup forms are used. Using [accounts/forms.py](https://github.com/paulio11/project-4/blob/main/accounts/forms.py) I have added placeholder text to the html inputs to assist the user when signing up.
+- The default django login and sign up forms are used. Using [accounts/forms.py](https://github.com/paulio11/project-4/blob/main/accounts/forms.py) I have added placeholder text to the html inputs to assist the user when signing up.
 - In my CustomUser model I made email a requirement, this is so the user can reset their password, and this is reflected while signing up.
 - The login page includes a link to password reset.
 - Login is required for most of the functionality. A `@login_required` decorator is used where possible. In cases where this is not an alert will notify the user.
@@ -329,7 +330,9 @@ else:
     - View mentions
     - Mark posts and replies as read
 
-![User signup form](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-signup.png)
+**New user sign up form**
+
+![User sign up form](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-signup.png)
 
 #### Feed
 - The home page for a logged in user.
@@ -635,7 +638,7 @@ If possible I would have liked to have implemented the following features:
 - [GitHub](https://github.com/) - Repository hosting, commit history and project management with user stories. 
 - [Heroku](https://heroku.com/) - Squigl is deployed to Heroku.
 - [Gitpod](https://www.gitpod.io/) - Used to write code and commit to GitHub.
-- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - Testing of site performance.
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - For testing of site performance and used to check if the website meets accessibility guidelines.
 - [Favicon.io](https://favicon.io/) - Creation of the favicon from an image.
 - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Used to debug and test website responsiveness.
 - [Cloudinary](https://cloudinary.com/) - Hosting of images and other static files such as CSS and JS.
