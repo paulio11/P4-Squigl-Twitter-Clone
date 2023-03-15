@@ -45,6 +45,8 @@ The idea behind Squigl was to create an alternative to Twitter. I started on thi
 
 Squigl allows users to post short posts on their customizable profile pages. Follow other users, like, and comment on posts. Send private messages to each other. Be notified when they are mentioned. See popular trending topics or search for users and posts by a phrase keyword.
 
+[Back to top 🔺](#squigl)
+
 ## Project Planning
 
 ### GitHub Project
@@ -206,6 +208,8 @@ There will be three types of users visiting Squigl. A **new** or **logged out us
 |As a moderator I can **see a list of users with strikes** so that troublesome users are clearly viewable and action can be take if necessary|✓|
 |As a moderator I can **ban or unban a user** so that they can be banned or unbanned if necessary|✓|
 
+[Back to top 🔺](#squigl)
+
 ## User Experience
 
 ### Wireframes
@@ -289,6 +293,8 @@ For smaller screens such as mobile the navigation shrinks and the right side bar
     <summary><strong>Mobile layout</strong></summary>
     <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mobile.png">
 </details>
+
+[Back to top 🔺](#squigl)
 
 ## Features
 
@@ -688,6 +694,8 @@ If possible I would have liked to have implemented the following features:
 - Further styling. In my opinion this still looks too much like a Bootstrap website, even though there are almost 700 lines of CSS code!
 - Inline private messaging. Replies to messages appearing as a conversation thread instead of individual separate messages.
 
+[Back to top 🔺](#squigl)
+
 ## Technologies
 
 ### Main Languages Used
@@ -740,11 +748,17 @@ If possible I would have liked to have implemented the following features:
 - [JSHint JavaScript Code Quality Tool](https://jshint.com/) - Used to validate JavaScript code.
 - [Am I Responsive](https://ui.dev/amiresponsive) - Used to create the hero image at the top of this readme.
 
+[Back to top 🔺](#squigl)
+
 ## Testing
 Testing information can be found [here](https://github.com/paulio11/project-4/blob/main/TESTING.md).
 
+[Back to top 🔺](#squigl)
+
 ## Deployment
 Deployment steps can be found [here](https://github.com/paulio11/project-4/blob/main/DEPLOYMENT.md).
+
+[Back to top 🔺](#squigl)
 
 ## Credits
 
@@ -768,3 +782,5 @@ Deployment steps can be found [here](https://github.com/paulio11/project-4/blob/
 ### Acknowledgements
 
 Thanks again to my mentor [Oluwaseun Owonikoko](https://github.com/seunkoko) and the [Code Institute](https://codeinstitute.net/) students from class June 2022 for their help, testing and suggestions throughout the project.
+
+[Back to top 🔺](#squigl)
