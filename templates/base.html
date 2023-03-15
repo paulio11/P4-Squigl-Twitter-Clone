@@ -145,45 +145,45 @@
             <div class="d-xl-none col-lg-1 col-md-12 d-md-block d-none" id="tiny-nav-div">
                 <nav class="nav nav-pills tiny-nav">
                     {% if request.user.is_authenticated %}
-                    <a class="nav-link {% if '/feed/' in request.path %}menu-active{% endif %}" href="{% url 'feed' %}">
+                    <a class="nav-link {% if '/feed/' in request.path %}menu-active{% endif %}" href="{% url 'feed' %}" aria-label="feed">
                         {% if '/feed/' in request.path %}
                         <i class="fa-solid fa-arrows-rotate"></i>
                         {% else %}
                         <i class="fa-solid fa-comments"></i>
                         {% endif %}
                     </a>
-                    <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="{% url 'search' %}">
+                    <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="{% url 'search' %}" aria-label="search">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </a>
-                    <a class="d-lg-none nav-link {% if '/trending/' in request.path %}menu-active{% endif %}" href="{% url 'trending' %}">
+                    <a class="d-lg-none nav-link {% if '/trending/' in request.path %}menu-active{% endif %}" href="{% url 'trending' %}" aria-label="trending">
                         <i class="fa-solid fa-hashtag"></i>
                     </a>
-                    <a class="d-lg-none nav-link {% if '/user-list/' in request.path %}menu-active{% endif %}" href="{% url 'user_list' %}">
+                    <a class="d-lg-none nav-link {% if '/user-list/' in request.path %}menu-active{% endif %}" href="{% url 'user_list' %}" aria-label="users to follow">
                         <i class="fa-solid fa-users"></i>
                     </a>
-                    <a class="nav-link {% if request.user.username in request.path %}menu-active{% endif %}" href="{% url 'user' request.user %}">
+                    <a class="nav-link {% if request.user.username in request.path %}menu-active{% endif %}" href="{% url 'user' request.user %}" aria-label="my page">
                         <i class="fa-solid fa-user"></i>
                     </a>
-                    <a class="nav-link {% if '/new-post/' in request.path %}menu-active{% endif %}" href="{% url 'new_post' %}">
+                    <a class="nav-link {% if '/new-post/' in request.path %}menu-active{% endif %}" href="{% url 'new_post' %}" aria-label="new post">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
-                    <a class="nav-link {% if '/mentions/' in request.path %}menu-active{% endif %} position-relative" href="{% url 'mentions' %}">
+                    <a class="nav-link {% if '/mentions/' in request.path %}menu-active{% endif %} position-relative" href="{% url 'mentions' %}" aria-label="mentions">
                         <i class="fa-solid fa-quote-left {% if mentions > 0 %}tiny-alert{% endif %}"></i>                  
                     </a>
-                    <a class="nav-link {% if '/messages/' in request.path %}menu-active{% endif %}" href="{% url 'messages' %}">
+                    <a class="nav-link {% if '/messages/' in request.path %}menu-active{% endif %}" href="{% url 'messages' %}" aria-label="messages">
                         <i class="fa-solid fa-envelope  {% if unread > 0 %}tiny-alert{% endif %}"></i>       
                     </a>
-                    <a class="nav-link {% if '/accounts/settings' in request.path %}menu-active{% endif %}" href="{% url 'settings' request.user.id %}">
+                    <a class="nav-link {% if '/accounts/settings' in request.path %}menu-active{% endif %}" href="{% url 'settings' request.user.id %}" aria-label="settings">
                         <i class="fa-solid fa-gear"></i>
                     </a>
-                    <a class="nav-link" href="{% url 'logout' %}">
+                    <a class="nav-link" href="{% url 'logout' %}" aria-label="logout">
                         <i class="fa-solid fa-right-from-bracket"></i>
                     </a>
                     {% else %}
-                    <a class="nav-link {% if '/login/' in request.path %}menu-active{% endif %}" href="{% url 'login' %}">
+                    <a class="nav-link {% if '/login/' in request.path %}menu-active{% endif %}" href="{% url 'login' %}" aria-label="login">
                         <i class="fa-solid fa-right-to-bracket"></i>
                     </a>
-                    <a class="nav-link {% if '/signup/' in request.path %}menu-active{% endif %}" href="{% url 'signup' %}">
+                    <a class="nav-link {% if '/signup/' in request.path %}menu-active{% endif %}" href="{% url 'signup' %}" aria-label="sign up">
                         <i class="fa-solid fa-user-plus"></i>
                     </a>
                     {% endif %}
