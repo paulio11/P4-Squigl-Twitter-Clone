@@ -741,6 +741,7 @@ If possible I would have liked to have implemented the following features:
 - [Am I Responsive](https://ui.dev/amiresponsive) - Used to create the hero image at the top of this readme.
 
 ## Testing
+Testing information can be found [here](https://github.com/paulio11/project-4/blob/main/TESTING.md).
 
 ## Deployment
 Deployment steps can be found [here](https://github.com/paulio11/project-4/blob/main/DEPLOYMENT.md).
