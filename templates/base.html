@@ -188,12 +188,12 @@
                     </a>
                     {% endif %}
                     {% if request.user.is_superuser %}
-                    <a class="nav-link" href="{% url 'admin:index' %}">
+                    <a class="nav-link" href="{% url 'admin:index' %}" aria-label="django admin">
                         <i class="fa-solid fa-lock"></i>
                     </a>
                     {% endif %}
                     {% if request.user.is_staff %}
-                    <a class="nav-link {% if '/mod/' in request.path %}menu-active{% endif %}" href="{% url 'moderation' %}">
+                    <a class="nav-link {% if '/mod/' in request.path %}menu-active{% endif %}" href="{% url 'moderation' %}" aria-label="moderation">
                         <i class="fa-solid fa-thumbs-up  {% if mod_count > 0 %}tiny-alert{% endif %}"></i>
                     </a>
                     {% endif %}
