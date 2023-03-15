@@ -123,49 +123,82 @@ The models required for this project are:
  ### Epics and User Stories
 There will be three types of users visiting Squigl. A **new** or **logged out user**, a **registered user**, and **moderators**. User stories were logged as issues on GitHub to track them throughout the project - [Project Issues](https://github.com/paulio11/project-4/issues?q=is:issue%20is:closed%20sort:created-asc). They were subject to manual testing at the end of the project to determine if I was successful with my objectives.
 
-#### New or Logged Out Users
-| User Story |  |
+#### Epic - New or Logged Out Users
+| User Story | Achieved? |
 |--|--|
 |As a new user I can **sign up** so that I can have my own account and use the full feature set of the website|✓|
 |As a logged out user I can **sign in** so that I can return to my account|✓|
 |As a logged out user I can **search squigl** so that I can find users, posts and replies that I am looking for|✓|
 
-#### Returning Users
-| User Story |  |
+#### Epic - A registered user can view a feed of posts from followed users
+
+| User Story | Achieved? |
 |--|--|
-|As a user I can **log out** so that my account remains secure and private when not in use|✓|
 |As a user I can **view my feed** so that I can see my own posts and posts of users I follow|✓|
-|As a user I can **search squigl** so that I can find users, posts and replies that I am looking for|✓|
+|As a user I can **follow or unfollow other users** so that their posts appear in my feed|✓|
+
+#### Epic - A registered user can customise their profile
+
+| User Story | Achieved? |
+|--|--|
 |As a user I can **upload an avatar** so that it can represent me as a user|✓|
 |As a user I can **add a link to my profile** so that I can share something important to me or another website relevant to my account|✓|
 |As a user I can **add a short description to my profile** so that other users can find out more about me|✓|
 |As a user I can **add an image as a background to my profile** so that I can further customise my profile|✓|
-|As a user I can **follow or unfollow other users** so that their posts appear in my feed|✓|
+
+#### Epic - A registered user can create new posts and manage their posts
+
+| User Story | Achieved? |
+|--|--|
 |As a user I can **create a new post** so that I can share something with my followers|✓|
 |As a user I can **add an image to my post** so that I can share an image with my followers|✓|
 |As a user I can **add a link to a website to my post** so that I can share a website with my followers|✓|
 |As a user I can **like my own or someone else's post** so that I can show my support|✓|
 |As a user I can **delete my own posts** so that I can remove them from my profile if necessary|✓|
 |As a user I can **edit my posts** so that I can change them if necessary|✓|
+
+#### Epic - A registered user can reply to posts and manage their replies
+| User Story | Achieved? |
+|--|--|
 |As a user I can **add a reply to my own posts or someone else's** so that I can start or add to a conversation related to the post|✓|
 |As a user I can **edit my replies** so that I can change what I said or fix a mistake|✓|
 |As a user I can **delete my replies** so that I can remove them if I want|✓|
 |As a user I can **hide a reply to my post** so that it can be hidden from other users if inappropriate or irrelevant|✓|
-|As a user I can **repost another user's post** so that I can share it with my own followers|✓|
-|As a user I can **tag other users in my posts, replies and messages** so that I can link directly to their profile|✓|
-|As a user I can **create a hashtag in my posts and replies** so that I can be part of a larger conversation and contribute to trending topics|✓|
+
+#### Epic - A registered user can privately message other registered users
+| User Story | Achieved? |
+|--|--|
 |As a user I can **send a private message to another user** so that we can have a private conversation|✓|
 |As a user I can **have a message inbox** so that I can read my private messages|✓|
 |As a user I can **reply to my private messages** so that I can quickly respond to the sender and keep a conversation going|✓|
 |As a user I can **delete a message** so that I keep my inbox clear and/or remove no longer useful messages|✓|
-|As a user I can **report a post, message or reply** so that moderators are notified of inappropriate content|✓|
-|As a user I can **see trending hashtags** so that I am aware of current popular topics of conversation|✓|
+
+#### Epic - A registered user can report inappropriate content
+| User Story | Achieved? |
+|--|--|
+|As a user I can **report a post** so that moderators are notified of inappropriate content|✓|
+|As a user I can **report a reply** so that moderators are notified of inappropriate content|✓|
+|As a user I can **report a message** so that moderators are notified of inappropriate content|✓|
+
+#### Epic - A registered user can keep their account secure
+| User Story | Achieved? |
+|--|--|
+|As a user I can **log out** so that my account remains secure and private when not in use|✓|
 |As a user I can **delete my account** so that I can leave the website and remove all my content|✓|
 |As a user I can **change my password** so that my account can remain secure|✓|
 |As a user I can **reset my password** so that I can still log in if I have forgotten my password|✓|
 
-#### Moderators
-| User Story |  |
+#### Epic - A registered user be part of a conversation
+| User Story | Achieved? |
+|--|--|
+|As a user I can **search squigl** so that I can find users, posts and replies that I am looking for|✓|
+|As a user I can **repost another user's post** so that I can share it with my own followers|✓|
+|As a user I can **create a hashtag in my posts and replies** so that I can be part of a larger conversation and contribute to trending topics|✓|
+|As a user I can **tag other users in my posts, replies and messages** so that I can link directly to their profile|✓|
+|As a user I can **see trending hashtags** so that I am aware of current popular topics of conversation|✓|
+
+#### Epic - Moderation
+| User Story | Achieved? |
 |--|--|
 |As a moderator I can **see reported items** so that I can act upon them|✓|
 |As a moderator I can **delete or mark okay a reported item** so that it can either be deleted or removed from the reported items list where appropriate|✓|
