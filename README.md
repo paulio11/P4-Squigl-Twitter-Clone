@@ -9,7 +9,7 @@
 2. [Project Planning](#project-planning)
     1. [Github Project](#github-project)
     2. [Database Schema](#database-schema)
-    3. [User Stories](#user-stories)
+    3. [Epics and User Stories](#epics-and-user-stories)
 3. [User Experience](#user-experience)
     1. [Wireframes](#wireframes)
     2. [Design Choices](#design-choices)
@@ -62,7 +62,65 @@ The models required for this project are:
  
 ![Database Schema](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-schema.png)
 
- ### User Stories
+#### CustomUser Model
+
+| Name | Type | Details | Notes |
+|--|--|--|--|
+| id | Primary Key | unique |
+| username | CharField | unique, max_length=20, validators=[alphanumeric] | Used by the user to login and for their url, therefor it has to be unique. Alphanumeric validator ensures that user tagging works as punctuation breaks the script. |
+| email | EmailField | unique | Used when a user attempts to reset their password. |
+| name | CharField | max_length=30 | Included a max length so it doesn't break the size of html elements. |
+| avatar | ResizedImageField | blank=True, upload_to='avatars/', size=[150, 150], crop=['middle', 'center'], force_format='WEBP' | The user's avatar is displayed as a small square. Cropped and resized to keep the file size low and the aspect ratio correct. |
+| profile_background | ResizedImageField | blank=True, upload_to='backgrounds/', size=[600, 200], crop=['middle', 'center'], force_format='WEBP' | Cropped and resized to keep the file size low and the aspect ratio correct. |
+| about | CharField | max_length=200, blank=true | Text to display on a user's profile. |
+| website | CharField | max_length=50, blank=true | A website link to display on a user's profile. |
+| verified | BooleanField | default=False | Text to display on a user's profile. |
+| following | ManyToManyField | to self (CustomUser), blank=true | A list of followed users. |
+| strikes | IntegerField | default=0 | Number of strikes gained, for moderation. |
+
+#### Post Model
+
+| Name | Type | Details | Notes |
+|--|--|--|--|
+| id | Primary Key | unique |
+| user | Foreign Key | to CustomUser | The author of the post. |
+| date | DateTimeField | auto_now_add=True | Date of post, automatically added on creation. |
+| post | TextField | max_length=400 | Text content of the post. |
+| image | ResizedImageField | blank=True, upload_to='post-images/', size=[600, None], force_format='WEBP' | Optional image for post. Cropped to a width of 600px and converted to WEBP. |
+| link | CharField | max_length=50, blank=True | Optional website link. |
+| likes | ManyToManyField | to CustomUser, blank=True | A list of users that liked the post. |
+| repost_post | ForeighKey | to self (Post), blank=True | If this post is a repost this is the original post. |
+| reported | ManyToManyField | to CustomUser, blank=True | A list of user that have reported the post (for moderation). |
+| read | ManyToManyField | to CustomUser, blank=True | A list of users that have marked the post read (for mentions). |
+
+#### Reply Model
+
+| Name | Type | Details | Notes |
+|--|--|--|--|
+| id | Primary Key | unique |
+| user | Foreign Key | to CustomUser | The author of the reply. |
+| post | Foreign Key | to Post | The parent post of the reply. |
+| date | DateTimeField | auto_now_add=True | Date of reply, automatically added on creation. |
+| reply | TextField | max_length=400 | Text content of the reply. |
+| hidden | BooleanField | default=False | The author of the parent post can hide inapropriate replies. |
+| reported | ManyToManyField | to CustomUser, blank=True | A list of user that have reported the reply (for moderation).|
+| read | ManyToManyField | to CustomUser, blank=True | A list of users that have marked the reply read (for mentions). |
+
+#### Message Model
+
+| Name | Type | Details | Notes |
+|--|--|--|--|
+| id | Primary Key | unique |
+| sender | Foreign Key| to CustomUser | The user sending the message. |
+| recipient | Foreign Key | to CustomUser | The user receiving the message. |
+| date | DateTimeField | auto_now_add=True | Date of message, automatically added on creation. |
+| message | TextField | max_length=400 | Text content of the message. |
+| sender_del | BooleanField | default=False | True if the sender has deleted the message. |
+| recipient_del | BooleanField | default=False | True if the recipent has deleted the message. |
+| read | BooleanField | default=False | A user can mark a message as read, to remove it from unread messages. |
+| reported | BooleanField | default=False | A user can report a message (for moderation). |
+
+ ### Epics and User Stories
 There will be three types of users visiting Squigl. A **new** or **logged out user**, a **registered user**, and **moderators**. User stories were logged as issues on GitHub to track them throughout the project - [Project Issues](https://github.com/paulio11/project-4/issues?q=is:issue%20is:closed%20sort:created-asc). They were subject to manual testing at the end of the project to determine if I was successful with my objectives.
 
 #### New or Logged Out Users
