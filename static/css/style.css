@@ -365,6 +365,8 @@ header a:hover {
     padding: 16px;
     text-decoration: none;
     width: 40%;
+    margin-bottom: 16px;
+    border-radius: 5px;
 }
 
 /* ----------------------------------------------------- Main Content Row */
