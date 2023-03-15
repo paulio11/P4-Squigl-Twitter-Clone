@@ -102,7 +102,7 @@ The models required for this project are:
 | post | Foreign Key | to Post | The parent post of the reply. |
 | date | DateTimeField | auto_now_add=True | Date of reply, automatically added on creation. |
 | reply | TextField | max_length=400 | Text content of the reply. |
-| hidden | BooleanField | default=False | The author of the parent post can hide inapropriate replies. |
+| hidden | BooleanField | default=False | The author of the parent post can hide inappropriate  replies. |
 | reported | ManyToManyField | to CustomUser, blank=True | A list of user that have reported the reply (for moderation).|
 | read | ManyToManyField | to CustomUser, blank=True | A list of users that have marked the reply read (for mentions). |
 
@@ -116,7 +116,7 @@ The models required for this project are:
 | date | DateTimeField | auto_now_add=True | Date of message, automatically added on creation. |
 | message | TextField | max_length=400 | Text content of the message. |
 | sender_del | BooleanField | default=False | True if the sender has deleted the message. |
-| recipient_del | BooleanField | default=False | True if the recipent has deleted the message. |
+| recipient_del | BooleanField | default=False | True if the recipient  has deleted the message. |
 | read | BooleanField | default=False | A user can mark a message as read, to remove it from unread messages. |
 | reported | BooleanField | default=False | A user can report a message (for moderation). |
 
@@ -743,6 +743,7 @@ If possible I would have liked to have implemented the following features:
 ## Testing
 
 ## Deployment
+Deployment steps can be found [here](https://github.com/paulio11/project-4/blob/main/DEPLOYMENT.md).
 
 ## Credits
 
