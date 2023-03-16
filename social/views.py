@@ -65,17 +65,24 @@ def post(request, post_id):
     replies = Reply.objects.filter(post_id=post_id).order_by('-date')
 
     if request.method == 'POST':
-        form = ReplyForm(data=request.POST)
-        if form.is_valid():
-            form.instance.user = request.user
-            form.instance.post = post
-            form.save()
+        form1 = ReplyForm(data=request.POST, prefix='f1')
+        if form1.is_valid():
+            form1.instance.user = request.user
+            form1.instance.post = post
+            form1.save()
+            return HttpResponseRedirect(request.path_info)
+        form2 = ReplyForm(data=request.POST, prefix='f2')
+        if form2.is_valid():
+            form2.instance.user = request.user
+            form2.instance.post = post
+            form2.save()
             return HttpResponseRedirect(request.path_info)
     else:
         return render(request, 'social/post.html', {
             'post': post,
             'replies': replies,
-            'form': ReplyForm(),
+            'form1': ReplyForm(prefix='f1'),
+            'form2': ReplyForm(prefix='f2'),
         })
 
 

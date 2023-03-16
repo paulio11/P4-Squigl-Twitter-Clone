@@ -16,7 +16,7 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                 <form method="POST" action="{% url 'report_post' post.id %}">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-danger">Yes</button></a>
+                    <button type="submit" class="btn btn-danger">Yes</button>
                 </form>
             </div>
         </div>
@@ -31,9 +31,9 @@
                 <!-- Post author avatar -->
                 <a href="{% url 'user' post.user %}">
                     {% if post.user.avatar %}
-                    <img src="{{ post.user.avatar.url }}" class="avatar-medium" alt="user avatar">
+                    <img src="{{ post.user.avatar.url }}" class="avatar-medium" alt="{{ post.user }}'s avatar">
                     {% else %}
-                    <img src="{% static 'images/avatar.jpg' %}" class="avatar-medium" alt="user avatar">
+                    <img src="{% static 'images/avatar.jpg' %}" class="avatar-medium" alt="{{ post.user }}'s avatar">
                     {% endif %}
                 </a>
                 <!-- Post author avatar ends -->
@@ -44,9 +44,9 @@
                     <a href="{% url 'user' post.user %}" class="user-link">
                         <span class="d-sm-none">
                             {% if post.user.avatar %}
-                            <img src="{{ post.user.avatar.url }}" class="avatar-xs">
+                            <img src="{{ post.user.avatar.url }}" class="avatar-xs" alt="{{ post.user }}'s avatar">
                             {% else %}
-                            <img src="{% static 'images/avatar.jpg' %}" class="avatar-xs">
+                            <img src="{% static 'images/avatar.jpg' %}" class="avatar-xs" alt="{{ post.user }}'s avatar">
                             {% endif %}
                         </span>                    
                         <strong>{{ post.user.name }}</strong>

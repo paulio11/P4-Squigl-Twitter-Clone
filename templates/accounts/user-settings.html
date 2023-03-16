@@ -21,7 +21,7 @@ Settings
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                 <form method="POST" action="{% url 'delete_account' %}">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-danger">Yes</button></>
+                    <button type="submit" class="btn btn-danger">Yes</button>
                 </form>                
             </div>
         </div>
@@ -37,10 +37,8 @@ Settings
     <button class="btn btn-dark" type="submit">Save changes</button>
     <br>
     <br>
-    <a href="{% url 'password' %}" class="btn-link">
-        <button type="button" class="btn btn-dark">
-            Change Password
-        </button>
+    <a href="{% url 'password' %}" class="btn btn-dark">
+        Change Password
     </a>
     <br>
     <br>

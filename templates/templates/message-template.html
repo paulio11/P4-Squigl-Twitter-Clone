@@ -12,7 +12,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                <a href="{% url 'delete_message' message.id %}"><button type="button" class="btn btn-danger">Yes</button></a>
+                <a href="{% url 'delete_message' message.id %}" class="btn btn-danger">Yes</a>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                <a href="{% url 'report_message' message.id %}"><button type="button" class="btn btn-danger">Yes</button></a>
+                <a href="{% url 'report_message' message.id %}" class="btn btn-danger">Yes</a>
             </div>
         </div>
     </div>

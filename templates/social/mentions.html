@@ -12,22 +12,18 @@ Mentions
 {% mentions_count request.user as mentions %}
 {% if mentions > 0 %}
 <!-- Mentions navigation -->
-<ul class="nav nav-pills mb-3 mentions-ul" id="nav-pills-tab" role="tablist">
-    <div class="mentions-menu">
+<ul class="nav nav-pills mb-3 mentions-ul" id="nav-pills-tab" role="tablist">       
+    <li class="nav-item" role="presentation">
         {% if posts %}
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="pills-posts-tab" data-bs-toggle="pill" data-bs-target="#pills-posts"
-                type="button" role="tab" aria-controls="pills-posts" aria-selected="true">Posts <span class="badge text-bg-danger">{{ posts.count }}</span></button>
-        </li>
+        <button class="nav-link active d-inline" id="pills-posts-tab" data-bs-toggle="pill" data-bs-target="#pills-posts"
+            type="button" role="tab" aria-controls="pills-posts" aria-selected="true">Posts <span class="badge text-bg-danger">{{ posts.count }}</span></button>
         {% endif %}
         {% if replies %}
-        <li class="nav-item" role="presentation">
-            <button class="nav-link {% if not posts %}active{% endif %}" id="pills-replies-tab" data-bs-toggle="pill" data-bs-target="#pills-replies"
-                type="button" role="tab" aria-controls="pills-replies" aria-selected="false">Replies <span class="badge text-bg-danger">{{ replies.count }}</span></button>
-        </li>
+        <button class="nav-link {% if not posts %}active{% endif %} d-inline" id="pills-replies-tab" data-bs-toggle="pill" data-bs-target="#pills-replies"
+            type="button" role="tab" aria-controls="pills-replies" aria-selected="false">Replies <span class="badge text-bg-danger">{{ replies.count }}</span></button>
         {% endif %}
-    </div>    
-    <li><a href="{% url 'mark_read' %}" class="btn-link"><button class="btn btn-success read-btn">Mark All Read</button></a></li>
+    </li>
+    <li><a href="{% url 'mark_read' %}" class="btn btn-success read-btn">Mark All Read</a></li>
 </ul>
 <!-- Mentions navigation ends -->
 {% else %}

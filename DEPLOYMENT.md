@@ -66,7 +66,7 @@ Squigl is currently deployed to Heroku. Follow these steps if you want to deploy
 4. Click **Create App**.
 5. Click **Settings**.
 6. Click **Reveal Config Vars**.
-7. Enter the following environmental variables - these are the same as in **env.py** if followed the Gitpod steps:
+7. Enter the following environmental variables - these are the same as in **env.py** if you followed the Gitpod steps:
 
 |Key|Value|
 |--|--|

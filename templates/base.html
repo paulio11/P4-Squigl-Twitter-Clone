@@ -223,9 +223,9 @@
                                 </h4>
                             </div>
                             {% if request.user.avatar %}
-                            <a href="{% url 'user' request.user %}"><img src="{{ request.user.avatar.url }}" class="avatar-large"></a>
+                            <a href="{% url 'user' request.user %}"><img src="{{ request.user.avatar.url }}" class="avatar-large" alt="your avatar"></a>
                             {% else %}
-                            <a href="{% url 'user' request.user %}"><img src="{% static 'images/avatar.jpg' %}" class="avatar-large"></a>
+                            <a href="{% url 'user' request.user %}"><img src="{% static 'images/avatar.jpg' %}" class="avatar-large" alt="your avatar"></a>
                             {% endif %}                            
                         </div>
                         {% endif %}

@@ -20,14 +20,14 @@ Post: {{ post.id }}
     <div class="sm-reply-header">
         <span>Join the conversation?</span>
         {% if request.user.avatar %}
-        <img src="{{ request.user.avatar.url }}" class="avatar-small">
+        <img src="{{ request.user.avatar.url }}" class="avatar-small" alt="your avatar">
         {% else %}
-        <img src="{% static 'images/avatar.jpg' %}" class="avatar-small">
+        <img src="{% static 'images/avatar.jpg' %}" class="avatar-small" alt="your avatar">
         {% endif %}
     </div>    
     <form method="POST" class="reply-form">
         {% csrf_token %}
-        {{ form | crispy }}
+        {{ form1 | crispy }}
         <button class="btn btn-dark" type="submit">Reply</button>
     </form>     
     <!-- Reply form ends -->
@@ -58,7 +58,7 @@ Post: {{ post.id }}
     <!-- Reply form -->
     <form method="POST" class="reply-form">
         {% csrf_token %}
-        {{ form | crispy }}
+        {{ form2 | crispy }}
         <button class="btn btn-dark" type="submit">Reply</button>
     </form>     
     <!-- Reply form ends -->
