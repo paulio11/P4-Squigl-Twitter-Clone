@@ -20,7 +20,7 @@ Edit Reply
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                <a href="{% url 'delete_reply' reply.id %}"><button type="button" class="btn btn-danger">Yes</button></a>
+                <a href="{% url 'delete_reply' reply.id %}" class="btn btn-danger">Yes</a>
             </div>
         </div>
     </div>
@@ -36,9 +36,9 @@ Edit Reply
 <div class="reply-header">
     <a href="{% url 'user' reply.user %}">
         {% if reply.user.avatar %}
-        <img src="{{ reply.user.avatar.url }}" class="avatar-small">
+        <img src="{{ reply.user.avatar.url }}" class="avatar-small" alt="{{ reply.user }}'s avatar">
         {% else %}
-        <img src="{% static 'images/avatar.jpg' %}" class="avatar-small">
+        <img src="{% static 'images/avatar.jpg' %}" class="avatar-small" alt="{{ reply.user }}'s avatar">
         {% endif %}
     </a>
     <div>

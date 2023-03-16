@@ -224,7 +224,7 @@ header a:hover {
 }
 
 .tiny-alert {
-    color: #56008b !important;
+    color: goldenrod !important;
 }
 
 .text-bg-info {
@@ -233,7 +233,6 @@ header a:hover {
 }
 
 #hamburger-div {
-    /* background-color: #c4c4c4; */
     background: linear-gradient(180deg, #ffffff 0%, #c4c4c4 100%);
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;

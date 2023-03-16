@@ -207,7 +207,6 @@
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
                             aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                             <i class="fa-solid fa-bars"></i>
-                            <!-- <h1><span class="logo-squigl">~</span>squ<span class="logo-i">i</span>gl</h1> -->
                         </button>
                         {% if request.user.is_authenticated %}
                         <div class="user-info">                            
@@ -323,12 +322,12 @@
     <script>
         // Turns '~text' into profile links
         $('.post-body').each(function () {
-            html = $(this).html();
+            var html = $(this).html();
             $(this).html(html.replace(/~(\w+)/g, '<a href="{% url "user" "$1" %}" class="user-tag">~$1</a>'));
         });
         // Turns '#text' into search links
         $('.post-body').each(function () {
-            html = $(this).html();
+            var html = $(this).html();
             $(this).html(html.replace(/#(\w+)/g, '<form class="hash-form" method="POST" action="{% url "search" %}">{% csrf_token %}<button class="hash-button" type="submit" value="$1" name="query">#$1</button></form>'));
         });
     </script>
@@ -336,7 +335,7 @@
     <script>
         // Turns '#text' into search links (repeated for trending hashtags section)
         $('.hashtag-li').each(function () {
-            html = $(this).html();
+            var html = $(this).html();
             $(this).html(html.replace(/#(\w+)/g, '<form class="hash-form" method="POST" action="{% url "search" %}">{% csrf_token %}<button class="hash-button side-hash" type="submit" value="$1" name="query">#$1</button></form>'));
         });
     </script>

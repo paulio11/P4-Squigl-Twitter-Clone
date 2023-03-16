@@ -2,12 +2,15 @@
 
 ## Lighthouse
 ## Validation
-You can see that changes I made to make the pages error free in [this]() commit.
+You can see the changes I made to make the pages error free in these commits: [1](), [2]().
+
 ### CSS & JavaScript
 |File|Result|Notes|
 |--|--|--|
 |[style.css](https://github.com/paulio11/project-4/blob/main/static/css/style.css)|✓|8 warnings, all related to the various avatar styles having matching background and border colours. This was intended so that avatars with transparency look good against a user's profile background.|
 |[script.js](https://github.com/paulio11/project-4/blob/main/static/js/script.js)|✓||
+|[Like post script](#)|✓||
+|[base.html script](#)|✓||
 
 ### HTML
 Due to many pages requiring login, HTML was tested using **text input** instead of **address**. I copied a rendered page's source code and pasted it into the validator.
@@ -23,12 +26,15 @@ Due to many pages requiring login, HTML was tested using **text input** instead 
 |Messages with no messages|✓|No errors or warnings to show|
 |Post with replies|✓|No errors or warnings to show|
 |Post with no replies|✓|No errors or warnings to show|
+|Post with repost|✓|No errors or warnings to show|
 |Search with results|✓|No errors or warnings to show|
 |Search with no results|✓|No errors or warnings to show|
 |User profile with posts|✓|No errors or warnings to show|
 |User profile with no posts|✓|No errors or warnings to show|
 |New post|✓|No errors or warnings to show|
+|New repost|✓|No errors or warnings to show|
 |Edit post|✓|No errors or warnings to show|
+|Edit reply|✓|No errors or warnings to show|
 |Send message|✓|No errors or warnings to show|
 |Settings|✓|No errors or warnings to show|
 |Change password|✓|No errors or warnings to show|
