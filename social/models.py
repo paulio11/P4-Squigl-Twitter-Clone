@@ -39,7 +39,7 @@ class Post(models.Model):
         ordering = ['-date']
 
     def __str__(self):
-        return f'Post: {self.id}, by: {self.user}, on: {self.date}'
+        return f'Post: {self.id}, by: {self.user}'
 
     def like_count(self):
         return self.likes.count()
