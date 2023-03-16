@@ -193,7 +193,7 @@ class TestPostModel(TestCase):
         reply2 = baker.make('social.Reply', post=self.post)
         self.assertEqual(self.post.reply.count(), 2)
 
-    def test_repost_count(self):
+    def test_repost(self):
         self.repost = baker.make('social.Post', repost_post=self.post)
         self.assertEqual(self.repost.repost_post, self.post)
 
