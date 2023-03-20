@@ -37,6 +37,9 @@ class UserSettings(UpdateView):
     fields = ['username', 'email']
     success_url = reverse_lazy('feed')
 
+    def get_queryset(self):
+        return CustomUser.objects.filter(id=self.request.user.id)
+
 
 # Change user password
 @login_required
