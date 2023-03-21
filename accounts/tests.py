@@ -57,6 +57,7 @@ class ChangePasswordTests(TestCase):
             'new_password2': 'newtestpass',
         })
         self.assertEqual(self.response.status_code, 302)
+        self.testuser.refresh_from_db()
         self.assertTrue(self.testuser.check_password('newtestpass'))
 
     def test_get(self):
