@@ -4,6 +4,7 @@ from django.utils.timezone import make_aware
 
 # My imports
 from social.models import Post, Reply
+from .templatetags.social_extras import user_has_replied, upto
 
 # Other imports
 from model_bakery import baker
@@ -77,3 +78,31 @@ class ReplyModelTests(TestCase):
         self.reply.date = aware_datetime
         self.reply.save()
         self.assertFalse(self.reply.time_check())
+
+
+# Template tag tests
+
+class UserHasRepliedTagTests(TestCase):
+
+    def setUp(self):
+        self.user = baker.make('accounts.CustomUser')
+        self.post = baker.make('social.Post')
+        self.reply = Reply.objects.create(
+            post=self.post,
+            user=self.user,
+            reply='test reply'
+        )
+
+    def test_replies_gte_1(self):
+        self.assertTrue(user_has_replied(self.user, self.post))
+
+    def test_replies_0(self):
+        self.reply.delete()
+        self.assertFalse(user_has_replied(self.user, self.post))
+
+
+class StringFilterTests(TestCase):
+
+    def test_upto(self):
+        string = '2 hours, 55 minutes'
+        self.assertEquals(upto(string, ','), '2 hours')
