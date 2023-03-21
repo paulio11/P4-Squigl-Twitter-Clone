@@ -75,7 +75,7 @@ def mark_read(request, message_id):
         message.save()
         return redirect('messages')
     else:
-        e = 'You can not mark this message as read because you are neither the recipient or sender.'
+        e = 'You can not mark this message as read because you are not the recipient.'
         return render(request, 'error.html', {'e': e})
 
 
