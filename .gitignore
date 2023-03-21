@@ -2,3 +2,5 @@ __pycache__/
 */migrations/
 env.py
 notes.txt
+.coverage
+social/backup.py
