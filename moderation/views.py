@@ -72,7 +72,7 @@ def mod_delete_msg(request, message_id):
         return redirect('moderation')
     else:
         e = 'You can not delete this message because you are not a Squigl moderator.'
-        return render(request, 'error/error.html', {'e': e})
+        return render(request, 'error.html', {'e': e})
 
 
 # Post is okay
