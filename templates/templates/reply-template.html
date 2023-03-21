@@ -57,6 +57,9 @@
         <span class="post-body">{{ reply.reply }}</span>
         <!-- Reply buttons -->
         <div class="reply-menu">
+            {% if '/p/' not in request.path %}
+            <a href="{% url 'post' reply.post.id %}" class="parent-link small-span">Parent Post</a>
+            {% endif %}
             {% if request.user != reply.user %}
             <button type="button" class="hide-btn" data-bs-toggle="modal" data-bs-target="#reportReply{{ reply.id }}Modal" aria-label="report reply {{ reply.id }} button">
                 <i class="fa-solid fa-triangle-exclamation"></i>
@@ -66,9 +69,6 @@
             <a href="{% url 'edit_reply' reply.id %}" aria-label="edit reply {{ reply.id }}">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
-            {% endif %}
-            {% if '/p/' not in request.path %}
-            <a href="{% url 'post' reply.post.id %}">Parent Post</a>
             {% endif %}
         </div>
         <!-- Reply buttons -->

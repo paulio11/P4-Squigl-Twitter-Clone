@@ -554,6 +554,10 @@ label[for=id_f2-reply] {
     gap: 5px;
 }
 
+.parent-link {
+    color: black !important;
+}
+
 /* ----------------------------------------------------- Repost */
 
 .repost {
