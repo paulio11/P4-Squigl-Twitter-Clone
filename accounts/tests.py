@@ -106,5 +106,4 @@ class UserSettingsTests(TestCase):
         view.request = request
         view.request.user = self.testuser
         qs = view.get_queryset()
-        # self.assertQuerysetEqual(qs, CustomUser.objects.all())
         self.assertEqual(qs.count(), 1)
