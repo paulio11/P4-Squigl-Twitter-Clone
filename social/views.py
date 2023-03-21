@@ -70,13 +70,23 @@ def post(request, post_id):
             form1.instance.user = request.user
             form1.instance.post = post
             form1.save()
-            return HttpResponseRedirect(request.path_info)
+            return render(request, 'social/post.html', {
+                'post': post,
+                'replies': replies,
+                'form1': ReplyForm(prefix='f1'),
+                'form2': ReplyForm(prefix='f2'),
+            })
         form2 = ReplyForm(data=request.POST, prefix='f2')
         if form2.is_valid():
             form2.instance.user = request.user
             form2.instance.post = post
             form2.save()
-            return HttpResponseRedirect(request.path_info)
+            return render(request, 'social/post.html', {
+                'post': post,
+                'replies': replies,
+                'form1': ReplyForm(prefix='f1'),
+                'form2': ReplyForm(prefix='f2'),
+            })
     else:
         return render(request, 'social/post.html', {
             'post': post,
