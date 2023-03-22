@@ -212,6 +212,7 @@ def report_post(request, post_id):
 
 
 # Hide reply
+@login_required
 def report_reply(request, reply_id):
     reply = get_object_or_404(Reply, id=reply_id)
     if request.user == reply.post.user:
@@ -232,7 +233,7 @@ def follow(request, user):
     else:
         request.user.following.add(user)
 
-    return redirect(request.META['HTTP_REFERER'])
+    return redirect('user', user)
 
 
 # Mentions
