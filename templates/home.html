@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content%}
+<h2>Welcome to Squigl</h2>
+<hr>
+<p>
+    Welcome to Squigl, a new social network!
+    Use the links nearby to login or to sign up.
+    Search is available if you have an account or not.
+</p>
+{% endblock %}
+
+{% block rightsidebar %}
+<aside>
+    {% include 'side/hashtags-side-template.html' %}
+</aside>
+{% endblock %}

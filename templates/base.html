@@ -38,7 +38,7 @@
                 <!-- Title ends -->
                 <!-- Search -->
                 <div class="col-xl-6 d-xl-block d-none" id="search-col">
-                    {% if '/search/' not in request.path or query %}
+                    {% if '/search/' not in request.path or query or not request.user.is_authenticated %}
                     <form method="POST" action="{% url 'search' %}">
                         {% csrf_token %}
                         <div class="input-group flex-nowrap">
@@ -120,8 +120,15 @@
                         <i class="fa-solid fa-right-from-bracket"></i> Logout
                     </a>
                     {% else %}
-                    <a class="nav-link {% if '/login/' in request.path %}menu-active{% endif %}" href="{% url 'login' %}">Login</a>
-                    <a class="nav-link {% if '/signup/' in request.path %}menu-active{% endif %}" href="{% url 'signup' %}">Sign Up</a>
+                    <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="{% url 'search' %}">
+                        <i class="fa-solid fa-magnifying-glass"></i> Search
+                    </a> 
+                    <a class="nav-link {% if '/login/' in request.path %}menu-active{% endif %}" href="{% url 'login' %}">
+                        <i class="fa-solid fa-right-to-bracket"></i> Login
+                    </a>
+                    <a class="nav-link {% if '/signup/' in request.path %}menu-active{% endif %}" href="{% url 'signup' %}">
+                        <i class="fa-solid fa-user-plus"></i> Sign Up
+                    </a>
                     {% endif %}
                     {% if request.user.is_superuser %}
                     <hr>
@@ -180,6 +187,9 @@
                         <i class="fa-solid fa-right-from-bracket"></i>
                     </a>
                     {% else %}
+                    <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="{% url 'search' %}" aria-label="search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
                     <a class="nav-link {% if '/login/' in request.path %}menu-active{% endif %}" href="{% url 'login' %}" aria-label="login">
                         <i class="fa-solid fa-right-to-bracket"></i>
                     </a>
@@ -276,8 +286,15 @@
                                     <i class="fa-solid fa-right-from-bracket"></i> Logout
                                 </a>
                                 {% else %}
-                                <a class="nav-link {% if '/login/' in request.path %}menu-active{% endif %}" href="{% url 'login' %}">Login</a>
-                                <a class="nav-link {% if '/signup/' in request.path %}menu-active{% endif %}" href="{% url 'signup' %}">Sign Up</a>
+                                <a class="nav-link {% if '/search/' in request.path %}menu-active{% endif %}" href="{% url 'search' %}">
+                                    <i class="fa-solid fa-magnifying-glass"></i> Search
+                                </a> 
+                                <a class="nav-link {% if '/login/' in request.path %}menu-active{% endif %}" href="{% url 'login' %}">
+                                    <i class="fa-solid fa-right-to-bracket"></i> Login
+                                </a>
+                                <a class="nav-link {% if '/signup/' in request.path %}menu-active{% endif %}" href="{% url 'signup' %}">
+                                    <i class="fa-solid fa-user-plus"></i> Sign Up
+                                </a>
                                 {% endif %}
                                 {% if request.user.is_superuser %}
                                 <hr>
