@@ -35,7 +35,7 @@ def moderation(request):
 
 # Moderator delete post
 @login_required
-def mod_delete_post(request, post_id):    
+def mod_delete_post(request, post_id):
     if request.user.is_staff:
         post = get_object_or_404(Post, id=post_id)
         post.user.strikes += 1

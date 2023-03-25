@@ -13,9 +13,11 @@ class PostForm(forms.ModelForm):
         fields = ['post', 'link', 'image']
         widgets = {
             'post': forms.Textarea(
-                attrs={'placeholder': 'Use ~ to tag a ~username, or # to create a #hashtag.'}),
+                attrs={'placeholder': (
+                    'Use ~ to tag a ~username, or # to create a #hashtag.')}),
             'link': forms.TextInput(
-                attrs={'placeholder': 'Enter the FULL url. Example: https://www.squigl.com/'})
+                attrs={'placeholder': (
+                    'Enter the FULL url. Example: https://www.squigl.com/')})
         }
 
 
