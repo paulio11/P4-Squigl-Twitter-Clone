@@ -54,6 +54,39 @@ Due to many pages requiring login, HTML was tested using **text input** instead 
 |Login|✓|No errors or warnings to show|
 |Sign up|✓|No errors or warnings to show|
 
+### Python ([CI Python Linter](https://pep8ci.herokuapp.com/))
+All python files with code written by myself were ran through the CI Python Linter. These are the results.
+
+|File|Result|Notes|
+|--|--|--|
+|[accounts/admin.py](https://github.com/paulio11/project-4/blob/main/accounts/admin.py)|✓|All clear, no errors found|
+|[accounts/forms.py](https://github.com/paulio11/project-4/blob/main/accounts/forms.py)|✓|All clear, no errors found|
+|[accounts/models.py](https://github.com/paulio11/project-4/blob/main/accounts/models.py)|✓|All clear, no errors found|
+|[accounts/tests.py](https://github.com/paulio11/project-4/blob/main/accounts/tests.py)|✓|All clear, no errors found|
+|[accounts/urls.py](https://github.com/paulio11/project-4/blob/main/accounts/urls.py)|✓|All clear, no errors found|
+|[accounts/views.py](https://github.com/paulio11/project-4/blob/main/accounts/views.py)|✓|All clear, no errors found|
+|[dm/templatetags/dm_extras.py](https://github.com/paulio11/project-4/blob/main/dm/templatetags/dm_extras.py)|✓|All clear, no errors found|
+|[dm/admin.py](https://github.com/paulio11/project-4/blob/main/dm/admin.py)|✓|All clear, no errors found|
+|[dm/forms.py](https://github.com/paulio11/project-4/blob/main/dm/forms.py)|✓|All clear, no errors found|
+|[dm/models.py](https://github.com/paulio11/project-4/blob/main/dm/models.py)|✓|All clear, no errors found|
+|[dm/tests.py](https://github.com/paulio11/project-4/blob/main/dm/tests.py)|✓|All clear, no errors found|
+|[dm/urls.py](https://github.com/paulio11/project-4/blob/main/dm/urls.py)|✓|All clear, no errors found|
+|[dm/views.py](https://github.com/paulio11/project-4/blob/main/dm/views.py)|✓|All clear, no errors found|
+|[moderation/templatetags/dm_extras.py](https://github.com/paulio11/project-4/blob/main/moderation/templatetags/dm_extras.py)|✓|All clear, no errors found|
+|[moderation/admin.py](https://github.com/paulio11/project-4/blob/main/moderation/admin.py)|✓|All clear, no errors found|
+|[moderation/forms.py](https://github.com/paulio11/project-4/blob/main/moderation/forms.py)|✓|All clear, no errors found|
+|[moderation/models.py](https://github.com/paulio11/project-4/blob/main/moderation/models.py)|✓|All clear, no errors found|
+|[moderation/tests.py](https://github.com/paulio11/project-4/blob/main/moderation/tests.py)|✓|All clear, no errors found|
+|[moderation/urls.py](https://github.com/paulio11/project-4/blob/main/moderation/urls.py)|✓|All clear, no errors found|
+|[moderation/views.py](https://github.com/paulio11/project-4/blob/main/moderation/views.py)|✓|All clear, no errors found|
+|[social/templatetags/dm_extras.py](https://github.com/paulio11/project-4/blob/main/social/templatetags/dm_extras.py)|✓|All clear, no errors found|
+|[social/admin.py](https://github.com/paulio11/project-4/blob/main/social/admin.py)|✓|All clear, no errors found|
+|[social/forms.py](https://github.com/paulio11/project-4/blob/main/social/forms.py)|✓|All clear, no errors found|
+|[social/models.py](https://github.com/paulio11/project-4/blob/main/social/models.py)|✓|All clear, no errors found|
+|[social/tests.py](https://github.com/paulio11/project-4/blob/main/social/tests.py)|✓|All clear, no errors found|
+|[social/urls.py](https://github.com/paulio11/project-4/blob/main/social/urls.py)|✓|All clear, no errors found|
+|[social/views.py](https://github.com/paulio11/project-4/blob/main/social/views.py)|✓|All clear, no errors found|
+
 [Back to top 🔺](#testing)
 
 ## Automated Testing
