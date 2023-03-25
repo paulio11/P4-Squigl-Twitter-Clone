@@ -65,6 +65,7 @@ for (var key in sorted_obj){
 }
 
 // Table sorting
+// Code from: https://stackoverflow.com/questions/3160277/jquery-table-sort
 function comparer(index) {
     return function(a, b) {
         var valA = getCellValue(a, index), valB = getCellValue(b, index);
@@ -90,7 +91,8 @@ if (href.indexOf('/mod/') > -1){
     getCellValue(this.row, this.index);
 }
 
-//Scroll to top button
+// Scroll to top button
+// Code from: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
 let topButton = document.getElementById('top-button');
 window.onscroll = function () {
     scrollFunction();

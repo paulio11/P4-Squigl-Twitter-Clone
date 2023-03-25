@@ -771,6 +771,7 @@ Deployment steps can be found [here](https://github.com/paulio11/project-4/blob/
 - JavaScript to count occurrences  of hashtags from [StackOverflow](https://stackoverflow.com/questions/14914046/counting-occurrences-of-a-word-in-a-string-javascript).
 - Code to strip irrelevant time since information from post dates from [StackOverflow](https://stackoverflow.com/questions/6481788/format-of-timesince-filter).
 - JavaScript to sort HTML tables from [StackOverflow](https://stackoverflow.com/questions/3160277/jquery-table-sort).
+- Scroll to Top button code from [W3 Schools](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp)
 
 ### Text
 

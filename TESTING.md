@@ -74,7 +74,6 @@ All python files with code written by myself were ran through the CI Python Lint
 |[dm/views.py](https://github.com/paulio11/project-4/blob/main/dm/views.py)|✓|All clear, no errors found|
 |[moderation/templatetags/dm_extras.py](https://github.com/paulio11/project-4/blob/main/moderation/templatetags/dm_extras.py)|✓|All clear, no errors found|
 |[moderation/admin.py](https://github.com/paulio11/project-4/blob/main/moderation/admin.py)|✓|All clear, no errors found|
-|[moderation/forms.py](https://github.com/paulio11/project-4/blob/main/moderation/forms.py)|✓|All clear, no errors found|
 |[moderation/models.py](https://github.com/paulio11/project-4/blob/main/moderation/models.py)|✓|All clear, no errors found|
 |[moderation/tests.py](https://github.com/paulio11/project-4/blob/main/moderation/tests.py)|✓|All clear, no errors found|
 |[moderation/urls.py](https://github.com/paulio11/project-4/blob/main/moderation/urls.py)|✓|All clear, no errors found|
@@ -282,8 +281,8 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 
 |Browser|Screenshot|
 |--|--|
-|Google Chrome|[Screenshot]()|
-|Edge|[Screenshot]()|
+|Google Chrome|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/browser-chrome.jpg)|
+|Edge|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/browser-edge.jpg)|
 |Safari|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/browser-safari.png)|
 |Mobile Safari (iOS)|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/browser-mobile-safari.png)|
 
