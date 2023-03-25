@@ -43,7 +43,9 @@ def mod_delete_post(request, post_id):
         post.delete()
         return redirect('moderation')
     else:
-        e = 'You can not delete this message post you are not a Squigl moderator.'
+        e = (
+            'You can not delete this message post you are not a '
+            'Squigl moderator.')
         return render(request, 'error.html', {'e': e})
 
 
@@ -57,7 +59,9 @@ def mod_delete_reply(request, reply_id):
         reply.delete()
         return redirect('moderation')
     else:
-        e = 'You can not delete this reply because you are not a Squigl moderator.'
+        e = (
+            'You can not delete this reply because you are not a Squigl'
+            ' moderator.')
         return render(request, 'error.html', {'e': e})
 
 
@@ -71,7 +75,9 @@ def mod_delete_msg(request, message_id):
         message.delete()
         return redirect('moderation')
     else:
-        e = 'You can not delete this message because you are not a Squigl moderator.'
+        e = (
+            'You can not delete this message because you are not a '
+            'Squigl moderator.')
         return render(request, 'error.html', {'e': e})
 
 
@@ -84,7 +90,9 @@ def post_is_okay(request, post_id):
         post.save()
         return redirect('moderation')
     else:
-        e = 'You can not okay this post because you are not a Squigl moderator.'
+        e = (
+            'You can not okay this post because you are not a '
+            'Squigl moderator.')
         return render(request, 'error.html', {'e': e})
 
 
@@ -98,7 +106,9 @@ def reply_is_okay(request, reply_id):
         reply.save()
         return redirect('moderation')
     else:
-        e = 'You can not okay this reply because you are not a Squigl moderator.'
+        e = (
+            'You can not okay this reply because you are not a '
+            'Squigl moderator.')
         return render(request, 'error.html', {'e': e})
 
 
@@ -111,7 +121,9 @@ def msg_is_okay(request, message_id):
         message.save()
         return redirect('moderation')
     else:
-        e = 'You can not okay this message because you are not a Squigl moderator.'
+        e = (
+            'You can not okay this message because you are not a '
+            'Squigl moderator.')
         return render(request, 'error.html', {'e': e})
 
 

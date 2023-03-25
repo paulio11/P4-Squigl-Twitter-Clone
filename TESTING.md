@@ -6,6 +6,7 @@
 2. [Automated Testing](#automated-testing)
 3. [Browser Validation](#browser-testing)
 4. [Lighthouse Results](#lighthouse-results)
+5. [User Stories](#user-stories)
 
 ## Validation
 You can see the changes I made to make the pages error free in these commits: [1](https://github.com/paulio11/project-4/commit/5576d642edf0307751bedf8fe2495476df2b8b62), [2](https://github.com/paulio11/project-4/commit/3ecc8493b64dc6579d071d7707c6f821dd47b27a).
@@ -56,7 +57,7 @@ Due to many pages requiring login, HTML was tested using **text input** instead 
 [Back to top 🔺](#testing)
 
 ## Automated Testing
-My goal for automated testing was to reach 100% coverage using the Python library [Coverage](https://pypi.org/project/coverage/). **100% coverage was achieved** excluding `manage.py` as this is built in django code. I further developed each test to cover things such as testing for login requirements and changes to the database, **see each test file for full list of things tested for**. 
+My goal for automated testing was to reach 100% coverage using the Python library [Coverage](https://pypi.org/project/coverage/). **100% coverage was achieved** excluding `manage.py` as this is built in django code. I further developed each test to cover things such as testing for login requirements and changes to the database. **See each test file for full list of things tested for**. 
 
 <details>
     <summary><strong>Coverage Report</strong></summary>
@@ -242,13 +243,25 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 |test_user_list|Correct template used|✓|
 |test_ulist_login_required|Login required to view user list, redirects to login|✓|
 
-
 [Back to top 🔺](#testing)
 
 ## Browser Testing
 
+|Browser|Screenshot|
+|--|--|
+|Google Chrome|[Screenshot]()|
+|Edge|[Screenshot]()|
+|Safari|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/browser-safari.png)|
+|Mobile Safari (iOS)|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/browser-mobile-safari.png)|
+
 [Back to top 🔺](#testing)
 
 ## Lighthouse Results
+
+[Back to top 🔺](#testing)
+
+## User Stories
+
+All user stories were achieved during development and were subject to manual user testing. You can see a list of all user stories in my readme [here](https://github.com/paulio11/project-4#epics-and-user-stories).
 
 [Back to top 🔺](#testing)

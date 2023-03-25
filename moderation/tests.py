@@ -59,7 +59,7 @@ class ModerationTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'error.html')
-        self.assertContains(response, 'Only Squigl moderators can view this page.')
+        self.assertContains(response, 'Only Squigl moderators can')
 
     def test_moderation(self):
         self.client.login(username='testmod', password='testpass')
@@ -97,7 +97,7 @@ class ModDeletePostTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'error.html')
-        self.assertContains(response, 'You can not delete this message post you are not a Squigl moderator.')
+        self.assertContains(response, 'You can not delete this')
 
     def test_mod_delete(self):
         self.client.login(username='testmod', password='testpass')
@@ -139,7 +139,7 @@ class ModDeleteReplyTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'error.html')
-        self.assertContains(response, 'You can not delete this reply because you are not a Squigl moderator.')
+        self.assertContains(response, 'You can not delete this')
 
     def test_mod_delete(self):
         self.client.login(username='testmod', password='testpass')
@@ -180,7 +180,7 @@ class ModDeleteMessageTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'error.html')
-        self.assertContains(response, 'You can not delete this message because you are not a Squigl moderator.')
+        self.assertContains(response, 'You can not delete this')
 
     def test_mod_delete(self):
         self.client.login(username='testmod', password='testpass')
@@ -222,7 +222,7 @@ class PostIsOkayTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'error.html')
-        self.assertContains(response, 'You can not okay this post because you are not a Squigl moderator.')
+        self.assertContains(response, 'You can not okay this post')
 
     def test_post_okay(self):
         self.client.login(username='testmod', password='testpass')
@@ -264,7 +264,7 @@ class ReplyIsOkayTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'error.html')
-        self.assertContains(response, 'You can not okay this reply because you are not a Squigl moderator.')
+        self.assertContains(response, 'You can not okay this reply')
 
     def test_reply_okay(self):
         self.client.login(username='testmod', password='testpass')
@@ -304,7 +304,7 @@ class MessageIsOkayTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'error.html')
-        self.assertContains(response, 'You can not okay this message because you are not a Squigl moderator.')
+        self.assertContains(response, 'You can not okay this message')
 
     def test_message_okay(self):
         self.client.login(username='testmod', password='testpass')
@@ -343,7 +343,7 @@ class BanUserTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'error.html')
-        self.assertContains(response, 'You can not ban this user because you are not a Squigl moderator.')
+        self.assertContains(response, 'You can not ban this user')
 
     def test_ban_user(self):
         self.client.login(username='testmod', password='testpass')

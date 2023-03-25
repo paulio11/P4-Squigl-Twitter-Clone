@@ -14,12 +14,17 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ('username', 'name', 'email')
         widgets = {
             'username': forms.TextInput(
-                attrs={'placeholder': 'Used in your profile URL and for logging in.'}),
+                attrs={'placeholder': (
+                    'Used in your profile URL and for logging in.'
+                    )
+                }),
             'name': forms.TextInput(
-                attrs={'placeholder': 'Pick a name to display on your profile.'}),
+                attrs={'placeholder': (
+                    'Pick a name to display on your profile.')}),
             'email': forms.TextInput(
-                attrs={'placeholder': 'Used when you need to reset your password. Your email kept is private.'}
-            )
+                attrs={'placeholder': (
+                    'Used when you need to reset your password.'
+                    ' Your email kept is private.')})
         }
 
 
@@ -37,9 +42,13 @@ class CustomUserChangeForm(UserChangeForm):
             )
         widgets = {
             'name': forms.TextInput(
-                attrs={'placeholder': 'Pick a name to display on your profile.'}),
+                attrs={'placeholder': (
+                    'Pick a name to display on your profile.')}),
             'about': forms.TextInput(
-                attrs={'placeholder': 'A place to share some information about yourself.'}),
+                attrs={'placeholder': (
+                    'A place to share some information about yourself.')}),
             'website': forms.TextInput(
-                attrs={'placeholder': 'Enter the FULL url of a website you would like to share.'}),
+                attrs={'placeholder': (
+                    'Enter the FULL url of a website you would like to '
+                    'share.')}),
         }

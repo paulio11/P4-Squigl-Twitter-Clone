@@ -128,7 +128,7 @@ class SendReplyTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'error.html')
-        self.assertContains(response, 'You can not reply to this message because you are not the recipient.')
+        self.assertContains(response, 'You can not reply')
 
 
 class MarkReadTests(TestCase):
@@ -165,7 +165,7 @@ class MarkReadTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'error.html')
-        self.assertContains(response, 'You can not mark this message as read because you are not the recipient.')
+        self.assertContains(response, 'You can not mark')
 
 
 class DeleteMessageTests(TestCase):
@@ -218,7 +218,7 @@ class DeleteMessageTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'error.html')
-        self.assertContains(response, 'You can not delete this message because you are neither the recipient or sender.')
+        self.assertContains(response, 'You can not delete')
 
 
 class ReportMessageTests(TestCase):
@@ -255,4 +255,4 @@ class ReportMessageTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'error.html')
-        self.assertContains(response, 'You can not report this message because you are not the recipient.')
+        self.assertContains(response, 'You can not report')

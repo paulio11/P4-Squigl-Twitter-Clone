@@ -64,7 +64,9 @@ class ReplyModelTests(TestCase):
 
     def test_str(self):
         self.assertEqual(
-            str(self.reply), f'Reply: {self.reply.id}, for: {self.reply.post}, by: {self.reply.user}'
+            str(self.reply), (
+                f'Reply: {self.reply.id}, for: {self.reply.post},'
+                f' by: {self.reply.user}')
         )
 
     def test_reported_count(self):
@@ -330,7 +332,7 @@ class EditPostTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed('edit/edit-post.html')
-        self.assertContains(response, 'You do not have permission to edit this post.')
+        self.assertContains(response, 'You do not have permission')
 
     def test_get_as_author(self):
         self.client.login(username='testuser', password='testpass')
@@ -363,7 +365,7 @@ class EditReplyTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed('edit/edit-reply.html')
-        self.assertContains(response, 'You do not have permission to edit this reply.')
+        self.assertContains(response, 'You do not have permission')
 
     def test_get_as_author(self):
         self.client.login(username='testuser', password='testpass')
@@ -395,7 +397,7 @@ class DeletePostTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'error.html')
-        self.assertContains(response, 'You can not delete this post because you are not the author.')
+        self.assertContains(response, 'You can not delete this post')
 
     def test_delete_as_author(self):
         self.client.login(username='testuser', password='testpass')
@@ -419,7 +421,7 @@ class DeleteReplyTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'error.html')
-        self.assertContains(response, 'You can not delete this reply because you are not the author.')
+        self.assertContains(response, 'You can not delete this reply')
 
     def test_delete_as_author(self):
         self.client.login(username='testuser', password='testpass')
@@ -495,7 +497,9 @@ class ReportReplyTests(TestCase):
         response = self.client.get(self.url)
         self.reply.refresh_from_db()
         self.assertEquals(response.status_code, 302)
-        self.assertRedirects(response, reverse('post', args={self.reply.post.id}))
+        self.assertRedirects(response, reverse(
+            'post',
+            args={self.reply.post.id}))
         self.assertEquals(self.reply.reported_count(), 1)
         self.assertTrue(self.reply.hidden)
 
