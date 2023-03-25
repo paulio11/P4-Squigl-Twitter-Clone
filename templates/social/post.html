@@ -53,17 +53,19 @@ Post: {{ post.id }}
 {% endblock %}
 
 {% block rightsidebar %}
-{% if request.user.is_authenticated %}
-<div class="reply-container">
-    <!-- Reply form -->
-    <form method="POST" class="reply-form">
-        {% csrf_token %}
-        {{ form2 | crispy }}
-        <button class="btn btn-dark" type="submit">Reply</button>
-    </form>     
-    <!-- Reply form ends -->
-</div>   
-{% else %}
-<p><a href="{% url 'login' %}">Login</a> if you want to reply to this post.</p>
-{% endif %}
+<aside>
+    {% if request.user.is_authenticated %}
+    <div class="reply-container">
+        <!-- Reply form -->
+        <form method="POST" class="reply-form">
+            {% csrf_token %}
+            {{ form2 | crispy }}
+            <button class="btn btn-dark" type="submit">Reply</button>
+        </form>     
+        <!-- Reply form ends -->
+    </div>   
+    {% else %}
+    <p><a href="{% url 'login' %}">Login</a> if you want to reply to this post.</p>
+    {% endif %}
+</aside>
 {% endblock %}

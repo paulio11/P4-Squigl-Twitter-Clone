@@ -21,7 +21,7 @@
     1. [Site Wide Features](#site-wide-features)
     2. [Specific Pages](#specific-pages)
     3. [Unimplemented Features](#unimplemented-features)
-5. [Bugs and Fixes](#bugsandfixes)
+5. [Bugs and Fixes](#bugs-and-fixes)
 6. [Technologies](#technologies)
     1. [Main Languages Used](#main-languages-used)
     2. [Frameworks](#frameworks)

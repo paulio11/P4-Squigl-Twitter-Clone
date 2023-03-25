@@ -24,154 +24,156 @@
 </div>
 <!-- Report modal ends -->
 <!-- Post -->
-<div class="card post-card">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-sm-1 d-none d-sm-block avatar-col">
-                <!-- Post author avatar -->
-                <a href="{% url 'user' post.user %}">
-                    {% if post.user.avatar %}
-                    <img src="{{ post.user.avatar.url }}" class="avatar-medium" alt="{{ post.user }}'s avatar">
-                    {% else %}
-                    <img src="{% static 'images/avatar.jpg' %}" class="avatar-medium" alt="{{ post.user }}'s avatar">
-                    {% endif %}
-                </a>
-                <!-- Post author avatar ends -->
-            </div>
-            <div class="col-sm-11 col-12 post-col">
-                <!-- Post author and date -->
-                <div class="post-header">
-                    <a href="{% url 'user' post.user %}" class="user-link">
-                        <span class="d-sm-none">
-                            {% if post.user.avatar %}
-                            <img src="{{ post.user.avatar.url }}" class="avatar-xs" alt="{{ post.user }}'s avatar">
-                            {% else %}
-                            <img src="{% static 'images/avatar.jpg' %}" class="avatar-xs" alt="{{ post.user }}'s avatar">
-                            {% endif %}
-                        </span>                    
-                        <strong>{{ post.user.name }}</strong>
-                        {% if post.user.verified %}
-                        <i class="fa-solid fa-square-check verified"></i>
+<article>
+    <div class="card post-card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-1 d-none d-sm-block avatar-col">
+                    <!-- Post author avatar -->
+                    <a href="{% url 'user' post.user %}">
+                        {% if post.user.avatar %}
+                        <img src="{{ post.user.avatar.url }}" class="avatar-medium" alt="{{ post.user }}'s avatar">
+                        {% else %}
+                        <img src="{% static 'images/avatar.jpg' %}" class="avatar-medium" alt="{{ post.user }}'s avatar">
                         {% endif %}
-                        <span>~{{ post.user }}</span>
                     </a>
-                    <span> · 
-                        <a href="{% url 'post' post.id %}" class="post-permalink">
-                            {% if post.time_check %}
-                            <span class="timesince">{{ post.date | timesince | upto:',' }} ago</span>
-                            {% else %}
-                            {{ post.date | date:'M d, Y' }}
-                            {% endif %}
-                        </a>
-                    </span>
+                    <!-- Post author avatar ends -->
                 </div>
-                <!-- Post author and date ends -->
-                <!-- Post body, image and link -->
-                <p class="post-body">{{ post.post | linebreaksbr }}</p>
-                {% if post.link %}
-                <p><i class="fa-solid fa-link"></i> <a href="{{ post.link }}" class="post-link" target="_blank" aria-label="post {{ post.id }}'s shared link">{{ post.link }}</a></p>
-                {% endif %}
-                {% if post.image %}
-                <img src="{{ post.image.url }}" class="card-img" alt="{{ post.id }}'s image">
-                {% endif %}
-                <!-- Post body, image and link ends -->
-                <!-- Repost -->
-                {% if post.repost_post %}
-                {% include 'templates/repost-template.html' %}
-                {% endif %}
-                <!-- Repost ends -->
+                <div class="col-sm-11 col-12 post-col">
+                    <!-- Post author and date -->
+                    <div class="post-header">
+                        <a href="{% url 'user' post.user %}" class="user-link">
+                            <span class="d-sm-none">
+                                {% if post.user.avatar %}
+                                <img src="{{ post.user.avatar.url }}" class="avatar-xs" alt="{{ post.user }}'s avatar">
+                                {% else %}
+                                <img src="{% static 'images/avatar.jpg' %}" class="avatar-xs" alt="{{ post.user }}'s avatar">
+                                {% endif %}
+                            </span>                    
+                            <strong>{{ post.user.name }}</strong>
+                            {% if post.user.verified %}
+                            <i class="fa-solid fa-square-check verified"></i>
+                            {% endif %}
+                            <span>~{{ post.user }}</span>
+                        </a>
+                        <span> · 
+                            <a href="{% url 'post' post.id %}" class="post-permalink">
+                                {% if post.time_check %}
+                                <span class="timesince">{{ post.date | timesince | upto:',' }} ago</span>
+                                {% else %}
+                                {{ post.date | date:'M d, Y' }}
+                                {% endif %}
+                            </a>
+                        </span>
+                    </div>
+                    <!-- Post author and date ends -->
+                    <!-- Post body, image and link -->
+                    <p class="post-body">{{ post.post | linebreaksbr }}</p>
+                    {% if post.link %}
+                    <p><i class="fa-solid fa-link"></i> <a href="{{ post.link }}" class="post-link" target="_blank" aria-label="post {{ post.id }}'s shared link">{{ post.link }}</a></p>
+                    {% endif %}
+                    {% if post.image %}
+                    <img src="{{ post.image.url }}" class="card-img" alt="{{ post.id }}'s image">
+                    {% endif %}
+                    <!-- Post body, image and link ends -->
+                    <!-- Repost -->
+                    {% if post.repost_post %}
+                    {% include 'templates/repost-template.html' %}
+                    {% endif %}
+                    <!-- Repost ends -->
+                </div>
             </div>
-        </div>
-    </div>    
-    <!-- Post footer -->
-    <div class="card-footer">
-        <!-- Reply -->
-        {% user_has_replied request.user.id post.id as replied %}        
-        <a href="{% url 'post' post.id %}" class="footer-link">
-            {% if replied %}
-            <i class="fa-solid fa-comment replied-bubble"></i>
-            {% else %}
-            <i class="fa-regular fa-comment footer-icon"></i>
-            {% endif %}
-            <span class="footer-num">{{ post.reply_count }}</span>
-        </a>        
-        <!-- Reply ends -->
-        <!-- Like -->
-        {% if request.user.is_authenticated %}
-        <div id="like-link-{{ post.id }}" class="like-link">
-            {% if request.user in post.likes.all %}
-            <i id="like-heart-{{ post.id }}" class="fa-solid fa-heart like-heart"></i>
-            {% else %}
-            <i id="like-heart-{{ post.id }}" class="fa-regular fa-heart"></i>
-            {% endif %}
-            <span id="like-count-{{ post.id }}">{{ post.like_count }}</span>            
-        </div>
-        <script>
-            $('#like-link-{{ post.id }}').click(function () {
-                $.ajax(
-                    {
-                        type: 'GET',
-                        url: "{% url 'like_post' post.id %}",
-                        success: function () {
-                            let heart = $('#like-heart-{{ post.id }}');
-                            let span = $('#like-count-{{ post.id }}');
-                            let count = parseInt(span.html());
-                            if (heart.hasClass('like-heart')) {
-                                heart.removeClass('like-heart fa-solid').addClass('fa-regular');
-                                count -= 1;
-                                span.html(count);
-                            } else {
-                                heart.removeClass('fa-regular').addClass('like-heart fa-solid');
-                                count += 1;
-                                span.html(count);
+        </div>    
+        <!-- Post footer -->
+        <div class="card-footer">
+            <!-- Reply -->
+            {% user_has_replied request.user.id post.id as replied %}        
+            <a href="{% url 'post' post.id %}" class="footer-link">
+                {% if replied %}
+                <i class="fa-solid fa-comment replied-bubble"></i>
+                {% else %}
+                <i class="fa-regular fa-comment footer-icon"></i>
+                {% endif %}
+                <span class="footer-num">{{ post.reply_count }}</span>
+            </a>        
+            <!-- Reply ends -->
+            <!-- Like -->
+            {% if request.user.is_authenticated %}
+            <div id="like-link-{{ post.id }}" class="like-link">
+                {% if request.user in post.likes.all %}
+                <i id="like-heart-{{ post.id }}" class="fa-solid fa-heart like-heart"></i>
+                {% else %}
+                <i id="like-heart-{{ post.id }}" class="fa-regular fa-heart"></i>
+                {% endif %}
+                <span id="like-count-{{ post.id }}">{{ post.like_count }}</span>            
+            </div>
+            <script>
+                $('#like-link-{{ post.id }}').click(function () {
+                    $.ajax(
+                        {
+                            type: 'GET',
+                            url: "{% url 'like_post' post.id %}",
+                            success: function () {
+                                let heart = $('#like-heart-{{ post.id }}');
+                                let span = $('#like-count-{{ post.id }}');
+                                let count = parseInt(span.html());
+                                if (heart.hasClass('like-heart')) {
+                                    heart.removeClass('like-heart fa-solid').addClass('fa-regular');
+                                    count -= 1;
+                                    span.html(count);
+                                } else {
+                                    heart.removeClass('fa-regular').addClass('like-heart fa-solid');
+                                    count += 1;
+                                    span.html(count);
+                                }
                             }
                         }
-                    }
-                );
-            });
-        </script>
-        {% else %}
-        <span>
-            <i id="like-heart-{{ post.id }}" class="fa-regular fa-heart"></i>
-            {{ post.like_count }}
-        </span>
-        {% endif %}       
-        <!-- Like ends -->
-        <!-- Repost -->
-        <a href="{% url 'repost' post.id %}" class="footer-link">
-            <i class="fa-solid fa-retweet footer-icon"></i>
-            <span class="footer-num">{{ post.repost_count }}</span>
-        </a>
-        <!-- Repost ends -->
-        <!-- Footer menu -->
-        <div class="btn-group dropup">
-            <button class="btn btn-sm post-menu-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Post {{ post.id }} menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end">
-                {% if request.user == post.user %}
-                <li>
-                    <a class="dropdown-item" href="{% url 'edit_post' post.id %}">
-                        <i class="fa-solid fa-pen-to-square"></i> Edit / Delete
-                    </a>
-                </li>
-                {% else %}
-                <li>
-                    <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#report{{ post.id }}Modal">
-                        <i class="fa-solid fa-triangle-exclamation"></i> Report
-                    </div>
-                </li>
-                {% endif %}
-                <li>
-                    <a class="dropdown-item" href="{% url 'post' post.id %}">
-                        <i class="fa-solid fa-link"></i> Permalink
-                    </a>
-                </li>
-            </ul>
+                    );
+                });
+            </script>
+            {% else %}
+            <span>
+                <i id="like-heart-{{ post.id }}" class="fa-regular fa-heart"></i>
+                {{ post.like_count }}
+            </span>
+            {% endif %}       
+            <!-- Like ends -->
+            <!-- Repost -->
+            <a href="{% url 'repost' post.id %}" class="footer-link">
+                <i class="fa-solid fa-retweet footer-icon"></i>
+                <span class="footer-num">{{ post.repost_count }}</span>
+            </a>
+            <!-- Repost ends -->
+            <!-- Footer menu -->
+            <div class="btn-group dropup">
+                <button class="btn btn-sm post-menu-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Post {{ post.id }} menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    {% if request.user == post.user %}
+                    <li>
+                        <a class="dropdown-item" href="{% url 'edit_post' post.id %}">
+                            <i class="fa-solid fa-pen-to-square"></i> Edit / Delete
+                        </a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#report{{ post.id }}Modal">
+                            <i class="fa-solid fa-triangle-exclamation"></i> Report
+                        </div>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a class="dropdown-item" href="{% url 'post' post.id %}">
+                            <i class="fa-solid fa-link"></i> Permalink
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Footer menu ends -->
         </div>
-        <!-- Footer menu ends -->
+        <!-- Post footer ends -->
     </div>
-    <!-- Post footer ends -->
-</div>
+</article>
 {% endif %}
 <!-- Post ends -->
