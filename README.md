@@ -10,6 +10,7 @@
     1. [Github Project](#github-project)
     2. [Database Schema](#database-schema)
     3. [Epics and User Stories](#epics-and-user-stories)
+    4. 
 3. [User Experience](#user-experience)
     1. [Wireframes](#wireframes)
     2. [Design Choices](#design-choices)
@@ -342,7 +343,7 @@ For smaller screens such as mobile the navigation shrinks and the right side bar
 #### Scroll To Top Button
 
 - A back to top button appears when scrolling below the header to further assist navigation. 
-- The JavaScript code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/static/js/script.js#L85).
+- The JavaScript code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/static/js/script.js).
 
 #### Centre Column
 
@@ -356,13 +357,14 @@ For smaller screens such as mobile the navigation shrinks and the right side bar
 #### User Tagging
 
 - User's can mention/tag other users in their posts, replies and messages by using ~ in front of their username.
-- This functionality is made possible using JavaScript, the code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/templates/base.html#L322).
+- This functionality is made possible using JavaScript, the code that makes this work can be found in [templates/base.html](https://github.com/paulio11/project-4/blob/main/templates/base.html).
 - This code is included in the html file because it requires django template tags to function. 
 
 #### Hashtags
 
 - Users can include hashtags in their posts and replies by using # in front of the desired keyword.
-- This functionality is made possible using JavaScript, the code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/templates/base.html#L327).
+- This functionality is made possible using JavaScript, the code that makes this work can be found in [templates/base.html](https://github.com/paulio11/project-4/blob/main/templates/base.html).
+- This code is included in the html file because it requires django template tags to function. 
 
 **Example of a post with a tagged user and hashtags:**
 
@@ -373,7 +375,7 @@ For smaller screens such as mobile the navigation shrinks and the right side bar
 - JavaScript looks for a hidden `<div>` containing the last 100 posts that include `#` or in other words, a hashtag.
 - The hashtag form inner html is extracted, the number of occurrences are counted, then sorted by value.
 - Finally keys from this created JavaScript object are appended into the page html.
-- The code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/static/js/script.js#L33).
+- The code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/static/js/script.js).
 
 ![Trending Hashtags](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-trending.png)
 
@@ -526,7 +528,7 @@ def user(request, user):
 
 #### New Post
 
-- Placeholder text is included to guide a user when making a new post. You can see the code [here](https://github.com/paulio11/project-4/blob/main/social/forms.py#L9).
+- Placeholder text is included to guide a user when making a new post. You can see the code [here](https://github.com/paulio11/project-4/blob/main/social/forms.py).
 - A user has the option to include an image and/or a link to a website.
 - Using the [django-reszied](https://pypi.org/project/django-resized/) package images are scaled to a width of 600px, this ensures images being shared with users of the website are not a large file size. This also has hosting benefits as well. Images are stored on [Cloudinary](https://cloudinary.com/).
 - Once the form is submitted the user is redirected to the page for that post. 
@@ -558,7 +560,7 @@ def new_post(request):
 - Each post shows a like count, reply count, repost count and a menu with further options. These are also shown wherever a post is displayed (feed, user page and search results).
 - If the logged in user has replied and/or liked a post the relevant icons will be filled in.
 - Clicking the repost icon or count will let the user repost the post by including it in a post of their own.
-- A user can like a post without the need for a page reload thanks to Ajax. This code can be found [here](https://github.com/paulio11/project-4/blob/main/templates/templates/post-template.html#L109).
+- A user can like a post without the need for a page reload thanks to Ajax. This code can be found [here](https://github.com/paulio11/project-4/blob/main/templates/templates/post-template.html).
 - Each post contains a drop down menu which includes the option to **Report** the post and a **Permalink**. If the logged in user is the author of the post, they will also see the **Edit/Delete** option. 
 - Each reply contains a button to **Report** the reply. If the logged in user is the author of the reply, they will also see the **Edit/Delete** option.
 
@@ -648,7 +650,7 @@ def messages(request):
 - Posts, replies and messages reported by users can be viewed here by moderators.
 - A moderator can decide whether to ignore a report and mark the content as okay, or if necessary delete the content which will remove it and give the author a strike.
 - Users with strikes can be viewed and messaged and banned or unbanned if necessary.
-- All tables can be sorted by clicking on a column header. The code for this can be found [here](https://github.com/paulio11/project-4/blob/main/static/js/script.js#L67).
+- All tables can be sorted by clicking on a column header. The code for this can be found [here](https://github.com/paulio11/project-4/blob/main/static/js/script.js).
 
 ```
 def moderation(request):
@@ -694,6 +696,9 @@ If possible I would have liked to have implemented the following features:
 - Reposts would notify the author of the original post.
 - Further styling. In my opinion this still looks too much like a Bootstrap website, even though there are almost 700 lines of CSS code!
 - Inline private messaging. Replies to messages appearing as a conversation thread instead of individual separate messages.
+- Some form of indication that a post or reply has been updated by the author.
+- URLs shown as part of a post or on a user profile automatically converted into a working link without the need for a user to include "http://" etc.
+
 
 [Back to top 🔺](#squigl)
 
@@ -733,7 +738,7 @@ A lot of bug fixes relate to features that are no longer a part of this project 
     - You can see all my CSS [here](https://github.com/paulio11/project-4/blob/main/static/css/style.css).
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
     - The majority of my JavaScript is [here](https://github.com/paulio11/project-4/blob/main/static/js/script.js).
-    - Hashtag and user tagging functionality can be found [here](https://github.com/paulio11/project-4/blob/main/templates/base.html#L321).
+    - Hashtag and user tagging functionality can be found [here](https://github.com/paulio11/project-4/blob/main/templates/base.html).
 
 ### Frameworks
 

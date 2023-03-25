@@ -21,6 +21,8 @@ You can see the changes I made to make the pages error free in these commits: [1
 
 *8 warnings, all related to the various avatar styles having matching background and border colours. This was intended so that avatars with transparency look good against a user's profile background.
 
+JavaScript code in base.html was tested manually.
+
 ### HTML ([W3C Markup Validation](https://validator.w3.org/))
 Due to many pages requiring login, HTML was tested using **text input** instead of **address**. I copied a rendered page's source code and pasted it into the validator.
 
@@ -289,6 +291,38 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 [Back to top 🔺](#testing)
 
 ## Lighthouse Results
+
+All possible pages were checked using Lighthouse in desktop mode. Any unresolved issues were left as such because they are either out of my control or intensional. These are the results (your own results may vary based on page content at the time of testing):
+
+|Page|Performance|Accessibility|Best Practices|SEO|
+|--|--|--|--|--|
+|Feed|87|99|100|100|
+|Trending Hashtags|100|98|100|100|
+|Users to follow list|99|98|100|100|
+|Mentions|100|97|100|100|
+|Mentions with no mentions|99|98|100|100|
+|Messages|99|99|100|100|
+|Messages with no messages|100|99|100|100|
+|Post with replies|100|98|100|100|
+|Post with no replies|100|98|100|100|
+|Post with repost|92|98|100|100|
+|Search with results|100|98|100|100|
+|Search with no results|99|98|100|100|
+|User profile with posts|97|98|100|100|
+|User profile with no posts|100|96|100|100|
+|New post|100|98|100|100|
+|New repost|92|98|100|100|
+|Edit post|100|98|100|100|
+|Edit reply|99|98|100|100|
+|Send message|100|98|100|100|
+|Settings|99|98|100|100|
+|Change password|100|98|100|100|
+|Reset password - complete|100|100|100|100|100|
+|Reset password - confirm|100|100|100|100|100|
+|Reset password - done|100|100|100|100|100|
+|Reset password - form|100|100|100|100|100|
+|Login|100|100|100|100|100|
+|Sign up|100|100|100|100|100|
 
 [Back to top 🔺](#testing)
 
