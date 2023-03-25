@@ -1,19 +1,26 @@
 # Testing
 
-## Validation
-You can see the changes I made to make the pages error free in these commits: [1](), [2]().
+## Contents
 
-### CSS & JavaScript
+1. [Validation](#validation)
+2. [Automated Testing](#automated-testing)
+3. [Browser Validation](#browser-testing)
+4. [Lighthouse Results](#lighthouse-results)
+
+## Validation
+You can see the changes I made to make the pages error free in these commits: [1](https://github.com/paulio11/project-4/commit/5576d642edf0307751bedf8fe2495476df2b8b62), [2](https://github.com/paulio11/project-4/commit/3ecc8493b64dc6579d071d7707c6f821dd47b27a).
+
+### CSS ([Jigsaw CSS Validation](https://jigsaw.w3.org/css-validator/)) & JavaScript ([JSHint](https://jshint.com/))
 |File|Result|
 |--|--|
 |[style.css](https://github.com/paulio11/project-4/blob/main/static/css/style.css)|✓ *|
 |[script.js](https://github.com/paulio11/project-4/blob/main/static/js/script.js)|✓|
-|[Like post script](#)|✓|
-|[base.html script](#)|✓|
+|[Like post script](https://github.com/paulio11/project-4/blob/main/templates/templates/post-template.html#L110)|✓|
+|[base.html script](https://github.com/paulio11/project-4/blob/main/templates/base.html#L322)|✓|
 
 *8 warnings, all related to the various avatar styles having matching background and border colours. This was intended so that avatars with transparency look good against a user's profile background.
 
-### HTML
+### HTML ([W3C Markup Validation](https://validator.w3.org/))
 Due to many pages requiring login, HTML was tested using **text input** instead of **address**. I copied a rendered page's source code and pasted it into the validator.
 
 |Page|Result|Notes|
@@ -46,107 +53,202 @@ Due to many pages requiring login, HTML was tested using **text input** instead 
 |Login|✓|No errors or warnings to show|
 |Sign up|✓|No errors or warnings to show|
 
+[Back to top 🔺](#testing)
+
 ## Automated Testing
-I created automated tests for the following:
+My goal for automated testing was to reach 100% coverage using the Python library [Coverage](https://pypi.org/project/coverage/). **100% coverage was achieved** excluding `manage.py` as this is built in django code. I further developed each test to cover things such as testing for login requirements and changes to the database, **see each test file for full list of things tested for**. 
 
-### Django Project Tests ([squigl/tests.py](#))
+<details>
+    <summary><strong>Coverage Report</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-coverage-report.png">
+</details>
 
-|Test|Expected Result|Result|
+<details>
+    <summary><strong>Terminal Test Output</strong></summary>
+    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-test-results.png">
+</details>
+<br>
+
+**The following tests are carried out:**
+
+### [accounts.tests.py](https://github.com/paulio11/project-4/blob/main/accounts/tests.py)
+
+| Name                 | Testing For                      | Result |
+| -------------------- | -------------------------------- | ------ |
+| **CustomUserModelTests** |||
+| test_followers_count | User has 2 followers|✓|
+| test_following_count | User is following 2|✓|
+| **EditProfileTests**|
+| test_success_url| Correct succes url|✓|
+| **ChangePasswordTests**|||
+| test_post| Password changed|✓|
+| test_get| Correct template|✓|
+| **DeleteAccountTests**|
+| test_post| Account deleted, user count is 0|✓|
+| test_error|User has permission, correct template, correct error message|✓|
+
+### [dm.tests.py](https://github.com/paulio11/project-4/blob/main/dm/tests.py)
+
+|Name|Testing For|Result|
 |--|--|--|
-|debug_is_false|False|✓|
-|secret_key_strength|Pass|✓|
+|**MessageModelTests**|||
+|test_str|String is correct|✓|
+|**MessagesTests**|||
+|test_login_requirement|Login required to see messages, redirects to login|✓|
+|test_render|Correct template|✓|
+|**SendMessageTests**|||
+|test_login_required|Login required to send message, redirects to login|✓|
+|test_post|Message created, corrext redirect|✓|
+|test_get|Correct template, contains recipient name|✓|
+|**SendReplyTests**|||
+|test_login_required|Login required to send reply, redirects to login|✓|
+|test_post|Message created, correct redirect|✓|
+|test_get|Correct temaplte, contains send reply to recipient|✓|
+|test_error|User has permission, correct template, correct error message|✓|
+|**MarkReadTests**|||
+|test_login_required|Login required to mark read, redirects to login|✓|
+|test_mark_read|Message is marked read, correct redirect|✓|
+|test_error|User has permission, correct template, correct error message|✓|
+|**DeleteMessageTests**|||
+|test_login_required|Login required to delete message, redirects to login|✓|
+|test_sender_delete|Set true, correct redirect|✓|
+|test_recipient_delete|Set true, correct redirect|✓|
+|test_delete|Message is deleted|✓|
+|test_error|User has permission, correct template, correct error message|✓|
+|**ReportMessageTests**|||
+|test_login_required|Login required to report message, redirects to login|✓|
+|test_report|Message reported, correct redirect|✓|
+|test_error|User has permission, correct template, correct error message|✓|
 
-### Social App Tests ([social/tests.py](#))
+### [moderation.tests.py](https://github.com/paulio11/project-4/blob/main/moderation/tests.py)
 
-#### Testing urls go to correct view ([TestURLs](#)):
+|Name|Testing For|Result|
+|--|--|--|
+|**ModCountTests**|||
+|test_mod_count|mod_count() works|✓|
+|**ModerationTests**|||
+|test_login_required|Login required to see mod page, redirects to login|✓|
+|test_login_as_normal_user|Normal user gets error message|✓|
+|test_moderation|Logged in moderator can see correct page|✓|
+|**ModDeletePostTests**|||
+|test_login_required|Login required to delete post, redirects to login|✓|
+|test_login_as_normal_user|Normal user gets error message|✓|
+|test_mod_delete|Post is deleted, user gets a strike, correct redirect|✓|
+|**ModDeleteReplyTests**|||
+|test_login_required|Login required to delete reply, redirects to login|✓|
+|test_login_as_normal_user|Normal user gets error message|✓|
+|test_mod_delete|Reply is deleted, user gets a strike, correct redirect|✓|
+|**ModDeleteMessageTests**|||
+|test_login_required|Login required to delete message, redirects to login|✓|
+|test_login_as_normal_user|Normal user gets error message|✓|
+|test_mod_delete|Message is deleted, user gets a strike, correct redirect|✓|
+|**PostIsOkayTests**|||
+|test_login_required|Login required to okay post, redirects to login|✓|
+|test_login_as_normal_user|Normal user gets error message|✓|
+|test_post_okay|Post report count is 0, correct redirect|✓|
+|**ReplyIsOkayTests**|||
+|test_login_required|Login required to okay reply, redirects to login|✓|
+|test_login_as_normal_user|Normal user gets error message|✓|
+|test_reply_okay|Reply report count is 0, correct redirect|✓|
+|**MessageIsOkayTests**|||
+|test_login_required|Login required to okay message, redirects to login|✓|
+|test_login_as_normal_user|Normal user gets error message|✓|
+|test_message_okay|Message reported is False, correct redirect|✓|
+|**BanUserTests**|||
+|test_login_required|Login required to ban/unban user, redirects to login|✓|
+|test_login_as_normal_user|Normal user gets error message|✓|
+|test_ban_user|User active is False, correct redirect|✓|
+|test_unban_user|User active is True, correct redirect|✓|
 
-|Test Name|URL Example|Expected View|Result|
-|--|--|--|--|
-|test_feed|`/feed/`|feed|✓|
-|test_search|`/search/`|search|✓|
-|test_post|`/p/99`|post|✓|
-|test_edit_post|`/edit-post/99`|edit_post|✓|
-|test_delete_post|`/delete-post/99`|delete_post|✓|
-|test_like_post|`/like-post/99`|like_post|✓|
-|test_repost_post|`/repost/99`|repost|✓|
-|test_report_post|`/like-post/99`|report_post|✓|
-|test_edit_reply|`/edit-reply/21`|edit_reply|✓|
-|test_delete_reply|`/delete-reply/21`|delete_reply|✓|
-|test_report_reply|`/report-reply/21`|report_reply|✓|
-|test_user|`/u/testuser`|user|✓|
-|test_follow_user|`/follow/testuser`|follow|✓|
-|test_mentions|`/mentions/`|mentions|✓|
-|test_mark_read_mentions|`/mentions/read/`|mark_read|✓|
-|test_trending_list|`/trending/`|trending|✓|
-|test_user_list|`/user-list/`|user_list|✓|
+### [social.tests.py](https://github.com/paulio11/project-4/blob/main/social/tests.py)
 
-#### Testing the reverse of above ([TestReverseURLs](#)):
+|Name|Testing For|Result|
+|--|--|--|
+|**PostModelTests**|||
+|test_str|String is correct|✓|
+|test_like_count|like_count() works|✓|
+|test_reply_count|reply_count() works|✓|
+|test_repost_count|repost_count() works|✓|
+|test_reported_count|reported_count() works|✓|
+|test_time_check|Post is less than 24hrs old so time_check() is True|✓|
+|test_time_check_2|Post is more than 24hrs old so time_check() is False|✓|
+|**ReplyModelTests**|||
+|test_str|String is correct|✓|
+|test_reported_count|reported_count() works|✓|
+|test_time_check|Reply is less than 24hrs old so time_check() is True|✓|
+|test_time_check_2|Reply is more than 24hrs old so time_check() is False|✓|
+|**UserHasRepliedTagTests**|||
+|test_replies_gte_1|True if user has replied to post|✓|
+|test_replies_0|False if user has replied to post|✓|
+|**StringFilterTests**|||
+|test_upto|upto template tag works|✓|
+|**HomeTests**|||
+|test_logged_in|Logged in user redirected to feed|✓|
+|test_logged_out|Logged out user redirected to login|✓|
+|**FeedTests**|||
+|test_login_required|Login required to see feed, redirects to login|✓|
+|test_render|Correct template used|✓|
+|**SearchTests**|||
+|test_post|Correct template used, shows search query|✓|
+|test_get|Correct template used|✓|
+|**PostTests**|||
+|test_get|Correct template used, page shows: post, reply, form1 and form 2, login to reply message|✓|
+|test_post_reply_form_1|Form1 functions, reply is created, redirect correct, reply shown|✓|
+|test_post_reply_form_2|Form2 functions, reply is created, redirect correct, reply shown|✓|
+|**UserTests**|||
+|test_render|Correct template used, shows user's posts|✓|
+|test_when_following|Follow button text is 'Following'|✓|
+|test_when_not_following|Follow button text is 'Follow'|✓|
+|**NewPostTests**|||
+|test_login_required|Login required to make new post, redirects to login|✓|
+|test_get|Correct template used, contains form|✓|
+|test_post|New post created, correct redirect|✓|
+|**RepostTests**|||
+|test_login_required|Login required to make repost, redirects to login|✓|
+|test_get|Correct template used, contains form, shows old post|✓|
+|test_post|Repost post created, correct redirect, old post has repost count of 1|✓|
+|**EditPostTests**|||
+|test_get|Correct template used, permission error shown|✓|
+|test_get_as_author|Correct template used, correct redirect|✓|
+|test_post|Correct redirect, post is edited|✓|
+|**EditReplyTests**|||
+|test_get|Correct template used, permission error shown|✓|
+|test_get_as_author|Correct template used, correct redirect|✓|
+|test_post|Correct redirect, reply is edited|✓|
+|**DeletePostTests**|||
+|test_delete|Correct template used, permission error shown|✓|
+|test_delete_as_author|Correct redirect, post is deleted|✓|
+|**DeleteReplyTests**|||
+|test_delete|Correct template used, permission error shown|✓|
+|test_delete_as_author|Correct redirect, reply is deleted|✓|
+|**LikePostTests**|||
+|test_like|Like count increases|✓|
+|test_unlike|Like count decreases|✓|
+|**ReportPostTests**|
+|test_login_required|Login required to report post, redirects to login|✓|
+|test_report|Correct redirect, post reported count increases|✓|
+|**ReportReplyTests**|
+|test_login_required|Login required to report reply, redirects to login|✓|
+|test_report|Correct redirect, reply reported count increases|✓|
+|**FollowTetss**|||
+|test_login_required|Login required to follow, redirects to login|✓|
+|test_follow|Correct redirect, user follow count increases, followed user followers count increases|✓|
+|test_unfollow|Correct redirect, user follow count decreases, followed user followers count decreases|✓|
+|**MentionsTest**|||
+|test_login_required|Login required to use mentions page, redirects to login|✓|
+|test_mark_read|Correct redirect, post/reply marked as read|✓|
+|**SideTests**|||
+|test_trending|Correct template used|✓|
+|test_user_list|Correct template used|✓|
+|test_ulist_login_required|Login required to view user list, redirects to login|✓|
 
-|Test Name|View Name|Expected URL|Result|
-|--|--|--|--|
-|test_feed|feed|`/feed/`|✓|
-|test_search|search|`/search/`|✓|
-|test_post|post|`/p/99`|✓|
-|test_edit_post|edit_post|`/edit-post/99`|✓|
-|test_delete_post|delete_post|`/delete-post/99`|✓|
-|test_like_post|like_post|`/like-post/99`|✓|
-|test_repost_post|repost|`/repost/99`|✓|
-|test_report_post|report_post|`/like-post/99`|✓|
-|test_edit_reply|edit_reply|`/edit-reply/21`|✓|
-|test_delete_reply|delete_reply|`/delete-reply/21`|✓|
-|test_report_reply|report_reply|`/report-reply/21`|✓|
-|test_user|user|`/u/testuser`|✓|
-|test_follow_user|follow|`/follow/testuser`|✓|
-|test_mentions|mentions|`/mentions/`|✓|
-|test_mark_read_mentions|mark_read|`/mentions/read/`|✓|
-|test_trending_list|trending|`/trending/`|✓|
-|test_user_list|user_list|`/user-list/`|✓|
 
-#### Testing the Post model ([TestPostModel](#)):
+[Back to top 🔺](#testing)
 
-|Test Name|Test Action|Expected Result|Result|
-|--|--|--|--|
-|test_str|Compare strings|Post: ID, by: username|✓|
-|test_post_has_user|Check user is not none|Post has user|✓|
-|test_post_has_date|Check date is not none|Post has date|✓|
-|test_post_has_post|Check post is not none|Post has post|✓|
-|test_like_count|Add two users to likes field|Likes equal to 2|✓|
-|test_reply_count|Add two replies to post|Replies equal to 2|✓|
-|test_repost|Create new post that reposts post|New post has old post in repost field|✓|
-|test_read|Add two users into read field|Read count equal to 2|✓|
-|test_report|Add two users into report field|Report count equal to 2|✓|
-|test_post_length|Count generated post length|Length less than 400|✓|
-|test_link_length|Count generated link length|Length less than 50|✓|
+## Browser Testing
 
-#### Testing the Reply model ([TestReplyModel](#)):
+[Back to top 🔺](#testing)
 
-|Test Name|Test Action|Expected Result|Result|
-|--|--|--|--|
-|test_str|Compare strings|Reply: ID, for: ID, by: username|✓|
-|test_reply_has_user|Check user is not none|Reply has user|✓|
-|test_reply_has_date|Check date is not none|Reply has date|✓|
-|test_reply_has_post|Check reply is not none|Reply has reply|✓|
-|test_reply_not_hidden|Assert False on hidden field|Hidden is False|✓|
-|test_reply_report|Add two users into report field|Report count equal to 2|✓|
-|test_reply_read|Add two users into read field|Read count equal to 2|✓|
-|test_reply_length|Count generated reply length|Length less than 400|✓|
+## Lighthouse Results
 
-#### Testing login required views ([TestLoginRequiredViews](#)):
-
-- Some views skipped due to requiring a `csrf_token`. These were manually tested.
-- Response code 302 indicates a redirect to the login page.
-
-|Test Name|Test Action|Expected Code|Result|
-|--|--|--|--|
-|test_feed|Compare response code|302|✓|
-|test_feed_logged_in|Log in testuser, compare response code|200|✓|
-|test_new_post|Compare response code|302|✓|
-|test_new_post_logged_in|Log in testuser, compare response code|200|✓|
-|test_repost|Compare response code|302|✓|
-|test_repost_logged_in|Log in testuser, compare response code|200|✓|
-|test_report_post|Compare response code|302|✓|
-|test_follow_user|Compare response code|302|✓|
-|test_mentions|Compare response code|302|✓|
-|test_mentions_logged_in|Log in testuser, compare response code|200|✓|
-|test_mark_read|Compare response code|302|✓|
-|test_mark_read_logged_in|Log in testuser, compare response code|200|✓|
+[Back to top 🔺](#testing)

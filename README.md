@@ -729,6 +729,7 @@ If possible I would have liked to have implemented the following features:
 - [pytz](https://pypi.org/project/pytz/) - Allows accurate and cross platform timezone calculations using Python 2.4 or higher.
 - [requests-oauthlib](https://pypi.org/project/requests-oauthlib/) - OAuthlib authentication support for Requests.
 - [sqlparse](https://pypi.org/project/sqlparse/) - sqlparse is a non-validating SQL parser for Python.
+- [Coverage](https://pypi.org/project/coverage/) - To check full for automated test coverage.
 
 ### Software and Other
 

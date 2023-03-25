@@ -587,6 +587,9 @@ class SideTests(TestCase):
 
     def setUp(self):
         self.client = Client()
+        self.user = CustomUser.objects.create_user(
+            username='testuser', password='testpass'
+        )
 
     def test_trending(self):
         response = self.client.get(reverse('trending'))
@@ -594,6 +597,12 @@ class SideTests(TestCase):
         self.assertTemplateUsed('social/hashtags.html')
 
     def test_user_list(self):
+        self.client.login(username='testuser', password='testpass')
         response = self.client.get(reverse('user_list'))
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed('social/user_list.html')
+
+    def test_ulist_login_required(self):
+        response = self.client.get(reverse('user_list'))
+        self.assertEquals(response.status_code, 302)
+        self.assertTemplateUsed('registration/login.html')

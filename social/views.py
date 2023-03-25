@@ -269,5 +269,6 @@ def trending(request):
 
 
 # User list
+@login_required
 def user_list(request):
     return render(request, 'social/user-list.html')
