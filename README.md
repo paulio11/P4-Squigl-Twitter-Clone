@@ -21,14 +21,15 @@
     1. [Site Wide Features](#site-wide-features)
     2. [Specific Pages](#specific-pages)
     3. [Unimplemented Features](#unimplemented-features)
-5. [Technologies](#technologies)
+5. [Bugs and Fixes](#bugsandfixes)
+6. [Technologies](#technologies)
     1. [Main Languages Used](#main-languages-used)
     2. [Frameworks](#frameworks)
     3. [Libraries](#libraries)
     4. [Software and Other](#software-and-other)
-6. [Testing](#testing)
-7. [Deployment](#deployment)
-8. [Credits](#credits)
+7. [Testing](#testing)
+8. [Deployment](#deployment)
+9. [Credits](#credits)
     1. [Code](#code)
     2. [Text](#text)
     3. [Images](#images-1)
@@ -693,6 +694,31 @@ If possible I would have liked to have implemented the following features:
 - Reposts would notify the author of the original post.
 - Further styling. In my opinion this still looks too much like a Bootstrap website, even though there are almost 700 lines of CSS code!
 - Inline private messaging. Replies to messages appearing as a conversation thread instead of individual separate messages.
+
+[Back to top 🔺](#squigl)
+
+## Bugs and Fixes
+
+A lot of bug fixes relate to features that are no longer a part of this project so they are not documented. They are still visible via commits with the **Fix** preset. There are currently no known unfixed bugs.
+
+|Bug|Cause|Fixed?|
+|--|--|--|
+|Sign page up not working|Incorrect url in view, using 'accounts' where the included default django view requires 'registration'|✓|
+|Avatar in header displaying incorrectly|Wrong class applied to element|✓|
+|Reply form not working|Missing `data=request.POST` parameter|✓|
+|Incorrect display of 'Follower' and 'Followers' on user page|Incorrect comparison operator in django html tag|✓|
+|Followers count not working|ManyToManyField in CustomUser model had a relation ship with the wrong model|✓|
+|New reposts not linking to original post|`old_post` variable assignment outside of if statement|✓|
+|EditProfile success url broken|Unnecessary `reqest.user` in kwargs|✓|
+|Change password field missing on change password page|Hide password div javascript running on every page|✓|
+|Hide reply not working|Missing `save()` reply function in view|✓|
+|Reply indicator in post footer not working|Missing `request.user` from if statement|✓|
+|User links and hashtags not working in reposts|Incorrect class on element|✓|
+|HTML table sorting not functioning|Incorrect url value in javascript if statement|✓|
+|Mentions notification in menu not functioning|Incorrect value in if statement|✓|
+|CollectStatic failing|Missing `STATICFILES_STORAGE` variable in settings.py|✓|
+|Suggested users showing when not logged in|Beginning of if statement on the wrong line|✓|
+|Error page not shown when attempting to delete a message when not a moderator|Incorrect file path in render request|✓|
 
 [Back to top 🔺](#squigl)
 
