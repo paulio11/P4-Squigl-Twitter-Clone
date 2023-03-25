@@ -132,8 +132,8 @@ class HomeTests(TestCase):
 
     def test_logged_out(self):
         response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 302)
-        self.assertRedirects(response, '/accounts/login/')
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed('home.html')
 
 
 class FeedTests(TestCase):

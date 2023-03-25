@@ -55,6 +55,7 @@ Due to many pages requiring login, HTML was tested using **text input** instead 
 |Reset password - form|✓|No errors or warnings to show|
 |Login|✓|No errors or warnings to show|
 |Sign up|✓|No errors or warnings to show|
+|Home|✓|No errors or warnings to show|
 
 ### Python ([CI Python Linter](https://pep8ci.herokuapp.com/))
 All python files with code written by myself were ran through the CI Python Linter. These are the results.
@@ -219,7 +220,7 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 |test_upto|upto template tag works|✓|
 |**HomeTests**|||
 |test_logged_in|Logged in user redirected to feed|✓|
-|test_logged_out|Logged out user redirected to login|✓|
+|test_logged_out|Home page shown|✓|
 |**FeedTests**|||
 |test_login_required|Login required to see feed, redirects to login|✓|
 |test_render|Correct template used|✓|
@@ -317,12 +318,13 @@ All possible pages were checked using Lighthouse in desktop mode. Any unresolved
 |Send message|100|98|100|100|
 |Settings|99|98|100|100|
 |Change password|100|98|100|100|
-|Reset password - complete|100|100|100|100|100|
-|Reset password - confirm|100|100|100|100|100|
-|Reset password - done|100|100|100|100|100|
-|Reset password - form|100|100|100|100|100|
-|Login|100|100|100|100|100|
-|Sign up|100|100|100|100|100|
+|Reset password - complete|100|100|100|100|
+|Reset password - confirm|100|100|100|100|
+|Reset password - done|100|100|100|100|
+|Reset password - form|100|100|100|100|
+|Login|100|100|100|100|
+|Sign up|100|100|100|100|
+|Home|100|98|100|100|
 
 [Back to top 🔺](#testing)
 
