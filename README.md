@@ -761,6 +761,7 @@ A lot of bug fixes relate to features that are no longer a part of this project 
 - [requests-oauthlib](https://pypi.org/project/requests-oauthlib/) - OAuthlib authentication support for Requests.
 - [sqlparse](https://pypi.org/project/sqlparse/) - sqlparse is a non-validating SQL parser for Python.
 - [Coverage](https://pypi.org/project/coverage/) - To check full for automated test coverage.
+- [model-bakery](https://pypi.org/project/model-bakery/) - To create database objects for testing.
 
 ### Software and Other
 
