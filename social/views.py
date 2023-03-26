@@ -6,6 +6,7 @@ from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.contrib import messages
 
 # My imports
 from .models import Post, Reply
@@ -70,11 +71,13 @@ def post(request, post_id):
             form1.instance.user = request.user
             form1.instance.post = post
             form1.save()
+            messages.success(request, f'Reply sent.')
         form2 = ReplyForm(data=request.POST, prefix='f2')
         if form2.is_valid():
             form2.instance.user = request.user
             form2.instance.post = post
             form2.save()
+            messages.success(request, f'Reply sent.')
         return render(request, 'social/post.html', {
             'post': post,
             'replies': replies,
@@ -122,6 +125,7 @@ def new_post(request):
             post = form.save(commit=False)
             post.user = request.user
             post.save()
+            messages.success(request, f'Post created.')
             return redirect('post', post.id)
     else:
         return render(request, 'new/new-post.html', {'form': PostForm()})
@@ -138,6 +142,7 @@ def repost(request, post_id):
             post.user = request.user
             post.repost_post = old_post
             post.save()
+            messages.success(request, f'Repost created.')
             return redirect('post', post.id)
     else:
         return render(
@@ -174,6 +179,7 @@ def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     if request.user == post.user:
         post.delete()
+        messages.success(request, f'Post deleted.')
         return redirect('feed')
     else:
         e = 'You can not delete this post because you are not the author.'
@@ -185,6 +191,7 @@ def delete_reply(request, reply_id):
     reply = get_object_or_404(Reply, id=reply_id)
     if request.user == reply.user:
         reply.delete()
+        messages.success(request, f'Reply deleted.')
         return redirect('post', reply.post.id)
     else:
         e = 'You can not delete this reply because you are not the author.'
@@ -208,6 +215,8 @@ def report_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     post.reported.add(request.user)
     post.save()
+    messages.success(request, f'Post reported.')
+
     return redirect('post', post.id)
 
 
@@ -219,6 +228,7 @@ def report_reply(request, reply_id):
         reply.hidden = True
     reply.reported.add(request.user)
     reply.save()
+    messages.success(request, f'Reply reported.')
     return redirect('post', reply.post.id)
 
 
@@ -230,8 +240,10 @@ def follow(request, user):
 
     if followed:
         request.user.following.remove(user)
+        messages.success(request, f'You have unfollowed ~{user}.')
     else:
         request.user.following.add(user)
+        messages.success(request, f'You are now following ~{user}.')
 
     return redirect('user', user)
 
@@ -260,6 +272,7 @@ def mark_read(request):
         post.read.add(request.user)
     for reply in replies:
         reply.read.add(request.user)
+    messages.success(request, f'All mentions marked read.')
     return redirect('mentions')
 
 

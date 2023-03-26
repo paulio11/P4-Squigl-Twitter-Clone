@@ -119,3 +119,10 @@ function toTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+
+// Messages dismiss time
+setTimeout(function () {
+    let messages = document.getElementById('msg');
+    let alert = new bootstrap.Alert(messages);
+    alert.close();
+}, 5000);

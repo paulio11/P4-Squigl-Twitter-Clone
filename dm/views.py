@@ -1,6 +1,7 @@
 # Django imports
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages as django_msg
 
 # My imports
 from .models import Message
@@ -13,14 +14,14 @@ from accounts.models import CustomUser
 def messages(request):
     unread_messages = Message.objects.filter(
         recipient=request.user).filter(read=False).order_by('-date')
-    messages = Message.objects.filter(
+    msgs = Message.objects.filter(
         recipient=request.user).filter(read=True).exclude(
             recipient_del=True).order_by('-date')
     sent_messages = Message.objects.filter(
         sender=request.user).exclude(sender_del=True).order_by('-date')
     return render(request, 'dm/messages.html', {
         'unread_messages': unread_messages,
-        'messages': messages,
+        'msgs': msgs,
         'sent_messages': sent_messages})
 
 
@@ -35,6 +36,7 @@ def send_message(request, user_id):
             message.sender = request.user
             message.recipient = msg_to
             message.save()
+            django_msg.success(request, f'Message sent to ~{msg_to}.')
             return redirect('user', message.recipient)
     else:
         return render(request, 'dm/send-message.html', {
@@ -56,11 +58,13 @@ def send_reply(request, message_id):
                 message.sender = old_msg.recipient
                 message.recipient = old_msg.sender
                 message.save()
+                django_msg.success(
+                    request, f'Reply sent to ~{message.recipient}.')
                 return redirect('messages')
         else:
             return render(request, 'dm/send-message.html', {
                 'form': MessageForm(),
-                'message': old_msg})
+                'msg': old_msg})
     else:
         e = (
             'You can not reply to this message because you are not '
@@ -75,6 +79,8 @@ def mark_read(request, message_id):
     if message.recipient == request.user:
         message.read = True
         message.save()
+        django_msg.success(
+            request, f'Message from ~{message.sender} marked read.')
         return redirect('messages')
     else:
         e = (
@@ -90,10 +96,12 @@ def delete_message(request, message_id):
     if request.user == message.sender:
         message.sender_del = True
         message.save()
+        django_msg.success(request, f'Message deleted.')
     elif request.user == message.recipient:
         message.read = True
         message.recipient_del = True
         message.save()
+        django_msg.success(request, f'Message deleted.')
     else:
         e = (
             'You can not delete this message because you are neither '
@@ -113,6 +121,7 @@ def report_message(request, message_id):
         message.read = True
         message.recipient_del = True
         message.save()
+        django_msg.success(request, f'Message from ~{message.sender} reported.')
         return redirect('messages')
     else:
         e = (

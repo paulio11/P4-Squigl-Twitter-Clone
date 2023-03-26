@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # My imports
 from .forms import CustomUserCreationForm, CustomUserChangeForm
@@ -49,6 +50,7 @@ def change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
+            messages.success(request, f'Password successfully changed.')
             return redirect('settings', form.user.id)
     else:
         form = PasswordChangeForm(user=request.user)

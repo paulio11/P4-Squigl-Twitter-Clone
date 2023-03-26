@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Count
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # My imports
 from social.models import Post, Reply
@@ -41,6 +42,7 @@ def mod_delete_post(request, post_id):
         post.user.strikes += 1
         post.user.save()
         post.delete()
+        messages.success(request, f'Post deleted.')
         return redirect('moderation')
     else:
         e = (
@@ -57,6 +59,7 @@ def mod_delete_reply(request, reply_id):
         reply.user.strikes += 1
         reply.user.save()
         reply.delete()
+        messages.success(request, f'Reply deleted.')
         return redirect('moderation')
     else:
         e = (
@@ -73,6 +76,7 @@ def mod_delete_msg(request, message_id):
         message.sender.strikes += 1
         message.sender.save()
         message.delete()
+        messages.success(request, f'Message deleted.')
         return redirect('moderation')
     else:
         e = (
@@ -88,6 +92,7 @@ def post_is_okay(request, post_id):
         post = get_object_or_404(Post, id=post_id)
         post.reported.clear()
         post.save()
+        messages.success(request, f'Post marked okay.')
         return redirect('moderation')
     else:
         e = (
@@ -104,6 +109,7 @@ def reply_is_okay(request, reply_id):
         reply.reported.clear()
         reply.hidden = False
         reply.save()
+        messages.success(request, f'Reply marked okay.')
         return redirect('moderation')
     else:
         e = (
@@ -119,6 +125,7 @@ def msg_is_okay(request, message_id):
         message = get_object_or_404(Message, id=message_id)
         message.reported = False
         message.save()
+        messages.success(request, f'Message marked okay.')
         return redirect('moderation')
     else:
         e = (
@@ -135,9 +142,11 @@ def ban_user(request, user_id):
         if user.is_active:
             user.is_active = False
             user.save()
+            messages.success(request, f'~{user} banned.')
         else:
             user.is_active = True
             user.save()
+            messages.success(request, f'~{user} unbanned.')
         return redirect('moderation')
     else:
         e = 'You can not ban this user because you are not a Squigl moderator.'

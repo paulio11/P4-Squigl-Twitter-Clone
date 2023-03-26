@@ -1,10 +1,10 @@
 {% load static %}
 <!-- Delete modal -->
-<div class="modal fade" id="delete{{ message.id }}Modal" tabindex="-1" aria-labelledby="delete{{ message.id }}ModalLabel" aria-hidden="true">
+<div class="modal fade" id="delete{{ msg.id }}Modal" tabindex="-1" aria-labelledby="delete{{ msg.id }}ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="delete{{ message.id }}ModalLabel">Delete Message</h1>
+                <h1 class="modal-title fs-5" id="delete{{ msg.id }}ModalLabel">Delete Message</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -12,18 +12,18 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                <a href="{% url 'delete_message' message.id %}" class="btn btn-danger">Yes</a>
+                <a href="{% url 'delete_message' msg.id %}" class="btn btn-danger">Yes</a>
             </div>
         </div>
     </div>
 </div>
 <!-- Delete modal ends -->
 <!-- Report modal -->
-<div class="modal fade" id="report{{ message.id }}Modal" tabindex="-1" aria-labelledby="report{{ message.id }}ModalLabel" aria-hidden="true">
+<div class="modal fade" id="report{{ msg.id }}Modal" tabindex="-1" aria-labelledby="report{{ msg.id }}ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="report{{ message.id }}ModalLabel">Report Message</h1>
+                <h1 class="modal-title fs-5" id="report{{ msg.id }}ModalLabel">Report Message</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -31,7 +31,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                <a href="{% url 'report_message' message.id %}" class="btn btn-danger">Yes</a>
+                <a href="{% url 'report_message' msg.id %}" class="btn btn-danger">Yes</a>
             </div>
         </div>
     </div>
@@ -40,26 +40,26 @@
 <!-- Message -->
 <div class="card message-card">
     <div class="card-header message-header">        
-        {% if request.user != message.sender %}
+        {% if request.user != msg.sender %}
         <div class="msg-sender-info">
             <span class="badge rounded-pill text-bg-secondary">From</span>
-            <a href="{% url 'user' message.sender %}" class="user-link">
-                <strong>{{ message.sender.name }}</strong>
-                {% if message.sender.verified %}
+            <a href="{% url 'user' msg.sender %}" class="user-link">
+                <strong>{{ msg.sender.name }}</strong>
+                {% if msg.sender.verified %}
                 <i class="fa-solid fa-square-check verified"></i>
                 {% endif %}
-                ~{{ message.sender }}
+                ~{{ msg.sender }}
             </a>          
         </div>
         {% else %}
         <div class="msg-sender-info">
             <span class="badge rounded-pill text-bg-secondary">To</span>
-            <a href="{% url 'user' message.recipient %}" class="user-link">
-                <strong>{{ message.recipient.name }}</strong>
-                {% if message.recipient.verified %}
+            <a href="{% url 'user' msg.recipient %}" class="user-link">
+                <strong>{{ msg.recipient.name }}</strong>
+                {% if msg.recipient.verified %}
                 <i class="fa-solid fa-square-check verified"></i>
                 {% endif %}
-                ~{{ message.recipient }}
+                ~{{ msg.recipient }}
             </a>        
         </div>
         {% endif %}
@@ -70,27 +70,27 @@
                 <i class="fa-solid fa-bars"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
-                {% if request.user == message.recipient %}
-                {% if not message.read %}
+                {% if request.user == msg.recipient %}
+                {% if not msg.read %}
                 <li>
-                    <a href="{% url 'mark_read' message.id %}" class="dropdown-item">
+                    <a href="{% url 'mark_read' msg.id %}" class="dropdown-item">
                         <i class="fa-solid fa-check"></i> Mark Read
                     </a>
                 </li>
                 {% endif %}
                 <li>
-                    <a href="{% url 'send_reply' message.id %}" class="dropdown-item">
+                    <a href="{% url 'send_reply' msg.id %}" class="dropdown-item">
                         <i class="fa-solid fa-reply"></i> Reply
                     </a>
                 </li>
                 <li>
-                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#report{{ message.id }}Modal">
+                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#report{{ msg.id }}Modal">
                         <i class="fa-solid fa-triangle-exclamation"></i> Report
                     </button>
                 </li>
                 {% endif %}
                 <li>
-                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{ message.id }}Modal">
+                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{ msg.id }}Modal">
                         <i class="fa-solid fa-trash"></i> Delete
                     </button>
                 </li>
@@ -100,17 +100,17 @@
         <!-- Message menu ends -->
     </div>
     <div class="card-body">
-        {% if message.sender.is_staff and request.user != message.sender %}
+        {% if msg.sender.is_staff and request.user != msg.sender %}
         <div class="alert alert-warning" role="alert">
             This message is from a Squigl moderator.
         </div>        
         {% endif %}
-        <span class="small-span">{{ message.date | date:'M d, Y' }}</span>
-        <p class="card-text">{{ message.message | linebreaksbr }}</p>        
-        {% if request.user == message.sender and message.read %}
+        <span class="small-span">{{ msg.date | date:'M d, Y' }}</span>
+        <p class="card-text">{{ msg.message | linebreaksbr }}</p>        
+        {% if request.user == msg.sender and msg.read %}
         <hr>
         <span class="text-muted small-span">
-            <i class="fa-solid fa-check"></i> This message has been read by ~{{ message.recipient }}.
+            <i class="fa-solid fa-check"></i> This message has been read by ~{{ msg.recipient }}.
         </span>    
         {% endif %}  
     </div>

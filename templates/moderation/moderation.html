@@ -63,29 +63,29 @@ Moderation
 </div>
 <!-- View reply modal ends -->
 {% endfor %}
-{% for message in reported_messages %}
+{% for msg in reported_messages %}
 <!-- View message modal -->
-<div class="modal fade" id="viewMsg{{ message.id }}Modal" tabindex="-1" aria-labelledby="viewMsg{{ message.id }}ModalLabel" aria-hidden="true">
+<div class="modal fade" id="viewMsg{{ msg.id }}Modal" tabindex="-1" aria-labelledby="viewMsg{{ msg.id }}ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="viewMsg{{ message.id }}ModalLabel">Viewing message #{{ message.id }}</h1>
+                <h1 class="modal-title fs-5" id="viewMsg{{ msg.id }}ModalLabel">Viewing message #{{ msg.id }}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>From: <a href="{% url 'user' message.sender %}" class="user-link"><strong>~{{ message.sender }}</strong></a></p>    
-                <p>To: <a href="{% url 'user' message.recipient %}" class="user-link"><strong>~{{ message.recipient }}</strong></a></p>                   
-                <p>Date: {{ message.date | date:'M d, Y' }}</p>
-                <p class="post-body">{{ message.message }}</p>
+                <p>From: <a href="{% url 'user' msg.sender %}" class="user-link"><strong>~{{ msg.sender }}</strong></a></p>    
+                <p>To: <a href="{% url 'user' msg.recipient %}" class="user-link"><strong>~{{ msg.recipient }}</strong></a></p>                   
+                <p>Date: {{ msg.date | date:'M d, Y' }}</p>
+                <p class="post-body">{{ msg.message }}</p>
                 <hr>
                 <p class="text-muted">
-                    Number of posts, replies and messages from <a href="{% url 'user' message.sender %}" class="user-link"><strong>~{{ message.sender }}</strong></a>
-                    that have been removed by Squigl moderators: <strong>{{ message.sender.strikes }}</strong>
+                    Number of posts, replies and messages from <a href="{% url 'user' msg.sender %}" class="user-link"><strong>~{{ msg.sender }}</strong></a>
+                    that have been removed by Squigl moderators: <strong>{{ msg.sender.strikes }}</strong>
                 </p>
             </div> 
             <div class="modal-footer">
-                <a href="{% url 'mod_msg_okay' message.id %}"><button class="btn btn-success">Message Is Okay</button></a>
-                <a href="{% url 'mod_delete_msg' message.id %}"><button class="btn btn-danger">Delete Message</button></a> 
+                <a href="{% url 'mod_msg_okay' msg.id %}"><button class="btn btn-success">Message Is Okay</button></a>
+                <a href="{% url 'mod_delete_msg' msg.id %}"><button class="btn btn-danger">Delete Message</button></a> 
             </div>
         </div>
     </div>
@@ -209,13 +209,13 @@ Moderation
                     <th>To</th>
                     <th></th>
                 </tr>
-                {% for message in reported_messages %}
+                {% for msg in reported_messages %}
                 <tr>
-                    <td>{{ message.id }}</td>
-                    <td><a href="{% url 'user' message.sender %}" class="user-link"><strong>~{{ message.sender }}</strong></a></td>
-                    <td><a href="{% url 'user' message.recipient %}" class="user-link"><strong>~{{ message.recipient }}</strong></a></td>
+                    <td>{{ msg.id }}</td>
+                    <td><a href="{% url 'user' msg.sender %}" class="user-link"><strong>~{{ msg.sender }}</strong></a></td>
+                    <td><a href="{% url 'user' msg.recipient %}" class="user-link"><strong>~{{ msg.recipient }}</strong></a></td>
                     <td>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#viewMsg{{ message.id }}Modal">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#viewMsg{{ msg.id }}Modal">
                             View
                         </button>
                     </td>

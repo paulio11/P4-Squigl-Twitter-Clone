@@ -6,9 +6,9 @@ Send Message
 {% endblock %}
 
 {% block content %}
-<h2>Send {% if message %}Reply to ~{{ message.sender }}{% else %} Message to ~{{ recipient }}{% endif %}</h2>
+<h2>Send {% if msg %}Reply to ~{{ msg.sender }}{% else %} Message to ~{{ recipient }}{% endif %}</h2>
 <hr>
-{% if message %}
+{% if msg %}
 {% include 'templates/message-template.html' %}
 {% endif %}
 <form method="POST">

@@ -318,7 +318,15 @@
             </div>
             <!-- Hamburger menu ends -->
             <!-- Main block -->
+            
             <div class="col-xl-6 col-lg-8 col-12" id="block-content-div">
+                <!-- Django message alert -->
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    <strong>{{ message | safe }}</strong>
+                </div>
+                {% endfor %}
+                <!-- Django message alert ends -->
                 {% block content %}
                 {% endblock %}
             </div>

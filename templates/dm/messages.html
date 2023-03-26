@@ -16,7 +16,7 @@ Messages
     </li>
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-read-tab" data-bs-toggle="pill" data-bs-target="#pills-read"
-            type="button" role="tab" aria-controls="pills-read" aria-selected="false">Read <span class="badge text-bg-light d-none d-md-block">{{ messages.count }}</span></button>
+            type="button" role="tab" aria-controls="pills-read" aria-selected="false">Read <span class="badge text-bg-light d-none d-md-block">{{ msgs.count }}</span></button>
     </li>
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-sent-tab" data-bs-toggle="pill" data-bs-target="#pills-sent"
@@ -28,7 +28,7 @@ Messages
     <!-- Unread messages -->
     <div class="tab-pane fade show active" id="pills-unread" role="tabpanel" aria-labelledby="pills-unread-tab" tabindex="0">
         {% if unread_messages %}
-        {% for message in unread_messages %}
+        {% for msg in unread_messages %}
         {% include 'templates/message-template.html' %}
         {% endfor %}
         {% else %}
@@ -40,8 +40,8 @@ Messages
     <!-- Unread messages ends -->
     <!-- Read messages -->
     <div class="tab-pane fade" id="pills-read" role="tabpanel" aria-labelledby="pills-read-tab" tabindex="0">
-        {% if messages %}
-        {% for message in messages %}
+        {% if msgs %}
+        {% for msg in msgs %}
         {% include 'templates/message-template.html' %}
         {% endfor %}
         {% else %}
@@ -54,7 +54,7 @@ Messages
     <!-- Sent messages -->
     <div class="tab-pane fade" id="pills-sent" role="tabpanel" aria-labelledby="pills-sent-tab" tabindex="0">
         {% if sent_messages %}
-        {% for message in sent_messages %}
+        {% for msg in sent_messages %}
         {% include 'templates/message-template.html' %}
         {% endfor %}
         {% else %}
