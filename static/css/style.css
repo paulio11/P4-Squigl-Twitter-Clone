@@ -591,6 +591,10 @@ label[for=id_f2-reply] {
     border-top-left-radius: 5px;
 }
 
+.card-title {
+    margin-top: 20px;
+}
+
 .user-buttons {
     height: 75px;
     text-align: right;

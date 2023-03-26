@@ -10,7 +10,6 @@
     1. [Github Project](#github-project)
     2. [Database Schema](#database-schema)
     3. [Epics and User Stories](#epics-and-user-stories)
-    4. 
 3. [User Experience](#user-experience)
     1. [Wireframes](#wireframes)
     2. [Design Choices](#design-choices)
@@ -62,7 +61,7 @@ The models required for this project are:
  - **Post** - for user posts.
  - **Reply** - for replies to the posts.
  - **Message** - for private messaging between users
- - **CustomUser** - my custom user model which includes additional fields for a user to customise their profile.
+ - **CustomUser** - my custom user model which includes additional fields for a user to customize their profile.
  
 ![Database Schema](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-schema.png)
 
@@ -93,7 +92,7 @@ The models required for this project are:
 | image | ResizedImageField | blank=True, upload_to='post-images/', size=[600, None], force_format='WEBP' | Optional image for post. Cropped to a width of 600px and converted to WEBP. |
 | link | CharField | max_length=50, blank=True | Optional website link. |
 | likes | ManyToManyField | to CustomUser, blank=True | A list of users that liked the post. |
-| repost_post | ForeighKey | to self (Post), blank=True | If this post is a repost this is the original post. |
+| repost_post | ForeignKey | to self (Post), blank=True | If this post is a repost this is the original post. |
 | reported | ManyToManyField | to CustomUser, blank=True | A list of user that have reported the post (for moderation). |
 | read | ManyToManyField | to CustomUser, blank=True | A list of users that have marked the post read (for mentions). |
 
@@ -124,7 +123,7 @@ The models required for this project are:
 | read | BooleanField | default=False | A user can mark a message as read, to remove it from unread messages. |
 | reported | BooleanField | default=False | A user can report a message (for moderation). |
 
- ### Epics and User Stories
+ ### Epics and User Storiescustomise
 There will be three types of users visiting Squigl. A **new** or **logged out user**, a **registered user**, and **moderators**. User stories were logged as issues on GitHub to track them throughout the project - [Project Issues](https://github.com/paulio11/project-4/issues?q=is:issue%20is:closed%20sort:created-asc). They were subject to manual testing at the end of the project to determine if I was successful with my objectives.
 
 #### Epic - New or Logged Out Users
@@ -141,14 +140,14 @@ There will be three types of users visiting Squigl. A **new** or **logged out us
 |As a user I can **view my feed** so that I can see my own posts and posts of users I follow|✓|
 |As a user I can **follow or unfollow other users** so that their posts appear in my feed|✓|
 
-#### Epic - A registered user can customise their profile
+#### Epic - A registered user can customize their profile
 
 | User Story | Achieved? |
 |--|--|
 |As a user I can **upload an avatar** so that it can represent me as a user|✓|
 |As a user I can **add a link to my profile** so that I can share something important to me or another website relevant to my account|✓|
 |As a user I can **add a short description to my profile** so that other users can find out more about me|✓|
-|As a user I can **add an image as a background to my profile** so that I can further customise my profile|✓|
+|As a user I can **add an image as a background to my profile** so that I can further customize my profile|✓|
 
 #### Epic - A registered user can create new posts and manage their posts
 
@@ -206,7 +205,7 @@ There will be three types of users visiting Squigl. A **new** or **logged out us
 |--|--|
 |As a moderator I can **see reported items** so that I can act upon them|✓|
 |As a moderator I can **delete or mark okay a reported item** so that it can either be deleted or removed from the reported items list where appropriate|✓|
-|As a moderator I can **message users** so that we can talk to them with clearly labelled official messages|✓|
+|As a moderator I can **message users** so that we can talk to them with clearly labeled official messages|✓|
 |As a moderator I can **see a list of users with strikes** so that troublesome users are clearly viewable and action can be take if necessary|✓|
 |As a moderator I can **ban or unban a user** so that they can be banned or unbanned if necessary|✓|
 
@@ -499,7 +498,7 @@ def search(request):
 - This is where a user's posts will be shown regardless of if you follow them or not.
 - Includes buttons to **Message** and **Follow/Unfollow** the user.
 - If this is the logged in user's page then a **Edit Profile** button is shown instead.
-- The user can chose to upload and display an avatar, a profile background image, a short description about themselves, change their profile name, and add a link to a website.
+- The user can choose to upload and display an avatar, a profile background image, a short description about themselves, change their profile name, and add a link to a website.
 - User stats are also shown: Number of followers, number of users they are following, and number of posts.
 - Like the Feed page, user posts are paginated.
 ```
@@ -551,7 +550,7 @@ def new_post(request):
 
 #### Post Page
 
-- Each post has it's own page, this can be accessed by click the post timestamp or permalink in the footer.
+- Each post has its own page, this can be accessed by clicking the post timestamp or permalink in the footer.
 - On the post page a user can read and post their own replies.
 - The date of the post is represented in a few ways.
     - If the post is less than a minute old it shows as "Now".
@@ -592,7 +591,7 @@ def post(request, post_id):
 - If a user is mentioned in a public post or reply they will be notified of this by an unread mention count in the menu.
 - A user can view these posts and replies on their Mentions page.
 - Posts and replies are excluded if the logged in user exists in their **read** `ManyToManyField`.
-- Posts and replies can be marked as **Read** to clear the notification, and be excluding in the future.
+- Posts and replies can be marked as **Read** to clear the notification, and be excluded in the future.
 
 ```
 def mentions(request):
@@ -618,7 +617,7 @@ def mentions(request):
 - A user can view unread, read and sent messages using the message page navigation.
 - Each message has a drop down menu with the options **Mark Read**, **Reply**, **Report**, and **Delete**.
 - If a sent message has been read by the recipient, the sender is notified.
-- Messages from website moderators (django staff role) are labelled.
+- Messages from website moderators (django staff role) are labeled.
 - A user can chose to delete a message. The message remains in the database until both the sender and recipient have both chosen to delete it.
 
 ```
@@ -714,7 +713,7 @@ A lot of bug fixes relate to features that are no longer a part of this project 
 |Incorrect display of 'Follower' and 'Followers' on user page|Incorrect comparison operator in django html tag|✓|
 |Followers count not working|ManyToManyField in CustomUser model had a relation ship with the wrong model|✓|
 |New reposts not linking to original post|`old_post` variable assignment outside of if statement|✓|
-|EditProfile success url broken|Unnecessary `reqest.user` in kwargs|✓|
+|EditProfile success url broken|Unnecessary `request.user` in kwargs|✓|
 |Change password field missing on change password page|Hide password div javascript running on every page|✓|
 |Hide reply not working|Missing `save()` reply function in view|✓|
 |Reply indicator in post footer not working|Missing `request.user` from if statement|✓|

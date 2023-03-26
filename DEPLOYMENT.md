@@ -12,7 +12,7 @@ My database is hosted on [ElephantSQL](https://www.elephantsql.com/). But you co
 6. Choose a region local to you.
 7. Click the green **Review** button.
 8. Confirm the shown details are correct then finish by clicking the green **Create Instance** button.
-9. From the list of instances selected your newly created database.
+9. From the list of instances select your newly created database.
 10. Make note of the **URL** - you will need this later.
 
 ## Cloudinary - Static and Media Files
@@ -39,7 +39,7 @@ If you want to edit any of the files I would suggest using Gitpod - a browser ba
 3. Click the new green **GitPod** button above the file list.
 4. [Login](https://gitpod.io/workspaces/) to Gitpod with your GitHub account.
 5. Requirements will automatically be installed thanks to [requirements.txt](https://github.com/paulio11/project-4/blob/main/requirements.txt).
-6. In the terminal window type `touch env.py` to create your environmental varibles file.
+6. In the terminal window type `touch env.py` to create your environmental variables file.
 7. Enter the following into the empty **env.py** file:
 ```
 import os
@@ -51,7 +51,7 @@ os.environ["CLOUDINARY_URL"] = "YOUR CLOUDINARY URL FROM EARLIER (without the CL
 os.environ["EMAIL_USER"] = "A GMAIL EMAIL ADDRESS"
 os.environ["EMAIL_PASSWORD"] = "THE EMAIL PASSWORD"
 ```
-8. Before you comit any changes back to GitHub remember to create a **.gitignore** file by typing `touch .gitignore` into the terminal.
+8. Before you commit any changes back to GitHub remember to create a **.gitignore** file by typing `touch .gitignore` into the terminal.
 9. Add `env.py` to **.gitignore**.
 10. To set up your database type `python manage.py makemigrations` in the terminal, then `python manage.py migrate`.
 11. Type `python manage.py createsuperuser` into the terminal window and follow the instructions to create your first admin user.
@@ -80,6 +80,6 @@ Squigl is currently deployed to Heroku. Follow these steps if you want to deploy
 10. In the **repo-name** box type the name of your fork from earlier.
 11. Click **Search**.
 12. Click **Connect** next to the correct repository.
-13. Scroll to the bottom and click **Deply Branch**.
+13. Scroll to the bottom and click **Deploy Branch**.
 14. Pay attention to the log and look out for any errors.
 15. If it was successful your app will now be live.

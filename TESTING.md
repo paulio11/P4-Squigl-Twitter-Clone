@@ -58,7 +58,7 @@ Due to many pages requiring login, HTML was tested using **text input** instead 
 |Home|✓|No errors or warnings to show|
 
 ### Python ([CI Python Linter](https://pep8ci.herokuapp.com/))
-All python files with code written by myself were ran through the CI Python Linter. These are the results.
+All python files with code written by myself were run through the CI Python Linter. These are the results.
 
 |File|Result|Notes|
 |--|--|--|
@@ -115,7 +115,7 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 | test_followers_count | User has 2 followers|✓|
 | test_following_count | User is following 2|✓|
 | **EditProfileTests**|
-| test_success_url| Correct succes url|✓|
+| test_success_url| Correct success url|✓|
 | **ChangePasswordTests**|||
 | test_post| Password changed|✓|
 | test_get| Correct template|✓|
@@ -134,12 +134,12 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 |test_render|Correct template|✓|
 |**SendMessageTests**|||
 |test_login_required|Login required to send message, redirects to login|✓|
-|test_post|Message created, corrext redirect|✓|
+|test_post|Message created, correct redirect|✓|
 |test_get|Correct template, contains recipient name|✓|
 |**SendReplyTests**|||
 |test_login_required|Login required to send reply, redirects to login|✓|
 |test_post|Message created, correct redirect|✓|
-|test_get|Correct temaplte, contains send reply to recipient|✓|
+|test_get|Correct template, contains send reply to recipient|✓|
 |test_error|User has permission, correct template, correct error message|✓|
 |**MarkReadTests**|||
 |test_login_required|Login required to mark read, redirects to login|✓|
@@ -266,7 +266,7 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 |**ReportReplyTests**|
 |test_login_required|Login required to report reply, redirects to login|✓|
 |test_report|Correct redirect, reply reported count increases|✓|
-|**FollowTetss**|||
+|**FollowTests**|||
 |test_login_required|Login required to follow, redirects to login|✓|
 |test_follow|Correct redirect, user follow count increases, followed user followers count increases|✓|
 |test_unfollow|Correct redirect, user follow count decreases, followed user followers count decreases|✓|
