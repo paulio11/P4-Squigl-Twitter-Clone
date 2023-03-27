@@ -434,7 +434,11 @@ Modals are used where it's possible to make permanent irreversible changes. Givi
 ![Modal example](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-modal.png)
 
 #### Django Messages
-Django messages are implemented to provide the user confirmation of their actions.
+Django messages are implemented to provide the user with confirmation of their actions.
+
+**Example message:**
+
+![Message example](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-message.png)
 
 ### Specific pages
 
