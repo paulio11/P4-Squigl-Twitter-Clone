@@ -10,6 +10,7 @@
     1. [Github Project](#github-project)
     2. [Database Schema](#database-schema)
     3. [Epics and User Stories](#epics-and-user-stories)
+    4. [Timeboxing](#timeboxing)
 3. [User Experience](#user-experience)
     1. [Wireframes](#wireframes)
     2. [Design Choices](#design-choices)
@@ -123,7 +124,7 @@ The models required for this project are:
 | read | BooleanField | default=False | A user can mark a message as read, to remove it from unread messages. |
 | reported | BooleanField | default=False | A user can report a message (for moderation). |
 
- ### Epics and User Storiescustomise
+ ### Epics and User Stories
 There will be three types of users visiting Squigl. A **new** or **logged out user**, a **registered user**, and **moderators**. User stories were logged as issues on GitHub to track them throughout the project - [Project Issues](https://github.com/paulio11/project-4/issues?q=is:issue%20is:closed%20sort:created-asc). They were subject to manual testing at the end of the project to determine if I was successful with my objectives.
 
 #### Epic - New or Logged Out Users
@@ -208,6 +209,45 @@ There will be three types of users visiting Squigl. A **new** or **logged out us
 |As a moderator I can **message users** so that we can talk to them with clearly labeled official messages|✓|
 |As a moderator I can **see a list of users with strikes** so that troublesome users are clearly viewable and action can be take if necessary|✓|
 |As a moderator I can **ban or unban a user** so that they can be banned or unbanned if necessary|✓|
+
+### Timeboxing
+
+Using MoSCoW prioritisation I categorised the features needed to meet the requirements of the user stories into the following categories:
+
+#### Must Do
+
+The final version of Squigl must be able to do the following:
+- User signup
+- User login
+- Make new posts
+- View posts
+- Edit posts
+- Delete posts
+
+This would produce the **minimal viable product**.
+
+#### Should Do
+
+A more fully featured product would contain these features:
+- Search
+- Replying to posts
+- Reading replies
+- Editing replies
+- Deleting replies
+- Post liking
+- Follow and unfollow users
+- User settings
+
+#### Could Do
+
+And if there is extra time before then end these features could be included:
+- User profile customisation
+- User to user private messaging
+- Notifications
+
+An early version of Squigl would contain the following - every **must do** feature, from **should do**: post replying, user following, and from **could do:** user profile customisation (time permitting). Futher features can be added in later versions.
+
+Fortunately due to the length of this project I was able to produce every feature.
 
 [Back to top 🔺](#squigl)
 
@@ -379,19 +419,22 @@ For smaller screens such as mobile the navigation shrinks and the right side bar
 ![Trending Hashtags](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-trending.png)
 
 #### Modals
-- Modals are used where it's possible to make permanent irreversible changes. Giving the user a chance to reconsider.
-    - Deleting a post
-    - Deleting a reply
-    - Deleting a message
-    - Reporting a post
-    - Reporting a reply
-    - Reporting a message
-    - Moderator functions
-    - Account deletion
+Modals are used where it's possible to make permanent irreversible changes. Giving the user a chance to reconsider.
+- Deleting a post
+- Deleting a reply
+- Deleting a message
+- Reporting a post
+- Reporting a reply
+- Reporting a message
+- Moderator functions
+- Account deletion
 
 **Modal example:**
 
 ![Modal example](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-modal.png)
+
+#### Django Messages
+Django messages are implemented to provide the user confirmation of their actions.
 
 ### Specific pages
 
