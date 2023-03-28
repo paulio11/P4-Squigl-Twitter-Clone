@@ -291,7 +291,7 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 
 ## Lighthouse Results
 
-All possible pages were checked using Lighthouse in desktop mode. Any unresolved issues were left as such because they are either out of my control (response times etc) or intensional. Results were not recorded as screenshots as due to variations. These are the results I found at time of submission(your own results may vary based on page content at the time of testing):
+All possible pages were checked using Lighthouse in desktop mode. Any unresolved issues were left as such because they are either out of my control (response times etc) or intensional. Results were not recorded as screenshots due to constant variations in score observed with repeat analyzing. These are the results I found at time of submission(your own results may vary based on page content at the time of testing):
 
 |Page|Performance|Accessibility|Best Practices|SEO|
 |--|--|--|--|--|
