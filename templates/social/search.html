@@ -57,9 +57,9 @@ Search
         <a href="{% url 'user' user %}" class="user-link">            
             <div class="user-background user-search-div" {% if user.profile_background %}style="background-image: url('{{ user.profile_background.url }}');"{% endif %}>
                 {% if user.avatar %}
-                <img src="{{ user.avatar.url }}" class="avatar-search">
+                <img src="{{ user.avatar.url }}" class="avatar-search" alt="{{ user }}'s avatar">
                 {% else %}
-                <img src="{% static 'images/avatar.jpg' %}" class="avatar-search">
+                <img src="{% static 'images/avatar.jpg' %}" class="avatar-search" alt="{{ user }}'s avatar">
                 {% endif %}
                 <div class="user-search-text">
                     ~{{ user }}<br>
