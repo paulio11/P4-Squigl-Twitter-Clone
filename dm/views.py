@@ -121,7 +121,8 @@ def report_message(request, message_id):
         message.read = True
         message.recipient_del = True
         message.save()
-        django_msg.success(request, f'Message from ~{message.sender} reported.')
+        django_msg.success(
+            request, f'Message from ~{message.sender} reported.')
         return redirect('messages')
     else:
         e = (

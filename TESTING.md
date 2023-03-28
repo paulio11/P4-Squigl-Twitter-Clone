@@ -12,12 +12,12 @@
 You can see the changes I made to make the pages error free in these commits: [1](https://github.com/paulio11/project-4/commit/5576d642edf0307751bedf8fe2495476df2b8b62), [2](https://github.com/paulio11/project-4/commit/3ecc8493b64dc6579d071d7707c6f821dd47b27a).
 
 ### CSS ([Jigsaw CSS Validation](https://jigsaw.w3.org/css-validator/)) & JavaScript ([JSHint](https://jshint.com/))
-|File|Result|
-|--|--|
-|[style.css](https://github.com/paulio11/project-4/blob/main/static/css/style.css)|✓ *|
-|[script.js](https://github.com/paulio11/project-4/blob/main/static/js/script.js)|✓|
-|[Like post script](https://github.com/paulio11/project-4/blob/main/templates/templates/post-template.html#L110)|✓|
-|[base.html script](https://github.com/paulio11/project-4/blob/main/templates/base.html#L322)|✓|
+|File|Result|Screenshot|
+|--|--|--|
+|[style.css](https://github.com/paulio11/project-4/blob/main/static/css/style.css)|✓ *|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/stylecss.JPG)
+|[script.js](https://github.com/paulio11/project-4/blob/main/static/js/script.js)|✓|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/scriptjs.JPG)
+|[Like post script](https://github.com/paulio11/project-4/blob/main/templates/templates/post-template.html)|✓|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/likejs.JPG)
+|[base.html script](https://github.com/paulio11/project-4/blob/main/templates/base.html)|✓|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/basehtmljs.JPG)
 
 *8 warnings, all related to the various avatar styles having matching background and border colours. This was intended so that avatars with transparency look good against a user's profile background.
 
@@ -26,68 +26,66 @@ JavaScript code in base.html was tested manually.
 ### HTML ([W3C Markup Validation](https://validator.w3.org/))
 Due to many pages requiring login, HTML was tested using **text input** instead of **address**. I copied a rendered page's source code and pasted it into the validator.
 
-|Page|Result|Notes|
-|--|--|--|
-|Feed|✓|No errors or warnings to show|
-|Trending Hashtags|✓|No errors or warnings to show|
-|Users to follow list|✓|No errors or warnings to show|
-|Mentions|✓|No errors or warnings to show|
-|Mentions with no mentions|✓|No errors or warnings to show|
-|Messages|✓|No errors or warnings to show|
-|Messages with no messages|✓|No errors or warnings to show|
-|Post with replies|✓|No errors or warnings to show|
-|Post with no replies|✓|No errors or warnings to show|
-|Post with repost|✓|No errors or warnings to show|
-|Search with results|✓|No errors or warnings to show|
-|Search with no results|✓|No errors or warnings to show|
-|User profile with posts|✓|No errors or warnings to show|
-|User profile with no posts|✓|No errors or warnings to show|
-|New post|✓|No errors or warnings to show|
-|New repost|✓|No errors or warnings to show|
-|Edit post|✓|No errors or warnings to show|
-|Edit reply|✓|No errors or warnings to show|
-|Send message|✓|No errors or warnings to show|
-|Settings|✓|No errors or warnings to show|
-|Change password|✓|No errors or warnings to show|
-|Reset password - complete|✓|No errors or warnings to show|
-|Reset password - confirm|✓|No errors or warnings to show|
-|Reset password - done|✓|No errors or warnings to show|
-|Reset password - form|✓|No errors or warnings to show|
-|Login|✓|No errors or warnings to show|
-|Sign up|✓|No errors or warnings to show|
-|Home|✓|No errors or warnings to show|
+|Page|Result|Notes|Results|
+|--|--|--|--|
+|Feed|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Trending Hashtags|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Users to follow list|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Mentions|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Mentions with no mentions|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Messages|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Messages with no messages|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Post with replies|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Post with no replies|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Post with repost|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Search with results|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Search with no results|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|User profile with posts|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|User profile with no posts|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|New post|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|New repost|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Edit post|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Edit reply|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Send message|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Settings|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Change password|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Reset password - complete|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Reset password - confirm|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Reset password - done|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Reset password - form|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Login|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Sign up|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Home|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
 
 ### Python ([CI Python Linter](https://pep8ci.herokuapp.com/))
 All python files with code written by myself were run through the CI Python Linter. These are the results.
 
-|File|Result|Notes|
-|--|--|--|
-|[accounts/admin.py](https://github.com/paulio11/project-4/blob/main/accounts/admin.py)|✓|All clear, no errors found|
-|[accounts/forms.py](https://github.com/paulio11/project-4/blob/main/accounts/forms.py)|✓|All clear, no errors found|
-|[accounts/models.py](https://github.com/paulio11/project-4/blob/main/accounts/models.py)|✓|All clear, no errors found|
-|[accounts/tests.py](https://github.com/paulio11/project-4/blob/main/accounts/tests.py)|✓|All clear, no errors found|
-|[accounts/urls.py](https://github.com/paulio11/project-4/blob/main/accounts/urls.py)|✓|All clear, no errors found|
-|[accounts/views.py](https://github.com/paulio11/project-4/blob/main/accounts/views.py)|✓|All clear, no errors found|
-|[dm/templatetags/dm_extras.py](https://github.com/paulio11/project-4/blob/main/dm/templatetags/dm_extras.py)|✓|All clear, no errors found|
-|[dm/admin.py](https://github.com/paulio11/project-4/blob/main/dm/admin.py)|✓|All clear, no errors found|
-|[dm/forms.py](https://github.com/paulio11/project-4/blob/main/dm/forms.py)|✓|All clear, no errors found|
-|[dm/models.py](https://github.com/paulio11/project-4/blob/main/dm/models.py)|✓|All clear, no errors found|
-|[dm/tests.py](https://github.com/paulio11/project-4/blob/main/dm/tests.py)|✓|All clear, no errors found|
-|[dm/urls.py](https://github.com/paulio11/project-4/blob/main/dm/urls.py)|✓|All clear, no errors found|
-|[dm/views.py](https://github.com/paulio11/project-4/blob/main/dm/views.py)|✓|All clear, no errors found|
-|[moderation/templatetags/dm_extras.py](https://github.com/paulio11/project-4/blob/main/moderation/templatetags/dm_extras.py)|✓|All clear, no errors found|
-|[moderation/admin.py](https://github.com/paulio11/project-4/blob/main/moderation/admin.py)|✓|All clear, no errors found|
-|[moderation/models.py](https://github.com/paulio11/project-4/blob/main/moderation/models.py)|✓|All clear, no errors found|
-|[moderation/tests.py](https://github.com/paulio11/project-4/blob/main/moderation/tests.py)|✓|All clear, no errors found|
-|[moderation/urls.py](https://github.com/paulio11/project-4/blob/main/moderation/urls.py)|✓|All clear, no errors found|
-|[moderation/views.py](https://github.com/paulio11/project-4/blob/main/moderation/views.py)|✓|All clear, no errors found|
-|[social/templatetags/dm_extras.py](https://github.com/paulio11/project-4/blob/main/social/templatetags/dm_extras.py)|✓|All clear, no errors found|
-|[social/admin.py](https://github.com/paulio11/project-4/blob/main/social/admin.py)|✓|All clear, no errors found|
-|[social/forms.py](https://github.com/paulio11/project-4/blob/main/social/forms.py)|✓|All clear, no errors found|
-|[social/models.py](https://github.com/paulio11/project-4/blob/main/social/models.py)|✓|All clear, no errors found|
-|[social/tests.py](https://github.com/paulio11/project-4/blob/main/social/tests.py)|✓|All clear, no errors found|
-|[social/urls.py](https://github.com/paulio11/project-4/blob/main/social/urls.py)|✓|All clear, no errors found|
-|[social/views.py](https://github.com/paulio11/project-4/blob/main/social/views.py)|✓|All clear, no errors found|
+|File|Result|Notes|Screenshot|
+|--|--|--|--|
+|[accounts/admin.py](https://github.com/paulio11/project-4/blob/main/accounts/admin.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/accounts-admin.JPG)
+|[accounts/forms.py](https://github.com/paulio11/project-4/blob/main/accounts/forms.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/accounts-forms.JPG)
+|[accounts/models.py](https://github.com/paulio11/project-4/blob/main/accounts/models.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/accounts-model.JPG)
+|[accounts/tests.py](https://github.com/paulio11/project-4/blob/main/accounts/tests.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/accounts-tests.JPG)
+|[accounts/urls.py](https://github.com/paulio11/project-4/blob/main/accounts/urls.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/accounts-urls.JPG)
+|[accounts/views.py](https://github.com/paulio11/project-4/blob/main/accounts/views.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/accounts-view.JPG)
+|[dm/templatetags/dm_extras.py](https://github.com/paulio11/project-4/blob/main/dm/templatetags/dm_extras.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/dm-extras.JPG)
+|[dm/admin.py](https://github.com/paulio11/project-4/blob/main/dm/admin.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/dm-admin.JPG)
+|[dm/forms.py](https://github.com/paulio11/project-4/blob/main/dm/forms.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/dm-forms.JPG)
+|[dm/models.py](https://github.com/paulio11/project-4/blob/main/dm/models.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/dm-models.JPG)
+|[dm/tests.py](https://github.com/paulio11/project-4/blob/main/dm/tests.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/dm-tests.JPG)
+|[dm/urls.py](https://github.com/paulio11/project-4/blob/main/dm/urls.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/dm-urls.JPG)
+|[dm/views.py](https://github.com/paulio11/project-4/blob/main/dm/views.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/dm-views.JPG)
+|[moderation/templatetags/dm_extras.py](https://github.com/paulio11/project-4/blob/main/moderation/templatetags/dm_extras.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/mod-extras.JPG)
+|[moderation/tests.py](https://github.com/paulio11/project-4/blob/main/moderation/tests.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/mod-tests.JPG)
+|[moderation/urls.py](https://github.com/paulio11/project-4/blob/main/moderation/urls.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/mod-urls.JPG)
+|[moderation/views.py](https://github.com/paulio11/project-4/blob/main/moderation/views.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/mod-views.JPG)
+|[social/templatetags/dm_extras.py](https://github.com/paulio11/project-4/blob/main/social/templatetags/dm_extras.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/social-extras.JPG)
+|[social/admin.py](https://github.com/paulio11/project-4/blob/main/social/admin.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/social-admin.JPG)
+|[social/forms.py](https://github.com/paulio11/project-4/blob/main/social/forms.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/social-forms.JPG)
+|[social/models.py](https://github.com/paulio11/project-4/blob/main/social/models.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/social-models.JPG)
+|[social/tests.py](https://github.com/paulio11/project-4/blob/main/social/tests.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/social-tests.JPG)
+|[social/urls.py](https://github.com/paulio11/project-4/blob/main/social/urls.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/social-urls.JPG)
+|[social/views.py](https://github.com/paulio11/project-4/blob/main/social/views.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/social-views.JPG)
 
 [Back to top 🔺](#testing)
 
@@ -293,7 +291,7 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 
 ## Lighthouse Results
 
-All possible pages were checked using Lighthouse in desktop mode. Any unresolved issues were left as such because they are either out of my control or intensional. These are the results (your own results may vary based on page content at the time of testing):
+All possible pages were checked using Lighthouse in desktop mode. Any unresolved issues were left as such because they are either out of my control (response times etc) or intensional. Results were not recorded as screenshots as due to variations. These are the results I found at time of submission(your own results may vary based on page content at the time of testing):
 
 |Page|Performance|Accessibility|Best Practices|SEO|
 |--|--|--|--|--|

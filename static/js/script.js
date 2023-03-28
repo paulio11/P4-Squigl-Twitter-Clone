@@ -121,6 +121,7 @@ function toTop() {
 }
 
 // Messages dismiss time
+// Code from Code Institute lesson on Django Messages.
 setTimeout(function () {
     let messages = document.getElementById('msg');
     let alert = new bootstrap.Alert(messages);
