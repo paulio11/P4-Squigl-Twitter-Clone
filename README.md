@@ -793,7 +793,7 @@ A lot of bug fixes relate to features that are no longer a part of this project 
 
 ### Libraries
 
-- [jQuery](https://jquery.com/) - A fast, small, and feature-rich JavaScript library.
+- [jQuery](https://jquery.com/) - A fast, small, and feature-rich JavaScript library. JQuery is linked in the `<head>` element instead of at the bottom of `<body>`,  due to some of my inline JavaScript requiring JQuery.
 - [crispy-bootstrap5](https://pypi.org/project/crispy-bootstrap5/) - A bootstrap5 template pack for django-crispy-forms. Includes [django-crispy-forms](https://pypi.org/project/django-crispy-forms/).
 - [dj-database-url](https://pypi.org/project/dj-database-url/) - Enables the use of database URLS in Django.
 - [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/) - A Django package that provides Cloudinary storages for both media and static files as well as management commands for removing unnecessary files.

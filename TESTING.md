@@ -4,9 +4,10 @@
 
 1. [Validation](#validation)
 2. [Automated Testing](#automated-testing)
-3. [Browser Validation](#browser-testing)
-4. [Lighthouse Results](#lighthouse-results)
-5. [User Stories](#user-stories)
+3. [Manual Testing](#manual-testing)
+4. [Browser Validation](#browser-testing)
+5. [Lighthouse Results](#lighthouse-results)
+6. [User Stories](#user-stories)
 
 ## Validation
 You can see the changes I made to make the pages error free in these commits: [1](https://github.com/paulio11/project-4/commit/5576d642edf0307751bedf8fe2495476df2b8b62), [2](https://github.com/paulio11/project-4/commit/3ecc8493b64dc6579d071d7707c6f821dd47b27a).
@@ -275,6 +276,39 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 |test_trending|Correct template used|✓|
 |test_user_list|Correct template used|✓|
 |test_ulist_login_required|Login required to view user list, redirects to login|✓|
+
+[Back to top 🔺](#testing)
+
+## Manual Testing
+
+The following JavaScript was manually tested.
+
+### [script.js](https://github.com/paulio11/project-4/blob/main/static/js/script.js)
+
+|Line|Functionality|Location|Working?|
+|--|--|--|--|
+|3|Hovering on follow button changes colour|User profile|✓|
+|12|Hovering on refresh feed menu item animates icon|Feed|✓|
+|21|Changes "0 minutes ago" to "Now"|Each post and reply|✓|
+|28|Hides change password section|Settings|✓|
+|33|Extracts form html from hidden posts, counds and ranks hashtags, displays in list|Trending hashtags sidebar content and page|✓|
+|67|Clicking html table header sorts the column|Moderation page|✓|
+|94|Scroll to top button|All pages|✓|
+|123|Dismisses message|All pages|✓|
+
+### [base.html](https://github.com/paulio11/project-4/blob/main/templates/base.html)
+
+|Line|Functionality|Location|Working?|
+|--|--|--|--|
+|348|Turns "~text" into profile links|All pages|✓|
+|353|Turns "#text" into search links|All pages|✓|
+|361|Turns hashtag list items into search links|All pages|✓|
+
+### [post-template.html](https://github.com/paulio11/project-4/blob/main/templates/templates/post-template.html)
+
+|Line|Functionality|Location|Working?|
+|--|--|--|--|
+|112|Get url with ajax, change class, change html|Each post|✓|
 
 [Back to top 🔺](#testing)
 

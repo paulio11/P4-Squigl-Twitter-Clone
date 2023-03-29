@@ -124,6 +124,7 @@ function toTop() {
 // Code from Code Institute lesson on Django Messages.
 setTimeout(function () {
     let messages = document.getElementById('msg');
+    // "bootstrap" variable defined in bootstrap js file. 
     let alert = new bootstrap.Alert(messages);
     alert.close();
 }, 5000);
