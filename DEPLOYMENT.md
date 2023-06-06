@@ -27,7 +27,7 @@ Static and media files are hosted on Cloudinary, an online host and API provider
 Forking will create a copy of my original repository on your own GitHub account.
 
 1. [Login](https://github.com/login) or [sign up](https://github.com/join) to GitHub.
-2. Locate [this](https://github.com/paulio11/project-4) GitHub repository.
+2. Locate [this](https://github.com/paulio11/P4-Squigl-Twitter-Clone) GitHub repository.
 3. Click the **Fork** button at the top right of the page.
 4. You will now have a copy on your GitHub account.
 
@@ -38,7 +38,7 @@ If you want to edit any of the files I would suggest using Gitpod - a browser ba
 2. Locate your copy of the repository.
 3. Click the new green **GitPod** button above the file list.
 4. [Login](https://gitpod.io/workspaces/) to Gitpod with your GitHub account.
-5. Requirements will automatically be installed thanks to [requirements.txt](https://github.com/paulio11/project-4/blob/main/requirements.txt).
+5. Requirements will automatically be installed thanks to [requirements.txt](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/requirements.txt).
 6. In the terminal window type `touch env.py` to create your environmental variables file.
 7. Enter the following into the empty **env.py** file:
 ```
