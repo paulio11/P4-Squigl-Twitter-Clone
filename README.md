@@ -1,7 +1,7 @@
 # Squigl
 [Link to live site](http://squigl.herokuapp.com/)
 
-![Squigl on multiple devicies](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-hero.png)
+![Squigl on multiple devicies](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-hero.png)
 
 ## Contents 
 
@@ -54,7 +54,7 @@ Squigl allows users to post short posts on their customizable profile pages. Fol
 ### GitHub Project
 The GitHub project board feature was used to keep track of what I was working on and what still needed to be done. I created a user story for each feature and moved them when necessary throughout the development of the site.
 
-![Github Project Board](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-project-board.png)
+![Github Project Board](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-project-board.png)
 
 ### Database Schema
 The models required for this project are:
@@ -64,7 +64,7 @@ The models required for this project are:
  - **Message** - for private messaging between users
  - **CustomUser** - my custom user model which includes additional fields for a user to customize their profile.
  
-![Database Schema](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-schema.png)
+![Database Schema](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-schema.png)
 
 #### CustomUser Model
 
@@ -125,7 +125,7 @@ The models required for this project are:
 | reported | BooleanField | default=False | A user can report a message (for moderation). |
 
  ### Epics and User Stories
-There will be three types of users visiting Squigl. A **new** or **logged out user**, a **registered user**, and **moderators**. User stories were logged as issues on GitHub to track them throughout the project - [Project Issues](https://github.com/paulio11/project-4/issues?q=is:issue%20is:closed%20sort:created-asc). They were subject to manual testing at the end of the project to determine if I was successful with my objectives.
+There will be three types of users visiting Squigl. A **new** or **logged out user**, a **registered user**, and **moderators**. User stories were logged as issues on GitHub to track them throughout the project - [Project Issues](https://github.com/paulio11/P4-Squigl-Twitter-Clone/issues?q=is:issue%20is:closed%20sort:created-asc). They were subject to manual testing at the end of the project to determine if I was successful with my objectives.
 
 #### Epic - New or Logged Out Users
 | User Story | Achieved? |
@@ -255,36 +255,36 @@ Fortunately due to the length of this project I was able to produce every featur
 
 ### Wireframes
 
-[Balsamiq for Desktop](https://balsamiq.com/wireframes/) was used ahead of development to plan the basic skeleton of all pages. You can download my wireframes file [here](https://github.com/paulio11/project-4/blob/main/documentation/squigl-wireframes.bmpr).
+[Balsamiq for Desktop](https://balsamiq.com/wireframes/) was used ahead of development to plan the basic skeleton of all pages. You can download my wireframes file [here](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/documentation/squigl-wireframes.bmpr).
 
 <details>
     <summary><strong>Feed page wireframe</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-feed.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/wf-feed.png">
 </details>
 
 <details>
     <summary><strong>Post page wireframe</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-post.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/wf-post.png">
 </details>
 
 <details>
     <summary><strong>New post form wireframe</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-newpost.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/wf-newpost.png">
 </details>
 
 <details>
     <summary><strong>User page wireframe</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-user.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/wf-user.png">
 </details>
 
 <details>
     <summary><strong>Search page wireframe</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-search.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/wf-search.png">
 </details>
 
 <details>
     <summary><strong>Mobile wireframe</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/wf-mobile.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/wf-mobile.png">
 </details>
 
 ### Design Choices
@@ -293,13 +293,13 @@ Fortunately due to the length of this project I was able to produce every featur
 
 Fonts are imported from [Google Fonts](https://fonts.google.com/). The font used for the website logo and some usernames is [Fredoka One](https://fonts.google.com/specimen/Fredoka+One). To keep visual clutter to a minimum only two fonts are used. Fredoka One for elements that are important to the current page, and for the rest of the content the default bootstrap font is used. Simply increasing the font-weight creates enough contrast between titles and body text.
 
-![Squigl logo](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-logo.png)
+![Squigl logo](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-logo.png)
 
 #### Images
 
 The only images used on the website are those **added by users**. These include profile backgrounds, user avatars and images shared in posts. This keeps the focus where it should be - on the user generated content. A placeholder image is used in cases where a user has not yet uploaded an avatar.
 
-![Placeholder avatar](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-avatar.png)
+![Placeholder avatar](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-avatar.png)
 
 #### Colour Scheme
 
@@ -307,7 +307,7 @@ Squigl uses a restrained colour-scheme. The design focuses mainly on off black t
 
 The colours used in the site logo represent two of the main pillars of squigl - users and trending topics. The letter "i" coloured goldenrod represents the users, as the "i" looks like a person and the colour is also used for the *verified tick* next to usernames. The indigo ~ is the same colour used for hashtags.
 
-![Colour palette](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-colours.png)
+![Colour palette](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-colours.png)
 
 #### Layout
 
@@ -317,22 +317,22 @@ For smaller screens such as mobile the navigation shrinks and the right side bar
 
 <details>
     <summary><strong>Desktop layout</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-desktop.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-desktop.png">
 </details>
 
 <details>
     <summary><strong>Small desktop layout</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-desktop-small.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-desktop-small.png">
 </details>
 
 <details>
     <summary><strong>Tablet layout</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-tablet.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-tablet.png">
 </details>
 
 <details>
     <summary><strong>Mobile layout</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mobile.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-mobile.png">
 </details>
 
 [Back to top 🔺](#squigl)
@@ -348,7 +348,7 @@ For smaller screens such as mobile the navigation shrinks and the right side bar
 - Having search in the header encourages users to explore squigl. 
 - The user info links the user to their page and helps show that the user is signed in.
 
-![Header](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-header.png)
+![Header](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-header.png)
 
 #### Navigation
 
@@ -361,28 +361,28 @@ For smaller screens such as mobile the navigation shrinks and the right side bar
 
 <details>
     <summary><strong>Logged out navigation</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-loggedout-nav.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-loggedout-nav.png">
 </details>
 
 <details>
     <summary><strong>Full desktop navigation</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-fullnav.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-fullnav.png">
 </details>
 
 <details>
     <summary><strong>Portrait tablet navigation</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-tablet-nav.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-tablet-nav.png">
 </details>
 
 <details>
     <summary><strong>Expanded mobile navigation</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mobile-nav.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-mobile-nav.png">
 </details>
 
 #### Scroll To Top Button
 
 - A back to top button appears when scrolling below the header to further assist navigation. 
-- The JavaScript code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/static/js/script.js).
+- The JavaScript code that makes this work can be found in [this file](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/static/js/script.js).
 
 #### Centre Column
 
@@ -396,27 +396,27 @@ For smaller screens such as mobile the navigation shrinks and the right side bar
 #### User Tagging
 
 - User's can mention/tag other users in their posts, replies and messages by using ~ in front of their username.
-- This functionality is made possible using JavaScript, the code that makes this work can be found in [templates/base.html](https://github.com/paulio11/project-4/blob/main/templates/base.html).
+- This functionality is made possible using JavaScript, the code that makes this work can be found in [templates/base.html](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/templates/base.html).
 - This code is included in the html file because it requires django template tags to function. 
 
 #### Hashtags
 
 - Users can include hashtags in their posts and replies by using # in front of the desired keyword.
-- This functionality is made possible using JavaScript, the code that makes this work can be found in [templates/base.html](https://github.com/paulio11/project-4/blob/main/templates/base.html).
+- This functionality is made possible using JavaScript, the code that makes this work can be found in [templates/base.html](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/templates/base.html).
 - This code is included in the html file because it requires django template tags to function. 
 
 **Example of a post with a tagged user and hashtags:**
 
-![A post containing user tags and hashtags](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-hash-tag.png)
+![A post containing user tags and hashtags](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-hash-tag.png)
 
 #### Trending Hashtags
 
 - JavaScript looks for a hidden `<div>` containing the last 100 posts that include `#` or in other words, a hashtag.
 - The hashtag form inner html is extracted, the number of occurrences are counted, then sorted by value.
 - Finally keys from this created JavaScript object are appended into the page html.
-- The code that makes this work can be found in [this file](https://github.com/paulio11/project-4/blob/main/static/js/script.js).
+- The code that makes this work can be found in [this file](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/static/js/script.js).
 
-![Trending Hashtags](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-trending.png)
+![Trending Hashtags](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-trending.png)
 
 #### Modals
 Modals are used where it's possible to make permanent irreversible changes. Giving the user a chance to reconsider.
@@ -431,20 +431,20 @@ Modals are used where it's possible to make permanent irreversible changes. Givi
 
 **Modal example:**
 
-![Modal example](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-modal.png)
+![Modal example](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-modal.png)
 
 #### Django Messages
 Django messages are implemented to provide the user with confirmation of their actions.
 
 **Example message:**
 
-![Message example](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-message.png)
+![Message example](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-message.png)
 
 ### Specific pages
 
 #### Error pages
 
-- There are error pages for error [404](https://github.com/paulio11/project-4/blob/main/templates/404.html), [500](https://github.com/paulio11/project-4/blob/main/templates/500.html), and a [third one](https://github.com/paulio11/project-4/blob/main/templates/error.html) for squigl specific error messages.
+- There are error pages for error [404](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/templates/404.html), [500](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/templates/500.html), and a [third one](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/templates/error.html) for squigl specific error messages.
 - A bootstrap alert is used to display the relevant error message.
 - A button using JavaScript can send the user back one page if they want.
 - Custom error messages are sent to the page from the relevant `views.py` file, often the else result of an if statement.
@@ -456,11 +456,11 @@ else:
 ```
 **Error 404 example:**
 
-![Error display](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-error.png)
+![Error display](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-error.png)
 
 #### Login and Sign up
 
-- The default django login and sign up forms are used. Using [accounts/forms.py](https://github.com/paulio11/project-4/blob/main/accounts/forms.py) I have added placeholder text to the html inputs to assist the user when signing up.
+- The default django login and sign up forms are used. Using [accounts/forms.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/accounts/forms.py) I have added placeholder text to the html inputs to assist the user when signing up.
 - In my CustomUser model I made email a requirement, this is so the user can reset their password, and this is reflected while signing up.
 - The login page includes a link to password reset.
 - Login is required for most of the functionality. A `@login_required` decorator is used where possible. In cases where this is not an alert will notify the user.
@@ -478,7 +478,7 @@ else:
 
 **New user sign up form**
 
-![User sign up form](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-signup.png)
+![User sign up form](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-signup.png)
 
 #### Feed
 - The home page for a logged in user.
@@ -501,7 +501,7 @@ def feed(request):
 
 **An example feed:**
 
-![Feed](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-feed.png)
+![Feed](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-feed.png)
 
 #### Search
 
@@ -533,11 +533,11 @@ def search(request):
 
 **Searching for users example:**
 
-![User search](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-search-users.png)
+![User search](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-search-users.png)
 
 **Searching for posts example:**
 
-![Post search](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-search-posts.png)
+![Post search](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-search-posts.png)
 
 #### User Page
 
@@ -570,11 +570,11 @@ def user(request, user):
 
 **User page example:**
 
-![User page](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-user.png)
+![User page](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-user.png)
 
 #### New Post
 
-- Placeholder text is included to guide a user when making a new post. You can see the code [here](https://github.com/paulio11/project-4/blob/main/social/forms.py).
+- Placeholder text is included to guide a user when making a new post. You can see the code [here](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/social/forms.py).
 - A user has the option to include an image and/or a link to a website.
 - Using the [django-reszied](https://pypi.org/project/django-resized/) package images are scaled to a width of 600px, this ensures images being shared with users of the website are not a large file size. This also has hosting benefits as well. Images are stored on [Cloudinary](https://cloudinary.com/).
 - Once the form is submitted the user is redirected to the page for that post. 
@@ -593,7 +593,7 @@ def new_post(request):
 ```
 **New post form:**
 
-![New post form](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-newpost.png)
+![New post form](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-newpost.png)
 
 #### Post Page
 
@@ -606,7 +606,7 @@ def new_post(request):
 - Each post shows a like count, reply count, repost count and a menu with further options. These are also shown wherever a post is displayed (feed, user page and search results).
 - If the logged in user has replied and/or liked a post the relevant icons will be filled in.
 - Clicking the repost icon or count will let the user repost the post by including it in a post of their own.
-- A user can like a post without the need for a page reload thanks to Ajax. This code can be found [here](https://github.com/paulio11/project-4/blob/main/templates/templates/post-template.html).
+- A user can like a post without the need for a page reload thanks to Ajax. This code can be found [here](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/templates/templates/post-template.html).
 - Each post contains a drop down menu which includes the option to **Report** the post and a **Permalink**. If the logged in user is the author of the post, they will also see the **Edit/Delete** option. 
 - Each reply contains a button to **Report** the reply. If the logged in user is the author of the reply, they will also see the **Edit/Delete** option.
 
@@ -631,7 +631,7 @@ def post(request, post_id):
 
 **An example of a post with replies:**
 
-![New post form](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-post.png)
+![New post form](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-post.png)
 
 #### Mentions
 
@@ -654,7 +654,7 @@ def mentions(request):
 
 **An example of a user's mentions:**
 
-![User mentions](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mentions.png)
+![User mentions](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-mentions.png)
 
 #### Messages
 
@@ -684,11 +684,11 @@ def messages(request):
 
 **Example unread messages:**
 
-![Unread messages](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-unread-messages.png)
+![Unread messages](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-unread-messages.png)
 
 **Example sent messages:**
 
-![Sent messages](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-sent-messages.png)
+![Sent messages](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-sent-messages.png)
 
 #### Moderation
 
@@ -696,7 +696,7 @@ def messages(request):
 - Posts, replies and messages reported by users can be viewed here by moderators.
 - A moderator can decide whether to ignore a report and mark the content as okay, or if necessary delete the content which will remove it and give the author a strike.
 - Users with strikes can be viewed and messaged and banned or unbanned if necessary.
-- All tables can be sorted by clicking on a column header. The code for this can be found [here](https://github.com/paulio11/project-4/blob/main/static/js/script.js).
+- All tables can be sorted by clicking on a column header. The code for this can be found [here](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/static/js/script.js).
 
 ```
 def moderation(request):
@@ -722,15 +722,15 @@ def moderation(request):
 
 **Example reported posts:**
 
-![Sent messages](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mod-posts.png)
+![Sent messages](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-mod-posts.png)
 
 **Example reported post modal:**
 
-![Sent messages](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mod-modal.png)
+![Sent messages](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-mod-modal.png)
 
 **Example naughty users list:**
 
-![Sent messages](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-mod-users.png)
+![Sent messages](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-mod-users.png)
 
 ### Unimplemented Features
 
@@ -779,12 +779,12 @@ A lot of bug fixes relate to features that are no longer a part of this project 
 
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 - [HTML5](https://en.wikipedia.org/wiki/HTML)
-    - The HTML is found in the [templates directory](https://github.com/paulio11/project-4/tree/main/templates).
+    - The HTML is found in the [templates directory](https://github.com/paulio11/P4-Squigl-Twitter-Clone/tree/main/templates).
 - [CSS3](https://en.wikipedia.org/wiki/CSS)
-    - You can see all my CSS [here](https://github.com/paulio11/project-4/blob/main/static/css/style.css).
+    - You can see all my CSS [here](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/static/css/style.css).
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
-    - The majority of my JavaScript is [here](https://github.com/paulio11/project-4/blob/main/static/js/script.js).
-    - Hashtag and user tagging functionality can be found [here](https://github.com/paulio11/project-4/blob/main/templates/base.html).
+    - The majority of my JavaScript is [here](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/static/js/script.js).
+    - Hashtag and user tagging functionality can be found [here](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/templates/base.html).
 
 ### Frameworks
 
@@ -831,12 +831,12 @@ A lot of bug fixes relate to features that are no longer a part of this project 
 [Back to top 🔺](#squigl)
 
 ## Testing
-Testing information can be found [here](https://github.com/paulio11/project-4/blob/main/TESTING.md).
+Testing information can be found [here](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/TESTING.md).
 
 [Back to top 🔺](#squigl)
 
 ## Deployment
-Deployment steps can be found [here](https://github.com/paulio11/project-4/blob/main/DEPLOYMENT.md).
+Deployment steps can be found [here](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/DEPLOYMENT.md).
 
 [Back to top 🔺](#squigl)
 
