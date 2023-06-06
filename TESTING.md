@@ -10,15 +10,15 @@
 6. [User Stories](#user-stories)
 
 ## Validation
-You can see the changes I made to make the pages error free in these commits: [1](https://github.com/paulio11/project-4/commit/5576d642edf0307751bedf8fe2495476df2b8b62), [2](https://github.com/paulio11/project-4/commit/3ecc8493b64dc6579d071d7707c6f821dd47b27a).
+You can see the changes I made to make the pages error free in these commits: [1](https://github.com/paulio11/P4-Squigl-Twitter-Clone/commit/5576d642edf0307751bedf8fe2495476df2b8b62), [2](https://github.com/paulio11/P4-Squigl-Twitter-Clone/commit/3ecc8493b64dc6579d071d7707c6f821dd47b27a).
 
 ### CSS ([Jigsaw CSS Validation](https://jigsaw.w3.org/css-validator/)) & JavaScript ([JSHint](https://jshint.com/))
 |File|Result|Screenshot|
 |--|--|--|
-|[style.css](https://github.com/paulio11/project-4/blob/main/static/css/style.css)|✓ *|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/stylecss.JPG)
-|[script.js](https://github.com/paulio11/project-4/blob/main/static/js/script.js)|✓|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/scriptjs.JPG)
-|[Like post script](https://github.com/paulio11/project-4/blob/main/templates/templates/post-template.html)|✓|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/likejs.JPG)
-|[base.html script](https://github.com/paulio11/project-4/blob/main/templates/base.html)|✓|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/basehtmljs.JPG)
+|[style.css](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/static/css/style.css)|✓ *|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/stylecss.JPG)
+|[script.js](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/static/js/script.js)|✓|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/scriptjs.JPG)
+|[Like post script](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/templates/templates/post-template.html)|✓|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/likejs.JPG)
+|[base.html script](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/templates/base.html)|✓|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/basehtmljs.JPG)
 
 *8 warnings, all related to the various avatar styles having matching background and border colours. This was intended so that avatars with transparency look good against a user's profile background.
 
@@ -29,64 +29,64 @@ Due to many pages requiring login, HTML was tested using **text input** instead 
 
 |Page|Result|Notes|Results|
 |--|--|--|--|
-|Feed|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Trending Hashtags|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Users to follow list|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Mentions|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Mentions with no mentions|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Messages|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Messages with no messages|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Post with replies|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Post with no replies|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Post with repost|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Search with results|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Search with no results|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|User profile with posts|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|User profile with no posts|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|New post|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|New repost|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Edit post|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Edit reply|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Send message|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Settings|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Change password|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Reset password - complete|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Reset password - confirm|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Reset password - done|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Reset password - form|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Login|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Sign up|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
-|Home|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/noerrorhtml.JPG)
+|Feed|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Trending Hashtags|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Users to follow list|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Mentions|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Mentions with no mentions|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Messages|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Messages with no messages|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Post with replies|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Post with no replies|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Post with repost|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Search with results|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Search with no results|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|User profile with posts|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|User profile with no posts|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|New post|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|New repost|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Edit post|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Edit reply|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Send message|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Settings|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Change password|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Reset password - complete|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Reset password - confirm|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Reset password - done|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Reset password - form|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Login|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Sign up|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
+|Home|✓|No errors or warnings to show|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/noerrorhtml.JPG)
 
 ### Python ([CI Python Linter](https://pep8ci.herokuapp.com/))
 All python files with code written by myself were run through the CI Python Linter. These are the results.
 
 |File|Result|Notes|Screenshot|
 |--|--|--|--|
-|[accounts/admin.py](https://github.com/paulio11/project-4/blob/main/accounts/admin.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/accounts-admin.JPG)
-|[accounts/forms.py](https://github.com/paulio11/project-4/blob/main/accounts/forms.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/accounts-forms.JPG)
-|[accounts/models.py](https://github.com/paulio11/project-4/blob/main/accounts/models.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/accounts-model.JPG)
-|[accounts/tests.py](https://github.com/paulio11/project-4/blob/main/accounts/tests.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/accounts-tests.JPG)
-|[accounts/urls.py](https://github.com/paulio11/project-4/blob/main/accounts/urls.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/accounts-urls.JPG)
-|[accounts/views.py](https://github.com/paulio11/project-4/blob/main/accounts/views.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/accounts-view.JPG)
-|[dm/templatetags/dm_extras.py](https://github.com/paulio11/project-4/blob/main/dm/templatetags/dm_extras.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/dm-extras.JPG)
-|[dm/admin.py](https://github.com/paulio11/project-4/blob/main/dm/admin.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/dm-admin.JPG)
-|[dm/forms.py](https://github.com/paulio11/project-4/blob/main/dm/forms.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/dm-forms.JPG)
-|[dm/models.py](https://github.com/paulio11/project-4/blob/main/dm/models.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/dm-models.JPG)
-|[dm/tests.py](https://github.com/paulio11/project-4/blob/main/dm/tests.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/dm-tests.JPG)
-|[dm/urls.py](https://github.com/paulio11/project-4/blob/main/dm/urls.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/dm-urls.JPG)
-|[dm/views.py](https://github.com/paulio11/project-4/blob/main/dm/views.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/dm-views.JPG)
-|[moderation/templatetags/dm_extras.py](https://github.com/paulio11/project-4/blob/main/moderation/templatetags/dm_extras.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/mod-extras.JPG)
-|[moderation/tests.py](https://github.com/paulio11/project-4/blob/main/moderation/tests.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/mod-tests.JPG)
-|[moderation/urls.py](https://github.com/paulio11/project-4/blob/main/moderation/urls.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/mod-urls.JPG)
-|[moderation/views.py](https://github.com/paulio11/project-4/blob/main/moderation/views.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/mod-views.JPG)
-|[social/templatetags/dm_extras.py](https://github.com/paulio11/project-4/blob/main/social/templatetags/dm_extras.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/social-extras.JPG)
-|[social/admin.py](https://github.com/paulio11/project-4/blob/main/social/admin.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/social-admin.JPG)
-|[social/forms.py](https://github.com/paulio11/project-4/blob/main/social/forms.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/social-forms.JPG)
-|[social/models.py](https://github.com/paulio11/project-4/blob/main/social/models.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/social-models.JPG)
-|[social/tests.py](https://github.com/paulio11/project-4/blob/main/social/tests.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/social-tests.JPG)
-|[social/urls.py](https://github.com/paulio11/project-4/blob/main/social/urls.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/social-urls.JPG)
-|[social/views.py](https://github.com/paulio11/project-4/blob/main/social/views.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/testing/social-views.JPG)
+|[accounts/admin.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/accounts/admin.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/accounts-admin.JPG)
+|[accounts/forms.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/accounts/forms.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/accounts-forms.JPG)
+|[accounts/models.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/accounts/models.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/accounts-model.JPG)
+|[accounts/tests.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/accounts/tests.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/accounts-tests.JPG)
+|[accounts/urls.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/accounts/urls.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/accounts-urls.JPG)
+|[accounts/views.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/accounts/views.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/accounts-view.JPG)
+|[dm/templatetags/dm_extras.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/dm/templatetags/dm_extras.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/dm-extras.JPG)
+|[dm/admin.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/dm/admin.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/dm-admin.JPG)
+|[dm/forms.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/dm/forms.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/dm-forms.JPG)
+|[dm/models.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/dm/models.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/dm-models.JPG)
+|[dm/tests.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/dm/tests.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/dm-tests.JPG)
+|[dm/urls.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/dm/urls.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/dm-urls.JPG)
+|[dm/views.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/dm/views.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/dm-views.JPG)
+|[moderation/templatetags/dm_extras.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/moderation/templatetags/dm_extras.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/mod-extras.JPG)
+|[moderation/tests.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/moderation/tests.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/mod-tests.JPG)
+|[moderation/urls.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/moderation/urls.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/mod-urls.JPG)
+|[moderation/views.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/moderation/views.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/mod-views.JPG)
+|[social/templatetags/dm_extras.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/social/templatetags/dm_extras.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/social-extras.JPG)
+|[social/admin.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/social/admin.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/social-admin.JPG)
+|[social/forms.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/social/forms.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/social-forms.JPG)
+|[social/models.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/social/models.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/social-models.JPG)
+|[social/tests.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/social/tests.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/social-tests.JPG)
+|[social/urls.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/social/urls.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/social-urls.JPG)
+|[social/views.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/social/views.py)|✓|All clear, no errors found|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/testing/social-views.JPG)
 
 [Back to top 🔺](#testing)
 
@@ -95,18 +95,18 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 
 <details>
     <summary><strong>Coverage Report</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-coverage-report.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-coverage-report.png">
 </details>
 
 <details>
     <summary><strong>Terminal Test Output</strong></summary>
-    <img src="https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/readme-test-results.png">
+    <img src="https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/readme-test-results.png">
 </details>
 <br>
 
 **The following tests are carried out:**
 
-### [accounts.tests.py](https://github.com/paulio11/project-4/blob/main/accounts/tests.py)
+### [accounts.tests.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/accounts/tests.py)
 
 | Name                 | Testing For                      | Result |
 | -------------------- | -------------------------------- | ------ |
@@ -122,7 +122,7 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 | test_post| Account deleted, user count is 0|✓|
 | test_error|User has permission, correct template, correct error message|✓|
 
-### [dm.tests.py](https://github.com/paulio11/project-4/blob/main/dm/tests.py)
+### [dm.tests.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/dm/tests.py)
 
 |Name|Testing For|Result|
 |--|--|--|
@@ -155,7 +155,7 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 |test_report|Message reported, correct redirect|✓|
 |test_error|User has permission, correct template, correct error message|✓|
 
-### [moderation.tests.py](https://github.com/paulio11/project-4/blob/main/moderation/tests.py)
+### [moderation.tests.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/moderation/tests.py)
 
 |Name|Testing For|Result|
 |--|--|--|
@@ -195,7 +195,7 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 |test_ban_user|User active is False, correct redirect|✓|
 |test_unban_user|User active is True, correct redirect|✓|
 
-### [social.tests.py](https://github.com/paulio11/project-4/blob/main/social/tests.py)
+### [social.tests.py](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/social/tests.py)
 
 |Name|Testing For|Result|
 |--|--|--|
@@ -283,7 +283,7 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 
 The following JavaScript was manually tested.
 
-### [script.js](https://github.com/paulio11/project-4/blob/main/static/js/script.js)
+### [script.js](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/static/js/script.js)
 
 |Line|Functionality|Location|Working?|
 |--|--|--|--|
@@ -296,7 +296,7 @@ The following JavaScript was manually tested.
 |94|Scroll to top button|All pages|✓|
 |123|Dismisses message|All pages|✓|
 
-### [base.html](https://github.com/paulio11/project-4/blob/main/templates/base.html)
+### [base.html](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/templates/base.html)
 
 |Line|Functionality|Location|Working?|
 |--|--|--|--|
@@ -304,7 +304,7 @@ The following JavaScript was manually tested.
 |353|Turns "#text" into search links|All pages|✓|
 |361|Turns hashtag list items into search links|All pages|✓|
 
-### [post-template.html](https://github.com/paulio11/project-4/blob/main/templates/templates/post-template.html)
+### [post-template.html](https://github.com/paulio11/P4-Squigl-Twitter-Clone/blob/main/templates/templates/post-template.html)
 
 |Line|Functionality|Location|Working?|
 |--|--|--|--|
@@ -316,10 +316,10 @@ The following JavaScript was manually tested.
 
 |Browser|Screenshot|
 |--|--|
-|Google Chrome|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/browser-chrome.jpg)|
-|Edge|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/browser-edge.jpg)|
-|Safari|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/browser-safari.png)|
-|Mobile Safari (iOS)|[Screenshot](https://raw.githubusercontent.com/paulio11/project-4/main/documentation/images/browser-mobile-safari.png)|
+|Google Chrome|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/browser-chrome.jpg)|
+|Edge|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/browser-edge.jpg)|
+|Safari|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/browser-safari.png)|
+|Mobile Safari (iOS)|[Screenshot](https://raw.githubusercontent.com/paulio11/P4-Squigl-Twitter-Clone/main/documentation/images/browser-mobile-safari.png)|
 
 [Back to top 🔺](#testing)
 
@@ -362,6 +362,6 @@ All possible pages were checked using Lighthouse in desktop mode. Any unresolved
 
 ## User Stories
 
-All user stories were achieved during development and were subject to manual user testing. You can see a list of all user stories in my readme [here](https://github.com/paulio11/project-4#epics-and-user-stories).
+All user stories were achieved during development and were subject to manual user testing. You can see a list of all user stories in my readme [here](https://github.com/paulio11/P4-Squigl-Twitter-Clone#epics-and-user-stories).
 
 [Back to top 🔺](#testing)
