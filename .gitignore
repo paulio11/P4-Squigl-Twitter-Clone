@@ -4,3 +4,4 @@ env.py
 notes.txt
 .coverage
 social/backup.py
+.venv/
